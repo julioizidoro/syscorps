@@ -1,0 +1,117 @@
+body {
+  font-family: tahoma;
+  background-color: #E8E8E8;
+  color: #333;
+}
+
+h1 {
+  margin: 10px 20px 10px 20px;
+}
+#tudo {
+  top:0px;
+  position: relative;
+  background: #87CEEB;
+  margin: 0px 0 20px -390px;
+  width: 950px;
+  left:18%;
+  height:650px;
+  border: 0px solid #aaa;
+  margin-left:-10px;
+  //borda arredondada
+       -webkit-border-bottom-right-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -moz-border-radius-bottomright: 10px;
+        -moz-border-radius-bottomleft: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+     //////////
+     //borda sombreada
+        box-shadow: 5px 4px 10px #828282;
+       -moz-box-shadow: 5px 4px 10px #828282;
+       -webkit-box-shadow: 5px 4px 10px #828282;
+       -khtml-box-shadow: 5px 4px 10px #828282;
+       -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4)"; /* IE8+ */
+       filter:progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4); /* IE7 and lower */
+       ///////
+}
+.menu{
+    font-family: tahoma;
+    list-style:none; 
+    border:1px solid #EEE5DE; 
+    width:940px;
+    float:left;
+    margin-top:-10px;
+    background: #EEE5DE;
+    font-size: 15px;
+   
+}
+.submenu{
+    font-family: tahoma;
+    border:1px solid #EEE5DE; 
+    float:left;
+    font-size: 14px;
+  
+}
+.menu li a{
+    color:#CD6600; 
+    text-decoration:none; 
+    padding:5px 10px; 
+    display:block;
+    
+}
+
+.menu li a:hover{
+    background:#4F4F4F;
+    color:#fff;
+    -moz-box-shadow:0 3px 10px 0 #CCC;
+    -webkit-box-shadow:0 3px 10px 0 #ccc;
+    text-shadow:0px 0px 5px #fff;
+}
+
+.fundo{
+    margin-top:-10px;
+}
+.meio{
+    margin-left:240px;
+    margin-top:100px;
+    //arredondamento
+    -webkit-border-radius: 35px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius: 35px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-radius: 35px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+//sombra
+box-shadow: 5px 5px 5px #6C7B8B;
+   -webkit-box-shadow: 2px 2px 2px #ffc;
+   -moz-box-shadow: 2px 2px 2px #ffc;
+}
+.tabelacursos{
+    margin-top:130px;
+    margin-left:150px;
+    border: 0px solid ;
+    width: 650px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+.tabelacursos1{
+    width:50px;
+}
+.botaoAlterar{
+    width:25px;
+    height: 30px;
+    margin-left:5px;
+}
+.botaoConsulta{
+    margin-top:25px;
+    margin-left:15px;
+    left:130px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
