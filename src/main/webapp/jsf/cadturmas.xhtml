@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>SysCORPS</title>
+        
+         <link href="resources/css/css.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <div id="tudoCad">
+          <tr>
+               <td><table aling="center" width="00" border="0" cellpadding="0" cellspacing="0">
+                   <tr>
+                        <td><img src="resources/img/logo_corps.png" alt="" width="950" height="140" class="fundo"/></td>
+                   </tr>
+               </table></td>
+         </tr>
+   <h:form>
+   <p:menubar class="menu">
+       <p:submenu label="CADASTRO">
+ 
+                <p:menuitem class="submenu" value="CURSOS" url="http://www.google.com" />
+                <p:menuitem class="submenu" value="TURMA" url="#" />
+                <p:menuitem class="submenu" value="ALUNO" url="#" />
+                <p:menuitem class="submenu" value="PROFESSOR" url="#" />
+
+        </p:submenu>
+       <p:submenu label="CONSULTA">
+                 <p:menuitem class="submenu" value="CURSOS" url="" />
+                <p:menuitem class="submenu" value="TURMA" url="#" />
+                <p:menuitem class="submenu" value="ALUNO" url="#" />
+                <p:menuitem class="submenu" value="PROFESSOR" url="#" />
+       </p:submenu>
+             <p:menuitem value="MENU" url="#" />
+             <p:menuitem value="MENU" url="#" />
+             <p:menuitem value="MENU" url="#" />
+              <p:menuitem value="INICIO" url="#" />
+    </p:menubar>
+    </h:form>
+    <h:form>
+        <h:panelGrid columns="2" cellpadding="5" class="meio2">
+            <p:outputLabel value="Número da Turma:" for="numCurso" />
+            <p:autoComplete id="numCurso"  completeMethod="#" />
+            
+            <p:outputLabel value="Turno:" for="turno" />
+            <p:autoComplete id="turno" dropdown="true" value="" completeMethod="#" />
+
+            <p:outputLabel value="Curso:" for="curso" />
+            <p:autoComplete id="curso"  completeMethod="#" />
+
+            <p:outputLabel for="dataInic" value="Data Início:" />
+             <p:calendar id="dataInic" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" />
+             
+             <p:outputLabel for="dataTerm" value="Data Termino:" />
+             <p:calendar id="dataTerm" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" />
+            
+            <p:outputLabel value="Segunda:" for="Segunda" />
+            <p:autoComplete id="Segunda"  completeMethod="#" />
+            
+            <p:outputLabel value="Terça:" for="Terça" />
+            <p:autoComplete id="Terça"  completeMethod="#" />
+            
+            <p:outputLabel value="Quarta:" for="Quarta" />
+            <p:autoComplete id="Quarta"  completeMethod="#" />
+            
+            <p:outputLabel value="Quinta:" for="Quinta" />
+            <p:autoComplete id="Quinta"  completeMethod="#" />
+            
+            <p:outputLabel value="Sexta:" for="Sexta" />
+            <p:autoComplete id="Sexta"  completeMethod="#" />
+            
+            <p:outputLabel value="Sábado:" for="Sábado" />
+            <p:autoComplete id="Sábado"  completeMethod="#" />
+            
+            <p:outputLabel value="Horário Inicio:" />
+            <p:autoComplete id="horaIni"  completeMethod="#" />
+            
+            <p:outputLabel value="Horário Intervalo:" />
+            <p:autoComplete id="horaInter"  completeMethod="#" />
+            
+            <p:outputLabel value="Horário Volta Intervalo:" />
+            <p:autoComplete id="horaVoltaInter"  completeMethod="#" />
+            
+           <p:outputLabel value="Horário Termino:" />
+            <p:autoComplete id="horaTerm"  completeMethod="#" />
+            
+            <p:outputLabel value="Responsável:" for="responsavel" />
+            <p:autoComplete id="responsavel"  completeMethod="#" />
+
+            <p:outputLabel value="Líder Classe:" for="liderClas" />
+            <p:autoComplete id="liderClas"  completeMethod="#" />
+         </h:panelGrid>
+     </h:form>
+     <h:form>
+            <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra"/>
+            <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
+    </h:form>
+   <br>  </br>
+   <br>  </br>
+     </div>
+</h:body>
+</html>
+

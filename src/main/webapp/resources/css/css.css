@@ -1,23 +1,75 @@
-body {
-  font-family: tahoma;
-  background-color: #E8E8E8;
-  color: #333;
-}
+    body {
+      font-family: tahoma;
+      background-color: #E8E8E8;
+      color: #333;
+    }
 
-h1 {
-  margin: 10px 20px 10px 20px;
+    h1 {
+      margin: 10px 20px 10px 20px;
+    }
+    #tudo {
+      top:0px;
+      position: relative;
+      background: #87CEEB;
+      margin: 0px 0 20px -390px;
+      width: 950px;
+      left:18%;
+      
+      border: 0px solid #aaa;
+      margin-left:-10px;
+      //borda arredondada
+       -webkit-border-bottom-right-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -moz-border-radius-bottomright: 10px;
+        -moz-border-radius-bottomleft: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+     //////////
+     //borda sombreada
+        box-shadow: 5px 4px 10px #828282;
+       -moz-box-shadow: 5px 4px 10px #828282;
+       -webkit-box-shadow: 5px 4px 10px #828282;
+       -khtml-box-shadow: 5px 4px 10px #828282;
+       -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4)"; /* IE8+ */
+       filter:progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4); /* IE7 and lower */
+       ///////
 }
-#tudo {
-  top:0px;
-  position: relative;
-  background: #87CEEB;
-  margin: 0px 0 20px -390px;
-  width: 950px;
-  left:18%;
-  height:650px;
-  border: 0px solid #aaa;
-  margin-left:-10px;
-  //borda arredondada
+    #tudoCad {
+        top:0px;
+        position: relative;
+        background: #87CEEB;
+        margin: 0px 0 20px -390px;
+        width: 950px;
+        left:18%;
+        border: 0px solid #aaa;
+        margin-left:-10px;
+        //borda arredondada
+         -webkit-border-bottom-right-radius: 10px;
+          -webkit-border-bottom-left-radius: 10px;
+          -moz-border-radius-bottomright: 10px;
+          -moz-border-radius-bottomleft: 10px;
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+       //////////
+       //borda sombreada
+          box-shadow: 5px 4px 10px #828282;
+         -moz-box-shadow: 5px 4px 10px #828282;
+         -webkit-box-shadow: 5px 4px 10px #828282;
+         -khtml-box-shadow: 5px 4px 10px #828282;
+         -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4)"; /* IE8+ */
+         filter:progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4); /* IE7 and lower */
+         ///////
+  }
+  #tudo2 {
+      top:0px;
+      position: relative;
+      background: #87CEEB;
+      margin: 0px 0 20px -390px;
+      width: 950px;
+      left:18%;
+      border: 0px solid #aaa;
+      margin-left:-10px;
+      //borda arredondada
        -webkit-border-bottom-right-radius: 10px;
         -webkit-border-bottom-left-radius: 10px;
         -moz-border-radius-bottomright: 10px;
@@ -100,18 +152,57 @@ box-shadow: 5px 5px 5px #6C7B8B;
     border-radius: 8px;
 }
 .tabelacursos1{
-    width:50px;
+    width:12px;
 }
 .botaoAlterar{
     width:25px;
     height: 30px;
-    margin-left:5px;
+    margin-left:-5px;
 }
 .botaoConsulta{
     margin-top:25px;
     margin-left:15px;
-    left:130px;
+    left:330px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
+}
+.meio2{
+    margin-left:240px;
+    margin-top:50px;
+    font-family: tahoma;
+    color:#363636; 
+    
+}
+.botaoCadastra{
+    margin-top:25px;
+    margin-left:15px;
+    left:225px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    font-family: tahoma;
+}
+.tabelaturmas{
+    margin-top:90px;
+    margin-left:55px;
+    border: 0px solid ;
+    width: 860px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    font-size:12px;
+    font-family: tahoma;
+    
+}
+.tabelaturmas1{
+    margin-top:35px;
+    margin-left:55px;
+    border: 0px solid ;
+    width: 860px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    font-size:12px;
+    font-family: tahoma;
 }
