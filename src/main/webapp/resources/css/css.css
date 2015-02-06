@@ -161,6 +161,14 @@ box-shadow: 5px 5px 5px #6C7B8B;
        top:20px;
        width: 650px;
 }
+.tabelaaluno{
+     font-size:14px;
+       position:relative;
+       margin-left:30%;
+       right:23%;
+       top:20px;
+       width: 800px;
+}
 .tabelacursos1{
     width:12px;
 }
@@ -183,18 +191,11 @@ box-shadow: 5px 5px 5px #6C7B8B;
     font-family: tahoma;
 }
 .meio2{
-    margin-left:230px;
+    margin-left:60px;
     margin-top:10px;
     font-family: tahoma;
-    color:#363636; 
-    
-}
-.meio3{
-    margin-left:120px;
-    margin-top:10px;
-    font-family: tahoma;
-    color:#363636; 
-    
+     color:#4F4F4F;
+    font-size: 15px;
 }
 .botaoCadastra{
     font-size: 16px;
@@ -259,10 +260,16 @@ legend#iUsu2{
     width: 947px;
 }
 .meioTurmas{
-    margin-left:450px;
-    margin-top:-300px;
-    width:450px;
+    margin-top:15px;
+    margin-left:70px;
     color:#4F4F4F;
+        font-size: 15px;
+}
+.meioTurmas2{
+    margin-top:-255px;
+    margin-left:630px;
+    color:#4F4F4F;
+    font-size: 17px;
 }
 .tabela{
     color: #4F4F4F;

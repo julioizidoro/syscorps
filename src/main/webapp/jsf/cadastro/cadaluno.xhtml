@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        <ui:define name="corpo">
+            <h:form>
+              <div id="centro">
+                  <br></br>
+                  <legend id="iUsu" ><b>Cadastro de Aluno </b></legend>
+                   <br></br>
+                 <br></br>
+                 <p:tabView class="tabelaaluno">
+                    <p:tab title="Dados do Aluno">
+                        <h:panelGrid columns="2" cellpadding="10">
+                                <p:outputLabel value="Nome:" for="nome" />
+                                <p:autoComplete id="nome"  completeMethod="#" />
+                                <p:outputLabel value="CPF:" for="cpf" />
+                                <p:autoComplete id="cpf"  completeMethod="#" />
+                                <p:outputLabel value="Endereço:" for="endereco" />
+                                <p:autoComplete id="endereco"  completeMethod="#" />
+                        </h:panelGrid>
+                        
+                    </p:tab>
+                    <p:tab title="teste">
+                        <h:panelGrid columns="2" cellpadding="10">
+                                 <p:outputLabel value="teste" for="tes1" />
+                                <p:autoComplete id="tes1"  completeMethod="#" />
+                                <p:outputLabel value="teste" for="tes2" />
+                                <p:autoComplete id="tes2"  completeMethod="#" />
+                                <p:outputLabel value="teste" for="tes3" />
+                                <p:autoComplete id="tes3"  completeMethod="#" />
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="teste">
+                        <h:panelGrid columns="2" cellpadding="10">
+                                 <p:outputLabel value="teste" for="tes4" />
+                                <p:autoComplete id="tes4"  completeMethod="#" />
+                                <p:outputLabel value="teste" for="tes5" />
+                                <p:autoComplete id="tes5"  completeMethod="#" />
+                                <p:outputLabel value="teste" for="tes6" />
+                                <p:autoComplete id="tes6"  completeMethod="#" />
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="teste">
+                        <h:panelGrid columns="2" cellpadding="10">
+                                 <p:outputLabel value="teste" for="te4" />
+                                <p:autoComplete id="te4"  completeMethod="#" />
+                                <p:outputLabel value="teste" for="te5" />
+                                <p:autoComplete id="te5"  completeMethod="#" />
+                                <p:outputLabel value="teste" for="te6" />
+                                <p:autoComplete id="te6"  completeMethod="#" />
+                        </h:panelGrid>
+                    </p:tab>
+                </p:tabView>  
+                <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra"/>
+                <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
+                  <br></br>
+                 <br></br>
+                  <br></br>
+             </div>
+          </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
+    
+
+
+ 
+    
+  
+

@@ -28,27 +28,8 @@
         </h:panelGrid>
      <br>  </br>
      <legend id="iUsu2" ><b>Agenda da Turma </b></legend>
-       <h:panelGrid columns="2" cellpadding="5" class="meio3">
-            <p:outputLabel value="Segunda:" for="Segunda" />
-            <p:autoComplete id="Segunda"  completeMethod="#" />
-            
-            <p:outputLabel value="Terça:" for="Terça" />
-            <p:autoComplete id="Terça"  completeMethod="#" />
-            
-            <p:outputLabel value="Quarta:" for="Quarta" />
-            <p:autoComplete id="Quarta"  completeMethod="#" />
-            
-            <p:outputLabel value="Quinta:" for="Quinta" />
-            <p:autoComplete id="Quinta"  completeMethod="#" />
-            
-            <p:outputLabel value="Sexta:" for="Sexta" />
-            <p:autoComplete id="Sexta"  completeMethod="#" />
-            
-            <p:outputLabel value="Sábado:" for="Sábado" />
-            <p:autoComplete id="Sábado"  completeMethod="#" />
-            
-        </h:panelGrid>
-     <br>  </br>
+ 
+        <br>  </br>
         <h:panelGrid columns="2" cellpadding="5" class="meioTurmas">
             <p:outputLabel value="Horário Inicio:" />
             <p:autoComplete id="horaIni"  completeMethod="#" />
@@ -68,11 +49,27 @@
             <p:outputLabel value="Líder Classe:" for="liderClas" />
             <p:autoComplete id="liderClas"  completeMethod="#" />
          </h:panelGrid>
+      <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" class="meioTurmas2">
+         <h:outputText value="Segunda:" />
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+        <h:outputText value="Terça:" />
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+        <h:outputText value="Quarta:" />
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+         <h:outputText value="Quinta:" />
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+         <h:outputText value="Sexta:" />
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+         <h:outputText value="Sábado:" />
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+            
+        </h:panelGrid>
+     <br></br>
             <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" />
             <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
                <br></br>
                 <br></br>
-                 <br></br>
+               
            </div>
           </h:form>
         
