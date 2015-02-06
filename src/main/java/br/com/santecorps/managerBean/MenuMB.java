@@ -24,5 +24,4 @@ public class MenuMB implements Serializable{
     public String cadastroTurmas(){
         return "jsf/cadastro/consturmas";
     }
-    
 }

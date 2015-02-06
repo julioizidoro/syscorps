@@ -7,7 +7,10 @@
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
-                <p:dataTable var="conscursos" value="#" class="tabelacursos">
+              <div id="centro">
+                  <br></br>
+                 <legend id="iUsu" ><b>Consulta de Cursos </b></legend>
+                <p:dataTable var="conscursos" value="#" class="tabelacursos" rowStyleClass="tabela">
                     <p:column headerText="Nome do Curso" >
                         <h:outputText value="#" />
                     </p:column>
@@ -20,13 +23,17 @@
                         <h:outputText value="#" />
                     </p:column>
 
-                    <p:column headerText="" class="tabelacursos1">
-                        <p:commandButton  icon="ui-icon-refresh" class="botaoAlterar"/>
-                    </p:column>
+                    <p:column style="width:15px">
+                        <p:rowEditor />
+                     </p:column>
                 </p:dataTable>
                 <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroCursosMB.novoCurso()}"/>
                 <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
-            </h:form>
+                <br></br>
+                 <br></br>
+                  <br></br>
+             </div>
+          </h:form>
         </ui:define>
     </ui:composition>
 </html>

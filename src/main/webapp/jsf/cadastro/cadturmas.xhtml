@@ -3,42 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>SysCORPS</title>
-        
-         <link href="resources/css/css.css" rel="stylesheet" type="text/css" />
-    </h:head>
-    <h:body>
-        <div id="tudoCad">
-          <tr>
-               <td><table aling="center" width="00" border="0" cellpadding="0" cellspacing="0">
-                   <tr>
-                        <td><img src="resources/img/logo_corps.png" alt="" width="950" height="140" class="fundo"/></td>
-                   </tr>
-               </table></td>
-         </tr>
-   <h:form>
-   <p:menubar class="menu">
-        <p:submenu label="CADASTRO">
-            <p:menuitem class="submenu" value="CURSOS" action="#{menuMB.cadastroCursos()}" />
-            <p:menuitem class="submenu" value="TURMA" action="#{menuMB.cadastroTurmasMB}" />
-            <p:menuitem class="submenu" value="ALUNO" url="#" />
-            <p:menuitem class="submenu" value="PROFESSOR" url="#" />
-        </p:submenu>
-        <p:submenu label="CONSULTA">
-            <p:menuitem class="submenu" value="CURSOS" url="" />
-            <p:menuitem class="submenu" value="TURMA" url="#" />
-            <p:menuitem class="submenu" value="ALUNO" url="#" />
-            <p:menuitem class="submenu" value="PROFESSOR" url="#" />
-        </p:submenu>
-        <p:menuitem value="MENU" url="#" />
-        <p:menuitem value="MENU" url="#" />
-        <p:menuitem value="MENU" url="#" />
-        <p:menuitem value="INICIO" url="#" />
-    </p:menubar>
-    </h:form>
-    <h:form>
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        <ui:define name="corpo">
+        <h:form>
+          <div id="centro">
+              <br></br>
+               <legend id="iUsu" ><b>Dados da Turma </b></legend>
         <h:panelGrid columns="2" cellpadding="5" class="meio2">
             <p:outputLabel value="Número da Turma:" for="numCurso" />
             <p:autoComplete id="numCurso"  completeMethod="#" />
@@ -54,7 +25,10 @@
              
              <p:outputLabel for="dataTerm" value="Data Termino:" />
              <p:calendar id="dataTerm" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" />
-            
+        </h:panelGrid>
+     <br>  </br>
+     <legend id="iUsu2" ><b>Agenda da Turma </b></legend>
+       <h:panelGrid columns="2" cellpadding="5" class="meio3">
             <p:outputLabel value="Segunda:" for="Segunda" />
             <p:autoComplete id="Segunda"  completeMethod="#" />
             
@@ -73,6 +47,9 @@
             <p:outputLabel value="Sábado:" for="Sábado" />
             <p:autoComplete id="Sábado"  completeMethod="#" />
             
+        </h:panelGrid>
+     <br>  </br>
+        <h:panelGrid columns="2" cellpadding="5" class="meioTurmas">
             <p:outputLabel value="Horário Inicio:" />
             <p:autoComplete id="horaIni"  completeMethod="#" />
             
@@ -91,14 +68,16 @@
             <p:outputLabel value="Líder Classe:" for="liderClas" />
             <p:autoComplete id="liderClas"  completeMethod="#" />
          </h:panelGrid>
-     </h:form>
-     <h:form>
             <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" />
             <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
-    </h:form>
-   <br>  </br>
-   <br>  </br>
-     </div>
-</h:body>
+               <br></br>
+                <br></br>
+                 <br></br>
+           </div>
+          </h:form>
+        
+ </ui:define>
+  </ui:composition>
 </html>
 
+    
