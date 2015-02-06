@@ -2,66 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>SysCORPS</title>
-        
-         <link href="resources/css/css.css" rel="stylesheet" type="text/css" />
-    </h:head>
-    <h:body>
-        <div id="tudo">
-          <tr>
-               <td><table aling="center" width="00" border="0" cellpadding="0" cellspacing="0">
-                   <tr>
-                        <td><img src="resources/img/logo_corps.png" alt="" width="950" height="140" class="fundo"/></td>
-                   </tr>
-               </table></td>
-         </tr>
-<h:form>
-    <p:menubar class="menu">
-           <p:submenu label="CADASTRO">
-               <p:menuitem class="submenu" value="CURSOS" action="#{menuMB.cadastroCursos()}" />
-               <p:menuitem class="submenu" value="TURMA" action="#{menuMB.cadastroTurmas()}" />
-               <p:menuitem class="submenu" value="ALUNO" url="#" />
-               <p:menuitem class="submenu" value="PROFESSOR" url="#" />
-           </p:submenu>
-           <p:submenu label="CONSULTA">
-               <p:menuitem class="submenu" value="CURSOS" url="" />
-               <p:menuitem class="submenu" value="TURMA" url="#" />
-               <p:menuitem class="submenu" value="ALUNO" url="#" />
-               <p:menuitem class="submenu" value="PROFESSOR" url="#" />
-           </p:submenu>
-           <p:menuitem value="MENU" url="#" />
-           <p:menuitem value="MENU" url="#" />
-           <p:menuitem value="MENU" url="#" />
-           <p:menuitem value="INICIO" url="#" />
-       </p:menubar>
- </h:form>
- 
-    <p:dataTable var="conscursos" value="#" class="tabelacursos">
-        <p:column headerText="Nome do Curso" >
-            <h:outputText value="#" />
-        </p:column>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        <ui:define name="corpo">
+            <h:form>
+                <p:dataTable var="conscursos" value="#" class="tabelacursos">
+                    <p:column headerText="Nome do Curso" >
+                        <h:outputText value="#" />
+                    </p:column>
 
-        <p:column headerText="Carga Horário" >
-            <h:outputText value="#" />
-        </p:column>
+                    <p:column headerText="Carga Horário" >
+                        <h:outputText value="#" />
+                    </p:column>
 
-        <p:column headerText="Tipo de Curso" >
-            <h:outputText value="#" />
-        </p:column>
+                    <p:column headerText="Tipo de Curso" >
+                        <h:outputText value="#" />
+                    </p:column>
 
-        <p:column headerText="" class="tabelacursos1">
-            <p:commandButton  icon="ui-icon-refresh" class="botaoAlterar"/>
-        </p:column>
-    </p:dataTable>
-     <h:form>
-         <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroCursosMB.novoCurso()}"/>
-            <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
-    </h:form>
-    <br>  </br>
-    <br>  </br>
- </div>
-</h:body>
+                    <p:column headerText="" class="tabelacursos1">
+                        <p:commandButton  icon="ui-icon-refresh" class="botaoAlterar"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroCursosMB.novoCurso()}"/>
+                <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
+
+    
+
+
+ 
+    
+  
 
