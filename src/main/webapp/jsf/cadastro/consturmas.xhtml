@@ -19,54 +19,52 @@
                </table></td>
          </tr>
 <h:form>
-   <p:menubar class="menu">
-       <p:submenu label="CADASTRO">
- 
-                <p:menuitem class="submenu" value="CURSOS" url="http://www.google.com" />
-                <p:menuitem class="submenu" value="TURMA" url="#" />
-                <p:menuitem class="submenu" value="ALUNO" url="#" />
-                <p:menuitem class="submenu" value="PROFESSOR" url="#" />
+    <p:menubar class="menu">
+        <p:submenu label="CADASTRO">
+            <p:menuitem class="submenu" value="CURSOS" action="#{menuMB.cadastroCursos()}" />
+            <p:menuitem class="submenu" value="TURMA" action="#{menuMB.cadastroTurmasMB}" />
+            <p:menuitem class="submenu" value="ALUNO" url="#" />
+            <p:menuitem class="submenu" value="PROFESSOR" url="#" />
+        </p:submenu>
+        <p:submenu label="CONSULTA">
+            <p:menuitem class="submenu" value="CURSOS" url="" />
+            <p:menuitem class="submenu" value="TURMA" url="#" />
+            <p:menuitem class="submenu" value="ALUNO" url="#" />
+            <p:menuitem class="submenu" value="PROFESSOR" url="#" />
+        </p:submenu>
+        <p:menuitem value="MENU" url="#" />
+        <p:menuitem value="MENU" url="#" />
+        <p:menuitem value="MENU" url="#" />
+        <p:menuitem value="INICIO" url="#" />
+    </p:menubar>
+</h:form>
 
-    </p:submenu>
-       <p:submenu label="CONSULTA">
-                 <p:menuitem class="submenu" value="CURSOS" url="" />
-                <p:menuitem class="submenu" value="TURMA" url="#" />
-                <p:menuitem class="submenu" value="ALUNO" url="#" />
-                <p:menuitem class="submenu" value="PROFESSOR" url="#" />
-         </p:submenu>
-         <p:menuitem value="MENU" url="#" />
-         <p:menuitem value="MENU" url="#" />
-         <p:menuitem value="MENU" url="#" />
-          <p:menuitem value="INICIO" url="#" />
-</p:menubar>
- </h:form>
- 
-    <p:dataTable var="conscursos" value="#" class="tabelaturmas" >
-        <f:facet name="header">
-            Lista de Cursos
-        </f:facet>
-            <p:column headerText="Número da Turma" >
-                <h:outputText value="#" />
-            </p:column>
+<p:dataTable var="conscursos" value="#" class="tabelaturmas" >
+    <f:facet name="header">
+        Lista de Cursos
+    </f:facet>
+    <p:column headerText="Número da Turma" >
+        <h:outputText value="#" />
+    </p:column>
 
-            <p:column headerText="Turno" >
-                <h:outputText value="#" />
-            </p:column>
+    <p:column headerText="Turno" >
+        <h:outputText value="#" />
+    </p:column>
 
-            <p:column headerText="Curso" >
-                <h:outputText value="#" />
-            </p:column>
+    <p:column headerText="Curso" >
+        <h:outputText value="#" />
+    </p:column>
 
-             <p:column headerText="Data Inicio" >
-                <h:outputText value="#" />
-            </p:column>
+    <p:column headerText="Data Inicio" >
+        <h:outputText value="#" />
+    </p:column>
 
-            <p:column headerText="Data Termino" >
-                <h:outputText value="#" />
-            </p:column>
-             <p:column headerText="Responsável" >
-                <h:outputText value="#" />
-            </p:column>
+    <p:column headerText="Data Termino" >
+        <h:outputText value="#" />
+    </p:column>
+    <p:column headerText="Responsável" >
+        <h:outputText value="#" />
+    </p:column>
 
             <p:column headerText="Líder Classe" >
                 <h:outputText value="#" />
@@ -144,7 +142,7 @@
              </p:column>
         </p:dataTable>
      <h:form>
-            <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta"/>
+         <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroTurmasMB.novaTurma()}"/>
             <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
     </h:form>
   <br>  </br>

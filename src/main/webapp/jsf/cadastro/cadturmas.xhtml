@@ -20,24 +20,22 @@
          </tr>
    <h:form>
    <p:menubar class="menu">
-       <p:submenu label="CADASTRO">
- 
-                <p:menuitem class="submenu" value="CURSOS" url="http://www.google.com" />
-                <p:menuitem class="submenu" value="TURMA" url="#" />
-                <p:menuitem class="submenu" value="ALUNO" url="#" />
-                <p:menuitem class="submenu" value="PROFESSOR" url="#" />
-
+        <p:submenu label="CADASTRO">
+            <p:menuitem class="submenu" value="CURSOS" action="#{menuMB.cadastroCursos()}" />
+            <p:menuitem class="submenu" value="TURMA" action="#{menuMB.cadastroTurmasMB}" />
+            <p:menuitem class="submenu" value="ALUNO" url="#" />
+            <p:menuitem class="submenu" value="PROFESSOR" url="#" />
         </p:submenu>
-       <p:submenu label="CONSULTA">
-                 <p:menuitem class="submenu" value="CURSOS" url="" />
-                <p:menuitem class="submenu" value="TURMA" url="#" />
-                <p:menuitem class="submenu" value="ALUNO" url="#" />
-                <p:menuitem class="submenu" value="PROFESSOR" url="#" />
-       </p:submenu>
-             <p:menuitem value="MENU" url="#" />
-             <p:menuitem value="MENU" url="#" />
-             <p:menuitem value="MENU" url="#" />
-              <p:menuitem value="INICIO" url="#" />
+        <p:submenu label="CONSULTA">
+            <p:menuitem class="submenu" value="CURSOS" url="" />
+            <p:menuitem class="submenu" value="TURMA" url="#" />
+            <p:menuitem class="submenu" value="ALUNO" url="#" />
+            <p:menuitem class="submenu" value="PROFESSOR" url="#" />
+        </p:submenu>
+        <p:menuitem value="MENU" url="#" />
+        <p:menuitem value="MENU" url="#" />
+        <p:menuitem value="MENU" url="#" />
+        <p:menuitem value="INICIO" url="#" />
     </p:menubar>
     </h:form>
     <h:form>
@@ -95,7 +93,7 @@
          </h:panelGrid>
      </h:form>
      <h:form>
-            <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra"/>
+            <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" />
             <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
     </h:form>
    <br>  </br>
