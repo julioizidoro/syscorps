@@ -13,22 +13,13 @@ import javax.inject.Named;
  *
  * @author Wolverine
  */
+
 @Named
 @SessionScoped
-public class MenuMB implements Serializable{
+public class CadastroAlunoMB implements Serializable{
     
-    public String cadastroCursos(){
-        return "conscursos";
+    public String novoAluno(){
+        return "cadaluno";
     }
     
-    public String cadastroTurmas(){
-        return "consturmas";
-    }
-     public String cadastroAlunos(){
-        return "consaluno";
-    }
-     
-     public String inicio(){
-         return "index";
-     }
 }
