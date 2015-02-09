@@ -7,7 +7,7 @@
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
-              <div id="centro">
+           <div id="centro">
             <br></br>
             <legend id="iUsu" ><b>Cadastro de Aluno </b></legend>
            <br></br>
@@ -87,8 +87,22 @@
                    <p:autoComplete id="cep"  completeMethod="#" size="15"  maxlength="9"/>
                 </h:panelGrid>
               </p:tab>
-
-                     
+        <p:tab title="Local de Trabalho">        
+            <h:panelGrid columns="2" cellpadding="5" >
+                        <p:outputLabel value="Nome:" for="nomeTrab" />
+                        <p:autoComplete id="nomeTrab"  completeMethod="#" size="70" maxlength="100" /> 
+                        <p:outputLabel value="Telefone Comercial:" for="telComer" />
+                       <p:autoComplete id="telComer"  completeMethod="#" size="15" maxlength="50" />
+                       <p:outputLabel value="Cargo:" for="cargoTra" />
+                       <p:autoComplete id="cargoTra"  completeMethod="#" size="15" maxlength="50" />
+                 </h:panelGrid>        
+              <h:panelGrid columns="4" cellpadding="5" >          
+                       <p:outputLabel value="Comprovante de Renda:" for="comproRenda" />
+                       <p:autoComplete id="comproRenda"  completeMethod="#" size="15" maxlength="50" />
+                       <p:outputLabel value="Outras Rendas:" for="outraRenda" />
+                       <p:autoComplete id="outraRenda"  completeMethod="#" size="15" maxlength="50" />
+            </h:panelGrid>
+        </p:tab>    
        <p:tab title="Avalista">
              <h:panelGrid columns="2" cellpadding="5" >
                         <p:outputLabel value="Nome:" for="nomeAvalista" />
