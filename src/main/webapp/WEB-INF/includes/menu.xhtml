@@ -19,15 +19,15 @@
             <p:menuitem class="submenu" value="PROFESSOR" url="#" />
         </p:submenu>
         <p:submenu label="CONSULTA">
-            <p:menuitem class="submenu" value="CURSOS" url="" />
-            <p:menuitem class="submenu" value="TURMA" url="#" />
-            <p:menuitem class="submenu" value="ALUNO" url="#" />
+            <p:menuitem class="submenu" value="CURSOS" action="#{menuMB.consultaCursos()}" />
+            <p:menuitem class="submenu" value="TURMA" action="#{menuMB.consultaTurmas()}" />
+            <p:menuitem class="submenu" value="ALUNO" action="#{menuMB.consultaAlunos()}" />
             <p:menuitem class="submenu" value="PROFESSOR" url="#" />
         </p:submenu>
         <p:menuitem value="MENU" url="#" />
         <p:menuitem value="MENU" url="#" />
         <p:menuitem value="MENU" url="#" />
-        <p:menuitem value="INICIO" url="#" />
+        <p:menuitem value="INICIO" action="#{menuMB.inicio()}" />
     </p:menubar>
     <br>  </br>
     <br>  </br>

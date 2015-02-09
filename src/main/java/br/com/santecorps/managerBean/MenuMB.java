@@ -18,13 +18,21 @@ import javax.inject.Named;
 public class MenuMB implements Serializable{
     
     public String cadastroCursos(){
+        return "jsf/cadastro/cadcursos";
+    }
+    public String consultaCursos(){
         return "jsf/cadastro/conscursos";
     }
-    
     public String cadastroTurmas(){
+        return "jsf/cadastro/cadturmas";
+    }
+    public String consultaTurmas(){
         return "jsf/cadastro/consturmas";
     }
      public String cadastroAlunos(){
-        return "jsf/cadastro/consluno";
+        return "jsf/cadastro/cadaluno";
+    }
+     public String consultaAlunos(){
+        return "jsf/cadastro/consaluno";
     }
 }
