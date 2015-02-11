@@ -5,8 +5,11 @@
  */
 package br.com.santecorps.managerBean;
 
+import br.com.santecorps.model.Curso;
 import java.io.Serializable;
-import javax.enterprise.context.SessionScoped;
+import java.util.ArrayList;
+import java.util.List;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 /**
@@ -15,8 +18,35 @@ import javax.inject.Named;
  */
 
 @Named
-@SessionScoped
+@ViewScoped
 public class CadastroCursosMB implements Serializable{
+    
+    private Curso curso;
+    private List<Curso> listaCursos;
+
+    public CadastroCursosMB() {
+        this.listaCursos = new ArrayList<Curso>();
+        this.curso = new Curso();
+                ;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public List<Curso> getListaCursos() {
+        return listaCursos;
+    }
+
+    public void setListaCursos(List<Curso> listaCursos) {
+        this.listaCursos = listaCursos;
+    }
+    
+    
     
     public String novoCurso(){
         return "cadcursos";

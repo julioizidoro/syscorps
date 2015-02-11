@@ -6,17 +6,12 @@
 package br.com.santecorps.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -26,8 +21,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "unidade")
-@NamedQueries({
-    @NamedQuery(name = "Unidade.findAll", query = "SELECT u FROM Unidade u")})
 public class Unidade implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,11 +34,7 @@ public class Unidade implements Serializable {
     @Size(max = 100)
     @Column(name = "nomefantasia")
     private String nomefantasia;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
-    private List<Aluno> alunoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
-    private List<Turma> turmaList;
-
+   
     public Unidade() {
     }
 
@@ -75,22 +64,6 @@ public class Unidade implements Serializable {
 
     public void setNomefantasia(String nomefantasia) {
         this.nomefantasia = nomefantasia;
-    }
-
-    public List<Aluno> getAlunoList() {
-        return alunoList;
-    }
-
-    public void setAlunoList(List<Aluno> alunoList) {
-        this.alunoList = alunoList;
-    }
-
-    public List<Turma> getTurmaList() {
-        return turmaList;
-    }
-
-    public void setTurmaList(List<Turma> turmaList) {
-        this.turmaList = turmaList;
     }
 
     @Override

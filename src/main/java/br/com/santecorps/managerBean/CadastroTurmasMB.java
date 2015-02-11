@@ -5,8 +5,11 @@
  */
 package br.com.santecorps.managerBean;
 
+import br.com.santecorps.model.Turma;
 import java.io.Serializable;
-import javax.enterprise.context.SessionScoped;
+import java.util.ArrayList;
+import java.util.List;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 /**
@@ -15,8 +18,18 @@ import javax.inject.Named;
  */
 
 @Named
-@SessionScoped
+@ViewScoped
 public class CadastroTurmasMB implements Serializable{
+    
+    private List<Turma> listaTurmas;
+    private Turma turma;
+
+    public CadastroTurmasMB() {
+        this.listaTurmas = new ArrayList<Turma>();
+        this.turma = new Turma();
+    }
+    
+    
     
     public String novaTurma(){
         return "cadturmas";
