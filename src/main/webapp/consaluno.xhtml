@@ -11,33 +11,27 @@
                   <br></br>
                   <legend id="iUsu" ><b>Consulta de Aluno </b></legend>
                    <br></br>
-                <p:dataTable var="conscursos" value="#" class="tabelacursos" rowStyleClass="tabela">
+                   <p:dataTable var="consAluno" value="#{cadastroAlunoMB.listaAlunos}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10">
                     <p:column headerText="Nome" >
-                        <h:outputText value="#" />
+                        <h:outputText value="#{consAluno.nome}" />
                     </p:column>
                     <p:column headerText="Email" >
-                        <h:outputText value="#" />
+                        <h:outputText value="#{consAluno.email}" />
                     </p:column>
                     <p:column headerText="CPF" >
-                        <h:outputText value="#" />
-                    </p:column>
-                    <p:column headerText="Nome do Avalista" >
-                        <h:outputText value="#" />
-                    </p:column>
-                    <p:column headerText="Nome do Conjuge" >
-                        <h:outputText value="#" />
+                        <h:outputText value="#{consAluno.cpf}" />
                     </p:column>
                     <p:column headerText="Telefone Fixo:" >
-                        <h:outputText value="#" />
+                        <h:outputText value="#{consAluno.foneFixo}" />
                     </p:column>
                     <p:column headerText="Telefone Celular:" >
-                        <h:outputText value="#" />
+                        <h:outputText value="#{consAluno.foneCelular}" />
                     </p:column>
                     <p:column style="width:15px">
                         <p:rowEditor />
                      </p:column>
                 </p:dataTable>
-                <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{CadastroAlunoMB.novoAluno()}"/>
+                   <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.novoAluno()}"/>
                 <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
                   <br></br>
                  <br></br>

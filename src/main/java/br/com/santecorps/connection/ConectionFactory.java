@@ -22,7 +22,7 @@ public class ConectionFactory {
     public static EntityManager getConnection() {
         EntityManagerFactory emf = null;
         EntityManager manager = null;
-        emf = Persistence.createEntityManagerFactory("syscopsPU");
+        emf = Persistence.createEntityManagerFactory("syscorpsPU");
         manager = emf.createEntityManager();
         if (!manager.isOpen()){
             JOptionPane.showMessageDialog(null, "Conexão fechada");
