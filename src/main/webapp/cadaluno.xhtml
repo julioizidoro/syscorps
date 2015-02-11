@@ -76,17 +76,17 @@
                            <p:outputLabel value="Estado do Nascimento:" for="estNasci" class="leftMeio8" />
                   </h:panelGrid>
                     <h:panelGrid columns="3" cellpadding="3">
-                         <p:autoComplete id="nascionalidade" value="#{cadastroAlunoMB.aluno.n}" completeMethod="#" size="20" maxlength="50" class="left" />
-                           <p:autoComplete id="cidNasci"  completeMethod="#" size="20" class="leftRg" />
-                           <p:autoComplete id="estNasci"  completeMethod="#" size="20" class="leftRg" /> 
+                        <p:autoComplete id="nascionalidade" value="#{cadastroAlunoMB.aluno.nascionalidade}" completeMethod="#" size="20" maxlength="50" class="left" />
+                        <p:autoComplete id="cidNasci"  value="#{cadastroAlunoMB.aluno.cidadeNascimento}" completeMethod="#" size="20" class="leftRg" />
+                        <p:autoComplete id="estNasci" value="#{cadastroAlunoMB.aluno.estadoNascimento}" completeMethod="#" size="20" class="leftRg" /> 
                       </h:panelGrid>
                  <h:panelGrid columns="4" cellpadding="5">
                           <p:outputLabel value="Tipo Logradouro:" for="logradouro" class="left" />
                           <p:outputLabel value="Logradouro:" for="logradouro" class="leftMeio9" />
                   </h:panelGrid>
                   <h:panelGrid columns="4" cellpadding="3">
-                      <p:autoComplete id="tipoCurso" dropdown="true" value="" completeMethod="#" class="left"/>
-                       <p:autoComplete id="logradouro"  completeMethod="#" size="36"  class="leftMeio2"/>
+                      <p:autoComplete id="tipoCurso" value="#{cadastroAlunoMB.aluno.tipoLogradouro}" dropdown="true"  completeMethod="#" class="left"/>
+                      <p:autoComplete id="logradouro" value="#{cadastroAlunoMB.aluno.logradouro}" completeMethod="#" size="36"  class="leftMeio2"/>
                   </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="5">
                    <p:outputLabel value="Estado:" for="estado" class="left"/>
@@ -94,9 +94,9 @@
                    <p:outputLabel value="Bairro:" for="bairro" class="leftMeio10"/>
                </h:panelGrid>
                   <h:panelGrid columns="3" cellpadding="5">
-                       <p:autoComplete id="estado"  completeMethod="#" size="16" class="left"/>
-                       <p:autoComplete id="cidade"  completeMethod="#" size="16" class="leftRg"/>
-                       <p:autoComplete id="bairro"  completeMethod="#" size="27" class="leftRg"/>
+                      <p:autoComplete id="estado" value="#{cadastroAlunoMB.aluno.estado}" completeMethod="#" size="16" class="left"/>
+                      <p:autoComplete id="cidade" value="#{cadastroAlunoMB.aluno.cidade}" completeMethod="#" size="16" class="leftRg"/>
+                      <p:autoComplete id="bairro" value="#{cadastroAlunoMB.aluno.bairro}" completeMethod="#" size="27" class="leftRg"/>
                   </h:panelGrid>
                 <h:panelGrid columns="6" cellpadding="5">   
                    <p:outputLabel value="Número:" for="numero"  class="left"/>
@@ -104,9 +104,9 @@
                    <p:outputLabel value="CEP:" for="cep" class="leftMeio3"/>
                 </h:panelGrid>
                  <h:panelGrid columns="6" cellpadding="5">   
-                        <p:autoComplete id="numero"  completeMethod="#" size="10"  class="left"/>
-                        <p:autoComplete id="complemento"  completeMethod="#" size="34" class="leftRg"/>
-                          <p:autoComplete id="cep"  completeMethod="#" size="15"  maxlength="9" class="leftRg"/>
+                     <p:autoComplete id="numero" value="#{cadastroAlunoMB.aluno.numero}" completeMethod="#" size="10"  class="left"/>
+                     <p:autoComplete id="complemento" value="#{cadastroAlunoMB.aluno.complemento}" completeMethod="#" size="34" class="leftRg"/>
+                     <p:autoComplete id="cep" value="#{cadastroAlunoMB.aluno.cep}" completeMethod="#" size="15"  maxlength="9" class="leftRg"/>
                 </h:panelGrid>
               </p:tab>
         <p:tab title="Local de Trabalho">        
@@ -115,7 +115,7 @@
                        
                  </h:panelGrid>        
             <h:panelGrid columns="2" cellpadding="5" >
-                <p:autoComplete id="nomeTrab"  completeMethod="#" size="81" maxlength="100"  class="left"/> 
+                <p:autoComplete id="nomeTrab" value="" completeMethod="#" size="81" maxlength="100"  class="left"/> 
               
             </h:panelGrid>
             <h:panelGrid columns="2" cellpadding="5" >
