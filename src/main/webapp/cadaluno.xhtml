@@ -13,198 +13,256 @@
            <br></br>
            <p:tabView class="tabelaaluno">
               <p:tab title="Dados" >
-                  <h:panelGrid columns="2" cellpadding="5" >
-                        <p:outputLabel value="Nome:" for="nome" />
-                        <p:autoComplete id="nome"  completeMethod="#" size="70" maxlength="100" />
-                        <p:outputLabel value="Email" for="email" />
-                        <p:autoComplete id="email"  completeMethod="#" size="70" maxlength="100" />
-                        <p:outputLabel value="Nome da Mãe:" for="nomeMae" />
-                       <p:autoComplete id="nomeMae"  completeMethod="#" size="50" maxlength="100" />
-                       <p:outputLabel value="Nome do Pai" for="nomePai" />
-                       <p:autoComplete id="nomePai"  completeMethod="#" size="50" maxlength="100" />
+                  <h:panelGrid columns="2" cellpadding="3">
+                        <p:outputLabel value="Nome:" for="nome"  class="left" /> 
+
                   </h:panelGrid>
-                 <h:panelGrid columns="12" cellpadding="4">
-                      <h:outputText value="CPF: " />
-                      <p:inputMask id="cpfCnpj" label="CPF/CNPJ" value="" size="14" required="false" mask="999.999.999-99">
-                      </p:inputMask>
-
-                        <h:outputText value="RG:" />
-                         <p:inputText id="rg" label="RG" value="" size="13" maxlength="15" required="false">
-                       </p:inputText>
-
-                        <h:outputText value="Data de Nascimento:" />
-                        <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" size="13" maxlength="15"/>
+                  <h:panelGrid columns="2" cellpadding="5">
+                      <p:autoComplete id="nome"  value="#{cadastroAlunoMB.aluno.nome}" size="81" maxlength="100" class="left" />
+                  </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="4" >
+                      <h:outputText value="CPF: " class="left"/>
+                      <h:outputText value="RG:" class="leftMeio2"/>
+                      <h:outputText value="Data de Nascimento:" class="leftMeio2"/> 
                  </h:panelGrid>
-                  <h:panelGrid columns="4" cellpadding="4">
-                      <h:outputText value="Profissão: " />
-                          <p:inputText id="profissao" label="profissao:" value="" size="20" maxlength="15" required="false">
-                       </p:inputText>
-
-                        <h:outputText value="Estado Civil:" />
-                         <p:inputText id="estadoCiv" label="estadoCiv" value="" size="20" maxlength="15" required="false">                   
-                       </p:inputText>
-
-                        <p:outputLabel value="Telefone Fixo:" for="telFixo" />
-                       <p:autoComplete id="telFixo"  completeMethod="#" size="15" maxlength="14" />
-                       <p:outputLabel value="Telefone Celular:" for="telCel" />
-                       <p:autoComplete id="telCel"  completeMethod="#" size="15" maxlength="14" />
+                  <h:panelGrid columns="3" cellpadding="3" >
+                        <p:inputMask id="cpfCnpj" label="CPF/CNPJ" value="#{cadastroAlunoMB.aluno.cpf}" size="14" required="false" mask="999.999.999-99"  class="left">
+                        </p:inputMask>
+                      <p:inputText id="rg" label="RG" value="#{cadastroAlunoMB.aluno.rg}" size="17" maxlength="19" required="false" class="leftRg"> 
+                         </p:inputText>
+                      <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd-MM-yyyy" mask="true" size="26" maxlength="15" class="leftP" />
                   </h:panelGrid>
-                  <h:panelGrid columns="4" cellpadding="4">
-                      <p:outputLabel value="Referência Pessoal" for="referenPessoal" />
-                       <p:autoComplete id="referenPessoal"  completeMethod="#" size="30" maxlength="100" />
-                        <p:outputLabel value="Telefone Referência:" for="telReferen" />
-                       <p:autoComplete id="telReferen"  completeMethod="#" size="15" maxlength="14" />
+                  <h:panelGrid columns="3" cellpadding="3">
+                        <p:outputLabel value="Email:" for="email" class="left" />
+                         <p:outputLabel value="Telefone Fixo:" for="telFixo"  class="leftMeio3"/>
+                       <p:outputLabel value="Telefone Celular:" for="telCel"  class="leftMeio4"/>
+                  </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="5">
+                      <p:autoComplete id="email"  value="#{cadastroAlunoMB.aluno.email}" completeMethod="#" size="25" maxlength="100"  class="left"/>
+                      <p:autoComplete id="telFixo" value="#{cadastroAlunoMB.aluno.foneFixo}" completeMethod="#" size="15" maxlength="14"  class="leftRg" />
+                      <p:autoComplete id="telCel" value="#{cadastroAlunoMB.aluno.foneCelular}" completeMethod="#" size="15" maxlength="14"  class="leftRg" />
+                  </h:panelGrid>
+                  <h:panelGrid columns="2" cellpadding="5">
+                       <p:outputLabel value="Nome da Mãe:" for="nomeMae" class="left" />
+                       <p:outputLabel value="Nome do Pai:" for="nomePai" class="leftMeio3"/>
+                  </h:panelGrid>
+                  <h:panelGrid columns="2" cellpadding="2">
+                      <p:autoComplete id="nomeMae"  value="#{cadastroAlunoMB.aluno.nomeMae}" completeMethod="#" size="35" maxlength="100" class="left" /> 
+                      <p:autoComplete id="nomePai" value="#{cadastroAlunoMB.aluno.nomePai}" completeMethod="#" size="35" maxlength="100" class="leftRg"/>
+                  </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="4">
+                      <h:outputText value="Profissão: " class="left" />
+                       <h:outputText value="Estado Civil:" class="leftMeio6"/>
+                  </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="3">
+                      <p:inputText id="profissao" label="profissao:" value="#{cadastroAlunoMB.aluno.profissao}" size="48" maxlength="15" required="false" class="left">
+                       </p:inputText>
+                      <p:inputText id="estadoCiv" label="estadoCiv" value="#{cadastroAlunoMB.aluno.estadoCivil}" size="21" maxlength="15" required="false" class="leftRg">                   
+                       </p:inputText>
+                   </h:panelGrid>    
+                  <h:panelGrid columns="2" cellpadding="4">
+                      <p:outputLabel value="Referência Pessoal:" for="referenPessoal" class="left"  />
+                        <p:outputLabel value="Telefone Referência:" for="telReferen" class="leftMeio5"/>
                    </h:panelGrid>
+                  <h:panelGrid columns="2" cellpadding="4">
+                      <p:autoComplete id="referenPessoal" value="#{cadastroAlunoMB.aluno.referenciaPessoal}" completeMethod="#" size="40" maxlength="100" class="left"  />
+                      <p:autoComplete id="telReferen"  value="#{cadastroAlunoMB.aluno.foneReferenciaPessoal}" completeMethod="#" size="22" maxlength="14" class="leftMeio4"/>
+                  </h:panelGrid>
               </p:tab>
               <p:tab title="Endereço">
-                  <h:panelGrid columns="4" cellpadding="5">
-                           <p:outputLabel value="Nascionalidade:" for="nascionalidade" />
-                          <p:autoComplete id="nascionalidade"  completeMethod="#" size="16" maxlength="50"/>
-                          <p:outputLabel value="Cidade do Nascimento:" for="cidNasci" />
-                          <p:autoComplete id="cidNasci"  completeMethod="#" size="24" />
-
+                  <h:panelGrid columns="3" cellpadding="5">
+                           <p:outputLabel value="Nascionalidade:" for="nascionalidade" class="left" />
+                          <p:outputLabel value="Cidade do Nascimento:" for="cidNasci" class="leftMeio7" />
+                           <p:outputLabel value="Estado do Nascimento:" for="estNasci" class="leftMeio8" />
                   </h:panelGrid>
+                    <h:panelGrid columns="3" cellpadding="3">
+                         <p:autoComplete id="nascionalidade" value="#{cadastroAlunoMB.aluno.n}" completeMethod="#" size="20" maxlength="50" class="left" />
+                           <p:autoComplete id="cidNasci"  completeMethod="#" size="20" class="leftRg" />
+                           <p:autoComplete id="estNasci"  completeMethod="#" size="20" class="leftRg" /> 
+                      </h:panelGrid>
                  <h:panelGrid columns="4" cellpadding="5">
-                          <p:outputLabel value="Estado do Nascimento:" for="estNasci" />
-                          <p:autoComplete id="estNasci"  completeMethod="#" size="13" />
-                          <p:outputLabel value="Logradouro:" for="logradouro" />
-                          <p:autoComplete id="logradouro"  completeMethod="#" size="30" />
+                          <p:outputLabel value="Tipo Logradouro:" for="logradouro" class="left" />
+                          <p:outputLabel value="Logradouro:" for="logradouro" class="leftMeio9" />
                   </h:panelGrid>
-                <h:panelGrid columns="6" cellpadding="5">
-                   <p:outputLabel value="Estado:" for="estado" />
-                   <p:autoComplete id="estado"  completeMethod="#" size="16" />
-                   <p:outputLabel value="Cidade:" for="cidade" />
-                   <p:autoComplete id="cidade"  completeMethod="#" size="16" />
-                   <p:outputLabel value="Bairro:" for="bairro" />
-                   <p:autoComplete id="bairro"  completeMethod="#" size="30" />
+                  <h:panelGrid columns="4" cellpadding="3">
+                      <p:autoComplete id="tipoCurso" dropdown="true" value="" completeMethod="#" class="left"/>
+                       <p:autoComplete id="logradouro"  completeMethod="#" size="36"  class="leftMeio2"/>
+                  </h:panelGrid>
+                <h:panelGrid columns="3" cellpadding="5">
+                   <p:outputLabel value="Estado:" for="estado" class="left"/>
+                   <p:outputLabel value="Cidade:" for="cidade" class="leftMeio10"/>
+                   <p:outputLabel value="Bairro:" for="bairro" class="leftMeio10"/>
                </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="5">
+                       <p:autoComplete id="estado"  completeMethod="#" size="16" class="left"/>
+                       <p:autoComplete id="cidade"  completeMethod="#" size="16" class="leftRg"/>
+                       <p:autoComplete id="bairro"  completeMethod="#" size="27" class="leftRg"/>
+                  </h:panelGrid>
                 <h:panelGrid columns="6" cellpadding="5">   
-                   <p:outputLabel value="Número:" for="numero" />
-                   <p:autoComplete id="numero"  completeMethod="#" size="10" />
-                   <p:outputLabel value="Complemento:" for="complemento" />
-                   <p:autoComplete id="complemento"  completeMethod="#" size="30" />
-                   <p:outputLabel value="CEP:" for="cep" />
-                   <p:autoComplete id="cep"  completeMethod="#" size="15"  maxlength="9"/>
+                   <p:outputLabel value="Número:" for="numero"  class="left"/>
+                   <p:outputLabel value="Complemento:" for="complemento" class="leftMeio4"/>
+                   <p:outputLabel value="CEP:" for="cep" class="leftMeio3"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="6" cellpadding="5">   
+                        <p:autoComplete id="numero"  completeMethod="#" size="10"  class="left"/>
+                        <p:autoComplete id="complemento"  completeMethod="#" size="34" class="leftRg"/>
+                          <p:autoComplete id="cep"  completeMethod="#" size="15"  maxlength="9" class="leftRg"/>
                 </h:panelGrid>
               </p:tab>
         <p:tab title="Local de Trabalho">        
             <h:panelGrid columns="2" cellpadding="5" >
-                        <p:outputLabel value="Nome:" for="nomeTrab" />
-                        <p:autoComplete id="nomeTrab"  completeMethod="#" size="70" maxlength="100" /> 
-                        <p:outputLabel value="Telefone Comercial:" for="telComer" />
-                       <p:autoComplete id="telComer"  completeMethod="#" size="15" maxlength="50" />
-                       <p:outputLabel value="Cargo:" for="cargoTra" />
-                       <p:autoComplete id="cargoTra"  completeMethod="#" size="15" maxlength="50" />
+                        <p:outputLabel value="Nome:" for="nomeTrab"  class="left"/>
+                       
                  </h:panelGrid>        
+            <h:panelGrid columns="2" cellpadding="5" >
+                <p:autoComplete id="nomeTrab"  completeMethod="#" size="81" maxlength="100"  class="left"/> 
+              
+            </h:panelGrid>
+            <h:panelGrid columns="2" cellpadding="5" >
+                <p:outputLabel value="Cargo:" for="cargoTra"   class="left" />
+                  <p:outputLabel value="Telefone Comercial:" for="telComer"  class="leftMeio11"/>      
+            </h:panelGrid>
+            <h:panelGrid columns="2" cellpadding="5" >
+                 <p:autoComplete id="cargoTra"  completeMethod="#"  size="50" maxlength="50"   class="left"/>
+                   <p:autoComplete id="telComer"  completeMethod="#" size="18" maxlength="50" class="leftRg" />
+            </h:panelGrid>
               <h:panelGrid columns="4" cellpadding="5" >          
-                       <p:outputLabel value="Comprovante de Renda:" for="comproRenda" />
-                       <p:autoComplete id="comproRenda"  completeMethod="#" size="15" maxlength="50" />
-                       <p:outputLabel value="Outras Rendas:" for="outraRenda" />
-                       <p:autoComplete id="outraRenda"  completeMethod="#" size="15" maxlength="50" />
+                <p:outputLabel value="Comprovante de Renda:" for="comproRenda"   class="left"/>
+                <p:outputLabel value="Outras Rendas:" for="outraRenda" class="leftMeio12"/>
+            </h:panelGrid>
+            <h:panelGrid columns="4" cellpadding="5" >
+                 <p:autoComplete id="comproRenda"  completeMethod="#" size="40" maxlength="50"   class="left"/>
+                  <p:autoComplete id="outraRenda"  completeMethod="#" size="28" maxlength="50"  class="leftRg" />
             </h:panelGrid>
         </p:tab>    
        <p:tab title="Avalista">
              <h:panelGrid columns="2" cellpadding="5" >
-                        <p:outputLabel value="Nome:" for="nomeAvalista" />
-                        <p:autoComplete id="nomeAvalista"  completeMethod="#" size="70" maxlength="100" />
+                        <p:outputLabel value="Nome:" for="nomeAvalista"  class="left"/>
                 </h:panelGrid>
-           
-             <h:panelGrid columns="4" cellpadding="5" >
-                        <h:outputText value="Profissão: " />
-                          <p:inputText id="profissaoAvalista" label="profissao:" value="" size="30" maxlength="15" required="false">
-                       </p:inputText>
-                        <p:outputLabel value="Renda Mensal:" for="rendaAvalista" />
-                   <p:autoComplete id="rendaAvalista"  completeMethod="#" size="14" />
-              </h:panelGrid>
-           
-             <h:panelGrid columns="6" cellpadding="4">
-                    <h:outputText value="CPF: " />
-                    <p:inputMask id="cpfAvalista" label="cpfAvalista" value="" size="14" required="false" mask="999.999.999-99">
-                    </p:inputMask>
-
-                    <h:outputText value="RG:" />
-                     <p:inputText id="rgAvalista" label="rgAvalista" value="" size="13" maxlength="15" required="false">
-                   </p:inputText> 
-                    <h:outputText value="Data de Nascimento:" />
-                  <p:calendar id="dataNasAvalista" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" size="15" maxlength="15"/>
-            </h:panelGrid>
-           
-            <h:panelGrid columns="6" cellpadding="5">
-                   <p:outputLabel value="Estado:" for="estadoAvalista" />
-                   <p:autoComplete id="estadoAvalista"  completeMethod="#" size="16" />
-                   <p:outputLabel value="Cidade:" for="cidadeAvalista" />
-                   <p:autoComplete id="cidadeAvalista"  completeMethod="#" size="16" />
-                   <p:outputLabel value="CEP:" for="cepAvalista" />
-                   <p:autoComplete id="cepAvalista"  completeMethod="#" size="17"  maxlength="9"/>
-               </h:panelGrid>
-           <h:panelGrid columns="4" cellpadding="5">
-                   <p:outputLabel value="Bairro:" for="bairroAvalista" />
-                   <p:autoComplete id="bairroAvalista"  completeMethod="#" size="30" />
-                <p:outputLabel value="Logradouro:" for="logradouroAvalista" />
-                <p:autoComplete id="logradouroAvalista"  completeMethod="#" size="29" />
+           <h:panelGrid columns="2" cellpadding="5" >
+               <p:autoComplete id="nomeAvalista"  completeMethod="#" size="81" maxlength="100"  class="left"/>
            </h:panelGrid>
-                <h:panelGrid columns="4" cellpadding="5">   
-                   <p:outputLabel value="Número:" for="numeroAvalista" />
-                   <p:autoComplete id="numeroAvalista"  completeMethod="#" size="10" />
-                   <p:outputLabel value="Complemento:" for="complementoAvalista" />
-                   <p:autoComplete id="complementoAvalista"  completeMethod="#" size="30" />
+             <h:panelGrid columns="4" cellpadding="5" >
+                        <h:outputText value="Profissão: " class="left"/>
+                        <p:outputLabel value="Renda Mensal:" for="rendaAvalista" class="leftMeio13"/>
+             </h:panelGrid>
+           <h:panelGrid columns="4" cellpadding="5" >
+               <p:inputText id="profissaoAvalista" label="profissao:" value="" size="40" maxlength="15" required="false" class="left"> </p:inputText>
+                <p:autoComplete id="rendaAvalista"  completeMethod="#" size="28"  class="leftRg"/>
+           </h:panelGrid>
+             <h:panelGrid columns="3" cellpadding="4" >
+                      <h:outputText value="CPF: " class="left"/>
+                      <h:outputText value="RG:" class="leftMeio2"/>
+                      <h:outputText value="Data de Nascimento:" class="leftMeio2"/> 
+                 </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="3" >
+                        <p:inputMask id="cpfAval" label="CPF/CNPJ" value="" size="14" required="false" mask="999.999.999-99"  class="left">
+                        </p:inputMask>
+                         <p:inputText id="rgAval" label="RG" value="" size="17" maxlength="19" required="false" class="leftRg"> 
+                         </p:inputText>
+                       <p:calendar id="maskAval" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" size="26" maxlength="15" class="leftP" />
+                  </h:panelGrid>
+           
+            <h:panelGrid columns="3" cellpadding="5">
+                   <p:outputLabel value="Estado:" for="estadoAval" class="left"/>
+                   <p:outputLabel value="Cidade:" for="cidadeAval" class="leftMeio10"/>
+                   <p:outputLabel value="CEP:" for="cepAval" class="leftMeio10"/>
+               </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="5">
+                       <p:autoComplete id="estadoAval"  completeMethod="#" size="16" class="left"/>
+                       <p:autoComplete id="cidadeAval"  completeMethod="#" size="16" class="leftRg"/>
+                       <p:autoComplete id="cepAval"  completeMethod="#" size="23" class="leftRg"/>
+                  </h:panelGrid>
+           <h:panelGrid columns="4" cellpadding="5">
+                          <p:outputLabel value="Tipo Logradouro:" for="logradouroAval" class="left" />
+                          <p:outputLabel value="Logradouro:" for="tipoAval" class="leftMeio9" />
+                  </h:panelGrid>
+                  <h:panelGrid columns="4" cellpadding="3">
+                      <p:autoComplete id="tipoAval" dropdown="true" value="" completeMethod="#" class="left"/>
+                       <p:autoComplete id="logradouroAval"  completeMethod="#" size="33"  class="leftMeio2"/>
+                  </h:panelGrid>
+                <h:panelGrid columns="6" cellpadding="5">   
+                   <p:outputLabel value="Número:" for="numeroAval"  class="left"/>
+                   <p:outputLabel value="Complemento:" for="complementoAval" class="leftMeio8"/>
+                   <p:outputLabel value="Bairro:" for="bairroAvalista" class="leftMeio3"/>
                 </h:panelGrid>
-                <h:panelGrid columns="4" cellpadding="5">   
-                   <p:outputLabel value="Telefone Fixo:" for="telFixoAvalista" />
-                   <p:autoComplete id="telFixoAvalista"  completeMethod="#" size="15" />
-                   <p:outputLabel value="Telefone Celular:" for="telCelAvalista" />
-                   <p:autoComplete id="telCelAvalista"  completeMethod="#" size="17"  maxlength="9"/>
+                 <h:panelGrid columns="6" cellpadding="5">   
+                        <p:autoComplete id="numeroAval"  completeMethod="#" size="6"  class="left"/>
+                        <p:autoComplete id="complementoAval"  completeMethod="#" size="34" class="leftRg"/>
+                          <p:autoComplete id="bairroAvalista"  size="15" class="leftRg"/>
                 </h:panelGrid>
+           <h:panelGrid columns="4" cellpadding="5">
+                 <p:outputLabel value="Telefone Fixo:" for="telFixoAvalista" class="left" />
+                 <p:outputLabel value="Telefone Celular:" for="telCelAvalista" class="leftMeio3" />
+             </h:panelGrid>
+             <h:panelGrid columns="4" cellpadding="3">
+                      <p:autoComplete id="telFixoAvalista" value=""  class="left"/>
+                       <p:autoComplete id="telCelAvalista"  completeMethod="#" size="33"  class="leftMeio2"/>
+             </h:panelGrid>
         </p:tab>
         <p:tab title="Conjuge">
              <h:panelGrid columns="2" cellpadding="5" >
-                        <p:outputLabel value="Nome:" for="nomeConjuge" />
-                        <p:autoComplete id="nomeConjuge"  completeMethod="#" size="70" maxlength="100" />
+                        <p:outputLabel value="Nome:" for="nomeConjuge"  class="left"/>
                 </h:panelGrid>
-           
-             <h:panelGrid columns="4" cellpadding="5" >
-                        <h:outputText value="Profissão: " />
-                          <p:inputText id="profissaoConjuge" label="profissao:" value="" size="30" maxlength="15" required="false">
-                       </p:inputText>
-                        <p:outputLabel value="Renda Mensal:" for="rendaConjuge" />
-                   <p:autoComplete id="rendaConjuge"  completeMethod="#" size="14" />
-              </h:panelGrid>
-            <h:panelGrid columns="6" cellpadding="4">
-                    <h:outputText value="CPF: " />
-                    <p:inputMask id="cpfConjuge" label="cpfConjuge" value="" size="14" required="false" mask="999.999.999-99">
-                    </p:inputMask>
-
-                    <h:outputText value="RG:" />
-                     <p:inputText id="rgConjuge" label="rgConjuge" value="" size="13" maxlength="15" required="false">
-                   </p:inputText> 
-                    <h:outputText value="Data de Nascimento:" />
-                  <p:calendar id="dataNasConjuge" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" size="15" maxlength="15"/>
-            </h:panelGrid>
-            <h:panelGrid columns="4" cellpadding="5">   
-                   <p:outputLabel value="Telefone Fixo:" for="telFixoConjuge" />
-                   <p:autoComplete id="telFixoConjuge"  completeMethod="#" size="15" />
-                   <p:outputLabel value="Telefone Celular:" for="telCelConjuge" />
-                   <p:autoComplete id="telCelConjuge"  completeMethod="#" size="17"  maxlength="9"/>
-            </h:panelGrid>
-             <h:panelGrid columns="6" cellpadding="5">
-                   <p:outputLabel value="Estado:" for="estadoConjuge" />
-                   <p:autoComplete id="estadoConjuge"  completeMethod="#" size="16" />
-                   <p:outputLabel value="Cidade:" for="cidadeConjuge" />
-                   <p:autoComplete id="cidadeConjuge"  completeMethod="#" size="16" />
-                   <p:outputLabel value="CEP:" for="cepConjuge" />
-                   <p:autoComplete id="cepConjuge"  completeMethod="#" size="17"  maxlength="9"/>
-               </h:panelGrid>
-           <h:panelGrid columns="4" cellpadding="5">
-                   <p:outputLabel value="Bairro:" for="bairroConjuge" />
-                   <p:autoComplete id="bairroConjuge"  completeMethod="#" size="30" />
-                <p:outputLabel value="Logradouro:" for="logradouroConjuge" />
-                <p:autoComplete id="logradouroConjuge"  completeMethod="#" size="29" />
+           <h:panelGrid columns="2" cellpadding="5" >
+               <p:autoComplete id="nomeConjuge"  completeMethod="#" size="81" maxlength="100"  class="left"/>
            </h:panelGrid>
-                <h:panelGrid columns="4" cellpadding="5">   
-                   <p:outputLabel value="Número:" for="numeroConjuge" />
-                   <p:autoComplete id="numeroConjuge"  completeMethod="#" size="10" />
-                   <p:outputLabel value="Complemento:" for="complementoConjuge" />
-                   <p:autoComplete id="complementoConjuge"  completeMethod="#" size="30" />
+             <h:panelGrid columns="4" cellpadding="5" >
+                        <h:outputText value="Profissão: " class="left"/>
+                        <p:outputLabel value="Renda Mensal:" for="rendaConjuge" class="leftMeio13"/>
+             </h:panelGrid>
+           <h:panelGrid columns="4" cellpadding="5" >
+               <p:inputText id="profissaoConjuge" label="profissao:" value="" size="40" maxlength="15" required="false" class="left"> </p:inputText>
+                <p:autoComplete id="rendaConjuge"  completeMethod="#" size="28"  class="leftRg"/>
+           </h:panelGrid>
+             <h:panelGrid columns="3" cellpadding="4" >
+                      <h:outputText value="CPF: " class="left"/>
+                      <h:outputText value="RG:" class="leftMeio2"/>
+                      <h:outputText value="Data de Nascimento:" class="leftMeio2"/> 
+                 </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="3" >
+                      <p:inputMask id="cpfConjuge" label="CPF/CNPJ" value="" size="14" required="false" mask="999.999.999-99"  class="left">
+                        </p:inputMask>
+                         <p:inputText id="rgConjuge" label="RG" value="" size="17" maxlength="19" required="false" class="leftRg"> 
+                         </p:inputText>
+                       <p:calendar id="maskConjuge" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" size="26" maxlength="15" class="leftP" />
+                  </h:panelGrid>
+            <h:panelGrid columns="4" cellpadding="5">
+                 <p:outputLabel value="Telefone Fixo:" for="telFixoConjuge" class="left" />
+                 <p:outputLabel value="Telefone Celular:" for="telConjuge" class="leftMeio3" />
+             </h:panelGrid>
+             <h:panelGrid columns="4" cellpadding="3">
+                      <p:autoComplete id="telFixoConjuge" value=""  class="left"/>
+                       <p:autoComplete id="telConjuge"  completeMethod="#" size="33"  class="leftMeio2"/>
+             </h:panelGrid>
+           
+            <h:panelGrid columns="3" cellpadding="5">
+                   <p:outputLabel value="Estado:" for="estadoConjuge" class="left"/>
+                   <p:outputLabel value="Cidade:" for="cidadeConjuge" class="leftMeio10"/>
+                   <p:outputLabel value="CEP:" for="cepConjuge" class="leftMeio10"/>
+               </h:panelGrid>
+                  <h:panelGrid columns="3" cellpadding="5">
+                       <p:autoComplete id="estadoConjuge"  completeMethod="#" size="16" class="left"/>
+                       <p:autoComplete id="cidadeConjuge"  completeMethod="#" size="16" class="leftRg"/>
+                       <p:autoComplete id="cepConjuge"  completeMethod="#" size="23" class="leftRg"/>
+                  </h:panelGrid>
+           <h:panelGrid columns="4" cellpadding="5">
+                          <p:outputLabel value="Tipo Logradouro:" for="logradouroConjuge" class="left" />
+                          <p:outputLabel value="Logradouro:" for="tipoConjuge" class="leftMeio9" />
+                  </h:panelGrid>
+                  <h:panelGrid columns="4" cellpadding="3">
+                      <p:autoComplete id="tipoConjuge" dropdown="true" value="" completeMethod="#" class="left"/>
+                       <p:autoComplete id="logradouroConjuge"  completeMethod="#" size="33"  class="leftMeio2"/>
+                  </h:panelGrid>
+                <h:panelGrid columns="6" cellpadding="5">   
+                   <p:outputLabel value="Número:" for="numeroConjuge"  class="left"/>
+                   <p:outputLabel value="Complemento:" for="complementoConjuge" class="leftMeio8"/>
+                   <p:outputLabel value="Bairro:" for="bairroConjuge" class="leftMeio3"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="6" cellpadding="5">   
+                        <p:autoComplete id="numeroConjuge"  completeMethod="#" size="6"  class="left"/>
+                        <p:autoComplete id="complementoConjuge"  completeMethod="#" size="34" class="leftRg"/>
+                          <p:autoComplete id="bairroConjuge"  size="15" class="leftRg"/>
                 </h:panelGrid>
         </p:tab>
                 </p:tabView>  
