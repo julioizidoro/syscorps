@@ -12,7 +12,7 @@
                     <br></br>
                     <legend id="iUsu" ><b>Dados da Turma </b></legend>
                     <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Número da Turma:" for="numTurma" />
+                        <p:outputLabel value="Número da Turma:" for="numTurma" class="" />
                         <p:inputText id="numTurma"  value="#{cadastroTurmasMB.turma.numero}" size="10" />
 
                         <p:outputLabel value="Turno:" for="turno" />
@@ -25,7 +25,7 @@
                         </p:selectOneMenu>
 
                         <p:outputLabel value="Curso:" for="cursoTurma" />
-                        <p:selectOneMenu id="cursoTurma" value="#{cadastroTurmasMB.idCurso}" effect="fold" editable="false">
+                        <p:selectOneMenu id="cursoTurma" value="#{cadastroTurmasMB.idCurso}" effect="fold" editable="false" style="width:200px">
                             <f:selectItem itemLabel="Selecione Destinátario" itemValue="" />
                             <f:selectItems value="#{cadastroTurmasMB.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.idcurso}"/>
                         </p:selectOneMenu>

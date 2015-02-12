@@ -16,6 +16,7 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
+import javax.enterprise.context.RequestScoped;
 
 /**
  *
@@ -23,7 +24,7 @@ import javax.inject.Named;
  */
 
 @Named
-@ViewScoped
+@RequestScoped
 public class CadastroAlunoMB implements Serializable{
     
     private List<Aluno> listaAlunos;
