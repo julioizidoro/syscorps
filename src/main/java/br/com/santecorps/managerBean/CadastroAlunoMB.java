@@ -6,15 +6,16 @@
 package br.com.santecorps.managerBean;
 
 import br.com.santecorps.facade.AlunoFacade;
+import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Avalista;
+import br.com.santecorps.model.Avalistaaluno;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
+import br.com.santecorps.model.Unidade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 
@@ -108,6 +109,16 @@ public class CadastroAlunoMB implements Serializable{
     }
     
     public String salvarAluno(){
+        AlunoFacade alunoFacade = new AlunoFacade();
+        UnidadeFacade unidadeFacade = new UnidadeFacade();
+        Unidade unidade = unidadeFacade.getUnidade(1);
+        Avalistaaluno avalistaaluno = new Avalistaaluno();
+        avalistaaluno.setAvalista(avalista);
+        aluno.setAvalistaaluno(avalistaaluno);
+        aluno.getLocaltrabalhoList().add(localTrabalho);
+        aluno.getConjugeList().add(conjuge);
+        aluno.setUnidade(unidade);
+        alunoFacade.salvar(aluno);
         return "consaluno";
     }
     

@@ -24,8 +24,17 @@ public class MenuMB implements Serializable{
     public String cadastroTurmas(){
         return "consturmas";
     }
-     public String cadastroAlunos(){
+    
+    public String cadastroAlunos(){
         return "consaluno";
+    }
+    
+    public String cadastroProfessor(){
+        return "consprofessor";
+    }
+    
+    public String cadastroDisciplina(){
+        return "consdisciplina";
     }
      
      public String inicio(){
