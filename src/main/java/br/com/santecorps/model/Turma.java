@@ -45,24 +45,18 @@ public class Turma implements Serializable {
     @Column(name = "datatermino")
     @Temporal(TemporalType.DATE)
     private Date datatermino;
-    @Size(max = 3)
     @Column(name = "segunda")
-    private String segunda;
-    @Size(max = 3)
+    private boolean segunda;
     @Column(name = "terca")
-    private String terca;
-    @Size(max = 3)
+    private boolean terca;
     @Column(name = "quarta")
-    private String quarta;
-    @Size(max = 3)
+    private boolean quarta;
     @Column(name = "quita")
-    private String quita;
-    @Size(max = 3)
+    private boolean quita;
     @Column(name = "sexta")
-    private String sexta;
-    @Size(max = 3)
+    private boolean sexta;
     @Column(name = "sabado")
-    private String sabado;
+    private boolean sabado;
     @Size(max = 5)
     @Column(name = "horarioinicio")
     private String horarioinicio;
@@ -135,53 +129,54 @@ public class Turma implements Serializable {
         this.datatermino = datatermino;
     }
 
-    public String getSegunda() {
+    public boolean isSegunda() {
         return segunda;
     }
 
-    public void setSegunda(String segunda) {
+    public void setSegunda(boolean segunda) {
         this.segunda = segunda;
     }
 
-    public String getTerca() {
+    public boolean isTerca() {
         return terca;
     }
 
-    public void setTerca(String terca) {
+    public void setTerca(boolean terca) {
         this.terca = terca;
     }
 
-    public String getQuarta() {
+    public boolean isQuarta() {
         return quarta;
     }
 
-    public void setQuarta(String quarta) {
+    public void setQuarta(boolean quarta) {
         this.quarta = quarta;
     }
 
-    public String getQuita() {
+    public boolean isQuita() {
         return quita;
     }
 
-    public void setQuita(String quita) {
+    public void setQuita(boolean quita) {
         this.quita = quita;
     }
 
-    public String getSexta() {
+    public boolean isSexta() {
         return sexta;
     }
 
-    public void setSexta(String sexta) {
+    public void setSexta(boolean sexta) {
         this.sexta = sexta;
     }
 
-    public String getSabado() {
+    public boolean isSabado() {
         return sabado;
     }
 
-    public void setSabado(String sabado) {
+    public void setSabado(boolean sabado) {
         this.sabado = sabado;
     }
+
 
     public String getHorarioinicio() {
         return horarioinicio;

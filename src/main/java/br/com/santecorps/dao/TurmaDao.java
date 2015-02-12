@@ -6,7 +6,9 @@
 package br.com.santecorps.dao;
 
 import br.com.santecorps.connection.ConectionFactory;
-import br.com.santecorps.model.Aluno;
+import br.com.santecorps.model.Curso;
+import br.com.santecorps.model.Turma;
+import static br.com.santecorps.model.Turma_.curso;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -15,28 +17,23 @@ import javax.persistence.Query;
  *
  * @author Wolverine
  */
-public class AlunoDao {
+public class TurmaDao {
     
-    
-
-    public AlunoDao() {
-        
-    }
-    
-    public void salvar(Aluno aluno){
+    public void salvar(Turma turma){
         EntityManager manager = ConectionFactory.getConnection();
         manager.getTransaction().begin();
-        manager.merge(aluno);
+        manager.merge(turma);
         manager.getTransaction().commit();
         manager.close();
     }
     
-    public List<Aluno> listar(String nome){
+    public List<Turma> listar(String numero){
         EntityManager manager =ConectionFactory.getConnection();
         manager.getTransaction().begin();
-        Query q = manager.createQuery("select a from Aluno a where a.nome like '%" + nome + "%' order by a.nome" );
-        List<Aluno> listaAlunos = q.getResultList();
+        Query q = manager.createQuery("select t from Turma t where t.numero like '%" + numero + "%' order by t.numero" );
+        List<Turma> listaTurma = q.getResultList();
         manager.close();
-        return listaAlunos;
+        return listaTurma;
     }
+    
 }

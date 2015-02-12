@@ -7,41 +7,41 @@
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
-              <div id="centro">
-                  <br></br>
-                 <legend id="iUsu" ><b>Consulta de Cursos </b></legend>
-                <p:dataTable var="conscursos" value="#" class="tabelacursos" rowStyleClass="tabela">
-                    <p:column headerText="Nome do Curso" >
-                        <h:outputText value="#" />
-                    </p:column>
+                <div id="centro">
+                    <br></br>
+                    <legend id="iUsu" ><b>Consulta de Cursos </b></legend>
+                    <p:dataTable var="conscursos" value="#{cadastroCursosMB.listaCursos}" class="tabelacursos" rowStyleClass="tabela" paginator="true" rows="10">
+                        <p:column headerText="Nome do Curso" >
+                            <h:outputText value="#{conscursos.nome}" />
+                        </p:column>
 
-                    <p:column headerText="Carga Horário" >
-                        <h:outputText value="#" />
-                    </p:column>
+                        <p:column headerText="Carga Horário" >
+                            <h:outputText value="#{conscursos.cargahoraria}" />
+                        </p:column>
 
-                    <p:column headerText="Tipo de Curso" >
-                        <h:outputText value="#" />
-                    </p:column>
+                        <p:column headerText="Tipo de Curso" >
+                            <h:outputText value="#{conscursos.tipo}" />
+                        </p:column>
 
-                    <p:column style="width:15px">
-                        <p:rowEditor />
-                     </p:column>
-                </p:dataTable>
-                <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroCursosMB.novoCurso()}"/>
-                <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
-                <br></br>
-                 <br></br>
-                  <br></br>
-             </div>
-          </h:form>
+                        <p:column style="width:15px">
+                            <p:rowEditor />
+                        </p:column>
+                    </p:dataTable>
+                    <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroCursosMB.novoCurso()}"/>
+                    <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>
 
-    
 
 
- 
-    
-  
+
+
+
+
 

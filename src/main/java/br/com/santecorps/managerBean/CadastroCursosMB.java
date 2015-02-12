@@ -5,11 +5,13 @@
  */
 package br.com.santecorps.managerBean;
 
+import br.com.santecorps.facade.CursoFacade;
 import br.com.santecorps.model.Curso;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 /**
@@ -18,7 +20,7 @@ import javax.inject.Named;
  */
 
 @Named
-@ViewScoped
+@RequestScoped
 public class CadastroCursosMB implements Serializable{
     
     private Curso curso;
@@ -39,6 +41,7 @@ public class CadastroCursosMB implements Serializable{
     }
 
     public List<Curso> getListaCursos() {
+        listarCursos();
         return listaCursos;
     }
 
@@ -46,10 +49,26 @@ public class CadastroCursosMB implements Serializable{
         this.listaCursos = listaCursos;
     }
     
-    
-    
     public String novoCurso(){
         return "cadcursos";
+    }
+    
+    public String salvarCurso(){
+        CursoFacade cursoFacade = new CursoFacade();
+        cursoFacade.salvar(curso);
+        return "conscursos";
+    }
+    
+    public String cancelar(){
+        return "conscursos";
+    }
+    
+    public void listarCursos(){
+        CursoFacade cursoFacade = new CursoFacade();
+        listaCursos = cursoFacade.listar("");
+        if (listaCursos==null){
+            listaCursos = new ArrayList<Curso>();
+        }
     }
     
 }

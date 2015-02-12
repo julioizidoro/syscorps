@@ -3,35 +3,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
-        <h:form>
-          <div id="centro">
-              <br></br>
-               <legend id="iUsu" ><b>Dados do Curso </b></legend>
-            <h:panelGrid columns="2" cellpadding="5" class="meio2">
-                
-                <p:outputLabel value="Nome do Curso:" for="nomeCurso" />
-                <p:autoComplete id="nomeCurso"  completeMethod="#" />
+            <h:form>
+                <div id="centro">
+                    <br></br>
+                    <legend id="iUsu" ><b>Dados do Curso </b></legend>
+                    <h:panelGrid columns="2" cellpadding="5" class="meio2">
 
-                <p:outputLabel value="Carga Hóraria:" for="cargaHora" />
-                <p:autoComplete id="cargaHora"  completeMethod="#" />
+                        <p:outputLabel value="Nome do Curso:" for="nomeCurso" />
+                        <p:inputText id="nomeCurso"  value="#{cadastroCursosMB.curso.nome}"/>
 
-                <p:outputLabel value="Tipo de Curso:" for="tipoCurso" />
-                <p:autoComplete id="tipoCurso" dropdown="true" value="" completeMethod="#" />
+                        <p:outputLabel value="Carga Hóraria:" for="cargaHora" />
+                        <p:inputText id="cargaHora"  value="#{cadastroCursosMB.curso.cargahoraria}"/>
 
-             </h:panelGrid>
-                <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra"/>
-                <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
-               <br></br>
-                <br></br>
-                 <br></br>
-           </div>
-          </h:form>
-        
- </ui:define>
-  </ui:composition>
+                        <p:outputLabel value="Tipo de Curso:" for="tipoCurso" />
+                        <p:selectOneMenu id="tipoCurso" value="#{cadastroCursosMB.curso.tipo}" style="width:200px">
+                            <f:selectItem itemLabel="Selecione" itemValue="Nenhum" />
+                            <f:selectItem itemLabel="Livre" itemValue="Livre" />
+                            <f:selectItem itemLabel="Técnico" itemValue="Técnico" />
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroCursosMB.salvarCurso()}"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroCursosMB.cancelar()}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
 
-    
+
