@@ -11,7 +11,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -25,6 +26,7 @@ public class CadastroCursosMB implements Serializable{
     
     private Curso curso;
     private List<Curso> listaCursos;
+    private String mensagem;
 
     public CadastroCursosMB() {
         this.listaCursos = new ArrayList<Curso>();
@@ -56,10 +58,16 @@ public class CadastroCursosMB implements Serializable{
     public String salvarCurso(){
         CursoFacade cursoFacade = new CursoFacade();
         cursoFacade.salvar(curso);
+        this.mensagem = "Curso Salvo com Sucesso";
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Sucesso",  mensagem) );
         return "conscursos";
     }
     
     public String cancelar(){
+        this.mensagem = "Cadastro Cancelado";
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Cancelado",  mensagem) );
         return "conscursos";
     }
     

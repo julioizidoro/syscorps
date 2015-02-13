@@ -8,6 +8,8 @@
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
+                <p:growl id="growl" showDetail="true" sticky="true" /> 
+                <p:panel header="Growl">
                 <div id="centro">
                     <br></br>
                     <legend id="iUsu" ><b>Dados do Curso </b></legend>
@@ -26,12 +28,13 @@
                             <f:selectItem itemLabel="Técnico" itemValue="Técnico" />
                         </p:selectOneMenu>
                     </h:panelGrid>
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroCursosMB.salvarCurso()}"/>
-                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroCursosMB.cancelar()}"/>
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroCursosMB.salvarCurso()}" update="growl"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroCursosMB.cancelar()}" update="growl"/>
                     <br></br>
                     <br></br>
                     <br></br>
                 </div>
+                </p:panel>
             </h:form>
         </ui:define>
     </ui:composition>
