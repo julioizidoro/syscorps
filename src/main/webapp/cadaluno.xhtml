@@ -27,7 +27,7 @@
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="3" >
                                 <p:inputMask id="cpfCnpj" label="CPF/CNPJ" value="#{cadastroAlunoMB.aluno.cpf}" size="14" required="false" mask="999.999.999-99"  class="left">
-                                </p:inputText>
+                                </p:inputMask>
                                 <p:inputText id="rg" label="RG" value="#{cadastroAlunoMB.aluno.rg}" size="17" maxlength="19" required="false" class="leftRg"> 
                                 </p:inputText>
                                 <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd/MM/yyyy" mask="true" size="26" maxlength="15" class="leftP" />
