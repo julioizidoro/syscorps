@@ -37,6 +37,9 @@ public class MenuMB implements Serializable{
         return "consdisciplina";
     }
      
+    public String cadastroGrade(){
+        return "consgrade";
+    }
      public String inicio(){
          return "index";
      }

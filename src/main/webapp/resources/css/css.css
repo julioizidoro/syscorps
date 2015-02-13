@@ -161,6 +161,22 @@ box-shadow: 5px 5px 5px #6C7B8B;
        top:20px;
        width: 850px;
 }
+.tabelacursoss{
+     font-size:14px;
+       position:relative;
+       margin-left:40%;
+       right:15%;
+       top:20px;
+       width: 500px;
+}
+.tabelacursosss{
+     font-size:14px;
+       position:relative;
+       margin-left:30%;
+       right:15%;
+       top:20px;
+       width: 680px;
+}
 .tabelaaluno{
      font-size:14px;
      font-family: tahoma;
@@ -297,6 +313,27 @@ box-shadow: 5px 5px 5px #6C7B8B;
     width: 947px;
   
 }
+legend#iUsu3 b{
+
+    position:relative;
+    left:55px;
+    font-size: 12px;
+    font-family: tahoma;
+    color:#333;  
+}
+legend#iUsu3{
+ 
+    width: 830px;
+}
+legend#iUsu4 b{
+
+    position:relative;
+    left:370px;
+    font-size: 12px;
+    font-family: tahoma;
+    color:#333;  
+}
+
 legend#iUsu2 b{
 
     position:relative;
@@ -327,6 +364,9 @@ legend#iUsu2{
 }
 .left{
     margin-left:55px;
+}
+.left4{
+    margin-left:26px;
 }
 .leftC{
     margin-left:69px;

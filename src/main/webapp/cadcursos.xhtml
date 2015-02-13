@@ -8,11 +8,9 @@
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
-                <p:growl id="growl" showDetail="true" sticky="true" /> 
-                <p:panel header="Growl">
                 <div id="centro">
                     <br></br>
-                    <legend id="iUsu" ><b>Dados do Curso </b></legend>
+                   <legend id="iUsu" ><b>Dados do Curso </b></legend>
                     <h:panelGrid columns="2" cellpadding="5" class="meio2">
 
                         <p:outputLabel value="Nome do Curso:" for="nomeCurso" />
@@ -28,14 +26,14 @@
                             <f:selectItem itemLabel="Técnico" itemValue="Técnico" />
                         </p:selectOneMenu>
                     </h:panelGrid>
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroCursosMB.salvarCurso()}" update="growl"/>
-                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroCursosMB.cancelar()}" update="growl"/>
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroCursosMB.salvarCurso()}" />
+                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroCursosMB.cancelar()}" />
                     <br></br>
                     <br></br>
-                    <br></br>
+
                 </div>
-                </p:panel>
             </h:form>
+
         </ui:define>
     </ui:composition>
 </html>
