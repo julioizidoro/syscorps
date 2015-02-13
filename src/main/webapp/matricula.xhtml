@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        <ui:define name="corpo">
+            <div id="centro">
+                <br></br>
+                <legend id="iUsu" ><b>Matricula </b></legend>
+                <br></br>
+                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Nome:" for="nomeMatri" class="" />
+                        <p:inputText id="nomeMatri"  value="" size="55" />
+                        <p:outputLabel value="Turma:" for="turmaMatri" class="" />
+                        <p:inputText id="turmaMatri"  value="" size="10" />
+                            
+                    </h:panelGrid>
+                        
+                     <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Matrícula:" for="matricula" class="" />
+                        <p:inputText id="matricula"  value="" size="10" />
+                        <p:outputLabel value="Curso:" for="cursoMatri" class="" />
+                        <p:inputText id="cursoMatri"  value="" size="20" />
+                        <p:outputLabel value="Turno:" for="turno" class="" />
+                        <p:selectOneMenu id="turno" value="" style="width:188px">
+                            <f:selectItem itemLabel="Selecione" itemValue="Nenhum" />
+                            <f:selectItem itemLabel="Diurno" itemValue="Diurno" />
+                            <f:selectItem itemLabel="Matutino" itemValue="Matutino" />
+                            <f:selectItem itemLabel="Vespertino" itemValue="Vespertino" />
+                            <f:selectItem itemLabel="Noturno" itemValue="Noturno" />
+                        </p:selectOneMenu>
+                  </h:panelGrid>    
+                  <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Data de Nascimento:" for="dataNascMatri" class="" />
+                           <p:calendar id="dataNascMatri"  pattern="dd/MM/yyyy" mask="true" size="7" maxlength="15" />
+                        <p:outputLabel value="CPF:" for="cpf" class="left" />
+                       <p:inputMask id="cpf" label="CPFmatri"  size="14" required="false" mask="999.999.999-99" >
+                       </p:inputMask>
+                        <p:outputLabel value="RG:" for="rg" class="" />
+                        <p:inputText id="rg"  value="" size="14" />
+                     </h:panelGrid>
+                  <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                     
+                        <p:outputLabel value="Cidade:" for="cidadeMatri" class="" />
+                        <p:inputText id="cidadeMatri"  value="" size="25" />
+                        <p:outputLabel value="Estado:" for="estadoMatri" class="leftMeio2" />
+                        <p:inputText id="estadoMatri"  value="" size="20" />
+                        
+                  </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Escola onde concluiu o Ensino Médio:" for="concluiuEnsinoMedio" class="" />
+                        <p:inputText id="concluiuEnsinoMedio"  value="" size="52" />
+                    </h:panelGrid>
+                 <br></br>
+                 <legend id="iUsu" ><b>Endereço Residencial </b></legend>
+                    <br></br>
+                <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Endereço:" for="enderecoResidencial" class="" />
+                         <p:inputText id="enderecoResidencial"  value="" size="44" />
+                         <p:outputLabel value="CEP:" for="cep" class="" />
+                        <p:inputText id="cep"  value="" size="20" />
+                        
+                </h:panelGrid>
+                 <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Número:" for="numero" class="" />
+                      <p:inputText id="numero"  value="" size="14" />
+                        <p:outputLabel value="Apto:" for="apto" class="left" />
+                        <p:inputText id="apto"  value="" size="10" />
+                        <p:outputLabel value="Bloco:" for="bloco" class="left" />
+                        <p:inputText id="bloco"  value="" size="13" />
+                     </h:panelGrid>
+                  <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Bairro:" for="bairro" class="" />
+                        <p:inputText id="bairro"  value="" size="22" />
+                        <p:outputLabel value="Cidade:" for="cidadeResidencial" class="leftMeio2" />
+                        <p:inputText id="cidadeResidencial"  value="" size="24" />
+                  </h:panelGrid>
+                  <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Telefone Fixo:" for="telefoneFixo" class="" />
+                        <p:inputText id="telefoneFixo"  value="" size="15" />
+                        <p:outputLabel value="Telefone Celular:" for="telefoneCelular" class="leftMeio2" />
+                        <p:inputText id="telefoneCelular"  value="" size="15" />
+                  </h:panelGrid>
+                 <h:panelGrid columns="2" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Email:" for="email" class="" />
+                        <p:inputText id="email"  value="" size="55" />
+                  </h:panelGrid>
+                   <br></br>
+                 <legend id="iUsu" ><b>Endereço Comercial </b></legend>
+                    <br></br>
+                <h:panelGrid columns="2" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Empresa onde trabalha:" for="empresaTrabalho" class="" />
+                         <p:inputText id="empresaTrabalho"  value="" size="35" />
+                </h:panelGrid>         
+                  <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                         <p:outputLabel value="Telefone Comercial:" for="telComercial" class="" />
+                        <p:inputText id="telComercial"  value="" size="12" />
+                        <p:outputLabel value="Filiação:" for="filiacao" class="leftMeio2" />
+                        <p:inputText id="filiacao"  value="" size="20" />
+                </h:panelGrid>
+                    
+                     <legend id="iUsu"><b>São José/SC </b></legend>
+                     
+                      <legend id="iUsu"><b>Pelo presente venho requerer a matrícula no curso dde capacitação ptofissional em</b></legend>
+                      <legend><b>Declaro que as informações contidas estão corretas e verdadeiras, ficando o Centro Técnico Santé Corps Ltda, desde já autorizado a verificá-las. Autorizo o Centro Técnico Santé Corps, em caráter irrevogável e irretável a transmitir e consultar informações de crédito em Banco Central do Brasil, listas impeditivas e SARASA/SPC da forma de regulamentação aplicavel, e encaminhar em qualquer ônus mensagem de texto e voz, através de telefone celular de minha titularidade acima mencionado, a respeito de promoções eventuais e pendências junto o Centro Técnico Santé Corps Ltda.</b></legend>
+                <br></br>
+                <br></br>
+                 <br></br>
+                  <br></br>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+
