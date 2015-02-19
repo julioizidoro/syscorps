@@ -7,23 +7,47 @@
        xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
+            <h:form>
+            
             <div id="centro">
                 <br></br>
                 <legend id="iUsu" ><b>Matricula </b></legend>
                 <br></br>
-                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                
+             <p:messages autoUpdate="true" />
+                    <h:panelGrid columns="6" cellpadding="5" class="meio2">
                         <p:outputLabel value="Nome:" for="nomeMatri" class="" />
-                        <p:inputText id="nomeMatri"  value="" size="55" />
-                        <p:outputLabel value="Turma:" for="turmaMatri" class="" />
-                        <p:inputText id="turmaMatri"  value="" size="10" />
-                            
+                        <p:inputText id="nomeMatri"  value="" size="45" />
+                        <p:commandButton value="F" oncomplete="PF('dlg').show()" icon="ui-icon-search" class="filtrar"/>      
+                        <p:outputLabel value="Curso:" for="cursoMatri" class="" />
+                        <p:inputText id="cursoMatri"  value="" size="10" />
+                      <p:commandButton value="Filtrar" oncomplete="PF('dls').show()" icon=" ui-icon-search" class="filtrar"/>       
                     </h:panelGrid>
-                        
-                     <h:panelGrid columns="6" cellpadding="5" class="meio2">
+            <p:dialog header="Filtrar dados do Aluno" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
+                <p:dataTable var="conscursos" value="#{cadastroAlunoMB.listaAlunos}"  paginator="true" rows="10" class="tabelaMatri">
+                        <p:column headerText="Nome do Curso" style="width:280px" >
+                            <h:outputText value="#{consaluno.nome}" />
+                        </p:column>
+                    <p:column style="width:20px">
+                            <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" icon="ui-icon-arrowstop-1-s" title="Icon Only" />
+                     </p:column>
+                </p:dataTable>
+            </p:dialog>    
+            <p:dialog header="Consulta de Cursos" modal="true" showEffect="bounce" widgetVar="dls" resizable="false"  class="tabelaMat2">
+                <p:dataTable var="conscursos" value="#{cadastroCursosMB.listaCursos}"  paginator="true" rows="10" class="tabelaMatri">
+                        <p:column headerText="Nome do Curso" style="width:280px" >
+                            <h:outputText value="#{conscursos.nome}" />
+                        </p:column>
+                    <p:column style="width:20px">
+                            <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" icon="ui-icon-arrowstop-1-s" title="Icon Only" />
+                     </p:column>
+                </p:dataTable>
+            </p:dialog>
+                   <h:panelGrid columns="6" cellpadding="5" class="meio2">
                         <p:outputLabel value="Matrícula:" for="matricula" class="" />
                         <p:inputText id="matricula"  value="" size="10" />
-                        <p:outputLabel value="Curso:" for="cursoMatri" class="" />
-                        <p:inputText id="cursoMatri"  value="" size="20" />
+                        <p:outputLabel value="Turma:" for="turmaMatri" class="" />
+                        <p:inputText id="turmaMatri"  value="" size="20" />
                         <p:outputLabel value="Turno:" for="turno" class="" />
                         <p:selectOneMenu id="turno" value="" style="width:188px">
                             <f:selectItem itemLabel="Selecione" itemValue="Nenhum" />
@@ -41,7 +65,7 @@
                        </p:inputMask>
                         <p:outputLabel value="RG:" for="rg" class="" />
                         <p:inputText id="rg"  value="" size="14" />
-                     </h:panelGrid>
+                  </h:panelGrid>
                   <h:panelGrid columns="6" cellpadding="5" class="meio2">
                      
                         <p:outputLabel value="Cidade:" for="cidadeMatri" class="" />
@@ -53,52 +77,9 @@
                 <h:panelGrid columns="2" cellpadding="5" class="meio2">
                         <p:outputLabel value="Escola onde concluiu o Ensino Médio:" for="concluiuEnsinoMedio" class="" />
                         <p:inputText id="concluiuEnsinoMedio"  value="" size="52" />
-                    </h:panelGrid>
+                 </h:panelGrid>
                  <br></br>
-                 <legend id="iUsu2" ><b>Endereço Residencial </b></legend>
-                    <br></br>
-                <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Endereço:" for="enderecoResidencial" class="" />
-                         <p:inputText id="enderecoResidencial"  value="" size="44" />
-                         <p:outputLabel value="CEP:" for="cep" class="" />
-                        <p:inputText id="cep"  value="" size="20" />
-                        
-                </h:panelGrid>
-                 <h:panelGrid columns="6" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Número:" for="numero" class="" />
-                      <p:inputText id="numero"  value="" size="14" />
-                        <p:outputLabel value="Apto:" for="apto" class="left" />
-                        <p:inputText id="apto"  value="" size="10" />
-                        <p:outputLabel value="Bloco:" for="bloco" class="left" />
-                        <p:inputText id="bloco"  value="" size="13" />
-                     </h:panelGrid>
-                  <h:panelGrid columns="6" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Bairro:" for="bairro" class="" />
-                        <p:inputText id="bairro"  value="" size="22" />
-                        <p:outputLabel value="Cidade:" for="cidadeResidencial" class="leftMeio2" />
-                        <p:inputText id="cidadeResidencial"  value="" size="24" />
-                  </h:panelGrid>
-                  <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Telefone Fixo:" for="telefoneFixo" class="" />
-                        <p:inputText id="telefoneFixo"  value="" size="15" />
-                        <p:outputLabel value="Telefone Celular:" for="telefoneCelular" class="leftMeio2" />
-                        <p:inputText id="telefoneCelular"  value="" size="15" />
-                  </h:panelGrid>
-                 <h:panelGrid columns="2" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Email:" for="email" class="" />
-                        <p:inputText id="email"  value="" size="55" />
-                  </h:panelGrid>
-                   <br></br>
-                 <legend id="iUsu" ><b>Endereço Comercial </b></legend>
-                    <br></br>
-                <h:panelGrid columns="2" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Empresa onde trabalha:" for="empresaTrabalho" class="" />
-                         <p:inputText id="empresaTrabalho"  value="" size="35" />
-                         <p:outputLabel value="Telefone Comercial:" for="telComercial" class="leftP" />
-                        <p:inputText id="telComercial"  value="" size="12" />
-                        <p:outputLabel value="Filiação:" for="filiacao" class="leftMeio7" />
-                        <p:inputText id="filiacao"  value="" size="20" />
-                </h:panelGrid>
+                 
                     <p:commandButton value="Matricular" icon=" ui-icon-plusthick" class="botaoCadastra"/>
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
                     <br></br>
@@ -106,6 +87,7 @@
                      
                   <br></br>
             </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

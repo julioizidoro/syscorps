@@ -177,6 +177,12 @@ box-shadow: 5px 5px 5px #6C7B8B;
        top:20px;
        width: 680px;
 }
+.tabelacursossss{
+       margin-left: 100px;
+     font-size:16px;
+       width: 600px;
+    
+}
 .tabelaaluno{
      font-size:14px;
      font-family: tahoma;
@@ -362,6 +368,11 @@ legend#iUsu2{
     color: #4F4F4F;
     background:#FAEBD7;
 }
+.tabela2{
+    width: 30px;
+    color: #4F4F4F;
+    background:#FAEBD7;
+}
 .left{
     margin-left:55px;
 }
@@ -422,4 +433,22 @@ legend#iUsu2{
 #tipoCurso{
     margin-left:-150px;
     width:800px;
+}
+.meioCima{
+    margin-top:-140px;
+}
+.tabelaMat{
+    margin-right: 350px;
+}
+.tabelaMat{
+    margin-top:-100px;
+    margin-right: 350px;
+}
+.tabelaMatri{
+    font-size:15px;
+    width: 500px;
+    margin-left:30px;
+}
+.filtrar{
+    width: 30px;
 }
