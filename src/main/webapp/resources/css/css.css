@@ -359,8 +359,8 @@ legend#iUsu2{
         font-size: 15px;
 }
 .meioTurmas2{
-    margin-top:-255px;
-    margin-left:630px;
+    margin-top:-220px;
+    margin-left:500px;
     color:#4F4F4F;
     font-size: 17px;
 }
@@ -435,13 +435,18 @@ legend#iUsu2{
     width:800px;
 }
 .meioCima{
-    margin-top:-140px;
+     margin-left:60px;
+    margin-top:10px;
+    font-family: tahoma;
+     color:#4F4F4F;
+    font-size: 15px;
+  
 }
 .tabelaMat{
     margin-right: 350px;
 }
 .tabelaMat{
-    margin-top:-100px;
+    margin-top:-200px;
     margin-right: 350px;
 }
 .tabelaMatri{

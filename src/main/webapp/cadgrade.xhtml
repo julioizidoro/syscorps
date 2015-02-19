@@ -11,6 +11,8 @@
                 <div id="centro">
                     <br></br>
                    <legend id="iUsu" ><b>Grade Curricular </b></legend>
+                   <p:tabView class="tabelaaluno">
+                        <p:tab title="Dados da Grade Curricular" >
                     <h:panelGrid columns="2" cellpadding="5" class="meio2">
 
                         <p:outputLabel value="Turma:" for="turma" class="left4" />
@@ -22,6 +24,8 @@
                         <p:outputLabel value="Professor:" for="professor" />
                          <p:inputText id="professor"  value=""/>
                     </h:panelGrid>
+                             </p:tab>
+                         </p:tabView> 
                     <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra"  />
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"  />
                     <br></br>

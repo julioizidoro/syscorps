@@ -17,11 +17,15 @@
              <p:messages autoUpdate="true" />
                     <h:panelGrid columns="6" cellpadding="5" class="meio2">
                         <p:outputLabel value="Nome:" for="nomeMatri" class="" />
-                        <p:inputText id="nomeMatri"  value="" size="45" />
+                        <p:inputText id="nomeMatri"  value="" size="42" />
                         <p:commandButton value="F" oncomplete="PF('dlg').show()" icon="ui-icon-search" class="filtrar"/>      
                         <p:outputLabel value="Curso:" for="cursoMatri" class="" />
-                        <p:inputText id="cursoMatri"  value="" size="10" />
-                      <p:commandButton value="Filtrar" oncomplete="PF('dls').show()" icon=" ui-icon-search" class="filtrar"/>       
+                        <p:selectOneMenu id="cursoMatri" value="#{cadastroCursosMB.listaCursos}" style="width:189px">
+                            <f:selectItem itemLabel="a" itemValue="a" />
+                            <f:selectItem itemLabel="b" itemValue="b" />
+                            <f:selectItem itemLabel="c" itemValue="c" />
+                            <f:selectItem itemLabel="d" itemValue="d" />
+                        </p:selectOneMenu>
                     </h:panelGrid>
             <p:dialog header="Filtrar dados do Aluno" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
                 <p:dataTable var="conscursos" value="#{cadastroAlunoMB.listaAlunos}"  paginator="true" rows="10" class="tabelaMatri">
@@ -32,17 +36,7 @@
                             <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" icon="ui-icon-arrowstop-1-s" title="Icon Only" />
                      </p:column>
                 </p:dataTable>
-            </p:dialog>    
-            <p:dialog header="Consulta de Cursos" modal="true" showEffect="bounce" widgetVar="dls" resizable="false"  class="tabelaMat2">
-                <p:dataTable var="conscursos" value="#{cadastroCursosMB.listaCursos}"  paginator="true" rows="10" class="tabelaMatri">
-                        <p:column headerText="Nome do Curso" style="width:280px" >
-                            <h:outputText value="#{conscursos.nome}" />
-                        </p:column>
-                    <p:column style="width:20px">
-                            <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" icon="ui-icon-arrowstop-1-s" title="Icon Only" />
-                     </p:column>
-                </p:dataTable>
-            </p:dialog>
+            </p:dialog> 
                    <h:panelGrid columns="6" cellpadding="5" class="meio2">
                         <p:outputLabel value="Matrícula:" for="matricula" class="" />
                         <p:inputText id="matricula"  value="" size="10" />
