@@ -10,6 +10,10 @@
     <class>br.com.santecorps.model.Localtrabalho</class>
     <class>br.com.santecorps.model.Turma</class>
     <class>br.com.santecorps.model.Unidade</class>
+    <class>br.com.santecorps.model.Disciplina</class>
+    <class>br.com.santecorps.model.Gradeturma</class>
+    <class>br.com.santecorps.model.Matricula</class>
+    <class>br.com.santecorps.model.Professor</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

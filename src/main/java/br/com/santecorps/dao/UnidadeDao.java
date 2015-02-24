@@ -21,7 +21,6 @@ public class UnidadeDao {
         manager.getTransaction().begin();
         Unidade unidade = manager.find(Unidade.class, idUnidade);
         manager.getTransaction().commit();
-        manager.close();
         return unidade;
     }
     

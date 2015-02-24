@@ -11,21 +11,21 @@
                   <br></br>
                   <legend id="iUsu" ><b>Consulta de Professores </b></legend>
                    <br></br>
-                   <p:dataTable var="consProfessor" value="" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10">
+                   <p:dataTable var="consProfessor" value="#{cadastroProfessorMB.listaProfessor}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10">
                     <p:column headerText="Nome" >
-                        <h:outputText value="" />
+                        <h:outputText value="#{consProfessor.nome}" />
                     </p:column>
                     <p:column headerText="Cidade" >
-                        <h:outputText value="" />
+                        <h:outputText value="#{consProfessor.cidade}" />
                     </p:column>
                     <p:column headerText="CPF" >
-                        <h:outputText value="" />
+                        <h:outputText value="#{consProfessor.cpf}" />
                     </p:column>
                     <p:column headerText="Telefone Fixo" >
-                        <h:outputText value="" />
+                        <h:outputText value="#{consProfessor.foneFixo}" />
                     </p:column>
                     <p:column headerText="Telefone Celular" >
-                        <h:outputText value="" />
+                        <h:outputText value="#{consProfessor.foneCelular}" />
                     </p:column>
                     <p:column style="width:15px">
                         <p:rowEditor />

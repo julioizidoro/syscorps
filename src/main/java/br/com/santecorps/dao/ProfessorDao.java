@@ -6,9 +6,9 @@
 package br.com.santecorps.dao;
 
 import br.com.santecorps.connection.ConectionFactory;
-import br.com.santecorps.model.Curso;
-import br.com.santecorps.model.Turma;
-import static br.com.santecorps.model.Turma_.curso;
+import br.com.santecorps.model.Aluno;
+import static br.com.santecorps.model.Conjuge_.aluno;
+import br.com.santecorps.model.Professor;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -17,22 +17,21 @@ import javax.persistence.Query;
  *
  * @author Wolverine
  */
-public class TurmaDao {
+public class ProfessorDao {
     
-    public void salvar(Turma turma){
+    public void salvar(Professor professor){
         EntityManager manager = ConectionFactory.getConnection();
         manager.getTransaction().begin();
-        manager.merge(turma);
+        manager.merge(professor);
         manager.getTransaction().commit();
-        manager.close();
     }
     
-    public List<Turma> listar(String numero){
+    public List<Professor> listar(String nome){
         EntityManager manager =ConectionFactory.getConnection();
         manager.getTransaction().begin();
-        Query q = manager.createQuery("select t from Turma t where t.numero like '%" + numero + "%' order by t.numero" );
-        List<Turma> listaTurma = q.getResultList();
-        return listaTurma;
+        Query q = manager.createQuery("select p from Professor p where p.nome like '%" + nome + "%' order by p.nome" );
+        List<Professor> listaProfessor = q.getResultList();
+        return listaProfessor;
     }
     
 }

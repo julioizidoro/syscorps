@@ -18,15 +18,21 @@ import javax.swing.JOptionPane;
  */
 public class ConectionFactory {
     
+    private static EntityManager manager;
+    
     
     public static EntityManager getConnection() {
-        EntityManagerFactory emf = null;
-        EntityManager manager = null;
-        emf = Persistence.createEntityManagerFactory("syscorpsPU");
-        manager = emf.createEntityManager();
-        if (!manager.isOpen()){
-            JOptionPane.showMessageDialog(null, "Conexão fechada");
-        }else System.out.println("Conexão Ok");
+        if (manager == null) {
+            EntityManagerFactory emf = null;
+            manager = null;
+            emf = Persistence.createEntityManagerFactory("syscorpsPU");
+            manager = emf.createEntityManager();
+            if (!manager.isOpen()) {
+                JOptionPane.showMessageDialog(null, "Conexão fechada");
+            } else {
+                System.out.println("Conexão Ok");
+            }
+        }
         return manager;
     }
 }

@@ -6,12 +6,15 @@
 package br.com.santecorps.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -22,6 +25,12 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "unidade")
 public class Unidade implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private Collection<Aluno> alunoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private Collection<Professor> professorCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private Collection<Turma> turmaCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -89,6 +98,30 @@ public class Unidade implements Serializable {
     @Override
     public String toString() {
         return "br.com.santecorps.model.Unidade[ idunidade=" + idunidade + " ]";
+    }
+
+    public Collection<Aluno> getAlunoCollection() {
+        return alunoCollection;
+    }
+
+    public void setAlunoCollection(Collection<Aluno> alunoCollection) {
+        this.alunoCollection = alunoCollection;
+    }
+
+    public Collection<Professor> getProfessorCollection() {
+        return professorCollection;
+    }
+
+    public void setProfessorCollection(Collection<Professor> professorCollection) {
+        this.professorCollection = professorCollection;
+    }
+
+    public Collection<Turma> getTurmaCollection() {
+        return turmaCollection;
+    }
+
+    public void setTurmaCollection(Collection<Turma> turmaCollection) {
+        this.turmaCollection = turmaCollection;
     }
     
 }

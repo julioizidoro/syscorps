@@ -28,7 +28,6 @@ public class AlunoDao {
         manager.getTransaction().begin();
         manager.merge(aluno);
         manager.getTransaction().commit();
-        manager.close();
     }
     
     public List<Aluno> listar(String nome){
@@ -36,7 +35,6 @@ public class AlunoDao {
         manager.getTransaction().begin();
         Query q = manager.createQuery("select a from Aluno a where a.nome like '%" + nome + "%' order by a.nome" );
         List<Aluno> listaAlunos = q.getResultList();
-        manager.close();
         return listaAlunos;
     }
 }

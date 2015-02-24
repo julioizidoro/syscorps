@@ -8,7 +8,6 @@ package br.com.santecorps.model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,6 +17,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -29,58 +30,36 @@ import javax.validation.constraints.Size;
  * @author Wolverine
  */
 @Entity
-@Table(name = "aluno")
-public class Aluno implements Serializable {
+@Table(name = "professor")
+public class Professor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idaluno")
-    private Integer idaluno;
+    @Column(name = "idprofessor")
+    private Integer idprofessor;
     @Size(max = 100)
     @Column(name = "nome")
     private String nome;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 100)
-    @Column(name = "email")
-    private String email;
     @Size(max = 50)
     @Column(name = "rg")
     private String rg;
     @Size(max = 14)
     @Column(name = "cpf")
     private String cpf;
-    @Size(max = 100)
-    @Column(name = "nomeMae")
-    private String nomeMae;
-    @Size(max = 100)
-    @Column(name = "nomePai")
-    private String nomePai;
     @Column(name = "dataNascimento")
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     @Size(max = 50)
-    @Column(name = "cidadeNascimento")
-    private String cidadeNascimento;
-    @Size(max = 2)
-    @Column(name = "estadoNascimento")
-    private String estadoNascimento;
-    @Size(max = 50)
     @Column(name = "profissao")
     private String profissao;
-    @Size(max = 50)
-    @Column(name = "nascionalidade")
-    private String nascionalidade;
-    @Size(max = 50)
-    @Column(name = "estadoCivil")
-    private String estadoCivil;
-    @Size(max = 20)
+    @Size(max = 30)
     @Column(name = "tipoLogradouro")
     private String tipoLogradouro;
     @Size(max = 100)
     @Column(name = "logradouro")
     private String logradouro;
-    @Size(max = 20)
+    @Size(max = 30)
     @Column(name = "numero")
     private String numero;
     @Size(max = 100)
@@ -104,36 +83,29 @@ public class Aluno implements Serializable {
     @Size(max = 14)
     @Column(name = "foneCelular")
     private String foneCelular;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 100)
-    @Column(name = "referenciaPessoal")
-    private String referenciaPessoal;
-    @Size(max = 14)
-    @Column(name = "foneReferenciaPessoal")
-    private String foneReferenciaPessoal;
-    @JoinColumn(name = "avalistaAluno_idavalistaAluno", referencedColumnName = "idavalistaAluno")
-    @ManyToOne(optional = false)
-    private Avalistaaluno avalistaaluno;
+    @Column(name = "email")
+    private String email;
     @JoinColumn(name = "unidade_idunidade", referencedColumnName = "idunidade")
     @ManyToOne(optional = false)
     private Unidade unidade;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
-    private List<Localtrabalho> localtrabalhoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
-    private List<Conjuge> conjugeList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
+    private Collection<Gradeturma> gradeturmaCollection;
 
-    public Aluno() {
+    public Professor() {
     }
 
-    public Aluno(Integer idaluno) {
-        this.idaluno = idaluno;
+    public Professor(Integer idprofessor) {
+        this.idprofessor = idprofessor;
     }
 
-    public Integer getIdaluno() {
-        return idaluno;
+    public Integer getIdprofessor() {
+        return idprofessor;
     }
 
-    public void setIdaluno(Integer idaluno) {
-        this.idaluno = idaluno;
+    public void setIdprofessor(Integer idprofessor) {
+        this.idprofessor = idprofessor;
     }
 
     public String getNome() {
@@ -142,14 +114,6 @@ public class Aluno implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getRg() {
@@ -168,22 +132,6 @@ public class Aluno implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getNomeMae() {
-        return nomeMae;
-    }
-
-    public void setNomeMae(String nomeMae) {
-        this.nomeMae = nomeMae;
-    }
-
-    public String getNomePai() {
-        return nomePai;
-    }
-
-    public void setNomePai(String nomePai) {
-        this.nomePai = nomePai;
-    }
-
     public Date getDataNascimento() {
         return dataNascimento;
     }
@@ -192,44 +140,12 @@ public class Aluno implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getCidadeNascimento() {
-        return cidadeNascimento;
-    }
-
-    public void setCidadeNascimento(String cidadeNascimento) {
-        this.cidadeNascimento = cidadeNascimento;
-    }
-
-    public String getEstadoNascimento() {
-        return estadoNascimento;
-    }
-
-    public void setEstadoNascimento(String estadoNascimento) {
-        this.estadoNascimento = estadoNascimento;
-    }
-
     public String getProfissao() {
         return profissao;
     }
 
     public void setProfissao(String profissao) {
         this.profissao = profissao;
-    }
-
-    public String getNascionalidade() {
-        return nascionalidade;
-    }
-
-    public void setNascionalidade(String nascionalidade) {
-        this.nascionalidade = nascionalidade;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
     }
 
     public String getTipoLogradouro() {
@@ -312,28 +228,12 @@ public class Aluno implements Serializable {
         this.foneCelular = foneCelular;
     }
 
-    public String getReferenciaPessoal() {
-        return referenciaPessoal;
+    public String getEmail() {
+        return email;
     }
 
-    public void setReferenciaPessoal(String referenciaPessoal) {
-        this.referenciaPessoal = referenciaPessoal;
-    }
-
-    public String getFoneReferenciaPessoal() {
-        return foneReferenciaPessoal;
-    }
-
-    public void setFoneReferenciaPessoal(String foneReferenciaPessoal) {
-        this.foneReferenciaPessoal = foneReferenciaPessoal;
-    }
-
-    public Avalistaaluno getAvalistaaluno() {
-        return avalistaaluno;
-    }
-
-    public void setAvalistaaluno(Avalistaaluno avalistaaluno) {
-        this.avalistaaluno = avalistaaluno;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Unidade getUnidade() {
@@ -344,37 +244,29 @@ public class Aluno implements Serializable {
         this.unidade = unidade;
     }
 
-    public List<Localtrabalho> getLocaltrabalhoList() {
-        return localtrabalhoList;
+    public Collection<Gradeturma> getGradeturmaCollection() {
+        return gradeturmaCollection;
     }
 
-    public void setLocaltrabalhoList(List<Localtrabalho> localtrabalhoList) {
-        this.localtrabalhoList = localtrabalhoList;
-    }
-
-    public List<Conjuge> getConjugeList() {
-        return conjugeList;
-    }
-
-    public void setConjugeList(List<Conjuge> conjugeList) {
-        this.conjugeList = conjugeList;
+    public void setGradeturmaCollection(Collection<Gradeturma> gradeturmaCollection) {
+        this.gradeturmaCollection = gradeturmaCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idaluno != null ? idaluno.hashCode() : 0);
+        hash += (idprofessor != null ? idprofessor.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Aluno)) {
+        if (!(object instanceof Professor)) {
             return false;
         }
-        Aluno other = (Aluno) object;
-        if ((this.idaluno == null && other.idaluno != null) || (this.idaluno != null && !this.idaluno.equals(other.idaluno))) {
+        Professor other = (Professor) object;
+        if ((this.idprofessor == null && other.idprofessor != null) || (this.idprofessor != null && !this.idprofessor.equals(other.idprofessor))) {
             return false;
         }
         return true;
@@ -382,7 +274,7 @@ public class Aluno implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.santecorps.model.Aluno[ idaluno=" + idaluno + " ]";
+        return "br.com.santecorps.model.Professor[ idprofessor=" + idprofessor + " ]";
     }
-
+    
 }

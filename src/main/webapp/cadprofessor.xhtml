@@ -13,56 +13,54 @@
                     <legend id="iUsu" ><b>Dados do Professor </b></legend>
                     <p:tabView class="tabelaaluno">
                         <p:tab title="Dados do Professor" >
-                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Nome:" for="nomeDis" class="" />
-                        <p:inputText id="nomeDis"  value="" size="40" />
-                        <p:outputLabel value="CPF:" for="cpf" class="left" />
-                       <p:inputMask id="cpf" label="CPF" value="" size="16" required="false" mask="999.999.999-99"  />
-                       </h:panelGrid>
-                       <h:panelGrid columns="6" cellpadding="5" class="meio2">
-                       <p:outputLabel value="RG:" for="rg" class="" />
-                        <p:inputText id="rg"  value="" size="10" />
-                        <p:outputLabel value="Data de Nascimento:" for="nasciP" class="left" />
-                        <p:inputText id="nasciP"  value="" size="10" />
-                        <p:outputLabel value="CEP:" for="cep" class="" />
-                        <p:inputText id="cep"  value="" size="10" />
-                    </h:panelGrid>
-                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Tipo Logradouro:" for="tipologra" class="" />
-                        <p:inputText id="tipologra"  value="" size="20" />
-                        <p:outputLabel value="Logradouro:" for="logra" class="left" />
-                        <p:inputText id="logra"  value="" size="20" />
-                    </h:panelGrid>
-                    <h:panelGrid columns="6" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Número:" for="numero" class="" />
-                      <p:inputText id="numero"  value="" size="14" />
-                        <p:outputLabel value="Complemento:" for="comple" class="" />
-                        <p:inputText id="comple"  value="" size="10" />
-                        <p:outputLabel value="Bairro:" for="bairro" class="" />
-                        <p:inputText id="bairro"  value="" size="13" />
-                     </h:panelGrid>
-                    <h:panelGrid columns="6" cellpadding="5" class="meio2">
-                     
-                        <p:outputLabel value="Cidade:" for="cidadeP" class="" />
-                        <p:inputText id="cidadeP"  value="" size="28" />
-                        <p:outputLabel value="Estado:" for="estadoP" class="left" />
-                        <p:inputText id="estadoP"  value="" size="24" />
-                        
-                  </h:panelGrid>
-                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Telefone Fixo:" for="telefoneFixo" class="" />
-                        <p:inputText id="telefoneFixo"  value="" size="18" />
-                        <p:outputLabel value="Telefone Celular:" for="telefoneCelular" class="left" />
-                        <p:inputText id="telefoneCelular"  value="" size="19" />
-                  </h:panelGrid>
-                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Renda Mensal:" for="renda" class="" />
-                        <p:inputText id="renda"  value="" size="17" />
-                  </h:panelGrid>
-                    </p:tab>
-                         </p:tabView>  
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#"/>
-                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#"/>
+                            <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                                <p:outputLabel value="Nome:" for="nomeDis" class="" />
+                                <p:inputText id="nomeDis"  value="#{cadastroProfessorMB.professor.nome}" size="40" />
+                                <p:outputLabel value="CPF:" for="cpf" class="left" />
+                                <p:inputMask id="cpf" label="CPF" value="#{cadastroProfessorMB.professor.cpf}" size="16" required="false" mask="999.999.999-99"  />
+                            </h:panelGrid>
+                            <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                                <p:outputLabel value="RG:" for="rg" class="" />
+                                <p:inputText id="rg"  value="#{cadastroProfessorMB.professor.rg}" size="10" />
+                                <p:outputLabel value="Data de Nascimento:" for="nasciP" class="left" />
+                                <p:inputMask id="nasciP"  value="#{cadastroProfessorMB.professor.dataNascimento}" size="10" mask="99/99/9999" >
+                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                </p:inputMask>
+                                <p:outputLabel value="CEP:" for="cep" class="" />
+                                <p:inputMask id="cep"  value="#{cadastroProfessorMB.professor.cep}" size="10" mask="99999-999"/>
+                            </h:panelGrid>
+                            <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                                <p:outputLabel value="Tipo Logradouro:" for="tipologra" class="" />
+                                <p:inputText id="tipologra"  value="#{cadastroProfessorMB.professor.tipoLogradouro}" size="20" />
+                                <p:outputLabel value="Logradouro:" for="logra" class="left" />
+                                <p:inputText id="logra"  value="#{cadastroProfessorMB.professor.logradouro}" size="20" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                                <p:outputLabel value="Número:" for="numero" class="" />
+                                <p:inputText id="numero"  value="#{cadastroProfessorMB.professor.numero}" size="14" />
+                                <p:outputLabel value="Complemento:" for="comple" class="" />
+                                <p:inputText id="comple"  value="#{cadastroProfessorMB.professor.complemento}" size="10" />
+                                <p:outputLabel value="Bairro:" for="bairro" class="" />
+                                <p:inputText id="bairro"  value="#{cadastroProfessorMB.professor.bairro}" size="13" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="6" cellpadding="5" class="meio2">
+
+                                <p:outputLabel value="Cidade:" for="cidadeP" class="" />
+                                <p:inputText id="cidadeP"  value="#{cadastroProfessorMB.professor.cidade}" size="28" />
+                                <p:outputLabel value="Estado:" for="estadoP" class="left" />
+                                <p:inputText id="estadoP"  value="#{cadastroProfessorMB.professor.estado}" size="24" />
+
+                            </h:panelGrid>
+                            <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                                <p:outputLabel value="Telefone Fixo:" for="telefoneFixo" class="" />
+                                <p:inputMask id="telefoneFixo"  value="#{cadastroProfessorMB.professor.foneFixo}" size="18" mask="(99)9999-9999" />
+                                <p:outputLabel value="Telefone Celular:" for="telefoneCelular" class="left" />
+                                <p:inputMask id="telefoneCelular"  value="#{cadastroProfessorMB.professor.foneCelular}" size="19"  mask="(99)9999-9999"/>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:tabView>  
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroProfessorMB.salvar()}" process="@this"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroProfessorMB.cancelar()}" process="@this"/>
                     <br></br>
                     <br></br>
 

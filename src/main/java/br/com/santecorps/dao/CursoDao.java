@@ -22,7 +22,6 @@ public class CursoDao {
         manager.getTransaction().begin();
         manager.merge(curso);
         manager.getTransaction().commit();
-        manager.close();
     }
     
     public List<Curso> listar(String nome){
@@ -30,7 +29,6 @@ public class CursoDao {
         manager.getTransaction().begin();
         Query q = manager.createQuery("select c from Curso c where c.nome like '%" + nome + "%' order by c.nome" );
         List<Curso> listaCursos = q.getResultList();
-        manager.close();
         return listaCursos;
     }
     
@@ -39,7 +37,6 @@ public class CursoDao {
         manager.getTransaction().begin();
         Curso curso = manager.find(Curso.class, idCurso);
         manager.getTransaction().commit();
-        manager.close();
         return curso;
     }
     
