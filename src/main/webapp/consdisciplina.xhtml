@@ -7,28 +7,28 @@
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
-              <div id="centro">
-                  <br></br>
-                  <legend id="iUsu" ><b>Consulta de Professores </b></legend>
-                   <br></br>
-                   <p:dataTable var="consDisciplina" value="" class="tabelacursoss" rowStyleClass="tabela"  paginator="true" rows="10">
-                    <p:column headerText="Nome" >
-                        <h:outputText value="" />
-                    </p:column>
-                    <p:column headerText="Carga Horária" >
-                        <h:outputText value="" />
-                    </p:column>
-                    <p:column style="width:15px">
-                        <p:rowEditor />
-                     </p:column>
-                </p:dataTable>
-                   <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" />
-                <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
-                  <br></br>
-                 <br></br>
-                  <br></br>
-             </div>
-          </h:form>
+                <div id="centro">
+                    <br></br>
+                    <legend id="iUsu" ><b>Consulta de Professores </b></legend>
+                    <br></br>
+                    <p:dataTable var="consDisciplina" value="#{cadastroDisciplinaMB.listaDisciplina}" class="tabelacursoss" rowStyleClass="tabela"  paginator="true" rows="10">
+                        <p:column headerText="Nome" >
+                            <h:outputText value="#{consDisciplina.nome}" />
+                        </p:column>
+                        <p:column headerText="Carga Horária" >
+                            <h:outputText value="#{consDisciplina.cargahoraria}" />
+                        </p:column>
+                        <p:column style="width:15px">
+                            <p:rowEditor />
+                        </p:column>
+                    </p:dataTable>
+                    <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta"  action="#{cadastroDisciplinaMB.nova()}"/>
+                    <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

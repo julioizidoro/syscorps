@@ -13,25 +13,20 @@
                     <legend id="iUsu" ><b>Dados da Disciplina </b></legend>
                     <p:tabView class="tabelaaluno">
                         <p:tab title="Dados da Disciplina" >
-                    <h:panelGrid columns="2" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Nome:" for="nomeDis" class="left" />
-                        <p:inputText id="nomeDis"  value="#" size="25" />
-                        <p:outputLabel value="Carga Horária:" for="cargaHora" class="" />
-                        <p:inputText id="cargaHora"  value="#" size="10" />
-                       
-                    </h:panelGrid>
-                    </p:tab>
-                         </p:tabView>  
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#"/>
-                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#"/>
+                            <h:panelGrid columns="2" cellpadding="5" class="meio2">
+                                <p:outputLabel value="Nome:" for="nomeDis" class="left" />
+                                <p:inputText id="nomeDis"  value="#{cadastroDisciplinaMB.disciplina.nome}" size="100" />
+                                <p:outputLabel value="Carga Horária:" for="cargaHora" class="" />
+                                <p:inputText id="cargaHora"  value="#{cadastroDisciplinaMB.disciplina.cargahoraria}" size="10" />
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:tabView>  
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroDisciplinaMB.salvar()}"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroDisciplinaMB.cancelar()}"/>
                     <br></br>
                     <br></br>
-
                 </div>
             </h:form>
-
         </ui:define>
     </ui:composition>
 </html>
-
-

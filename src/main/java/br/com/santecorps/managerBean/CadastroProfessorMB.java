@@ -24,15 +24,17 @@ import javax.inject.Named;
 @RequestScoped
 public class CadastroProfessorMB implements Serializable{
     
+    
     private Professor professor;
     private List<Professor> listaProfessor;
 
     public CadastroProfessorMB() {
         if (this.professor==null){
             professor = new Professor();
+            professor.setNome("Julio Teste");
         }
         if (listaProfessor==null){
-            listaProfessor = new ArrayList<Professor>();
+            gerarListaProfessor();
         }
     }
 

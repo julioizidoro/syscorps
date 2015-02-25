@@ -6,9 +6,7 @@
 package br.com.santecorps.dao;
 
 import br.com.santecorps.connection.ConectionFactory;
-import br.com.santecorps.model.Curso;
 import br.com.santecorps.model.Turma;
-import static br.com.santecorps.model.Turma_.curso;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -24,12 +22,10 @@ public class TurmaDao {
         manager.getTransaction().begin();
         manager.merge(turma);
         manager.getTransaction().commit();
-        manager.close();
     }
     
     public List<Turma> listar(String numero){
         EntityManager manager =ConectionFactory.getConnection();
-        manager.getTransaction().begin();
         Query q = manager.createQuery("select t from Turma t where t.numero like '%" + numero + "%' order by t.numero" );
         List<Turma> listaTurma = q.getResultList();
         return listaTurma;

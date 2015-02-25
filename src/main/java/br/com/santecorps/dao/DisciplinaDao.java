@@ -6,7 +6,7 @@
 package br.com.santecorps.dao;
 
 import br.com.santecorps.connection.ConectionFactory;
-import br.com.santecorps.model.Professor;
+import br.com.santecorps.model.Disciplina;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -15,20 +15,21 @@ import javax.persistence.Query;
  *
  * @author Wolverine
  */
-public class ProfessorDao {
+public class DisciplinaDao {
     
-    public void salvar(Professor professor){
+    public void salvar(Disciplina disciplina){
         EntityManager manager = ConectionFactory.getConnection();
         manager.getTransaction().begin();
-        manager.merge(professor);
+        manager.merge(disciplina);
         manager.getTransaction().commit();
     }
     
-    public List<Professor> listar(String nome){
+    public List<Disciplina> listar(String nome){
         EntityManager manager =ConectionFactory.getConnection();
-        Query q = manager.createQuery("select p from Professor p where p.nome like '%" + nome + "%' order by p.nome" );
-        List<Professor> listaProfessor = q.getResultList();
-        return listaProfessor;
+        manager.getTransaction().begin();
+        Query q = manager.createQuery("select d from Disciplina d where d.nome like '%" + nome + "%' order by d.nome" );
+        List<Disciplina> listaDisciplina = q.getResultList();
+        return listaDisciplina;
     }
     
 }

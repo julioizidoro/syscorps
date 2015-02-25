@@ -6,7 +6,6 @@
 package br.com.santecorps.dao;
 
 import br.com.santecorps.connection.ConectionFactory;
-import br.com.santecorps.model.Curso;
 import br.com.santecorps.model.Unidade;
 import javax.persistence.EntityManager;
 

@@ -6,7 +6,7 @@
 package br.com.santecorps.model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,7 +38,7 @@ public class Disciplina implements Serializable {
     @Column(name = "cargahoraria")
     private String cargahoraria;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "disciplina")
-    private Collection<Gradeturma> gradeturmaCollection;
+    private List<Gradeturma> gradeturmaList;
 
     public Disciplina() {
     }
@@ -71,12 +71,12 @@ public class Disciplina implements Serializable {
         this.cargahoraria = cargahoraria;
     }
 
-    public Collection<Gradeturma> getGradeturmaCollection() {
-        return gradeturmaCollection;
+    public List<Gradeturma> getGradeturmaList() {
+        return gradeturmaList;
     }
 
-    public void setGradeturmaCollection(Collection<Gradeturma> gradeturmaCollection) {
-        this.gradeturmaCollection = gradeturmaCollection;
+    public void setGradeturmaList(List<Gradeturma> gradeturmaList) {
+        this.gradeturmaList = gradeturmaList;
     }
 
     @Override

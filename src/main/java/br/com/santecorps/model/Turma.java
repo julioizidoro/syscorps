@@ -6,8 +6,8 @@
 package br.com.santecorps.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,22 +30,6 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "turma")
 public class Turma implements Serializable {
-    @Column(name = "segunda")
-    private Boolean segunda;
-    @Column(name = "terca")
-    private Boolean terca;
-    @Column(name = "quarta")
-    private Boolean quarta;
-    @Column(name = "quita")
-    private Boolean quita;
-    @Column(name = "sexta")
-    private Boolean sexta;
-    @Column(name = "sabado")
-    private Boolean sabado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "turma")
-    private Collection<Gradeturma> gradeturmaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "turma")
-    private Collection<Matricula> matriculaCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,6 +48,18 @@ public class Turma implements Serializable {
     @Column(name = "datatermino")
     @Temporal(TemporalType.DATE)
     private Date datatermino;
+    @Column(name = "segunda")
+    private Boolean segunda;
+    @Column(name = "terca")
+    private Boolean terca;
+    @Column(name = "quarta")
+    private Boolean quarta;
+    @Column(name = "quita")
+    private Boolean quita;
+    @Column(name = "sexta")
+    private Boolean sexta;
+    @Column(name = "sabado")
+    private Boolean sabado;
     @Size(max = 5)
     @Column(name = "horarioinicio")
     private String horarioinicio;
@@ -82,6 +78,10 @@ public class Turma implements Serializable {
     @Size(max = 100)
     @Column(name = "liderclasse")
     private String liderclasse;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "turma")
+    private List<Gradeturma> gradeturmaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "turma")
+    private List<Matricula> matriculaList;
     @JoinColumn(name = "curso_idcurso", referencedColumnName = "idcurso")
     @ManyToOne(optional = false)
     private Curso curso;
@@ -136,7 +136,53 @@ public class Turma implements Serializable {
         this.datatermino = datatermino;
     }
 
+    public Boolean getSegunda() {
+        return segunda;
+    }
 
+    public void setSegunda(Boolean segunda) {
+        this.segunda = segunda;
+    }
+
+    public Boolean getTerca() {
+        return terca;
+    }
+
+    public void setTerca(Boolean terca) {
+        this.terca = terca;
+    }
+
+    public Boolean getQuarta() {
+        return quarta;
+    }
+
+    public void setQuarta(Boolean quarta) {
+        this.quarta = quarta;
+    }
+
+    public Boolean getQuita() {
+        return quita;
+    }
+
+    public void setQuita(Boolean quita) {
+        this.quita = quita;
+    }
+
+    public Boolean getSexta() {
+        return sexta;
+    }
+
+    public void setSexta(Boolean sexta) {
+        this.sexta = sexta;
+    }
+
+    public Boolean getSabado() {
+        return sabado;
+    }
+
+    public void setSabado(Boolean sabado) {
+        this.sabado = sabado;
+    }
 
     public String getHorarioinicio() {
         return horarioinicio;
@@ -186,6 +232,22 @@ public class Turma implements Serializable {
         this.liderclasse = liderclasse;
     }
 
+    public List<Gradeturma> getGradeturmaList() {
+        return gradeturmaList;
+    }
+
+    public void setGradeturmaList(List<Gradeturma> gradeturmaList) {
+        this.gradeturmaList = gradeturmaList;
+    }
+
+    public List<Matricula> getMatriculaList() {
+        return matriculaList;
+    }
+
+    public void setMatriculaList(List<Matricula> matriculaList) {
+        this.matriculaList = matriculaList;
+    }
+
     public Curso getCurso() {
         return curso;
     }
@@ -225,70 +287,6 @@ public class Turma implements Serializable {
     @Override
     public String toString() {
         return "br.com.santecorps.model.Turma[ idturma=" + idturma + " ]";
-    }
-
-    public Boolean getSegunda() {
-        return segunda;
-    }
-
-    public void setSegunda(Boolean segunda) {
-        this.segunda = segunda;
-    }
-
-    public Boolean getTerca() {
-        return terca;
-    }
-
-    public void setTerca(Boolean terca) {
-        this.terca = terca;
-    }
-
-    public Boolean getQuarta() {
-        return quarta;
-    }
-
-    public void setQuarta(Boolean quarta) {
-        this.quarta = quarta;
-    }
-
-    public Boolean getQuita() {
-        return quita;
-    }
-
-    public void setQuita(Boolean quita) {
-        this.quita = quita;
-    }
-
-    public Boolean getSexta() {
-        return sexta;
-    }
-
-    public void setSexta(Boolean sexta) {
-        this.sexta = sexta;
-    }
-
-    public Boolean getSabado() {
-        return sabado;
-    }
-
-    public void setSabado(Boolean sabado) {
-        this.sabado = sabado;
-    }
-
-    public Collection<Gradeturma> getGradeturmaCollection() {
-        return gradeturmaCollection;
-    }
-
-    public void setGradeturmaCollection(Collection<Gradeturma> gradeturmaCollection) {
-        this.gradeturmaCollection = gradeturmaCollection;
-    }
-
-    public Collection<Matricula> getMatriculaCollection() {
-        return matriculaCollection;
-    }
-
-    public void setMatriculaCollection(Collection<Matricula> matriculaCollection) {
-        this.matriculaCollection = matriculaCollection;
     }
     
 }

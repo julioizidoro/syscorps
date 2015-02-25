@@ -6,8 +6,8 @@
 package br.com.santecorps.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,8 +17,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -91,7 +89,7 @@ public class Professor implements Serializable {
     @ManyToOne(optional = false)
     private Unidade unidade;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
-    private Collection<Gradeturma> gradeturmaCollection;
+    private List<Gradeturma> gradeturmaList;
 
     public Professor() {
     }
@@ -244,12 +242,12 @@ public class Professor implements Serializable {
         this.unidade = unidade;
     }
 
-    public Collection<Gradeturma> getGradeturmaCollection() {
-        return gradeturmaCollection;
+    public List<Gradeturma> getGradeturmaList() {
+        return gradeturmaList;
     }
 
-    public void setGradeturmaCollection(Collection<Gradeturma> gradeturmaCollection) {
-        this.gradeturmaCollection = gradeturmaCollection;
+    public void setGradeturmaList(List<Gradeturma> gradeturmaList) {
+        this.gradeturmaList = gradeturmaList;
     }
 
     @Override

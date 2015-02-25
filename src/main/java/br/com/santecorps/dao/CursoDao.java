@@ -26,7 +26,6 @@ public class CursoDao {
     
     public List<Curso> listar(String nome){
         EntityManager manager =ConectionFactory.getConnection();
-        manager.getTransaction().begin();
         Query q = manager.createQuery("select c from Curso c where c.nome like '%" + nome + "%' order by c.nome" );
         List<Curso> listaCursos = q.getResultList();
         return listaCursos;

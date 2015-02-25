@@ -6,7 +6,7 @@
 package br.com.santecorps.model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,12 +25,6 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "unidade")
 public class Unidade implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
-    private Collection<Aluno> alunoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
-    private Collection<Professor> professorCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
-    private Collection<Turma> turmaCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +37,13 @@ public class Unidade implements Serializable {
     @Size(max = 100)
     @Column(name = "nomefantasia")
     private String nomefantasia;
-   
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private List<Aluno> alunoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private List<Professor> professorList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private List<Turma> turmaList;
+
     public Unidade() {
     }
 
@@ -75,6 +75,30 @@ public class Unidade implements Serializable {
         this.nomefantasia = nomefantasia;
     }
 
+    public List<Aluno> getAlunoList() {
+        return alunoList;
+    }
+
+    public void setAlunoList(List<Aluno> alunoList) {
+        this.alunoList = alunoList;
+    }
+
+    public List<Professor> getProfessorList() {
+        return professorList;
+    }
+
+    public void setProfessorList(List<Professor> professorList) {
+        this.professorList = professorList;
+    }
+
+    public List<Turma> getTurmaList() {
+        return turmaList;
+    }
+
+    public void setTurmaList(List<Turma> turmaList) {
+        this.turmaList = turmaList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -98,30 +122,6 @@ public class Unidade implements Serializable {
     @Override
     public String toString() {
         return "br.com.santecorps.model.Unidade[ idunidade=" + idunidade + " ]";
-    }
-
-    public Collection<Aluno> getAlunoCollection() {
-        return alunoCollection;
-    }
-
-    public void setAlunoCollection(Collection<Aluno> alunoCollection) {
-        this.alunoCollection = alunoCollection;
-    }
-
-    public Collection<Professor> getProfessorCollection() {
-        return professorCollection;
-    }
-
-    public void setProfessorCollection(Collection<Professor> professorCollection) {
-        this.professorCollection = professorCollection;
-    }
-
-    public Collection<Turma> getTurmaCollection() {
-        return turmaCollection;
-    }
-
-    public void setTurmaCollection(Collection<Turma> turmaCollection) {
-        this.turmaCollection = turmaCollection;
     }
     
 }

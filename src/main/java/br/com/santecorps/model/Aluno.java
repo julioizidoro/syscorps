@@ -6,7 +6,6 @@
 package br.com.santecorps.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -118,6 +117,8 @@ public class Aluno implements Serializable {
     private Unidade unidade;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
     private List<Localtrabalho> localtrabalhoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
+    private List<Matricula> matriculaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
     private List<Conjuge> conjugeList;
 
@@ -352,6 +353,14 @@ public class Aluno implements Serializable {
         this.localtrabalhoList = localtrabalhoList;
     }
 
+    public List<Matricula> getMatriculaList() {
+        return matriculaList;
+    }
+
+    public void setMatriculaList(List<Matricula> matriculaList) {
+        this.matriculaList = matriculaList;
+    }
+
     public List<Conjuge> getConjugeList() {
         return conjugeList;
     }
@@ -384,5 +393,5 @@ public class Aluno implements Serializable {
     public String toString() {
         return "br.com.santecorps.model.Aluno[ idaluno=" + idaluno + " ]";
     }
-
+    
 }
