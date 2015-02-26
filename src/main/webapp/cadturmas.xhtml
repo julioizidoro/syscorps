@@ -17,21 +17,20 @@
                         <p:outputLabel value="Número da Turma:" for="numTurma" class="" />
                         <p:inputText id="numTurma"  value="#{cadastroTurmasMB.turma.numero}" size="10" />
 
-                        <p:outputLabel value="Turno:" for="turno" class="left" />
-                        <p:selectOneMenu id="turno" value="#{cadastroTurmasMB.turma.turno}" style="width:200px">
-                            <f:selectItem itemLabel="Selecione" itemValue="Nenhum" />
-                            <f:selectItem itemLabel="Diurno" itemValue="Diurno" />
-                            <f:selectItem itemLabel="Matutino" itemValue="Matutino" />
-                            <f:selectItem itemLabel="Vespertino" itemValue="Vespertino" />
-                            <f:selectItem itemLabel="Noturno" itemValue="Noturno" />
-                        </p:selectOneMenu>
-
-                        <p:outputLabel value="Curso:" for="cursoTurma" class="leftC"/>
-                        <p:selectOneMenu id="cursoTurma" value="#{cadastroTurmasMB.idCurso}" effect="fold" editable="false" style="width:200px">
-                            <f:selectItem itemLabel="Selecione Destinátario" itemValue="" />
-                            <f:selectItems value="#{cadastroTurmasMB.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.idcurso}"/>
-                        </p:selectOneMenu>
-
+                        <p:outputLabel value="Turno:" class="left" />
+                                <select name="turno" id="turno" value="#{cadastroTurmasMB.turma.turno}" style="width:200px">
+                                <option  value="turno">Selecione</option> 
+                                        <option value="Diurno">Diurno</option>
+                                        <option value="Matutino">Matutino</option>
+                                        <option value="Vespertino">Vespertino</option>
+                                        <option value="Noturno">Noturno</option>
+                                </select>
+                        <p:outputLabel value="Curso:"  class="leftC"/>
+                             <select name="curso" id="cursoTurma" value="#{cadastroTurmasMB.idCurso}" effect="fold" editable="false" style="width:200px">
+                                <option  value="turno">Selecione</option> 
+                                        <option value="#{cadastroTurmasMB.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.idcurso}"/>
+                                </select>
+                       
                         <p:outputLabel for="dataInic" value="Data Início:" class="left4"/>
                         <p:calendar id="dataInic" value="#{cadastroTurmasMB.turma.datainicio}" pattern="dd/MM/yyyy" mask="true" />
 

@@ -118,7 +118,7 @@
 legend#iUsu5 b{
 
     position:relative;
-    left:240px;
+    left:260px;
     font-size: 17px;
     font-family: tahoma;
     
@@ -448,6 +448,7 @@ legend#iUsu2{
 .leftMeio21{
      margin-left:180px;
 }
+
 #tipoCurso{
     margin-left:-150px;
     width:800px;
@@ -480,4 +481,7 @@ legend#iUsu2{
     margin-left:30px;
     background:#FAEBD7;
     font-size: 15px;
+}
+.matriculaCurso{
+    margin-left:423px;
 }

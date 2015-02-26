@@ -17,18 +17,19 @@
                         <p:tab title="Matricula" >
                             
              <p:messages autoUpdate="true" />
-                    <h:panelGrid columns="6" cellpadding="5" class="meio2">
+                    <h:panelGrid columns="3" cellpadding="5" class="meio2">
                         <p:outputLabel value="Nome:" for="nomeMatri" class="" />
-                        <p:inputText id="nomeMatri"  value="" size="35" />
-                        <p:commandButton value="F" oncomplete="PF('dlg').show()" icon="ui-icon-search" class="filtrar"/>      
-                        <p:outputLabel value="Curso:" for="cursoMatri" class="" />
-                        <p:selectOneMenu id="cursoMatri" value="#{cadastroCursosMB.listaCursos}" style="width:165px">
-                            <f:selectItem itemLabel="a" itemValue="a" />
-                            <f:selectItem itemLabel="b" itemValue="b" />
-                            <f:selectItem itemLabel="c" itemValue="c" />
-                            <f:selectItem itemLabel="d" itemValue="d" />
-                        </p:selectOneMenu>
+                        <p:outputLabel value="Curso:"  class="matriculaCurso" />
                     </h:panelGrid>
+               <h:panelGrid columns="3" cellpadding="3" class="meio2">
+                    <p:inputText id="nomeMatri"  value="" size="42" />
+                    <p:commandButton value="F" oncomplete="PF('dlg').show()" icon="ui-icon-search" class="filtrar"/>   
+                   
+                         <select name="curso" id="cursoMatri" value="#{cadastroCursosMB.listaCursos}" class="left" style="width:170px">
+                                <option  value="turno">Selecione</option> 
+                                        <option value="#{cadastroTurmasMB.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.idcurso}"/>
+                                </select>   
+               </h:panelGrid>
             <p:dialog header="Filtrar dados do Aluno" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
                 <p:dataTable var="conscursos" value="#{cadastroAlunoMB.listaAlunos}"  paginator="true" rows="10" class="tabelaMatri">
                         <p:column headerText="Nome do Curso" style="width:280px" >
@@ -42,18 +43,15 @@
              <br></br>
                    <h:panelGrid columns="3" cellpadding="3" class="meio2">
                         <p:outputLabel value="Matrícula:" for="matricula" class="" />
-                        <p:outputLabel value="Turma:" for="turmaMatri" class="leftMeio10" />
+                        <p:outputLabel value="Turma:"  class="leftMeio10" />
                         <p:outputLabel value="Turno:" for="turno" class="leftMeio21" />
                   </h:panelGrid>  
              <h:panelGrid columns="3" cellpadding="2" class="meio2">
                    <p:inputText id="matricula"  value="" size="10" />
-                    <p:selectOneMenu id="turmaMatri" class="leftMeioo" style="width:170px">
-                            <f:selectItem itemLabel="Selecione" itemValue="Nenhum" />
-                            <f:selectItem itemLabel="Diurno" itemValue="Diurno" />
-                            <f:selectItem itemLabel="Matutino" itemValue="Matutino" />
-                            <f:selectItem itemLabel="Vespertino" itemValue="Vespertino" />
-                            <f:selectItem itemLabel="Noturno" itemValue="Noturno" />
-                        </p:selectOneMenu>
+                     <select name="curso" id="turmaMatri" class="leftMeioo" style="width:170px">
+                    <option  value="turno">Selecione</option> 
+                            <option/>
+                    </select> 
                      <p:inputText id="turno"  class="left" size="20" />
                     
              </h:panelGrid>
@@ -65,55 +63,70 @@
             <h:panelGrid columns="3" cellpadding="3" >
                 <p:inputMask id="cpfCnpj" label="CPF"  size="14" required="false" mask="999.999.999-99"  class="left">
                 </p:inputMask>
-                <p:inputText id="rg" label="RG"  size="17" maxlength="19" required="false" class="leftMeioo"> 
+                <p:inputText id="rg" label="RG"  size="16" maxlength="19" required="false" class="leftMeioo"> 
                 </p:inputText>
-                <p:calendar id="mask"  pattern="dd/MM/yyyy" mask="true" size="26" maxlength="15" class="leftP" />
+                <p:calendar id="mask"  pattern="dd/MM/yyyy" mask="true" size="27" maxlength="15" class="leftP" />
             </h:panelGrid>
                   
                  <h:panelGrid columns="3" cellpadding="5">
-                    <p:outputLabel value="Estado:" for="estado" class="left"/>
-                    <p:outputLabel value="Cidade:" for="cidade" class="leftMeio10"/>
-                    <p:outputLabel value="Bairro:" for="bairro" class="leftMeio10"/>
+                      <p:outputLabel value="Bairro:" for="bairro" class="left"/>
+                       <p:outputLabel value="Cidade:" for="cidade" class="leftMeio12"/>
+                    <p:outputLabel value="Estado:"  class="leftMeio21"/>
                 </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="5">
-                     <p:selectOneMenu id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="left" style="width:150px"> 
-                          <f:selectItem itemLabel="Selecione" itemValue="Selecione" />
-                          <f:selectItem itemLabel="AC" itemValue="AC" />
-                          <f:selectItem itemLabel="AL" itemValue="AL" />
-                          <f:selectItem itemLabel="AM" itemValue="AM" />
-                          <f:selectItem itemLabel="AP" itemValue="AP" />
-                         <f:selectItem itemLabel="BA" itemValue="BA" />
-                          <f:selectItem itemLabel="CE" itemValue="CE" />
-                         <f:selectItem itemLabel="DF" itemValue="DF" />
-                         <f:selectItem itemLabel="ES" itemValue="ES" />
-                         <f:selectItem itemLabel="GO" itemValue="GO" />
-                         <f:selectItem itemLabel="MA" itemValue="MA" />
-                         <f:selectItem itemLabel="MG" itemValue="MG" />
-                         <f:selectItem itemLabel="MS" itemValue="MS" />
-                         <f:selectItem itemLabel="MT" itemValue="MT" />
-                         <f:selectItem itemLabel="PA" itemValue="PA" />
-                         <f:selectItem itemLabel="PB" itemValue="PB" />
-                         <f:selectItem itemLabel="PE" itemValue="PE" />
-                         <f:selectItem itemLabel="PI" itemValue="PI" />
-                         <f:selectItem itemLabel="PR" itemValue="PR" />
-                         <f:selectItem itemLabel="RJ" itemValue="RJ" />
-                         <f:selectItem itemLabel="RN" itemValue="RN" />
-                         <f:selectItem itemLabel="RS" itemValue="RS" />
-                         <f:selectItem itemLabel="RO" itemValue="RO" />
-                         <f:selectItem itemLabel="RR" itemValue="RR" />
-                         <f:selectItem itemLabel="SC" itemValue="SC" />
-                         <f:selectItem itemLabel="SE" itemValue="SE" />
-                         <f:selectItem itemLabel="SP" itemValue="SP" />
-                         <f:selectItem itemLabel="TO" itemValue="TO" />
-                 </p:selectOneMenu>
+                       <p:inputText id="bairro" value="#{cadastroAlunoMB.aluno.bairro}"  size="23" class="left"/>
+                      <p:inputText id="cidade" value="#{cadastroAlunoMB.aluno.cidade}"  size="22" class="leftRg"/>
+                     
+                      <select name="estado" id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:162px"> 
+                                <option  value="estado">Selecione o Estado</option> 
+                                <optgroup label="Região Norte">
+                                        <option value="ac">Acre</option>
+                                        <option value="ap">Amapá</option>
+                                        <option value="am">Amazonas</option> 
+                                        <option value="pa">Pará</option> 
+                                        <option value="ro">Rondônia</option> 
+                                        <option value="rr">Roraima</option> 
+                                        <option value="to">Tocantins</option> 
+                                </optgroup>
+                                <optgroup label="Região Nordeste">
+                                        <option value="al">Alagoas</option>
+                                        <option value="ba">Bahia</option> 
+                                        <option value="ce">Ceará</option> 
+                                        <option value="ma">Maranhão</option> 
+                                        <option value="pb">Paraíba</option>
+                                        <option value="pe">Pernambuco</option> 
+                                        <option value="pi">Piauí</option> 
+                                        <option value="rn">Rio Grande do Norte</option>
+                                        <option value="se">Sergipe</option> 
+                                </optgroup>
+                                <optgroup label="Região Centro Oeste">
+                                        <option value="df">Distrito Federal</option>
+                                        <option value="go">Goiás</option> 
+                                        <option value="mt">Mato Grosso</option> 
+                                        <option value="ms">Mato Grosso do Sul</option> 				
+                                </optgroup>
+                                <optgroup label="Região Sudeste">
+                                        <option value="es">Espírito Santo</option> 
+                                        <option value="mg">Minas Gerais</option> 
+                                        <option value="rj">Rio de Janeiro</option>
+                                        <option value="sp">São Paulo</option> 
+                                </optgroup>
+                                <optgroup label="Região Sul">
+                                        <option value="pr">Paraná</option> 
+                                        <option value="rs">Rio Grande do Sul</option> 
+                                        <option value="sc">Santa Catarina</option>
+                                </optgroup>
+                            </select>
                     
-                    <p:inputText id="cidade" value="#{cadastroAlunoMB.aluno.cidade}"  size="16" class="leftRg"/>
-                    <p:inputText id="bairro" value="#{cadastroAlunoMB.aluno.bairro}"  size="31" class="leftRg"/>
+                  
                 </h:panelGrid>
                 <h:panelGrid columns="2" cellpadding="5" class="meio2">
                         <p:outputLabel value="Escola onde concluiu o Ensino Médio:" for="concluiuEnsinoMedio" class="" />
-                        <p:inputText id="concluiuEnsinoMedio"  value="" size="45" />
+                       
                  </h:panelGrid>
+             <h:panelGrid columns="2" cellpadding="5" class="meio2">
+                  <p:inputText id="concluiuEnsinoMedio"  value="" size="40" />
+             </h:panelGrid>
              <br></br>
                 <legend id="iUsu5"><b>Forma de Pagamento </b></legend>
                 <br></br>
@@ -126,30 +139,32 @@
             <h:panelGrid columns="3" cellpadding="3" >
                 <p:inputMask id="valort" label="valort"  size="14" required="false" mask="R$999999999"  class="left">
                 </p:inputMask>
-                <p:inputText id="valorentrada" label="valorEntrada"  size="17" maxlength="19" required="false" class="leftMeioo"> 
+                <p:inputText id="valorentrada" label="valorEntrada"  size="16" maxlength="19" required="false" class="leftMeioo"> 
                 </p:inputText>
-                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy" mask="true" size="17" maxlength="15" class="leftMeioo" />
+                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy" mask="true" size="18" maxlength="15" class="leftMeioo" />
             </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="4" >
                 <h:outputText value="Número de Parcelas: " class="left"/>
-                <h:outputText value="Valor da Parcela:" class="leftMeioo"/>
+                <h:outputText value="Valor da Parcela:" class="leftMeio4"/>
                 <h:outputText value="Data de Vencimento:" class="leftMeio20"/> 
             </h:panelGrid>
              
             <h:panelGrid columns="3" cellpadding="3" >
-                <p:selectOneMenu id="numparcela" class="left" style="width:140px">
-                            <f:selectItem itemLabel="1x" itemValue="1x" />
-                            <f:selectItem itemLabel="2x" itemValue="2x" />
-                            <f:selectItem itemLabel="3x" itemValue="3x" />
-                            <f:selectItem itemLabel="4x" itemValue="4x" />
-                            <f:selectItem itemLabel="5x" itemValue="5x" />
-                            <f:selectItem itemLabel="6x" itemValue="6x" />
-                            <f:selectItem itemLabel="7x" itemValue="7x" />
-                            <f:selectItem itemLabel="8x" itemValue="8x" />
-                            <f:selectItem itemLabel="9x" itemValue="9x" />
-                            <f:selectItem itemLabel="10x" itemValue="10x" />
-                </p:selectOneMenu>
-                <p:inputText id="valorparcela" label="valorparcela"  size="17" maxlength="19" required="false" class="leftMeioo"> 
+
+                <select name="numParcelas" id="numparcela" class="left" style="width:150px">
+                <option  value="numparcelas">Selecione</option> 
+                        <option value="1x">1x</option>
+                        <option value="2x">2x</option>
+                        <option value="3x">3x</option>
+                        <option value="4x">4x</option>
+                        <option value="5x">5x</option>
+                        <option value="6x">6x</option>
+                        <option value="7x">7x</option>
+                        <option value="8x">8x</option>
+                        <option value="9x">9x</option>
+                        <option value="10x">10x</option>
+                </select>
+                <p:inputText id="valorparcela" label="valorparcela"  size="19" maxlength="19" required="false" class="leftC"> 
                 </p:inputText>
                 <p:calendar id="datavenc"  pattern="dd/MM/yyyy" mask="true" size="17" maxlength="15" class="leftMeioo" />
             </h:panelGrid>
