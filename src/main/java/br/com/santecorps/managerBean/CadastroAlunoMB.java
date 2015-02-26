@@ -37,17 +37,19 @@ public class CadastroAlunoMB implements Serializable{
 
     public CadastroAlunoMB() {
         this.listaAlunos = new ArrayList<Aluno>();
-        this.aluno = new Aluno();
-        this.conjuge = new Conjuge();
-        this.avalista = new Avalista();
-        this.localTrabalho = new Localtrabalho();
+        aluno = new Aluno();
+        conjuge = new Conjuge();
+        avalista = new Avalista();
+        localTrabalho = new Localtrabalho();
     }
     
 
     
     
     public List<Aluno> getListaAlunos() {
-        CarregarLitaAluno();
+        if (listaAlunos==null){
+            CarregarLitaAluno();
+        }
         return listaAlunos;
     }
 
@@ -114,11 +116,21 @@ public class CadastroAlunoMB implements Serializable{
         Unidade unidade = unidadeFacade.getUnidade(1);
         Avalistaaluno avalistaaluno = new Avalistaaluno();
         avalistaaluno.setAvalista(avalista);
-        aluno.setAvalistaaluno(avalistaaluno);
-        aluno.getLocaltrabalhoList().add(localTrabalho);
-        aluno.getConjugeList().add(conjuge);
+        aluno.setAvalistaaluno(avalistaaluno);       
         aluno.setUnidade(unidade);
-        alunoFacade.salvar(aluno);
+        aluno = alunoFacade.salvar(aluno);
+        if (aluno.getTrabalha().equalsIgnoreCase("Sim")){
+            localTrabalho.setAluno(aluno);
+            alunoFacade.salvarLocalTrabalho(localTrabalho);
+        }
+        if (!aluno.getEstadoCivil().equalsIgnoreCase("Solteiro")){
+            conjuge.setAluno(aluno);
+            alunoFacade.salvarConjuge(conjuge);
+        }
+        return "consaluno";
+    }
+    
+    public String cancelar(){
         return "consaluno";
     }
     

@@ -109,6 +109,9 @@ public class Aluno implements Serializable {
     @Size(max = 14)
     @Column(name = "foneReferenciaPessoal")
     private String foneReferenciaPessoal;
+    @Size(max = 3)
+    @Column(name = "trabalha")
+    private String trabalha;
     @JoinColumn(name = "avalistaAluno_idavalistaAluno", referencedColumnName = "idavalistaAluno")
     @ManyToOne(optional = false)
     private Avalistaaluno avalistaaluno;
@@ -139,6 +142,14 @@ public class Aluno implements Serializable {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getTrabalha() {
+        return trabalha;
+    }
+
+    public void setTrabalha(String trabalha) {
+        this.trabalha = trabalha;
     }
 
     public void setNome(String nome) {

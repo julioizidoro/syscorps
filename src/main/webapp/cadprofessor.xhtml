@@ -35,7 +35,7 @@
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel value="Tipo Logradouro:" for="tipologra" class="left" />
-                                <p:outputLabel value="Logradouro:" for="logra" class="leftMeio9" />
+                                <p:outputLabel value="Logradouro:" for="logra" class="leftMeio20" />
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="3">
                                 <p:selectOneMenu id="tipologra" value="#{cadastroProfessorMB.professor.tipoLogradouro}" style="width:125px" class="left">
@@ -46,7 +46,7 @@
                                     <f:selectItem itemLabel="Servidão" itemValue="Servidão" />
                                     <f:selectItem itemLabel="BR" itemValue="BR" />
                                 </p:selectOneMenu>
-                                <p:inputText id="logra"   size="32"  class="leftMeio2" value="#{cadastroProfessorMB.professor.logradouro}"/>
+                                <p:inputText id="logra"   size="40"  class="leftMeio2" value="#{cadastroProfessorMB.professor.logradouro}"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
                                 <p:outputLabel value="Número:" for="numero"  class="left"/>
@@ -57,24 +57,55 @@
                                 <p:inputText id="numero"   size="10"  class="left" value="#{cadastroProfessorMB.professor.numero}"/>
                                 <p:inputText id="comple"  size="34" class="leftRg" value="#{cadastroProfessorMB.professor.complemento}"/>
                                 <p:inputMask id="cep"   size="11"  maxlength="9" class="leftRg" value="#{cadastroProfessorMB.professor.cep}" mask="99999-999"/>
-                            </h:panelGrid>     
+                            </h:panelGrid> 
                             <h:panelGrid columns="3" cellpadding="5">
-                                <p:outputLabel value="Bairro:" for="bairro" class="left"/>
-                                <p:outputLabel value="Cidade:" for="cidadeP" class="leftMeio10"/>
-                                <p:outputLabel value="Estado:" for="estadoP" class="leftMeio10"/>
+                                <p:outputLabel value="Estado:" for="estado" class="left"/>
+                                <p:outputLabel value="Cidade:" for="cidade" class="leftMeio10"/>
+                                <p:outputLabel value="Bairro:" for="bairro" class="leftMeio10"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="5">
-                                <p:inputText id="bairro"  size="23" class="leftRg" value="#{cadastroProfessorMB.professor.bairro}"/>
-                                <p:inputText id="cidadeP"  size="16" class="leftRg" value="#{cadastroProfessorMB.professor.cidade}"/>
-                                <p:inputText id="estadoP"  size="16" class="left" value="#{cadastroProfessorMB.professor.estado}"/>
+                               
+                                <p:selectOneMenu id="estado" value="#{cadastroProfessorMB.professor.bairro}" class="left" style="width:150px"> 
+                                    <f:selectItem itemLabel="Selecione" itemValue="Selecione" />
+                                    <f:selectItem itemLabel="AC" itemValue="AC" />
+                                    <f:selectItem itemLabel="AL" itemValue="AL" />
+                                    <f:selectItem itemLabel="AM" itemValue="AM" />
+                                    <f:selectItem itemLabel="AP" itemValue="AP" />
+                                   <f:selectItem itemLabel="BA" itemValue="BA" />
+                                    <f:selectItem itemLabel="CE" itemValue="CE" />
+                                   <f:selectItem itemLabel="DF" itemValue="DF" />
+                                   <f:selectItem itemLabel="ES" itemValue="ES" />
+                                   <f:selectItem itemLabel="GO" itemValue="GO" />
+                                   <f:selectItem itemLabel="MA" itemValue="MA" />
+                                   <f:selectItem itemLabel="MG" itemValue="MG" />
+                                   <f:selectItem itemLabel="MS" itemValue="MS" />
+                                   <f:selectItem itemLabel="MT" itemValue="MT" />
+                                   <f:selectItem itemLabel="PA" itemValue="PA" />
+                                   <f:selectItem itemLabel="PB" itemValue="PB" />
+                                   <f:selectItem itemLabel="PE" itemValue="PE" />
+                                   <f:selectItem itemLabel="PI" itemValue="PI" />
+                                   <f:selectItem itemLabel="PR" itemValue="PR" />
+                                   <f:selectItem itemLabel="RJ" itemValue="RJ" />
+                                   <f:selectItem itemLabel="RN" itemValue="RN" />
+                                   <f:selectItem itemLabel="RS" itemValue="RS" />
+                                   <f:selectItem itemLabel="RO" itemValue="RO" />
+                                   <f:selectItem itemLabel="RR" itemValue="RR" />
+                                   <f:selectItem itemLabel="SC" itemValue="SC" />
+                                   <f:selectItem itemLabel="SE" itemValue="SE" />
+                                   <f:selectItem itemLabel="SP" itemValue="SP" />
+                                   <f:selectItem itemLabel="TO" itemValue="TO" />
+                           </p:selectOneMenu>
+                                <p:inputText id="cidade" value="#{cadastroProfessorMB.professor.cidade}"  size="16" class="leftRg"/>
+                                <p:inputText id="bairro" value="#{cadastroProfessorMB.professor.bairro}"  size="23" class="leftRg"/>
                             </h:panelGrid>
+                               
                             <h:panelGrid columns="2" cellpadding="3">
-                                <p:outputLabel value="Telefone Fixo:" for="telFixo"  class="leftMeio2"/>
-                                <p:outputLabel value="Telefone Celular:" for="telCelular"  class="leftMeio4"/>
+                                <p:outputLabel value="Telefone Fixo:" for="telFixo"  class="left"/>
+                                <p:outputLabel value="Telefone Celular:" for="telCelular"  class="leftMeio3"/>
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="5">
                                 <p:inputMask id="telFixo"   size="15" maxlength="11"  class="left" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneFixo}"/>
-                                <p:inputMask id="telCelular"  size="15" maxlength="14"  class="leftRg" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneCelular}"/>
+                                <p:inputMask id="telCelular"  size="15" maxlength="14"  class="leftMeio2" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneCelular}"/>
 
                             </h:panelGrid>
                         </p:tab>

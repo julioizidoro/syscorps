@@ -115,6 +115,15 @@
     font-size: 14px;
   
 }
+legend#iUsu5 b{
+
+    position:relative;
+    left:240px;
+    font-size: 17px;
+    font-family: tahoma;
+    
+}
+
 .menu li a{
     color:#CD6600; 
     text-decoration:none; 
@@ -412,6 +421,9 @@ legend#iUsu2{
 .leftMeio7{
     margin-left:120px;
 }
+.leftMeioo{
+    margin-left:95px;
+}
 .leftMeio8{
     margin-left:60px;
 }
@@ -429,6 +441,12 @@ legend#iUsu2{
 }
 .leftMeio13{
     margin-left:300px;
+}
+.leftMeio20{
+     margin-left:163px;
+}
+.leftMeio21{
+     margin-left:180px;
 }
 #tipoCurso{
     margin-left:-150px;
@@ -456,4 +474,10 @@ legend#iUsu2{
 }
 .filtrar{
     width: 30px;
+}
+.matricula{
+    width:700px;
+    margin-left:30px;
+    background:#FAEBD7;
+    font-size: 15px;
 }

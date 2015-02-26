@@ -7,6 +7,8 @@ package br.com.santecorps.dao;
 
 import br.com.santecorps.connection.ConectionFactory;
 import br.com.santecorps.model.Aluno;
+import br.com.santecorps.model.Conjuge;
+import br.com.santecorps.model.Localtrabalho;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -23,11 +25,12 @@ public class AlunoDao {
         
     }
     
-    public void salvar(Aluno aluno){
+    public Aluno salvar(Aluno aluno){
         EntityManager manager = ConectionFactory.getConnection();
         manager.getTransaction().begin();
-        manager.merge(aluno);
+        aluno = manager.merge(aluno);
         manager.getTransaction().commit();
+        return aluno;
     }
     
     public List<Aluno> listar(String nome){
@@ -37,4 +40,21 @@ public class AlunoDao {
         List<Aluno> listaAlunos = q.getResultList();
         return listaAlunos;
     }
+    
+    public Conjuge salvarConjuge(Conjuge conjuge){
+        EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        conjuge = manager.merge(conjuge);
+        manager.getTransaction().commit();
+        return conjuge;
+    }
+    
+    public Localtrabalho salvarLocalTrabalho(Localtrabalho localtrabalho){
+        EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        localtrabalho = manager.merge(localtrabalho);
+        manager.getTransaction().commit();
+        return localtrabalho;
+    }
+    
 }

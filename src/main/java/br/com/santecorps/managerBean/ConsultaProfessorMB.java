@@ -6,47 +6,32 @@
 package br.com.santecorps.managerBean;
 
 import br.com.santecorps.facade.ProfessorFacade;
-import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Professor;
-import br.com.santecorps.model.Unidade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 /**
  *
  * @author Wolverine
  */
-
 @Named
 @RequestScoped
-public class CadastroProfessorMB implements Serializable{
+public class ConsultaProfessorMB implements Serializable{
     
-    
-    private Professor professor;
     private List<Professor> listaProfessor;
 
-    public CadastroProfessorMB() {
-        if (this.professor==null){
-            professor = new Professor();
-        }
+    public ConsultaProfessorMB() {
         if (listaProfessor==null){
             gerarListaProfessor();
         }
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
     public List<Professor> getListaProfessor() {
-         if (listaProfessor==null){
+        if (listaProfessor==null){
             gerarListaProfessor();
         }
         return listaProfessor;
@@ -66,19 +51,6 @@ public class CadastroProfessorMB implements Serializable{
     
     public String novoProfessor(){
         return "cadprofessor";
-    }
-    
-    public String cancelar(){
-        return "consprofessor";
-    }
-    
-    public String salvar(){
-        UnidadeFacade unidadeFacade = new UnidadeFacade();
-        Unidade unidade = unidadeFacade.getUnidade(1);
-        professor.setUnidade(unidade);
-        ProfessorFacade professorFacade = new ProfessorFacade();
-        professorFacade.salvar(professor);
-        return "consprofessor";
     }
     
     

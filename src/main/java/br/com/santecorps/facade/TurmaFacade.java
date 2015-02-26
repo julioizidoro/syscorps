@@ -26,4 +26,9 @@ public class TurmaFacade {
         turmaDao = new TurmaDao();
         return turmaDao.listar(numero);
     }
+    
+    public List<Turma> listar(int idCurso, int idUnidade){
+        turmaDao = new TurmaDao();
+        return turmaDao.listar(idCurso, idUnidade);
+    }
 }

@@ -31,4 +31,11 @@ public class TurmaDao {
         return listaTurma;
     }
     
+    public List<Turma> listar(int idCurso, int idUnidade){
+        EntityManager manager =ConectionFactory.getConnection();
+        Query q = manager.createQuery("select t from Turma t where t.curso.idcurso=" + idCurso + "  and t.unidade.idunidade=" + idUnidade + " order by t.numero");
+        List<Turma> listaTurma = q.getResultList();
+        return listaTurma;
+    }
+    
 }
