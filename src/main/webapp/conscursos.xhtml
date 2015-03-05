@@ -23,9 +23,9 @@
                             <h:outputText value="#{conscursos.tipo}" />
                         </p:column>
 
-                        <p:column style="width:15px">
-                            <p:rowEditor />
-                        </p:column>
+                        <p:column style="width:26px">
+                            <p:commandButton  id="iconOnly" icon="ui-icon-pencil" title="Icon Only" />
+                     </p:column>
                     </p:dataTable>
                     <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroCursosMB.novoCurso()}"/>
                     <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>

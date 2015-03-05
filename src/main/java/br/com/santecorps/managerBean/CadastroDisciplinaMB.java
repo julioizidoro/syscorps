@@ -7,7 +7,7 @@ package br.com.santecorps.managerBean;
 
 import br.com.santecorps.facade.DisciplinaFacade;
 import br.com.santecorps.model.Disciplina;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
+/*import com.sun.javafx.scene.control.skin.VirtualFlow;*/
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
