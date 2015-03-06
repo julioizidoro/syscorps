@@ -40,7 +40,9 @@
                         </p:column>
 
                        <p:column style="width:26px">
-                            <p:commandButton  id="iconOnly" icon="ui-icon-pencil" title="Icon Only" />
+                           <p:commandButton  id="iconOnly" icon="ui-icon-pencil" title="Icon Only" action="#{cadastroTurmasMB.consultarTurma()}" >
+                               <f:param name="id_turma" value="#{consturma.idturma}"/>
+                            </p:commandButton>
                      </p:column>
                     </p:dataTable>
                     <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroTurmasMB.novaTurma()}"/>

@@ -6,6 +6,7 @@
 package br.com.santecorps.managerBean;
 
 import br.com.santecorps.facade.CursoFacade;
+
 import br.com.santecorps.facade.TurmaFacade;
 import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Curso;
@@ -14,7 +15,9 @@ import br.com.santecorps.model.Unidade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -29,44 +32,20 @@ public class CadastroTurmasMB implements Serializable{
     private List<Turma> listaTurmas;
     private Turma turma;
     private String idCurso;
-    private List<Curso> listaCursos;
+   
 
     public CadastroTurmasMB() {
-        this.listaTurmas = new ArrayList<Turma>();
-        this.turma = new Turma();
-        CursoFacade cursoFacade = new CursoFacade();
-        listaCursos = cursoFacade.listar("");
-        if (listaCursos==null){
-            listaCursos = new ArrayList<Curso>();
-        }
+        turma = new Turma();
+        listaTurmas = new ArrayList<Turma>();
+     
     }
-
-    public List<Curso> getListaCursos() {
-        return listaCursos;
-    }
-
-    public void setListaCursos(List<Curso> listaCursos) {
-        this.listaCursos = listaCursos;
-    }
-
     public List<Turma> getListaTurmas() {
-        listarTurmas();
         return listaTurmas;
     }
 
     public void setListaTurmas(List<Turma> listaTurmas) {
         this.listaTurmas = listaTurmas;
     }
-
-    public String getIdCurso() {
-        return idCurso;
-    }
-
-    public void setIdCurso(String idCurso) {
-        this.idCurso = idCurso;
-    }
-
-
     public Turma getTurma() {
         return turma;
     }
@@ -101,6 +80,19 @@ public class CadastroTurmasMB implements Serializable{
     
     public String cancelar(){
         return "consturmas";
+    }
+    public String consultarTurma(){
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+        int idTurma=  Integer.parseInt(params.get("id_professor"));
+        if (idTurma>0){
+            TurmaFacade turmaFacade = new TurmaFacade();
+            turma = turmaFacade.getTurmaId(idTurma);
+            if (turma!=null){
+                return "cadturmas";
+            }
+        }
+        return null;
     }
     
 }

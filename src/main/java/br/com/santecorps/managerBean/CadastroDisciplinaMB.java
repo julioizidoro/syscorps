@@ -7,12 +7,13 @@ package br.com.santecorps.managerBean;
 
 import br.com.santecorps.facade.DisciplinaFacade;
 import br.com.santecorps.model.Disciplina;
-/*import com.sun.javafx.scene.control.skin.VirtualFlow;*/
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import java.util.Map;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -21,19 +22,16 @@ import javax.inject.Named;
  */
 
 @Named
-@RequestScoped
+@SessionScoped
 public class CadastroDisciplinaMB implements Serializable{
     
     private Disciplina disciplina;
     private List<Disciplina> listaDisciplina;
 
     public CadastroDisciplinaMB() {
-        if (disciplina==null){
+        
             disciplina = new Disciplina();
-        }
-        if (listaDisciplina==null){
             gerarListaDisciplina("");
-        }
         
     }
     
@@ -76,7 +74,19 @@ public class CadastroDisciplinaMB implements Serializable{
         return "consdisciplina";
     }
     
-    
+    public String consultarDisciplina(){
+         FacesContext fc = FacesContext.getCurrentInstance();
+         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+        int idDisciplina =  Integer.parseInt(params.get("id_disciplina"));
+        if (idDisciplina>0){
+           DisciplinaFacade disciplinaFacade = new DisciplinaFacade();
+            disciplina = disciplinaFacade.getDisciplinaId(idDisciplina);
+            if (disciplina!=null){
+                return "caddisciplina";
+            }
+        }
+        return null;
+    }
     
     
     

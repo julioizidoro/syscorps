@@ -12,7 +12,10 @@ import br.com.santecorps.model.Unidade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -21,7 +24,7 @@ import javax.inject.Named;
  */
 
 @Named
-@RequestScoped
+@SessionScoped
 public class CadastroProfessorMB implements Serializable{
     
     
@@ -29,12 +32,8 @@ public class CadastroProfessorMB implements Serializable{
     private List<Professor> listaProfessor;
 
     public CadastroProfessorMB() {
-        if (this.professor==null){
             professor = new Professor();
-        }
-        if (listaProfessor==null){
-            gerarListaProfessor();
-        }
+            listaProfessor();
     }
 
     public Professor getProfessor() {
@@ -46,9 +45,6 @@ public class CadastroProfessorMB implements Serializable{
     }
 
     public List<Professor> getListaProfessor() {
-         if (listaProfessor==null){
-            gerarListaProfessor();
-        }
         return listaProfessor;
     }
 
@@ -56,7 +52,7 @@ public class CadastroProfessorMB implements Serializable{
         this.listaProfessor = listaProfessor;
     }
     
-    public void gerarListaProfessor(){
+    public void listaProfessor(){
         ProfessorFacade professorFacade = new ProfessorFacade();
         listaProfessor = professorFacade.listar("");
         if (listaProfessor==null){
@@ -81,6 +77,18 @@ public class CadastroProfessorMB implements Serializable{
         return "consprofessor";
     }
     
-    
+      public String consultarProfessor(){
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+        int idProfessor=  Integer.parseInt(params.get("id_professor"));
+        if (idProfessor>0){
+            ProfessorFacade professorFacade = new ProfessorFacade();
+            professor = professorFacade.getProfessorId(idProfessor);
+            if (professor!=null){
+                return "cadprofessor";
+            }
+        }
+        return null;
+    }
     
 }

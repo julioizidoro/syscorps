@@ -26,5 +26,10 @@ public class ProfessorFacade {
         professorDao = new ProfessorDao();
         return professorDao.listar(nome);
     }
+
+    public Professor getProfessorId(int idProfessor){
+        professorDao = new ProfessorDao();
+        return professorDao.getProfessorId(idProfessor);
+    }
     
 }

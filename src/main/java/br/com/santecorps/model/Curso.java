@@ -44,6 +44,7 @@ public class Curso implements Serializable {
     private List<Turma> turmaList;
 
     public Curso() {
+        
     }
 
     public Curso(Integer idcurso) {

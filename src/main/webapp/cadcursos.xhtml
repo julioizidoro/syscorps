@@ -23,11 +23,12 @@
 
                         <p:outputLabel value="Tipo de Curso:" />
                         
-                        <select name="tipoCurso" id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" style="width:205px">
-			<option  value="trabalha">Selecione</option> 
-				<option value="Livre">Livre</option>
-				<option value="Técnico">Técnico</option>
-                        </select>
+                         <h:selectOneMenu id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" style="width:205px">
+                             <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
+                                 <f:selectItem itemLabel="Livre" itemValue="Livre" />  
+                                 <f:selectItem itemLabel="Técnico" itemValue="Técnico" />  
+                                
+                          </h:selectOneMenu>
                     </h:panelGrid>
                             </p:tab>
                          </p:tabView>  

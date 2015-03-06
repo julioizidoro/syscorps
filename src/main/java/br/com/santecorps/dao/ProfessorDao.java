@@ -30,5 +30,13 @@ public class ProfessorDao {
         List<Professor> listaProfessor = q.getResultList();
         return listaProfessor;
     }
+
+    public Professor getProfessorId(int idProfessor) {
+        EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Professor professor = manager.find(Professor.class, idProfessor);
+        manager.getTransaction().commit();
+        return professor;
+    }
     
 }

@@ -37,5 +37,13 @@ public class TurmaDao {
         List<Turma> listaTurma = q.getResultList();
         return listaTurma;
     }
+
+    public Turma getTurmaId(int idTurma) {
+      EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Turma turma = manager.find(Turma.class, idTurma);
+        manager.getTransaction().commit();
+        return turma;
+    }
     
 }

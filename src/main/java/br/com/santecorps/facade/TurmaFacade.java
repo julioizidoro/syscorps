@@ -31,4 +31,9 @@ public class TurmaFacade {
         turmaDao = new TurmaDao();
         return turmaDao.listar(idCurso, idUnidade);
     }
+
+    public Turma getTurmaId(int idTurma) {
+        turmaDao = new TurmaDao();
+        return turmaDao.getTurmaId(idTurma);
+    }
 }

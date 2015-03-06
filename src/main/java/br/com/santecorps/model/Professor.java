@@ -92,6 +92,7 @@ public class Professor implements Serializable {
     private List<Gradeturma> gradeturmaList;
 
     public Professor() {
+        
     }
 
     public Professor(Integer idprofessor) {

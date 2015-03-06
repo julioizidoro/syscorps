@@ -10,9 +10,12 @@ import br.com.santecorps.model.Curso;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -21,22 +24,33 @@ import javax.inject.Named;
  */
 
 @Named
-@RequestScoped
+@SessionScoped
 public class CadastroCursosMB implements Serializable{
+    
     
     private Curso curso;
     private List<Curso> listaCursos;
     private String mensagem;
+    
 
     public CadastroCursosMB() {
         this.listaCursos = new ArrayList<Curso>();
         this.curso = new Curso();
-                ;
     }
 
     public Curso getCurso() {
         return curso;
     }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+   
 
     public void setCurso(Curso curso) {
         this.curso = curso;
@@ -56,6 +70,9 @@ public class CadastroCursosMB implements Serializable{
     }
     
     public String salvarCurso(){
+        if (curso==null){
+            new Curso();
+        }
         CursoFacade cursoFacade = new CursoFacade();
         cursoFacade.salvar(curso);
         this.mensagem = "Curso Salvo com Sucesso";
@@ -78,5 +95,20 @@ public class CadastroCursosMB implements Serializable{
             listaCursos = new ArrayList<Curso>();
         }
     }
+    
+    public String consultarCurso(){
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+        int idCurso =  Integer.parseInt(params.get("id_curso"));
+        if (idCurso>0){
+            CursoFacade cursoFacade = new CursoFacade();
+            curso = cursoFacade.getCurso(idCurso);
+            if (curso!=null){
+                return "cadcursos";
+            }
+        }
+        return null;
+    }
+    
     
 }

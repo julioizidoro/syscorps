@@ -31,5 +31,13 @@ public class DisciplinaDao {
         List<Disciplina> listaDisciplina = q.getResultList();
         return listaDisciplina;
     }
+
+    public Disciplina getDisciplinaId(int idDisciplina) {
+         EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Disciplina disciplina = manager.find(Disciplina.class, idDisciplina);
+        manager.getTransaction().commit();
+        return disciplina;
+    }
     
 }

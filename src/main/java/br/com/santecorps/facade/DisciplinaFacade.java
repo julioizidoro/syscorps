@@ -5,7 +5,9 @@
  */
 package br.com.santecorps.facade;
 
+import br.com.santecorps.dao.CursoDao;
 import br.com.santecorps.dao.DisciplinaDao;
+import br.com.santecorps.model.Curso;
 import br.com.santecorps.model.Disciplina;
 import java.util.List;
 
@@ -26,5 +28,8 @@ public class DisciplinaFacade {
         disciplinaDao = new DisciplinaDao();
         return disciplinaDao.listar(nome);
     }
-    
+    public Disciplina getDisciplinaId(int idDiscilina){
+        disciplinaDao = new DisciplinaDao();
+        return disciplinaDao.getDisciplinaId(idDiscilina);
+    }
 }
