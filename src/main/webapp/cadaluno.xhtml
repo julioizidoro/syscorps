@@ -239,7 +239,7 @@
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5" >
                                 <p:inputText id="profissaoAvalista" label="profissao:" value="#{cadastroAlunoMB.avalista.profissao}" size="40" maxlength="15" required="false" class="left"> </p:inputText>
-                                <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.avalista.rendaMensal}" class="leftRg" size="28">
+                                <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.rendaMensalAvalista}" class="leftRg" size="28">
                                     <f:convertNumber pattern="#.##0,00" type="currency" maxFractionDigits="2" minFractionDigits="2"/>
                                 </p:inputText>
                             </h:panelGrid>
@@ -347,9 +347,7 @@
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5" >
                                 <p:inputText id="profissaoConjuge" label="profissao:" value="#{cadastroAlunoMB.conjuge.profissao}" size="40" maxlength="15" required="false" class="left"> </p:inputText>
-                                <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.conjuge.rendaMensal}"   class="leftRg" size="28">
-                                    <f:convertNumber pattern="#.##0,00" type="currency" maxFractionDigits="2" minFractionDigits="2"/>
-                                </p:inputText>
+                                <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.rendaMensalConjuge}"   class="leftRg" size="28"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="4" >
                                 <h:outputText value="CPF: " class="left"/>

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
@@ -28,7 +29,9 @@
                         <h:outputText value="#{consAluno.foneCelular}" />
                     </p:column>
                    <p:column style="width:26px">
-                            <p:commandButton  id="iconOnly" icon="ui-icon-pencil" title="Icon Only" />
+                       <p:commandButton  id="iconOnly" icon="ui-icon-pencil" title="Icon Only" action="#{cadastroAlunoMB.consultarAluno()}" >
+                           <f:param name="id_aluno" value="#{consAluno.idaluno}"/>
+                       </p:commandButton>
                      </p:column>
                 </p:dataTable>
                    <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.novoAluno()}"/>
