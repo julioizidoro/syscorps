@@ -32,12 +32,12 @@ public class CadastroTurmasMB implements Serializable{
     private List<Turma> listaTurmas;
     private Turma turma;
     private String idCurso;
+    private List<Curso> listaCursos;
    
 
     public CadastroTurmasMB() {
         turma = new Turma();
         listaTurmas = new ArrayList<Turma>();
-     
     }
     public List<Turma> getListaTurmas() {
         return listaTurmas;
@@ -58,12 +58,21 @@ public class CadastroTurmasMB implements Serializable{
         this.idCurso = idCurso;
     }
 
+    public List<Curso> getListaCursos() {
+        return listaCursos;
+    }
+
+    public void setListaCursos(List<Curso> listaCursos) {
+        this.listaCursos = listaCursos;
+    }
+
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
     
     public String novaTurma(){
         turma = new Turma();
+        listarCursos();
         return "cadturmas";
     }
     
@@ -103,6 +112,14 @@ public class CadastroTurmasMB implements Serializable{
             }
         }
         return null;
+    }
+    
+    public void listarCursos(){
+        CursoFacade cursoFacade = new CursoFacade();
+        listaCursos = cursoFacade.listar("");
+        if (listaCursos==null){
+            listaCursos = new ArrayList<Curso>();
+        }
     }
     
 }

@@ -32,6 +32,7 @@ public class CadastroCursosMB implements Serializable{
     private List<Curso> listaCursos;
     private String mensagem;
     
+    
 
     public CadastroCursosMB() {
         this.listaCursos = new ArrayList<Curso>();
