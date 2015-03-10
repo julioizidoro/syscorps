@@ -66,6 +66,7 @@ public class CadastroCursosMB implements Serializable{
     }
     
     public String novoCurso(){
+        this.curso = new Curso();
         return "cadcursos";
     }
     
@@ -78,6 +79,7 @@ public class CadastroCursosMB implements Serializable{
         this.mensagem = "Curso Salvo com Sucesso";
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Sucesso",  mensagem) );
+        listarCursos();
         return "conscursos";
     }
     

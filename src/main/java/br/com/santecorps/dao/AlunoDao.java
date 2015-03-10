@@ -38,6 +38,7 @@ public class AlunoDao {
         manager.getTransaction().begin();
         Query q = manager.createQuery("select a from Aluno a where a.nome like '%" + nome + "%' order by a.nome" );
         List<Aluno> listaAlunos = q.getResultList();
+        manager.getTransaction().commit();
         return listaAlunos;
     }
     
@@ -56,5 +57,35 @@ public class AlunoDao {
         manager.getTransaction().commit();
         return localtrabalho;
     }
+    
+    public Localtrabalho getLocalTrabalhoId(int idLocaltrabalho){
+        EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Localtrabalho localtrabalho = manager.find(Localtrabalho.class, idLocaltrabalho);
+        manager.getTransaction().commit();
+        return localtrabalho;
+    }
+    
+    public Aluno getAlunoId(int idAluno){
+        EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Aluno aluno = manager.find(Aluno.class, idAluno);
+        manager.getTransaction().commit();
+        return aluno;
+    }
+    
+    
+    
+    public Conjuge getConjugeId(int idConjuge){
+        EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Conjuge conjuge = manager.find(Conjuge.class, idConjuge);
+        manager.getTransaction().commit();
+        return conjuge;
+    }
+    
+    
+    
+   
     
 }

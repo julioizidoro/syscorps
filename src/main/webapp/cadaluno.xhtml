@@ -31,7 +31,9 @@
                                 </p:inputMask>
                                 <p:inputText id="rg" label="RG" value="#{cadastroAlunoMB.aluno.rg}" size="17" maxlength="19" required="false" class="leftRg"> 
                                 </p:inputText>
-                                <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd/MM/yyyy" mask="true" size="26" maxlength="15" class="leftP" />
+                                <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd/MM/yyyy" mask="true" size="26" maxlength="15" class="leftP" >
+                                    <f:convertDateTime parent="dd/MM/yyyy"/>
+                                </p:calendar>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="3">
                                 <p:outputLabel value="Email:" for="email" class="left" />
@@ -54,20 +56,20 @@
                             <h:panelGrid columns="3" cellpadding="4">
                                  <h:outputText value="Trabalha?" class="left"/>
                                 <h:outputText value="Profissão: " class="leftMeioo" />
-                                <h:outputText value="Estado Civil:" class="leftMeio20"/>
+                                <h:outputText value="Estado Civil:" class="leftMeio12"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="3">
                                 
                     
                         <h:selectOneMenu id="trabalha" class="left"  style="width:120px">
-                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" value="#{cadastroAlunoMB.aluno.trabalha}"/>
                                 <f:selectItem itemLabel="Nao" itemValue="0" />  
                                 <f:selectItem itemLabel="Sim" itemValue="1" />       
                         </h:selectOneMenu>
                                
-                                <p:inputText id="profissao" label="profissao:" value="#{cadastroAlunoMB.aluno.profissao}" size="20" maxlength="15" required="false" class="leftRg">
+                                <p:inputText id="profissao" label="profissao:" value="#{cadastroAlunoMB.aluno.profissao}" size="27" maxlength="60" required="false" class="leftRg">
                                 </p:inputText>
-                           <h:selectOneMenu  id="estadoCiv" value="#{cadastroAlunoMB.aluno.estadoCivil}" style="width:221px" class="leftRg">
+                           <h:selectOneMenu  id="estadoCiv" value="#{cadastroAlunoMB.aluno.estadoCivil}" style="width:173px" class="leftRg">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="solteiro" itemValue="solteiro" />  
                                  <f:selectItem itemLabel="Casado" itemValue="Casado" />  
@@ -139,7 +141,7 @@
                           <h:selectOneMenu id="tipologra" value="#{cadastroAlunoMB.aluno.tipoLogradouro}" style="width:180px" class="left">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Rua" itemValue="Rua" />  
-                                 <f:selectItem itemLabel="Rodivia" itemValue="Rodivia" />  
+                                 <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
                                  <f:selectItem itemLabel="Estrada" itemValue="Estrada" />  
                                  <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                  <f:selectItem itemLabel="BR" itemValue="BR" />       
@@ -238,8 +240,8 @@
                                 <p:outputLabel value="Renda Mensal:" for="rendaAvalista" class="leftMeio13"/>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5" >
-                                <p:inputText id="profissaoAvalista" label="profissao:" value="#{cadastroAlunoMB.avalista.profissao}" size="40" maxlength="15" required="false" class="left"> </p:inputText>
-                                <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.rendaMensalAvalista}" class="leftRg" size="28">
+                                <p:inputText id="profissaoAvalista" label="profissao:" value="#{cadastroAlunoMB.avalista.profissao}" size="40" maxlength="100" required="false" class="left"> </p:inputText>
+                                <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.avalista.rendaMensal}" class="leftRg" size="28">
                                     <f:convertNumber pattern="#.##0,00" type="currency" maxFractionDigits="2" minFractionDigits="2"/>
                                 </p:inputText>
                             </h:panelGrid>
@@ -252,7 +254,9 @@
                                 <p:inputMask id="cpfAvalista" label="CPFavalista" value="#{cadastroAlunoMB.avalista.cpf}" size="14" required="false" mask="999.999.999-99"  class="left"/>
                                 <p:inputText id="rgAval" label="RG" value="#{cadastroAlunoMB.avalista.rg}" size="17" maxlength="19" required="false" class="leftRg"> 
                                 </p:inputText>
-                                <p:calendar id="maskAval" value="#{cadastroAlunoMB.avalista.dataNascimento}" pattern="dd-MM-yyyy" mask="true" size="26" maxlength="15" class="leftP" />
+                                <p:calendar id="maskAval" value="#{cadastroAlunoMB.avalista.dataNascimento}" pattern="dd/MM/yyyy" mask="true" size="26" maxlength="10" class="leftP" >
+                                    <f:convertDateTime parent="dd/MM/yyyy"/>
+                                </p:calendar>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel value="Tipo Logradouro:" class="left" />
@@ -263,7 +267,7 @@
                           <h:selectOneMenu id="logradouroAval" value="#{cadastroAlunoMB.avalista.tipoLogradouro}"  style="width:191px" class="left">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Rua" itemValue="Rua" />  
-                                 <f:selectItem itemLabel="Rodivia" itemValue="Rodivia" />  
+                                 <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
                                  <f:selectItem itemLabel="Estrada" itemValue="Estrada" />  
                                  <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                  <f:selectItem itemLabel="BR" itemValue="BR" />       
@@ -279,7 +283,7 @@
                             <h:panelGrid columns="6" cellpadding="5">   
                                 <p:inputText id="numeroAval" value="#{cadastroAlunoMB.avalista.numero}" size="6"  class="left"/>
                                 <p:inputText id="complementoAval"  value="#{cadastroAlunoMB.avalista.complemento}" size="34" class="leftRg"/>
-                                <p:inputMask id="cepAval"  value="#{cadastroAlunoMB.avalista.cep}" size="15" class="leftRg" mask="(99)9999-9999"/>
+                                <p:inputMask id="cepAval"  value="#{cadastroAlunoMB.avalista.cep}" size="15" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="5">
                                 <p:outputLabel value="Bairro:" for="bairroAvalista" class="left"/>
@@ -346,8 +350,8 @@
                                 <p:outputLabel value="Renda Mensal:" for="rendaConjuge" class="leftMeio13"/>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5" >
-                                <p:inputText id="profissaoConjuge" label="profissao:" value="#{cadastroAlunoMB.conjuge.profissao}" size="40" maxlength="15" required="false" class="left"> </p:inputText>
-                                <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.rendaMensalConjuge}"   class="leftRg" size="28"/>
+                                <p:inputText id="profissaoConjuge" label="profissao:" value="#{cadastroAlunoMB.conjuge.profissao}" size="40" maxlength="100" required="false" class="left"> </p:inputText>
+                                <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.conjuge.rendaMensal}"   class="leftRg" size="28"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="4" >
                                 <h:outputText value="CPF: " class="left"/>
@@ -358,7 +362,9 @@
                                 <p:inputMask id="cpfConjuge" label="CPF/CNPJ" value="#{cadastroAlunoMB.conjuge.cpf}" size="14" required="false" mask="999.999.999-99"  class="left"/>
                                 <p:inputText id="rgConjuge" label="RG" value="#{cadastroAlunoMB.conjuge.rg}" size="17" maxlength="19" required="false" class="leftRg"> 
                                 </p:inputText>
-                                <p:calendar id="maskConjuge" value="#{cadastroAlunoMB.conjuge.dataNascimento}" pattern="dd-MM-yyyy" mask="true" size="26" maxlength="15" class="leftP" />
+                                <p:calendar id="maskConjuge" value="#{cadastroAlunoMB.conjuge.dataNascimento}" pattern="dd/MM/yyyy" mask="true" size="26" maxlength="15" class="leftP" >
+                                    <f:convertDateTime parent="dd/MM/yyyy"/>
+                                </p:calendar>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel value="Telefone Fixo:" for="telFixoConjuge" class="left" />
@@ -376,7 +382,7 @@
                            <h:selectOneMenu  id="tipoConjuge" value="#{cadastroAlunoMB.conjuge.tipoLogradouro}" style="width:183px" class="left">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Rua" itemValue="Rua" />  
-                                 <f:selectItem itemLabel="Rodivia" itemValue="Rodivia" />  
+                                 <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
                                  <f:selectItem itemLabel="Estrada" itemValue="Estrada" />  
                                  <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                  <f:selectItem itemLabel="BR" itemValue="BR" />       
@@ -391,7 +397,7 @@
                             <h:panelGrid columns="6" cellpadding="5">   
                                 <p:inputText id="numeroConjuge"  value="#{cadastroAlunoMB.conjuge.numero}" size="6"  class="left"/>
                                 <p:inputText id="complementoConjuge"  value="#{cadastroAlunoMB.conjuge.complemento}" size="34" class="leftRg"/>
-                                <p:inputText id="cepConjuge"  value="#{cadastroAlunoMB.conjuge.cep}" size="15" class="leftRg"/>
+                                    <p:inputMask id="cepConjuge"  value="#{cadastroAlunoMB.conjuge.cep}" size="15" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="5">
                                  <p:outputLabel value="Bairro:" for="bairroConjuge" class="left"/>

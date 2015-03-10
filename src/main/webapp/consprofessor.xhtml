@@ -12,6 +12,14 @@
                   <br></br>
                   <legend id="iUsu" ><b>Consulta de Professores </b></legend>
                    <br></br>
+                   <h:panelGrid columns="2" cellpadding="3">
+                    <p:outputLabel value="Nome:" for="nome"  class="left" /> 
+                </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="1">
+                    <p:inputText id="nome" size="40" maxlength="100" class="left" />
+                    <p:commandButton icon=" ui-icon-search" class="botaoConsultaa"/>
+                    
+                </h:panelGrid>
                    <p:dataTable var="consProfessor" value="#{cadastroProfessorMB.listaProfessor}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10">
                     <p:column headerText="Nome" >
                         <h:outputText value="#{consProfessor.nome}" />

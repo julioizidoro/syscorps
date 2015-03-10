@@ -50,11 +50,20 @@ public class CadastroTurmasMB implements Serializable{
         return turma;
     }
 
+    public String getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(String idCurso) {
+        this.idCurso = idCurso;
+    }
+
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
     
     public String novaTurma(){
+        turma = new Turma();
         return "cadturmas";
     }
     
@@ -75,6 +84,7 @@ public class CadastroTurmasMB implements Serializable{
         Unidade unidade = unidadeFacade.getUnidade(1);
         turma.setUnidade(unidade);
         turmaFacade.salvar(turma);
+        listarTurmas();
         return "consturmas";
     }
     

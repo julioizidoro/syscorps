@@ -39,4 +39,19 @@ public class AlunoFacade {
         return alunoDao.salvarLocalTrabalho(localtrabalho);
     }
     
+    public Aluno getAlunoId(int idAluno){
+        alunoDao = new AlunoDao();
+        return alunoDao.getAlunoId(idAluno);
+    }
+    
+    public Conjuge getConjugeId(int idConjuge){
+        alunoDao = new AlunoDao();
+        return alunoDao.getConjugeId(idConjuge);
+    }
+    
+    public Localtrabalho getLocalTrabalhoId(int idLocaltrabalho){
+        alunoDao = new AlunoDao();
+        return alunoDao.getLocalTrabalhoId(idLocaltrabalho);
+    }
+    
 }

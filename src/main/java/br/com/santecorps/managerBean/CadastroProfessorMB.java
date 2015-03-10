@@ -61,6 +61,7 @@ public class CadastroProfessorMB implements Serializable{
     }
     
     public String novoProfessor(){
+        professor = new Professor();
         return "cadprofessor";
     }
     
@@ -74,6 +75,7 @@ public class CadastroProfessorMB implements Serializable{
         professor.setUnidade(unidade);
         ProfessorFacade professorFacade = new ProfessorFacade();
         professorFacade.salvar(professor);
+        listaProfessor();
         return "consprofessor";
     }
     

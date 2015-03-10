@@ -60,6 +60,7 @@ public class CadastroDisciplinaMB implements Serializable{
     }
     
     public String nova(){
+        disciplina = new Disciplina();
         return "caddisciplina";
     }
     
