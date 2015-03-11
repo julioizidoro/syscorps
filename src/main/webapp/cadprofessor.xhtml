@@ -18,19 +18,18 @@
                                 <p:outputLabel value="Nome:" for="nomeDis"  class="left" /> 
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="5">
-                                <p:inputText id="nomeDis"   size="81" maxlength="100" class="left"  value="#{cadastroProfessorMB.professor.nome}"/>
+                                <p:inputText id="nomeDis"   size="81" maxlength="100" class="left"  value="#{cadastroProfessorMB.professor.nome}" required="true"/>
                             </h:panelGrid>
 
                             <h:panelGrid columns="3" cellpadding="4" >
-                                <h:outputText value="CPF: " class="left"/>
-                                <h:outputText value="RG:" class="leftMeio2"/>
-                                <h:outputText value="Data de Nascimento:" class="leftMeio2"/> 
+                                <p:outputLabel value="CPF: " class="left" for="cpf"/>
+                                <p:outputLabel value="RG:" class="leftMeio7" for="rg"/>
+                                <p:outputLabel value="Data de Nascimento:" class="leftMeio2"/> 
                             </h:panelGrid>  
                             <h:panelGrid columns="3" cellpadding="3" >
-                                <p:inputMask id="cpf" label="CPF/CNPJ"  size="14" required="false" mask="999.999.999-99"  class="left" value="#{cadastroProfessorMB.professor.cpf}">
-                                </p:inputMask>
-                                <p:inputText id="rg" label="RG"  size="17" maxlength="19" required="false" class="leftRg" value="#{cadastroProfessorMB.professor.rg}"> 
-                                </p:inputText>
+                                <p:inputMask id="cpf" label="CPF/CNPJ" size="13" required="true" mask="999.999.999-99"  class="left" value="#{cadastroProfessorMB.professor.cpf}">
+                                </p:inputMask>  
+                                <p:inputMask id="rg"  required="true" class="leftRg" size="17" value="#{cadastroProfessorMB.professor.rg}" mask="?9999999999999999" /> 
                                 <p:calendar id="nasciP"  pattern="dd/MM/yyyy" mask="true" size="26" maxlength="15" class="leftP" value="#{cadastroProfessorMB.professor.dataNascimento}"/>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
@@ -55,14 +54,14 @@
                                 <p:outputLabel value="CEP:" for="cep" class="leftMeio3"/>
                             </h:panelGrid>       
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputText id="numero"   size="10"  class="left" value="#{cadastroProfessorMB.professor.numero}"/>
+                                <p:inputMask id="numero"   size="10" required="true" class="left" value="#{cadastroProfessorMB.professor.numero}" mask="?999999999"/>
                                 <p:inputText id="comple"  size="34" class="leftRg" value="#{cadastroProfessorMB.professor.complemento}"/>
-                                <p:inputMask id="cep"   size="11"  maxlength="9" class="leftRg" value="#{cadastroProfessorMB.professor.cep}" mask="99999-999"/>
+                                <p:inputMask id="cep"   size="11" required="true" maxlength="9" class="leftRg" value="#{cadastroProfessorMB.professor.cep}" mask="99999-999"/>
                             </h:panelGrid> 
                             <h:panelGrid columns="3" cellpadding="5">
                                  <p:outputLabel value="Bairro:" for="bairro" class="left"/>
                                    <p:outputLabel value="Cidade:" for="cidade" class="leftMeio12"/>
-                                <p:outputLabel value="Estado:" class="leftMeio10"/>
+                                 <p:outputLabel value="Estado:" class="leftMeio10"/>
                               
                                
                             </h:panelGrid>
@@ -77,27 +76,27 @@
                                  <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
                                  <f:selectItem itemLabel="Amapá" itemValue="AP" />  
                                  <f:selectItem itemLabel="Amazonas" itemValue="AM" />  
-                                <f:selectItem itemLabel="Bahia" itemValue="BA" />  
-                                <f:selectItem itemLabel="Ceará" itemValue="CE" />  
-                                <f:selectItem itemLabel="Distrito Federal" itemValue="DF" />  
+                                 <f:selectItem itemLabel="Bahia" itemValue="BA" />  
+                                 <f:selectItem itemLabel="Ceará" itemValue="CE" />  
+                                 <f:selectItem itemLabel="Distrito Federal" itemValue="DF" />  
                                  <f:selectItem itemLabel="Espirito Santo" itemValue="ES" />  
-                                <f:selectItem itemLabel="Goiás" itemValue="GO" />  
+                                 <f:selectItem itemLabel="Goiás" itemValue="GO" />  
                                  <f:selectItem itemLabel="Maranhão" itemValue="MA" />  
-                                <f:selectItem itemLabel="Mato Grosso" itemValue="MT" />  
-                                <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
-                                <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
+                                 <f:selectItem itemLabel="Mato Grosso" itemValue="MT" />  
+                                 <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
+                                 <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
                                  <f:selectItem itemLabel="Pará" itemValue="PA" />  
-                                  <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
+                                 <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
                                  <f:selectItem itemLabel="Paraná" itemValue="PR" />  
                                  <f:selectItem itemLabel="Pernambuco" itemValue="PE" />  
-                                  <f:selectItem itemLabel="Piauí" itemValue="PI" />  
+                                 <f:selectItem itemLabel="Piauí" itemValue="PI" />  
                                  <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />  
-                                    <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
-                                  <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
+                                 <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
+                                 <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
                                  <f:selectItem itemLabel="Rondônia" itemValue="RO" />  
                                  <f:selectItem itemLabel="Roraima" itemValue="RR" />  
                                  <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />  
-                                  <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
+                                 <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
                                  <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
                                  <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
                                    
@@ -110,8 +109,8 @@
                                 <p:outputLabel value="Telefone Celular:" for="telCelular"  class="leftMeio3"/>
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="5">
-                                <p:inputMask id="telFixo"   size="17" maxlength="11"  class="left" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneFixo}"/>
-                                <p:inputMask id="telCelular"  size="15" maxlength="14"  class="leftMeio2" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneCelular}"/>
+                                <p:inputMask id="telFixo"   size="18" maxlength="11" required="true" class="left" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneFixo}"/>
+                                <p:inputMask id="telCelular"  size="15" maxlength="14" required="true" class="leftMeio2" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneCelular}"/>
 
                             </h:panelGrid>
                         </p:tab>

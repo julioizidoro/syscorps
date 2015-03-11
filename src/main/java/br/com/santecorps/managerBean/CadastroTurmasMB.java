@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -26,7 +26,7 @@ import javax.inject.Named;
  */
 
 @Named
-@RequestScoped
+@SessionScoped
 public class CadastroTurmasMB implements Serializable{
     
     private List<Turma> listaTurmas;
@@ -37,7 +37,7 @@ public class CadastroTurmasMB implements Serializable{
 
     public CadastroTurmasMB() {
         turma = new Turma();
-        listaTurmas = new ArrayList<Turma>();
+        listarTurmas();
     }
     public List<Turma> getListaTurmas() {
         return listaTurmas;
@@ -84,6 +84,10 @@ public class CadastroTurmasMB implements Serializable{
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public String salvarTurma(){
         TurmaFacade turmaFacade = new TurmaFacade();
         CursoFacade cursoFacade = new CursoFacade();
@@ -101,13 +105,15 @@ public class CadastroTurmasMB implements Serializable{
         return "consturmas";
     }
     public String consultarTurma(){
+        listarCursos();
         FacesContext fc = FacesContext.getCurrentInstance();
         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-        int idTurma=  Integer.parseInt(params.get("id_professor"));
+        int idTurma=  Integer.parseInt(params.get("id_turma"));
         if (idTurma>0){
             TurmaFacade turmaFacade = new TurmaFacade();
             turma = turmaFacade.getTurmaId(idTurma);
             if (turma!=null){
+                idCurso = String.valueOf(turma.getCurso().getIdcurso());
                 return "cadturmas";
             }
         }

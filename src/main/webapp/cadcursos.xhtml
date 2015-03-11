@@ -12,18 +12,18 @@
                     <br></br>
                    <legend id="iUsu" ><b>Dados do Curso </b></legend>
                     <p:tabView class="tabelaaluno">
-                        <p:tab title="Dados da Turma" >
+                        <p:tab title="Dados do Curso" >
                     <h:panelGrid columns="2" cellpadding="5" class="meio2">
 
                         <p:outputLabel value="Nome do Curso:" for="nomeCurso" />
-                        <p:inputText id="nomeCurso"  value="#{cadastroCursosMB.curso.nome}"/>
+                        <p:inputText id="nomeCurso" required="true" value="#{cadastroCursosMB.curso.nome}"/>
 
                         <p:outputLabel value="Carga Hóraria:" for="cargaHora" />
-                        <p:inputText id="cargaHora"  value="#{cadastroCursosMB.curso.cargahoraria}"/>
+                        <p:inputText id="cargaHora" required="true" value="#{cadastroCursosMB.curso.cargahoraria}"/>
 
                         <p:outputLabel value="Tipo de Curso:" />
                         
-                         <h:selectOneMenu id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" style="width:205px">
+                         <h:selectOneMenu id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" required="true" style="width:205px">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Livre" itemValue="Livre" />  
                                  <f:selectItem itemLabel="Técnico" itemValue="Técnico" />  

@@ -141,7 +141,7 @@
                           <h:selectOneMenu id="tipologra" value="#{cadastroAlunoMB.aluno.tipoLogradouro}" style="width:180px" class="left">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Rua" itemValue="Rua" />  
-                                 <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
+                                 <f:selectItem itemLabel="Rodovia" itemValue="Rodovia" />  
                                  <f:selectItem itemLabel="Estrada" itemValue="Estrada" />  
                                  <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                  <f:selectItem itemLabel="BR" itemValue="BR" />       
@@ -154,7 +154,7 @@
                                 <p:outputLabel value="CEP:" for="cep" class="leftMeio3"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputText id="numero" value="#{cadastroAlunoMB.aluno.numero}"  size="10"  class="left"/>
+                                <p:inputMask id="numero"   size="10" required="true" class="left" value="#{cadastroAlunoMB.aluno.numero}" mask="?999999999"/>
                                 <p:inputText id="complemento" value="#{cadastroAlunoMB.aluno.complemento}"  size="34" class="leftRg"/>
                                 <p:inputMask id="cep" value="#{cadastroAlunoMB.aluno.cep}"  size="15"  maxlength="9" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
@@ -184,17 +184,17 @@
                                 <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
                                 <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
                                  <f:selectItem itemLabel="Pará" itemValue="PA" />  
-                                  <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
+                                 <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
                                  <f:selectItem itemLabel="Paraná" itemValue="PR" />  
                                  <f:selectItem itemLabel="Pernambuco" itemValue="PE" />  
-                                  <f:selectItem itemLabel="Piauí" itemValue="PI" />  
+                                 <f:selectItem itemLabel="Piauí" itemValue="PI" />  
                                  <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />  
-                                    <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
-                                  <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
+                                 <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
+                                 <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
                                  <f:selectItem itemLabel="Rondônia" itemValue="RO" />  
                                  <f:selectItem itemLabel="Roraima" itemValue="RR" />  
                                  <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />  
-                                  <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
+                                 <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
                                  <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
                                  <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
                                    
@@ -278,10 +278,10 @@
                             <h:panelGrid columns="6" cellpadding="5">   
                                 <p:outputLabel value="Número:" for="numeroAval"  class="left"/>
                                 <p:outputLabel value="Complemento:" for="complementoAval" class="leftMeio8"/>
-                                  <p:outputLabel value="CEP:" for="cepAval" class="leftMeio3"/>
+                                <p:outputLabel value="CEP:" for="cepAval" class="leftMeio3"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputText id="numeroAval" value="#{cadastroAlunoMB.avalista.numero}" size="6"  class="left"/>
+                                <p:inputMask id="numeroAval"   size="10" required="true" class="left" value="#{cadastroAlunoMB.avalista.numero}" mask="?999999999"/>
                                 <p:inputText id="complementoAval"  value="#{cadastroAlunoMB.avalista.complemento}" size="34" class="leftRg"/>
                                 <p:inputMask id="cepAval"  value="#{cadastroAlunoMB.avalista.cep}" size="15" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
@@ -294,40 +294,40 @@
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="5">
                                 <p:inputText id="bairroAvalista" value="#{cadastroAlunoMB.avalista.bairro}"  size="24" class="left"/>
-                                  <p:inputText id="cidadeAval"  value="#{cadastroAlunoMB.avalista.cidade}" size="16" class="leftRg"/>
+                                <p:inputText id="cidadeAval"  value="#{cadastroAlunoMB.avalista.cidade}" size="16" class="leftRg"/>
                                
-                                <h:selectOneMenu  id="estadoAval" value="#{cadastroAlunoMB.avalista.estado}" class="leftRg" style="width:150px">
-                                      <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
+                            <h:selectOneMenu  id="estadoAval" value="#{cadastroAlunoMB.avalista.estado}" class="leftRg" style="width:150px">
+                                <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
                                  
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
                                  <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
                                  <f:selectItem itemLabel="Amapá" itemValue="AP" />  
                                  <f:selectItem itemLabel="Amazonas" itemValue="AM" />  
-                                <f:selectItem itemLabel="Bahia" itemValue="BA" />  
-                                <f:selectItem itemLabel="Ceará" itemValue="CE" />  
-                                <f:selectItem itemLabel="Distrito Federal" itemValue="DF" />  
+                                 <f:selectItem itemLabel="Bahia" itemValue="BA" />  
+                                 <f:selectItem itemLabel="Ceará" itemValue="CE" />  
+                                 <f:selectItem itemLabel="Distrito Federal" itemValue="DF" />  
                                  <f:selectItem itemLabel="Espirito Santo" itemValue="ES" />  
-                                <f:selectItem itemLabel="Goiás" itemValue="GO" />  
+                                 <f:selectItem itemLabel="Goiás" itemValue="GO" />  
                                  <f:selectItem itemLabel="Maranhão" itemValue="MA" />  
-                                <f:selectItem itemLabel="Mato Grosso" itemValue="MT" />  
-                                <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
-                                <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
+                                 <f:selectItem itemLabel="Mato Grosso" itemValue="MT" />  
+                                 <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
+                                 <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
                                  <f:selectItem itemLabel="Pará" itemValue="PA" />  
-                                  <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
+                                 <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
                                  <f:selectItem itemLabel="Paraná" itemValue="PR" />  
                                  <f:selectItem itemLabel="Pernambuco" itemValue="PE" />  
-                                  <f:selectItem itemLabel="Piauí" itemValue="PI" />  
+                                 <f:selectItem itemLabel="Piauí" itemValue="PI" />  
                                  <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />  
-                                    <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
-                                  <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
+                                 <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
+                                 <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
                                  <f:selectItem itemLabel="Rondônia" itemValue="RO" />  
                                  <f:selectItem itemLabel="Roraima" itemValue="RR" />  
                                  <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />  
                                   <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
                                  <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
                                  <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
-                                   
-                          </h:selectOneMenu>
+                                    
+                            </h:selectOneMenu>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel value="Telefone Fixo:" for="telFixoAvalista" class="left" />
@@ -395,49 +395,49 @@
                                 <p:outputLabel value="CEP:" for="cepConjuge" class="leftMeio3"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputText id="numeroConjuge"  value="#{cadastroAlunoMB.conjuge.numero}" size="6"  class="left"/>
+                                <p:inputMask id="numeroConjuge"   size="6" required="true" class="left" value="#{cadastroAlunoMB.conjuge.numero}" mask="?999999999"/>
                                 <p:inputText id="complementoConjuge"  value="#{cadastroAlunoMB.conjuge.complemento}" size="34" class="leftRg"/>
-                                    <p:inputMask id="cepConjuge"  value="#{cadastroAlunoMB.conjuge.cep}" size="15" class="leftRg" mask="99999-999"/>
+                                <p:inputMask id="cepConjuge"  value="#{cadastroAlunoMB.conjuge.cep}" size="15" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="5">
                                  <p:outputLabel value="Bairro:" for="bairroConjuge" class="left"/>
                                  <p:outputLabel value="Cidade:" for="cidadeConjuge" class="leftMeio12"/>
-                                <p:outputLabel value="Estado:" class="leftMeio10"/>
+                                 <p:outputLabel value="Estado:" class="leftMeio10"/>
                                
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="5">
                                  <p:inputText id="bairroConjuge"  value="#{cadastroAlunoMB.conjuge.bairro}" size="24" class="left"/>
                                 <p:inputText id="cidadeConjuge"  value="#{cadastroAlunoMB.conjuge.cidade}" size="16" class="leftRg"/>
                             <h:selectOneMenu   id="estadoConjuge" value="#{cadastroAlunoMB.conjuge.estado}" class="leftRg" style="width:150px"> 
-                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
+                               <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
                                  
-                                 <f:selectItem itemLabel="Acre" itemValue="AC" /> 
-                                 <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
-                                 <f:selectItem itemLabel="Amapá" itemValue="AP" />  
-                                 <f:selectItem itemLabel="Amazonas" itemValue="AM" />  
+                                <f:selectItem itemLabel="Acre" itemValue="AC" /> 
+                                <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
+                                <f:selectItem itemLabel="Amapá" itemValue="AP" />  
+                                <f:selectItem itemLabel="Amazonas" itemValue="AM" />  
                                 <f:selectItem itemLabel="Bahia" itemValue="BA" />  
                                 <f:selectItem itemLabel="Ceará" itemValue="CE" />  
                                 <f:selectItem itemLabel="Distrito Federal" itemValue="DF" />  
-                                 <f:selectItem itemLabel="Espirito Santo" itemValue="ES" />  
+                                <f:selectItem itemLabel="Espirito Santo" itemValue="ES" />  
                                 <f:selectItem itemLabel="Goiás" itemValue="GO" />  
-                                 <f:selectItem itemLabel="Maranhão" itemValue="MA" />  
+                                <f:selectItem itemLabel="Maranhão" itemValue="MA" />  
                                 <f:selectItem itemLabel="Mato Grosso" itemValue="MT" />  
                                 <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
                                 <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
-                                 <f:selectItem itemLabel="Pará" itemValue="PA" />  
-                                  <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
-                                 <f:selectItem itemLabel="Paraná" itemValue="PR" />  
-                                 <f:selectItem itemLabel="Pernambuco" itemValue="PE" />  
-                                  <f:selectItem itemLabel="Piauí" itemValue="PI" />  
-                                 <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />  
-                                    <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
-                                  <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
-                                 <f:selectItem itemLabel="Rondônia" itemValue="RO" />  
-                                 <f:selectItem itemLabel="Roraima" itemValue="RR" />  
-                                 <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />  
-                                  <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
-                                 <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
-                                 <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
+                                <f:selectItem itemLabel="Pará" itemValue="PA" />  
+                                <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
+                                <f:selectItem itemLabel="Paraná" itemValue="PR" />  
+                                <f:selectItem itemLabel="Pernambuco" itemValue="PE" />  
+                                <f:selectItem itemLabel="Piauí" itemValue="PI" />  
+                                <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />  
+                                <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
+                                <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
+                                <f:selectItem itemLabel="Rondônia" itemValue="RO" />  
+                                <f:selectItem itemLabel="Roraima" itemValue="RR" />  
+                                <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />  
+                                <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
+                                <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
+                                <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
                                    
                           </h:selectOneMenu>
                                

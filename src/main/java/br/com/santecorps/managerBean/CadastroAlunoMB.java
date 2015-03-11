@@ -206,4 +206,74 @@ public class CadastroAlunoMB implements Serializable{
         
     }
     
+    public void carregarObjetos(){
+        aluno.setBairro("monte verde");
+        aluno.setCep("88032600");
+        aluno.setCidade("florianopolis");
+        aluno.setCidadeNascimento("Florianopolis");
+        aluno.setComplemento("casa");
+        aluno.setCpf("10468210911");
+        aluno.setDataNascimento(Formatacao.ConvercaoStringData("30/10/1997"));
+        aluno.setEmail("kamila@gmail.com");
+        aluno.setEstado("SC");
+        aluno.setEstadoCivil("Solteiro");
+        aluno.setEstadoNascimento("SC");
+        aluno.setFoneCelular("4884722287");
+        aluno.setFoneFixo("4832380360");
+        aluno.setFoneReferenciaPessoal("4884722222");
+        aluno.setNome("kamila");
+        aluno.setNomeMae("Fabiana");
+        aluno.setNomePai("Paulo");
+        aluno.setNumero("318");
+        aluno.setProfissao("Programador");
+        aluno.setReferenciaPessoal("Fabiola");
+        aluno.setRg("1112566");
+        aluno.setTipoLogradouro("Rua");
+        aluno.setTrabalha("Sim");
+        aluno.setUnidade(null);
+        
+        aluno.setAvalistaaluno(null);
+        aluno.setConjugeList(null);
+        
+        localTrabalho.setCargo("Programador Junior");
+        localTrabalho.setComprovanteRenda("renda");
+        localTrabalho.setFoneComercial("4832332320");
+        localTrabalho.setNome("TravelMate");
+        localTrabalho.setOutrasRendas("renda");
+        
+        avalista.setBairro("Capoeiras");
+        avalista.setCep("88032680");
+        avalista.setCidade("Florianpolis");
+        avalista.setComplemento("apto 10");
+        avalista.setCpf("10410410422");
+        avalista.setDataNascimento(Formatacao.ConvercaoStringData("10/05/1987"));
+        avalista.setEstado("SC");
+        avalista.setFoneCelular("4884848484");
+        avalista.setFoneFixo("4832380311");
+        avalista.setLogradouro("Jose martins");
+        avalista.setNome("joao");
+        avalista.setNumero("150");
+        avalista.setProfissao("Engenheiro");
+        avalista.setRendaMensal(3500.00f);
+        avalista.setRg("2545555");
+        avalista.setTipoLogradouro("BR");
+        
+        conjuge.setBairro("Monte verde");
+        conjuge.setCep("88032600");
+        conjuge.setCidade("Florianopolis");
+        conjuge.setComplemento("casa");
+        conjuge.setCpf("10468210122");
+        conjuge.setDataNascimento(Formatacao.ConvercaoStringData("30/10/1990"));
+        conjuge.setEstado("SC");
+        conjuge.setFoneCelular("4884722211");
+        conjuge.setFoneFixo("4832320560");
+        conjuge.setLogradouro("mone vicente");
+        conjuge.setNome("Luiz");
+        conjuge.setNumero("318");
+        conjuge.setProfissao("Arquiteto");
+        conjuge.setRendaMensal(2500.00f);
+        conjuge.setRg("15555158");
+        conjuge.setTipoLogradouro("Rua");
+    }
+    
 }
