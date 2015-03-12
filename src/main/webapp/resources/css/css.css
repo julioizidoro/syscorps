@@ -162,13 +162,23 @@ box-shadow: 5px 5px 5px #6C7B8B;
    -webkit-box-shadow: 2px 2px 2px #ffc;
    -moz-box-shadow: 2px 2px 2px #ffc;
 }
-.tabelacursos{
+.tabelacurso{
      font-size:14px;
+     
        position:relative;
        margin-left:20%;
        right:15%;
        top:20px;
        width: 900px;
+}
+.tabelacursos{
+     font-size:14px;
+     
+       position:relative;
+       margin-left:40%;
+       right:15%;
+       top:20px;
+       width: 500px;
 }
 .tabelacursoss{
      font-size:14px;
@@ -191,6 +201,27 @@ box-shadow: 5px 5px 5px #6C7B8B;
      font-size:16px;
        width: 600px;
     
+}
+.tabelaalunoss{
+     font-size:14px;
+     font-family: tahoma;
+       position:relative;
+       margin-left:30%;
+       right:30%;
+       top:3px;
+       width: 750px;
+       height: 550px;
+       background:#FAEBD7;
+}
+.tabelaalunos{
+     font-size:14px;
+     font-family: tahoma;
+       position:relative;
+       margin-left:30%;
+       right:30%;
+       top:3px;
+       width: 750px;
+       background:#FAEBD7;
 }
 .tabelaaluno{
      font-size:14px;
@@ -538,9 +569,6 @@ legend#iUsu2{
      color:#4F4F4F;
     font-size: 15px;
   
-}
-.tabelaMat{
-    margin-right: 350px;
 }
 .tabelaMat{
     margin-top:-200px;

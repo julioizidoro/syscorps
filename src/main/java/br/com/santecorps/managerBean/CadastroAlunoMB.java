@@ -175,8 +175,7 @@ public class CadastroAlunoMB implements Serializable{
         return "consaluno";
     }
     public String AdicionarInformacoes(){
-       
-            return "cadaluno";
+            return "index";
         }
     public String consultarAluno(){
         FacesContext fc = FacesContext.getCurrentInstance();

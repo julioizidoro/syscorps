@@ -29,8 +29,8 @@
                                  <p:commandButton value="Adicionar" oncomplete="PF('dlg').show()" icon="ui-icon-plusthick" class="botaoInformacoes" />
                                 <p:commandButton value="Alterar" icon="ui-icon-closethick" class="botaoInformacoes"  />
                             </h:panelGrid>
-                            <p:dialog header="Adicionar avalista" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
-                                    <p:tabView class="tabelaaluno">
+                            <p:dialog header="Adicionar avalista" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat" width="63%">
+                                    <p:tabView class="tabelaalunoss">
                                        <p:tab title="Avalista">
                                             <h:panelGrid columns="2" cellpadding="5" >
                                                 <p:outputLabel value="Nome:" for="nomeAvalista"  class="left"/>
@@ -159,8 +159,8 @@
                             </h:panelGrid>
                            
                            
-                              <p:dialog header="Informações Adicionais" modal="true" showEffect="bounce" widgetVar="dll" resizable="false"  class="tabelaMat">
-                                <p:tabView class="tabelaaluno">
+                            <p:dialog header="Informações Adicionais" modal="true" showEffect="bounce" widgetVar="dll" resizable="false"  class="tabelaMat" width="63%" height="60%">
+                                <p:tabView class="tabelaalunos">
                                     <p:tab title="Local de Trabalho">        
                                         <h:panelGrid columns="2" cellpadding="5" >
                                             <p:outputLabel value="Nome:" for="nomeTrab"  class="left"/>
@@ -201,8 +201,8 @@
                                 <p:inputText id="conjuge"   size="60" maxlength="100" class="left" />
                                  <p:commandButton value="Adicionar" oncomplete="PF('dlgg').show()" icon="ui-icon-plusthick" class="botaoInformacoes" />
                                 <p:commandButton value="Alterar" icon="ui-icon-closethick" class="botaoInformacoes"  />
-                                 <p:dialog header="Informações Adicionais" modal="true" showEffect="bounce" widgetVar="dlgg" resizable="false"  class="tabelaMat">
-                                  <p:tabView class="tabelaaluno">
+                                 <p:dialog header="Informações Adicionais" modal="true" showEffect="bounce" widgetVar="dlgg" resizable="false"  class="tabelaMat" width="63%">
+                                  <p:tabView class="tabelaalunoss">
                                                 <p:tab title="Conjuge">
                                              <h:panelGrid columns="2" cellpadding="5" >
                                                  <p:outputLabel value="Nome:" for="nomeConjuge"  class="left"/>
@@ -313,6 +313,8 @@
                                      </p:tabView>  
                             </p:dialog>
                             </h:panelGrid>
+                            <p:commandButton value="Salvar" icon="ui-icon-closethick" class="botaoCadastra" />
+                            <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroAlunoMB.cancelar()}"/>
                         </p:tab>
                     </p:tabView>
                     <br></br>
