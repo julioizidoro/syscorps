@@ -20,7 +20,7 @@
                         <p:commandButton icon=" ui-icon-search" class="botaoConsultaa" action="#{cadastroProfessorMB.pesquisarProfessor()}"    update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}" />
 
                     </h:panelGrid>
-                    <p:dataTable var="consProfessor" value="#{cadastroProfessorMB.listaProfessor}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10">
+                    <p:dataTable var="consProfessor" value="#{cadastroProfessorMB.listaProfessor}" class="tabelacurso" rowStyleClass="tabela"  paginator="true" rows="10">
                         <p:column headerText="Nome" >
                             <h:outputText value="#{consProfessor.nome}" />
                         </p:column>
