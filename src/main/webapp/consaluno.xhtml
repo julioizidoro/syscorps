@@ -16,11 +16,11 @@
                     <p:outputLabel value="Nome:" for="nome"  class="left" /> 
                 </h:panelGrid>
                 <h:panelGrid columns="2" cellpadding="1">
-                    <p:inputText id="nome" size="40" maxlength="100" class="left" />
-                    <p:commandButton icon=" ui-icon-search" class="botaoConsultaa"/>
+                    <p:inputText id="nome" size="40" maxlength="100" class="left" value="#{cadastroAlunoMB.nomeAluno}"/>
+                    <p:commandButton icon=" ui-icon-search" class="botaoConsultaa" action="#{cadastroAlunoMB.pesquisarNome()}" />
                     
                 </h:panelGrid>
-                   <p:dataTable var="consAluno" value="#{cadastroAlunoMB.listaAlunos}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10">
+                   <p:dataTable id="tabAluno" var="consAluno" value="#{cadastroAlunoMB.listaAlunos}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
                     <p:column headerText="Nome" >
                         <h:outputText value="#{consAluno.nome}" />
                     </p:column>

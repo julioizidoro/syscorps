@@ -45,10 +45,8 @@ public class CadastroAlunoMB implements Serializable{
 
     public CadastroAlunoMB() {
         CarregarLitaAluno();
-        aluno = new Aluno();
-        conjuge = new Conjuge();
-        avalista = new Avalista();
-        localTrabalho = new Localtrabalho();
+      carregarObjetos();
+        
     }
 
     public String getRendaMensalAvalista() {
@@ -132,10 +130,8 @@ public class CadastroAlunoMB implements Serializable{
     }
     
     public String novoAluno(){
-        aluno = new Aluno();
-        conjuge = new Conjuge();
-        avalista = new Avalista();
-        localTrabalho = new Localtrabalho();
+        
+        
         return "cadaluno";
     }
     
@@ -170,6 +166,7 @@ public class CadastroAlunoMB implements Serializable{
             conjuge.setAluno(aluno);
             alunoFacade.salvarConjuge(conjuge);
         }
+        CarregarLitaAluno();
         return "consaluno";
     }
     
@@ -206,50 +203,59 @@ public class CadastroAlunoMB implements Serializable{
         
     }
     
+    public String pesquisarNome(){
+        CarregarLitaAluno();
+        return "consaluno";
+    }
+    
     public void carregarObjetos(){
+        
+        aluno = new Aluno();
+        conjuge = new Conjuge();
+        avalista = new Avalista();
+        localTrabalho = new Localtrabalho();
         aluno.setBairro("monte verde");
-        aluno.setCep("88032600");
-        aluno.setCidade("florianopolis");
+        aluno.setCep("88032-600");
+        aluno.setCidade("Florianopolis");
         aluno.setCidadeNascimento("Florianopolis");
         aluno.setComplemento("casa");
-        aluno.setCpf("10468210911");
+        aluno.setCpf("104.682.109-11");
         aluno.setDataNascimento(Formatacao.ConvercaoStringData("30/10/1997"));
         aluno.setEmail("kamila@gmail.com");
         aluno.setEstado("SC");
         aluno.setEstadoCivil("Solteiro");
         aluno.setEstadoNascimento("SC");
-        aluno.setFoneCelular("4884722287");
-        aluno.setFoneFixo("4832380360");
-        aluno.setFoneReferenciaPessoal("4884722222");
+        aluno.setFoneCelular("(48)8472-2287");
+        aluno.setFoneFixo("(48)3238-0360");
+        aluno.setFoneReferenciaPessoal("(48)8472-2222");
         aluno.setNome("kamila");
         aluno.setNomeMae("Fabiana");
         aluno.setNomePai("Paulo");
         aluno.setNumero("318");
         aluno.setProfissao("Programador");
         aluno.setReferenciaPessoal("Fabiola");
+        aluno.setNascionalidade("Brasileira");
         aluno.setRg("1112566");
         aluno.setTipoLogradouro("Rua");
         aluno.setTrabalha("Sim");
-        aluno.setUnidade(null);
         
-        aluno.setAvalistaaluno(null);
-        aluno.setConjugeList(null);
+       
         
         localTrabalho.setCargo("Programador Junior");
         localTrabalho.setComprovanteRenda("renda");
-        localTrabalho.setFoneComercial("4832332320");
+        localTrabalho.setFoneComercial("(48)3233-2320");
         localTrabalho.setNome("TravelMate");
         localTrabalho.setOutrasRendas("renda");
         
         avalista.setBairro("Capoeiras");
-        avalista.setCep("88032680");
+        avalista.setCep("88032-680");
         avalista.setCidade("Florianpolis");
         avalista.setComplemento("apto 10");
-        avalista.setCpf("10410410422");
+        avalista.setCpf("104.104.104-22");
         avalista.setDataNascimento(Formatacao.ConvercaoStringData("10/05/1987"));
         avalista.setEstado("SC");
-        avalista.setFoneCelular("4884848484");
-        avalista.setFoneFixo("4832380311");
+        avalista.setFoneCelular("(48)8484-8484");
+        avalista.setFoneFixo("(48)3238-0311");
         avalista.setLogradouro("Jose martins");
         avalista.setNome("joao");
         avalista.setNumero("150");
@@ -259,21 +265,23 @@ public class CadastroAlunoMB implements Serializable{
         avalista.setTipoLogradouro("BR");
         
         conjuge.setBairro("Monte verde");
-        conjuge.setCep("88032600");
+        conjuge.setCep("88032-600");
         conjuge.setCidade("Florianopolis");
         conjuge.setComplemento("casa");
-        conjuge.setCpf("10468210122");
+        conjuge.setCpf("104.682.101-22");
         conjuge.setDataNascimento(Formatacao.ConvercaoStringData("30/10/1990"));
         conjuge.setEstado("SC");
-        conjuge.setFoneCelular("4884722211");
-        conjuge.setFoneFixo("4832320560");
-        conjuge.setLogradouro("mone vicente");
+        conjuge.setFoneCelular("(48)8472-2211");
+        conjuge.setFoneFixo("(48)3232-0560");
+        conjuge.setLogradouro("Mane vicente");
         conjuge.setNome("Luiz");
         conjuge.setNumero("318");
         conjuge.setProfissao("Arquiteto");
         conjuge.setRendaMensal(2500.00f);
         conjuge.setRg("15555158");
         conjuge.setTipoLogradouro("Rua");
+        rendaMensalAvalista = Formatacao.foramtarFloatString(avalista.getRendaMensal());
+        rendaMensalConjuge = Formatacao.foramtarFloatString(conjuge.getRendaMensal());
     }
     
 }

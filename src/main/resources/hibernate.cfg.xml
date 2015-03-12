@@ -7,5 +7,17 @@
     <property name="hibernate.connection.url">jdbc:mysql://186.215.116.63:8082/syscorps</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">jfhmaster123</property>
+    <mapping class="br.com.santecorps.model.Aluno"/>
+    <mapping class="br.com.santecorps.model.Avalista"/>
+    <mapping class="br.com.santecorps.model.Avalistaaluno"/>
+    <mapping class="br.com.santecorps.model.Conjuge"/>
+    <mapping class="br.com.santecorps.model.Curso"/>
+    <mapping class="br.com.santecorps.model.Disciplina"/>
+    <mapping class="br.com.santecorps.model.Gradeturma"/>
+    <mapping class="br.com.santecorps.model.Localtrabalho"/>
+    <mapping class="br.com.santecorps.model.Matricula"/>
+    <mapping class="br.com.santecorps.model.Professor"/>
+    <mapping class="br.com.santecorps.model.Turma"/>
+    <mapping class="br.com.santecorps.model.Unidade"/>
   </session-factory>
 </hibernate-configuration>

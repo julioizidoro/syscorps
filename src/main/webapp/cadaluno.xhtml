@@ -61,22 +61,21 @@
                             <h:panelGrid columns="3" cellpadding="3">
                                 
                     
-                        <h:selectOneMenu id="trabalha" class="left"  style="width:120px">
-                            <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" value="#{cadastroAlunoMB.aluno.trabalha}"/>
-                                <f:selectItem itemLabel="Nao" itemValue="0" />  
-                                <f:selectItem itemLabel="Sim" itemValue="1" />       
-                        </h:selectOneMenu>
+                            <p:selectOneMenu id="trabalha" class="left"  style="width:120px" value="#{cadastroAlunoMB.aluno.trabalha}">
+                                <f:selectItem itemLabel="Nao" itemValue="Não" />  
+                                <f:selectItem itemLabel="Sim" itemValue="Sim" />       
+                            </p:selectOneMenu>
                                
                                 <p:inputText id="profissao" label="profissao:" value="#{cadastroAlunoMB.aluno.profissao}" size="27" maxlength="60" required="false" class="leftRg">
                                 </p:inputText>
-                           <h:selectOneMenu  id="estadoCiv" value="#{cadastroAlunoMB.aluno.estadoCivil}" style="width:173px" class="leftRg">
-                             <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
+                           <p:selectOneMenu  id="estadoCiv" value="#{cadastroAlunoMB.aluno.estadoCivil}" style="width:173px" class="leftRg">
+                                 <f:selectItem itemLabel="Selecione" itemValue="Selecione" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="solteiro" itemValue="solteiro" />  
                                  <f:selectItem itemLabel="Casado" itemValue="Casado" />  
                                  <f:selectItem itemLabel="Divorciado" itemValue="Divorciado" />  
                                  <f:selectItem itemLabel="Viuvo" itemValue="Viuvo" />  
                                  <f:selectItem itemLabel="Outros" itemValue="Outros" />       
-                          </h:selectOneMenu>
+                          </p:selectOneMenu>
                             </h:panelGrid>    
                             <h:panelGrid columns="2" cellpadding="4">
                                 <p:outputLabel value="Referência Pessoal:" for="referenPessoal" class="left"  />
@@ -97,9 +96,8 @@
                                 <p:inputText id="nascionalidade" value="#{cadastroAlunoMB.aluno.nascionalidade}"  size="20" maxlength="50" class="left" />
                                 <p:inputText id="cidNasci"  value="#{cadastroAlunoMB.aluno.cidadeNascimento}"  size="20" class="leftRg" />
                                 
-                                <h:selectOneMenu id="estNasci" value="#{cadastroAlunoMB.aluno.estadoNascimento}"  class="leftRg" style="width:180px"> 
-                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
-                                 
+                                <p:selectOneMenu id="estNasci" value="#{cadastroAlunoMB.aluno.estadoNascimento}"  class="leftRg" style="width:180px"> 
+                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="Selecione" noSelectionOption="true"/>     
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
                                  <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
                                  <f:selectItem itemLabel="Amapá" itemValue="AP" />  
@@ -128,7 +126,7 @@
                                  <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
                                  <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
                                    
-                          </h:selectOneMenu>
+                          </p:selectOneMenu>
                             </h:panelGrid>
 
                             <h:panelGrid columns="4" cellpadding="5">
@@ -138,14 +136,14 @@
                             <h:panelGrid columns="4" cellpadding="3">
                                
                              
-                          <h:selectOneMenu id="tipologra" value="#{cadastroAlunoMB.aluno.tipoLogradouro}" style="width:180px" class="left">
-                             <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
+                          <p:selectOneMenu id="tipologra" value="#{cadastroAlunoMB.aluno.tipoLogradouro}" style="width:180px" class="left">
+                             <f:selectItem itemLabel="Selecione" itemValue="Selecione" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Rua" itemValue="Rua" />  
                                  <f:selectItem itemLabel="Rodovia" itemValue="Rodovia" />  
                                  <f:selectItem itemLabel="Estrada" itemValue="Estrada" />  
                                  <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                  <f:selectItem itemLabel="BR" itemValue="BR" />       
-                          </h:selectOneMenu>
+                          </p:selectOneMenu>
                                 <p:inputText id="logra"   size="44"  class="leftMeioo" value="#{cadastroAlunoMB.aluno.logradouro}"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
@@ -167,9 +165,8 @@
                                 <p:inputText id="bairro" value="#{cadastroAlunoMB.aluno.bairro}"  size="24" class="left"/>
                                 <p:inputText id="cidade" value="#{cadastroAlunoMB.aluno.cidade}"  size="16" class="leftRg"/>
                            
-                                 <h:selectOneMenu  id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:170px">
-                                     <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
-                                 
+                                 <p:selectOneMenu  id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:170px">
+                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="Selecione" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
                                  <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
                                  <f:selectItem itemLabel="Amapá" itemValue="AP" />  
@@ -198,7 +195,7 @@
                                  <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
                                  <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
                                    
-                          </h:selectOneMenu>
+                          </p:selectOneMenu>
                             </h:panelGrid>
 
                         </p:tab>
@@ -241,9 +238,7 @@
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5" >
                                 <p:inputText id="profissaoAvalista" label="profissao:" value="#{cadastroAlunoMB.avalista.profissao}" size="40" maxlength="100" required="false" class="left"> </p:inputText>
-                                <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.avalista.rendaMensal}" class="leftRg" size="28">
-                                    <f:convertNumber pattern="#.##0,00" type="currency" maxFractionDigits="2" minFractionDigits="2"/>
-                                </p:inputText>
+                                <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.rendaMensalAvalista}" class="leftRg" size="28"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="4" >
                                 <h:outputText value="CPF: " class="left"/>
@@ -264,14 +259,14 @@
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="3">
                                 
-                          <h:selectOneMenu id="logradouroAval" value="#{cadastroAlunoMB.avalista.tipoLogradouro}"  style="width:191px" class="left">
-                             <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
+                          <p:selectOneMenu id="logradouroAval" value="#{cadastroAlunoMB.avalista.tipoLogradouro}"  style="width:191px" class="left">
+                             <f:selectItem itemLabel="Selecione" itemValue="Selecione" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Rua" itemValue="Rua" />  
                                  <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
                                  <f:selectItem itemLabel="Estrada" itemValue="Estrada" />  
                                  <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                  <f:selectItem itemLabel="BR" itemValue="BR" />       
-                          </h:selectOneMenu>
+                          </p:selectOneMenu>
                                 <p:inputText id="tipoAval"   size="40"  class="leftMeio4" value="#{cadastroAlunoMB.avalista.logradouro}"/>
                             </h:panelGrid>
 
@@ -296,7 +291,7 @@
                                 <p:inputText id="bairroAvalista" value="#{cadastroAlunoMB.avalista.bairro}"  size="24" class="left"/>
                                 <p:inputText id="cidadeAval"  value="#{cadastroAlunoMB.avalista.cidade}" size="16" class="leftRg"/>
                                
-                            <h:selectOneMenu  id="estadoAval" value="#{cadastroAlunoMB.avalista.estado}" class="leftRg" style="width:150px">
+                            <p:selectOneMenu  id="estadoAval" value="#{cadastroAlunoMB.avalista.estado}" class="leftRg" style="width:150px">
                                 <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
                                  
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
@@ -327,7 +322,7 @@
                                  <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
                                  <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
                                     
-                            </h:selectOneMenu>
+                            </p:selectOneMenu>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel value="Telefone Fixo:" for="telFixoAvalista" class="left" />
@@ -351,7 +346,7 @@
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5" >
                                 <p:inputText id="profissaoConjuge" label="profissao:" value="#{cadastroAlunoMB.conjuge.profissao}" size="40" maxlength="100" required="false" class="left"> </p:inputText>
-                                <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.conjuge.rendaMensal}"   class="leftRg" size="28"/>
+                                <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.rendaMensalConjuge}"   class="leftRg" size="28"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="4" >
                                 <h:outputText value="CPF: " class="left"/>
@@ -379,14 +374,14 @@
                                 <p:outputLabel value="Logradouro:" for="logradouroConjuge" class="leftMeio2" />
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="3">
-                           <h:selectOneMenu  id="tipoConjuge" value="#{cadastroAlunoMB.conjuge.tipoLogradouro}" style="width:183px" class="left">
+                           <p:selectOneMenu  id="tipoConjuge" value="#{cadastroAlunoMB.conjuge.tipoLogradouro}" style="width:183px" class="left">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Rua" itemValue="Rua" />  
                                  <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
                                  <f:selectItem itemLabel="Estrada" itemValue="Estrada" />  
                                  <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                  <f:selectItem itemLabel="BR" itemValue="BR" />       
-                          </h:selectOneMenu>
+                          </p:selectOneMenu>
                                 <p:inputText id="logradouroConjuge"  value="#{cadastroAlunoMB.conjuge.logradouro}" size="41"  class="leftMeio4"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
@@ -408,7 +403,7 @@
                             <h:panelGrid columns="3" cellpadding="5">
                                  <p:inputText id="bairroConjuge"  value="#{cadastroAlunoMB.conjuge.bairro}" size="24" class="left"/>
                                 <p:inputText id="cidadeConjuge"  value="#{cadastroAlunoMB.conjuge.cidade}" size="16" class="leftRg"/>
-                            <h:selectOneMenu   id="estadoConjuge" value="#{cadastroAlunoMB.conjuge.estado}" class="leftRg" style="width:150px"> 
+                            <p:selectOneMenu   id="estadoConjuge" value="#{cadastroAlunoMB.conjuge.estado}" class="leftRg" style="width:150px"> 
                                <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
                                  
                                 <f:selectItem itemLabel="Acre" itemValue="AC" /> 
@@ -439,7 +434,7 @@
                                 <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
                                 <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
                                    
-                          </h:selectOneMenu>
+                          </p:selectOneMenu>
                                
                             </h:panelGrid>
 

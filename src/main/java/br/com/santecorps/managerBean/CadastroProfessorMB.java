@@ -30,6 +30,7 @@ public class CadastroProfessorMB implements Serializable{
     
     private Professor professor;
     private List<Professor> listaProfessor;
+    private String nomeProfessor;
 
     public CadastroProfessorMB() {
             professor = new Professor();
@@ -38,6 +39,14 @@ public class CadastroProfessorMB implements Serializable{
 
     public Professor getProfessor() {
         return professor;
+    }
+
+    public String getNomeProfessor() {
+        return nomeProfessor;
+    }
+
+    public void setNomeProfessor(String nomeProfessor) {
+        this.nomeProfessor = nomeProfessor;
     }
 
     public void setProfessor(Professor professor) {
@@ -54,7 +63,10 @@ public class CadastroProfessorMB implements Serializable{
     
     public void listaProfessor(){
         ProfessorFacade professorFacade = new ProfessorFacade();
-        listaProfessor = professorFacade.listar("");
+        if (nomeProfessor==null){
+            nomeProfessor="";
+        }
+        listaProfessor = professorFacade.listar(nomeProfessor);
         if (listaProfessor==null){
             listaProfessor = new ArrayList<Professor>();
         }
@@ -91,6 +103,11 @@ public class CadastroProfessorMB implements Serializable{
             }
         }
         return null;
+    }
+      
+    public String pesquisarProfessor(){
+        listaProfessor();
+        return "consprofessor";
     }
     
 }
