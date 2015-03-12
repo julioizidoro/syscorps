@@ -166,7 +166,7 @@ box-shadow: 5px 5px 5px #6C7B8B;
      font-size:14px;
      
        position:relative;
-       margin-left:20%;
+       margin-left:17%;
        right:15%;
        top:20px;
        width: 900px;
@@ -573,6 +573,7 @@ legend#iUsu2{
 .tabelaMat{
     margin-top:-200px;
     margin-right: 350px;
+       background:#FAEBD7;
 }
 .tabelaMatri{
     font-size:15px;

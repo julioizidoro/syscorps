@@ -30,8 +30,6 @@
                                 <p:commandButton value="Alterar" icon="ui-icon-closethick" class="botaoInformacoes"  />
                             </h:panelGrid>
                             <p:dialog header="Adicionar avalista" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat" width="63%">
-                                    <p:tabView class="tabelaalunoss">
-                                       <p:tab title="Avalista">
                                             <h:panelGrid columns="2" cellpadding="5" >
                                                 <p:outputLabel value="Nome:" for="nomeAvalista"  class="left"/>
                                             </h:panelGrid>
@@ -140,15 +138,8 @@
                                             </h:panelGrid>
                                            <p:commandButton value="Cadatrar" icon=" ui-icon-plusthick" class="botaoConsulta"/>
                                            <p:commandButton value="Cancelar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
-                                       </p:tab>
-                                    </p:tabView>
-                               
+                                      
                             </p:dialog> 
-                          
-                            
-                            
-                            
-                            
                             <h:panelGrid columns="1" cellpadding="3">
                                 <p:outputLabel value="Local de Trabalho:" for="localTrabalho"  class="left" /> 
                             </h:panelGrid>
@@ -159,10 +150,8 @@
                             </h:panelGrid>
                            
                            
-                            <p:dialog header="Informações Adicionais" modal="true" showEffect="bounce" widgetVar="dll" resizable="false"  class="tabelaMat" width="63%" height="60%">
-                                <p:tabView class="tabelaalunos">
-                                    <p:tab title="Local de Trabalho">        
-                                        <h:panelGrid columns="2" cellpadding="5" >
+                            <p:dialog header="Adicionar Local de Trabalho" modal="true" showEffect="bounce" widgetVar="dll" resizable="false"  class="tabelaMat" width="63%" height="60%">
+                                <h:panelGrid columns="2" cellpadding="5" >
                                             <p:outputLabel value="Nome:" for="nomeTrab"  class="left"/>
 
                                         </h:panelGrid>        
@@ -188,8 +177,7 @@
                                         </h:panelGrid>
                                         <p:commandButton value="Cadastrar" icon="ui-icon-plusthick" class="botaoCadastra"  />
                                            <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" />
-                                    </p:tab>    
-                                </p:tabView>
+                                   
                             </p:dialog>
                             
                             
@@ -201,10 +189,8 @@
                                 <p:inputText id="conjuge"   size="60" maxlength="100" class="left" />
                                  <p:commandButton value="Adicionar" oncomplete="PF('dlgg').show()" icon="ui-icon-plusthick" class="botaoInformacoes" />
                                 <p:commandButton value="Alterar" icon="ui-icon-closethick" class="botaoInformacoes"  />
-                                 <p:dialog header="Informações Adicionais" modal="true" showEffect="bounce" widgetVar="dlgg" resizable="false"  class="tabelaMat" width="63%">
-                                  <p:tabView class="tabelaalunoss">
-                                                <p:tab title="Conjuge">
-                                             <h:panelGrid columns="2" cellpadding="5" >
+                                 <p:dialog header="Adicionar Cônjuge" modal="true" showEffect="bounce" widgetVar="dlgg" resizable="false"  class="tabelaMat" width="63%">
+                                          <h:panelGrid columns="2" cellpadding="5" >
                                                  <p:outputLabel value="Nome:" for="nomeConjuge"  class="left"/>
                                              </h:panelGrid>
                                              <h:panelGrid columns="2" cellpadding="5" >
@@ -307,10 +293,7 @@
                                            </p:selectOneMenu>
                                             <p:commandButton value="Cadastrar" icon="ui-icon-plusthick" class="botaoCadastra"  />
                                            <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" />
-                                             </h:panelGrid>
-
-                                         </p:tab>
-                                     </p:tabView>  
+                                             </h:panelGrid> 
                             </p:dialog>
                             </h:panelGrid>
                             <p:commandButton value="Salvar" icon="ui-icon-closethick" class="botaoCadastra" />
