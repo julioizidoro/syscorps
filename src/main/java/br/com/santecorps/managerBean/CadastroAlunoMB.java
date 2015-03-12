@@ -176,7 +176,10 @@ public class CadastroAlunoMB implements Serializable{
     public String cancelar(){
         return "consaluno";
     }
-    
+    public String AdicionarInformacoes(){
+       
+            return "cadaluno";
+        }
     public String consultarAluno(){
         FacesContext fc = FacesContext.getCurrentInstance();
         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();

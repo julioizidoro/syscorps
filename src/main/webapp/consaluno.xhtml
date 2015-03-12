@@ -21,23 +21,28 @@
                     
                 </h:panelGrid>
                    <p:dataTable id="tabAluno" var="consAluno" value="#{cadastroAlunoMB.listaAlunos}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
-                    <p:column headerText="Nome" >
+                    <p:column headerText="Nome" style="width:130px">
                         <h:outputText value="#{consAluno.nome}" />
                     </p:column>
                     <p:column headerText="Email" >
-                        <h:outputText value="#{consAluno.email}" />
+                        <h:outputText value="#{consAluno.email}"  style="width:140px" />
                     </p:column>
-                    <p:column headerText="CPF" >
+                    <p:column headerText="CPF" style="width:94px" >
                         <h:outputText value="#{consAluno.cpf}" />
                     </p:column>
-                    <p:column headerText="Telefone Fixo:" >
+                    <p:column headerText="Telefone Fixo:" style="width:100px" >
                         <h:outputText value="#{consAluno.foneFixo}" />
                     </p:column>
-                    <p:column headerText="Telefone Celular:" >
+                    <p:column headerText="Telefone Celular:" style="width:95px" >
                         <h:outputText value="#{consAluno.foneCelular}" />
                     </p:column>
                    <p:column style="width:26px">
                        <p:commandButton  id="iconOnly" icon="ui-icon-pencil" title="Icon Only" action="#{cadastroAlunoMB.consultarAluno()}" >
+                           <f:param name="id_aluno" value="#{consAluno.idaluno}"/>
+                       </p:commandButton>
+                     </p:column>
+                       <p:column style="width:120px">
+                           <p:commandButton  id="informacoes" class="" value="Adicionar Informações"  action="#{cadastroAlunoMB.adicionarInformacoes()}" >
                            <f:param name="id_aluno" value="#{consAluno.idaluno}"/>
                        </p:commandButton>
                      </p:column>
