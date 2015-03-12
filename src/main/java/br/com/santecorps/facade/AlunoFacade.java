@@ -7,6 +7,7 @@ package br.com.santecorps.facade;
 
 import br.com.santecorps.dao.AlunoDao;
 import br.com.santecorps.model.Aluno;
+import br.com.santecorps.model.Avalista;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
 import java.util.List;
@@ -32,6 +33,11 @@ public class AlunoFacade {
     public Conjuge salvarConjuge(Conjuge conjuge){
         alunoDao = new AlunoDao();
         return alunoDao.salvarConjuge(conjuge);
+    }
+    
+    public Avalista salvarAvalista(Avalista avalista){
+        alunoDao = new AlunoDao();
+        return alunoDao.salvarAvalista(avalista);
     }
     
     public Localtrabalho salvarLocalTrabalho(Localtrabalho localtrabalho){

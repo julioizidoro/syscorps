@@ -155,6 +155,7 @@ public class CadastroAlunoMB implements Serializable{
         Unidade unidade = unidadeFacade.getUnidade(1);
         Avalistaaluno avalistaaluno = new Avalistaaluno();
         avalista.setRendaMensal(rmAvalista);
+        avalista = alunoFacade.salvarAvalista(avalista);
         avalistaaluno.setAvalista(avalista);
         aluno.setAvalistaaluno(avalistaaluno);       
         aluno.setUnidade(unidade);
