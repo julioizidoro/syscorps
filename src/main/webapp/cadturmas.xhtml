@@ -14,12 +14,12 @@
                      <p:tabView class="tabelaaluno">
                         <p:tab title="Dados da Turma" >
                     <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Número da Turma:" for="numTurma" class="" />
+                        <p:outputLabel value="Número:" for="numTurma" class="left" />
                         <p:inputText id="numTurma"  value="#{cadastroTurmasMB.turma.numero}" size="10" />
 
                         <p:outputLabel value="Turno:" class="left" />
                                 
-                        <p:selectOneMenu id="turno" value="#{cadastroTurmasMB.turma.turno}" style="width:200px">
+                        <p:selectOneMenu id="turno" value="#{cadastroTurmasMB.turma.turno}" style="width:190px">
                             <f:selectItem itemLabel="Selecione" itemValue="0"  />
                             <f:selectItem itemLabel="Diurno" itemValue="Diurno"  />
                             <f:selectItem itemLabel="Matutino" itemValue="Matutino"  />

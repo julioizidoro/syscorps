@@ -273,10 +273,10 @@
                             <h:panelGrid columns="6" cellpadding="5">   
                                 <p:outputLabel value="Número:" for="numeroAval"  class="left"/>
                                 <p:outputLabel value="Complemento:" for="complementoAval" class="leftMeio8"/>
-                                <p:outputLabel value="CEP:" for="cepAval" class="leftMeio3"/>
+                                <p:outputLabel value="CEP:" for="cepAval" class="leftMeio12"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputMask id="numeroAval"   size="7" required="true" class="left" value="#{cadastroAlunoMB.avalista.numero}" mask="?999999999"/>
+                                <p:inputMask id="numeroAval"   size="7" class="left" value="#{cadastroAlunoMB.avalista.numero}" mask="?999999999"/>
                                 <p:inputText id="complementoAval"  value="#{cadastroAlunoMB.avalista.complemento}" size="34" class="leftRg"/>
                                 <p:inputMask id="cepAval"  value="#{cadastroAlunoMB.avalista.cep}" size="15" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
@@ -390,7 +390,7 @@
                                 <p:outputLabel value="CEP:" for="cepConjuge" class="leftMeio12"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputMask id="numeroConjuge"   size="6" required="true" class="left" value="#{cadastroAlunoMB.conjuge.numero}" mask="?999999999"/>
+                                <p:inputMask id="numeroConjuge"   size="6"  class="left" value="#{cadastroAlunoMB.conjuge.numero}" mask="?999999999"/>
                                 <p:inputText id="complementoConjuge"  value="#{cadastroAlunoMB.conjuge.complemento}" size="36" class="leftRg"/>
                                 <p:inputMask id="cepConjuge"  value="#{cadastroAlunoMB.conjuge.cep}" size="13" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>

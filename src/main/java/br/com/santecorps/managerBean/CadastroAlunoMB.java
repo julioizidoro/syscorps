@@ -130,8 +130,10 @@ public class CadastroAlunoMB implements Serializable{
     }
     
     public String novoAluno(){
-        
-        
+        aluno = new Aluno();
+        avalista = new Avalista();
+        conjuge = new Conjuge();
+        localTrabalho = new Localtrabalho();
         return "cadaluno";
     }
     
