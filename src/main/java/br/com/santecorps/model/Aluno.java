@@ -112,9 +112,6 @@ public class Aluno implements Serializable {
     @Size(max = 3)
     @Column(name = "trabalha")
     private String trabalha;
-    @JoinColumn(name = "avalistaAluno_idavalistaAluno", referencedColumnName = "idavalistaAluno")
-    @ManyToOne(optional = false)
-    private Avalistaaluno avalistaaluno;
     @JoinColumn(name = "unidade_idunidade", referencedColumnName = "idunidade")
     @ManyToOne(optional = false)
     private Unidade unidade;
@@ -338,14 +335,6 @@ public class Aluno implements Serializable {
 
     public void setFoneReferenciaPessoal(String foneReferenciaPessoal) {
         this.foneReferenciaPessoal = foneReferenciaPessoal;
-    }
-
-    public Avalistaaluno getAvalistaaluno() {
-        return avalistaaluno;
-    }
-
-    public void setAvalistaaluno(Avalistaaluno avalistaaluno) {
-        this.avalistaaluno = avalistaaluno;
     }
 
     public Unidade getUnidade() {

@@ -32,8 +32,8 @@ public class Avalistaaluno implements Serializable {
     @Basic(optional = false)
     @Column(name = "idavalistaAluno")
     private Integer idavalistaAluno;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "avalistaaluno")
-    private List<Aluno> alunoList;
+    @Column(name = "aluno_idaluno")
+    private int aluno;
     @JoinColumn(name = "avalista_idavalista", referencedColumnName = "idavalista")
     @ManyToOne(optional = false)
     private Avalista avalista;
@@ -53,13 +53,15 @@ public class Avalistaaluno implements Serializable {
         this.idavalistaAluno = idavalistaAluno;
     }
 
-    public List<Aluno> getAlunoList() {
-        return alunoList;
+    public int getAluno() {
+        return aluno;
     }
 
-    public void setAlunoList(List<Aluno> alunoList) {
-        this.alunoList = alunoList;
+    public void setAluno(int aluno) {
+        this.aluno = aluno;
     }
+
+   
 
     public Avalista getAvalista() {
         return avalista;

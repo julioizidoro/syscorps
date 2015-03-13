@@ -12,6 +12,7 @@ import br.com.santecorps.model.Avalista;
 import br.com.santecorps.model.Avalistaaluno;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
+import static br.com.santecorps.model.Matricula_.aluno;
 import br.com.santecorps.model.Unidade;
 import br.com.santecorps.util.Formatacao;
 import java.io.Serializable;
@@ -37,7 +38,7 @@ public class CadastroAlunoMB implements Serializable{
     private Avalista avalista;
     private Localtrabalho localTrabalho;
     private String nomeAluno;
-    
+    Avalistaaluno avalistaaluno;
     private String rendaMensalAvalista;
     private String rendaMensalConjuge;
     
@@ -148,9 +149,11 @@ public class CadastroAlunoMB implements Serializable{
     public String cancelar(){
         return "consaluno";
     }
-    
+    public String cancelarDialog(){
+        return "cadinfoaluno";
+    }
     public String informacoesClientes(){
-         FacesContext fc = FacesContext.getCurrentInstance();
+        FacesContext fc = FacesContext.getCurrentInstance();
         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
         int idAluno =  Integer.parseInt(params.get("id_aluno"));
         if (idAluno>0){
@@ -159,7 +162,12 @@ public class CadastroAlunoMB implements Serializable{
             if (aluno!=null){
                 localTrabalho = new Localtrabalho();
                 conjuge = new Conjuge();
-                avalista = aluno.getAvalistaaluno().getAvalista();
+                avalista = new Avalista();
+                avalistaaluno = new Avalistaaluno();
+                avalistaaluno = alunoFacade.getAvalistaAlunoIdAluno(aluno.getIdaluno());
+                if (avalistaaluno!=null){
+                    avalista = avalistaaluno.getAvalista();
+                }
                 if (avalista==null){
                     avalista = new Avalista();
                 }
@@ -178,6 +186,7 @@ public class CadastroAlunoMB implements Serializable{
         }
         return "";
     }
+    
     public String consultarAluno(){
         FacesContext fc = FacesContext.getCurrentInstance();
         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
@@ -185,69 +194,19 @@ public class CadastroAlunoMB implements Serializable{
         if (idAluno>0){
             AlunoFacade alunoFacade = new AlunoFacade();
             aluno = alunoFacade.getAlunoId(idAluno);
-            if (aluno!=null){
-                avalista = aluno.getAvalistaaluno().getAvalista();
-                if (avalista!=null){
-                    rendaMensalAvalista = Formatacao.foramtarFloatString(avalista.getRendaMensal());
-                }
-                if (!aluno.getEstadoCivil().equalsIgnoreCase("Solteiro")){
-                    if (aluno.getConjugeList()!=null){
-                        conjuge = aluno.getConjugeList().get(0);
-                        rendaMensalConjuge = Formatacao.foramtarFloatString(conjuge.getRendaMensal());
-                    }
-                    
-                }
-                if (aluno.getTrabalha().equalsIgnoreCase("Sim")){
-                    localTrabalho = aluno.getLocaltrabalhoList().get(0);
-                }
+             if (aluno!=null){
+                return "cadaluno";
             }
-            return "cadaluno";
         }
-        return "consaluno";
-        
+        return null;
     }
-    
+        
     public String pesquisarNome(){
         
         CarregarLitaAluno();
         return "consaluno";
     }
     
-    public String salvarAluno01(){
-        float rmAvalista = 0.0f;
-        float rmConjuge = 0.0f;
-        if (rendaMensalAvalista != null) {
-            if (rendaMensalAvalista.length() > 0) {
-                rmAvalista = Formatacao.ConvercaoMonetariaFloat(rendaMensalAvalista);
-            }
-        }
-        if (rendaMensalConjuge != null) {
-            if (rendaMensalConjuge.length() > 0) {
-                rmConjuge = Formatacao.ConvercaoMonetariaFloat(rendaMensalConjuge);
-            }
-        }
-        AlunoFacade alunoFacade = new AlunoFacade();
-        UnidadeFacade unidadeFacade = new UnidadeFacade();
-        Unidade unidade = unidadeFacade.getUnidade(1);
-        Avalistaaluno avalistaaluno = new Avalistaaluno();
-        avalista.setRendaMensal(rmAvalista);
-        avalista = alunoFacade.salvarAvalista(avalista);
-        avalistaaluno.setAvalista(avalista);
-        aluno.setAvalistaaluno(avalistaaluno);       
-        aluno.setUnidade(unidade);
-        aluno = alunoFacade.salvar(aluno);
-        if (aluno.getTrabalha().equalsIgnoreCase("Sim")){
-            localTrabalho.setAluno(aluno);
-            alunoFacade.salvarLocalTrabalho(localTrabalho);
-        }
-        if (!aluno.getEstadoCivil().equalsIgnoreCase("Solteiro")){
-            conjuge.setRendaMensal(rmConjuge);
-            conjuge.setAluno(aluno);
-            alunoFacade.salvarConjuge(conjuge);
-        }
-        CarregarLitaAluno();
-        return "consaluno";
-    }
     
     public String salvarAvalista(){
         float rmAvalista = 0.0f;
@@ -257,17 +216,13 @@ public class CadastroAlunoMB implements Serializable{
             }
         }
         AlunoFacade alunoFacade = new AlunoFacade();
-        UnidadeFacade unidadeFacade = new UnidadeFacade();
-        Unidade unidade = unidadeFacade.getUnidade(1);
-        Avalistaaluno avalistaaluno = new Avalistaaluno();
         avalista.setRendaMensal(rmAvalista);
         avalista = alunoFacade.salvarAvalista(avalista);
         avalistaaluno.setAvalista(avalista);
-        aluno.setAvalistaaluno(avalistaaluno);
-        aluno = alunoFacade.salvar(aluno);
+        avalistaaluno.setAluno(aluno.getIdaluno());
+        alunoFacade.salvarAvalistaAluno(avalistaaluno);
         return "cadinfoaluno";
     }
-    
     public String salvarConjuge(){
         float rmConjuge = 0.0f;
         if (rendaMensalConjuge != null) {
