@@ -136,37 +136,11 @@ public class CadastroAlunoMB implements Serializable{
     }
     
     public String salvarAluno(){
-        float rmAvalista = 0.0f;
-        float rmConjuge = 0.0f;
-        if (rendaMensalAvalista != null) {
-            if (rendaMensalAvalista.length() > 0) {
-                rmAvalista = Formatacao.ConvercaoMonetariaFloat(rendaMensalAvalista);
-            }
-        }
-        if (rendaMensalConjuge != null) {
-            if (rendaMensalConjuge.length() > 0) {
-                rmConjuge = Formatacao.ConvercaoMonetariaFloat(rendaMensalConjuge);
-            }
-        }
         AlunoFacade alunoFacade = new AlunoFacade();
         UnidadeFacade unidadeFacade = new UnidadeFacade();
         Unidade unidade = unidadeFacade.getUnidade(1);
-        Avalistaaluno avalistaaluno = new Avalistaaluno();
-        avalista.setRendaMensal(rmAvalista);
-        avalista = alunoFacade.salvarAvalista(avalista);
-        avalistaaluno.setAvalista(avalista);
-        aluno.setAvalistaaluno(avalistaaluno);       
         aluno.setUnidade(unidade);
         aluno = alunoFacade.salvar(aluno);
-        if (aluno.getTrabalha().equalsIgnoreCase("Sim")){
-            localTrabalho.setAluno(aluno);
-            alunoFacade.salvarLocalTrabalho(localTrabalho);
-        }
-        if (!aluno.getEstadoCivil().equalsIgnoreCase("Solteiro")){
-            conjuge.setRendaMensal(rmConjuge);
-            conjuge.setAluno(aluno);
-            alunoFacade.salvarConjuge(conjuge);
-        }
         CarregarLitaAluno();
         return "consaluno";
     }
@@ -174,9 +148,36 @@ public class CadastroAlunoMB implements Serializable{
     public String cancelar(){
         return "consaluno";
     }
-    public String AdicionarInformacoes(){
-            return "index";
+    
+    public String informacoesClientes(){
+         FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+        int idAluno =  Integer.parseInt(params.get("id_aluno"));
+        if (idAluno>0){
+            AlunoFacade alunoFacade = new AlunoFacade();
+            aluno = alunoFacade.getAlunoId(idAluno);
+            if (aluno!=null){
+                localTrabalho = new Localtrabalho();
+                conjuge = new Conjuge();
+                avalista = aluno.getAvalistaaluno().getAvalista();
+                if (avalista==null){
+                    avalista = new Avalista();
+                }
+                if (aluno.getLocaltrabalhoList()!=null){
+                    if (aluno.getLocaltrabalhoList().size()>0){
+                        localTrabalho = aluno.getLocaltrabalhoList().get(0);
+                    }
+                }
+                if (aluno.getConjugeList()!=null){
+                    if (aluno.getConjugeList().size()>0){
+                        conjuge = aluno.getConjugeList().get(0);
+                    }
+                }
+                return "cadinfoaluno";
+            }
         }
+        return "";
+    }
     public String consultarAluno(){
         FacesContext fc = FacesContext.getCurrentInstance();
         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
@@ -212,80 +213,82 @@ public class CadastroAlunoMB implements Serializable{
         return "consaluno";
     }
     
-//    public void carregarObjetos(){
-//        
-//        aluno = new Aluno();
-//        conjuge = new Conjuge();
-//        avalista = new Avalista();
-//        localTrabalho = new Localtrabalho();
-//        aluno.setBairro("monte verde");
-//        aluno.setCep("88032-600");
-//        aluno.setCidade("Florianopolis");
-//        aluno.setCidadeNascimento("Florianopolis");
-//        aluno.setComplemento("casa");
-//        aluno.setCpf("104.682.109-11");
-//        aluno.setDataNascimento(Formatacao.ConvercaoStringData("30/10/1997"));
-//        aluno.setEmail("kamila@gmail.com");
-//        aluno.setEstado("SC");
-//        aluno.setEstadoCivil("Solteiro");
-//        aluno.setEstadoNascimento("SC");
-//        aluno.setFoneCelular("(48)8472-2287");
-//        aluno.setFoneFixo("(48)3238-0360");
-//        aluno.setFoneReferenciaPessoal("(48)8472-2222");
-//        aluno.setNome("kamila");
-//        aluno.setNomeMae("Fabiana");
-//        aluno.setNomePai("Paulo");
-//        aluno.setNumero("318");
-//        aluno.setProfissao("Programador");
-//        aluno.setReferenciaPessoal("Fabiola");
-//        aluno.setNascionalidade("Brasileira");
-//        aluno.setRg("1112566");
-//        aluno.setTipoLogradouro("Rua");
-//        aluno.setTrabalha("Sim");
-//        
-//       
-//        
-//        localTrabalho.setCargo("Programador Junior");
-//        localTrabalho.setComprovanteRenda("renda");
-//        localTrabalho.setFoneComercial("(48)3233-2320");
-//        localTrabalho.setNome("TravelMate");
-//        localTrabalho.setOutrasRendas("renda");
-//        
-//        avalista.setBairro("Capoeiras");
-//        avalista.setCep("88032-680");
-//        avalista.setCidade("Florianpolis");
-//        avalista.setComplemento("apto 10");
-//        avalista.setCpf("104.104.104-22");
-//        avalista.setDataNascimento(Formatacao.ConvercaoStringData("10/05/1987"));
-//        avalista.setEstado("SC");
-//        avalista.setFoneCelular("(48)8484-8484");
-//        avalista.setFoneFixo("(48)3238-0311");
-//        avalista.setLogradouro("Jose martins");
-//        avalista.setNome("joao");
-//        avalista.setNumero("150");
-//        avalista.setProfissao("Engenheiro");
-//        avalista.setRendaMensal(3500.00f);
-//        avalista.setRg("2545555");
-//        avalista.setTipoLogradouro("BR");
-//        
-//        conjuge.setBairro("Monte verde");
-//        conjuge.setCep("88032-600");
-//        conjuge.setCidade("Florianopolis");
-//        conjuge.setComplemento("casa");
-//        conjuge.setCpf("104.682.101-22");
-//        conjuge.setDataNascimento(Formatacao.ConvercaoStringData("30/10/1990"));
-//        conjuge.setEstado("SC");
-//        conjuge.setFoneCelular("(48)8472-2211");
-//        conjuge.setFoneFixo("(48)3232-0560");
-//        conjuge.setLogradouro("Mane vicente");
-//        conjuge.setNome("Luiz");
-//        conjuge.setNumero("318");
-//        conjuge.setProfissao("Arquiteto");
-//        conjuge.setRendaMensal(2500.00f);
-//        conjuge.setRg("15555158");
-//        conjuge.setTipoLogradouro("Rua");
-//        rendaMensalAvalista = Formatacao.foramtarFloatString(avalista.getRendaMensal());
-//        rendaMensalConjuge = Formatacao.foramtarFloatString(conjuge.getRendaMensal());
-//    }
+    public String salvarAluno01(){
+        float rmAvalista = 0.0f;
+        float rmConjuge = 0.0f;
+        if (rendaMensalAvalista != null) {
+            if (rendaMensalAvalista.length() > 0) {
+                rmAvalista = Formatacao.ConvercaoMonetariaFloat(rendaMensalAvalista);
+            }
+        }
+        if (rendaMensalConjuge != null) {
+            if (rendaMensalConjuge.length() > 0) {
+                rmConjuge = Formatacao.ConvercaoMonetariaFloat(rendaMensalConjuge);
+            }
+        }
+        AlunoFacade alunoFacade = new AlunoFacade();
+        UnidadeFacade unidadeFacade = new UnidadeFacade();
+        Unidade unidade = unidadeFacade.getUnidade(1);
+        Avalistaaluno avalistaaluno = new Avalistaaluno();
+        avalista.setRendaMensal(rmAvalista);
+        avalista = alunoFacade.salvarAvalista(avalista);
+        avalistaaluno.setAvalista(avalista);
+        aluno.setAvalistaaluno(avalistaaluno);       
+        aluno.setUnidade(unidade);
+        aluno = alunoFacade.salvar(aluno);
+        if (aluno.getTrabalha().equalsIgnoreCase("Sim")){
+            localTrabalho.setAluno(aluno);
+            alunoFacade.salvarLocalTrabalho(localTrabalho);
+        }
+        if (!aluno.getEstadoCivil().equalsIgnoreCase("Solteiro")){
+            conjuge.setRendaMensal(rmConjuge);
+            conjuge.setAluno(aluno);
+            alunoFacade.salvarConjuge(conjuge);
+        }
+        CarregarLitaAluno();
+        return "consaluno";
+    }
     
+    public String salvarAvalista(){
+        float rmAvalista = 0.0f;
+        if (rendaMensalAvalista != null) {
+            if (rendaMensalAvalista.length() > 0) {
+                rmAvalista = Formatacao.ConvercaoMonetariaFloat(rendaMensalAvalista);
+            }
+        }
+        AlunoFacade alunoFacade = new AlunoFacade();
+        UnidadeFacade unidadeFacade = new UnidadeFacade();
+        Unidade unidade = unidadeFacade.getUnidade(1);
+        Avalistaaluno avalistaaluno = new Avalistaaluno();
+        avalista.setRendaMensal(rmAvalista);
+        avalista = alunoFacade.salvarAvalista(avalista);
+        avalistaaluno.setAvalista(avalista);
+        aluno.setAvalistaaluno(avalistaaluno);
+        aluno = alunoFacade.salvar(aluno);
+        return "cadinfoaluno";
+    }
+    
+    public String salvarConjuge(){
+        float rmConjuge = 0.0f;
+        if (rendaMensalConjuge != null) {
+            if (rendaMensalConjuge.length() > 0) {
+                rmConjuge = Formatacao.ConvercaoMonetariaFloat(rendaMensalConjuge);
+            }
+        }
+        AlunoFacade alunoFacade = new AlunoFacade();
+        conjuge.setRendaMensal(rmConjuge);
+        conjuge.setAluno(aluno);
+        conjuge = alunoFacade.salvarConjuge(conjuge);
+         return "cadinfoaluno";
+    }
+    
+    public String salvarLocalTrabalho(){
+        localTrabalho.setAluno(aluno);
+        AlunoFacade alunoFacade = new AlunoFacade();
+        localTrabalho = alunoFacade.salvarLocalTrabalho(localTrabalho);
+        return "cadinfoaluno";
+    }
+    
+    
+
 }

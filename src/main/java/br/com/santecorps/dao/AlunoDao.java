@@ -92,9 +92,4 @@ public class AlunoDao {
         manager.getTransaction().commit();
         return conjuge;
     }
-    
-    
-    
-   
-    
 }
