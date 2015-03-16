@@ -97,7 +97,7 @@
                                 <p:inputText id="cidNasci"  value="#{cadastroAlunoMB.aluno.cidadeNascimento}"  size="22" class="leftRg" />
                                 
                                 <p:selectOneMenu id="estNasci" value="#{cadastroAlunoMB.aluno.estadoNascimento}"  class="leftRg" style="width:170px"> 
-                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="Selecione" noSelectionOption="true"/>     
+                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="sn" noSelectionOption="true"/>     
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
                                  <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
                                  <f:selectItem itemLabel="Amapá" itemValue="AP" />  
@@ -152,7 +152,7 @@
                                 <p:outputLabel value="CEP:" for="cep" class="leftMeio12"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputMask id="numero"   size="9" required="true" class="left" value="#{cadastroAlunoMB.aluno.numero}" mask="?999999999"/>
+                                <p:inputMask id="numero"   size="9" class="left" value="#{cadastroAlunoMB.aluno.numero}" mask="?999999999"/>
                                 <p:inputText id="complemento" value="#{cadastroAlunoMB.aluno.complemento}"  size="38" class="leftRg"/>
                                 <p:inputMask id="cep" value="#{cadastroAlunoMB.aluno.cep}"  size="17"  maxlength="9" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
@@ -166,7 +166,7 @@
                                 <p:inputText id="cidade" value="#{cadastroAlunoMB.aluno.cidade}"  size="19" class="leftRg"/>
                            
                                  <p:selectOneMenu  id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:156px">
-                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="Selecione" noSelectionOption="true"/> 
+                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="sn" noSelectionOption="true"/> 
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
                                  <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
                                  <f:selectItem itemLabel="Amapá" itemValue="AP" />  

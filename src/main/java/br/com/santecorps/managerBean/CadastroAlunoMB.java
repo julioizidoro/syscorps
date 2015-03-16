@@ -12,7 +12,6 @@ import br.com.santecorps.model.Avalista;
 import br.com.santecorps.model.Avalistaaluno;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
-import static br.com.santecorps.model.Matricula_.aluno;
 import br.com.santecorps.model.Unidade;
 import br.com.santecorps.util.Formatacao;
 import java.io.Serializable;
