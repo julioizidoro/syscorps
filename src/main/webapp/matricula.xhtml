@@ -10,6 +10,7 @@
             <h:form>
             
             <div id="centro">
+                 <p:growl id="growl" showDetail="true" sticky="true" />
                 <br></br>
                 <legend id="iUsu" ><b>Matricula </b></legend>
                 <br></br>
@@ -168,7 +169,7 @@
                     </p:tabView>
                  <br></br>
                  
-                    <p:commandButton value="Matricular" icon=" ui-icon-plusthick" class="botaoCadastra"/>
+                    <p:commandButton value="Matricular" icon=" ui-icon-plusthick" class="botaoCadastra" actionListener="#{mensagem.matriculaMessagem}" update="growl" />
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
                     <br></br>
                 <br></br>

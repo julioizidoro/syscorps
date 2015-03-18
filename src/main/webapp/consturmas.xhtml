@@ -9,6 +9,7 @@
         <ui:define name="corpo">
             <h:form>
                 <div id="centro">
+                    <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
                     <legend id="iUsu" ><b>Consulta de Turmas </b></legend>
                     <p:dataTable var="consturma" value="#{cadastroTurmasMB.listaTurmas}" class="tabelaturmas" rowStyleClass="tabela" paginator="true" rows="10">
