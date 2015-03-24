@@ -34,11 +34,11 @@
                </h:panelGrid>
             <p:dialog header="Filtrar dados do Aluno" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
                 <p:dataTable var="conscursos" value="#{cadastroAlunoMB.listaAlunos}"  paginator="true" rows="10" class="tabelaMatri">
-                        <p:column headerText="Nome do Curso" style="width:280px" >
+                        <p:column headerText="Nome do Aluno" style="width:280px" >
                             <p:selectBooleanCheckbox value="#{consaluno.nome}" />
                         </p:column>
-                    <p:column style="width:20px">
-                            <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" icon="ui-icon-arrowstop-1-s" title="Icon Only" />
+                    <p:column style="width:28px">
+                         <p:selectBooleanCheckbox/>
                      </p:column>
                 </p:dataTable>
             </p:dialog> 
