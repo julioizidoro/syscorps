@@ -15,7 +15,9 @@ import br.com.santecorps.model.Turma;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import java.util.Map;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -24,7 +26,7 @@ import javax.inject.Named;
  */
 
 @Named
-@RequestScoped
+@SessionScoped
 public class MatriculaMB implements Serializable{
     
     private Matricula matricula;
@@ -32,8 +34,16 @@ public class MatriculaMB implements Serializable{
     private List<Aluno> listaAlunos;
     private List<Turma> listaTurma;
     private String idCurso;
+    
+    private String valorTotal;
+    private String valorEntrada;
+    private String valorParcela;
+    private String numeroParcelas;
+    
 
     public MatriculaMB() {
+        matricula = new Matricula();
+        matricula.setAluno(new Aluno());
     }
     
     
@@ -49,7 +59,42 @@ public class MatriculaMB implements Serializable{
         this.matricula = matricula;
     }
 
+    public String getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(String valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public String getValorEntrada() {
+        return valorEntrada;
+    }
+
+    public void setValorEntrada(String valorEntrada) {
+        this.valorEntrada = valorEntrada;
+    }
+
+    public String getValorParcela() {
+        return valorParcela;
+    }
+
+    public void setValorParcela(String valorParcela) {
+        this.valorParcela = valorParcela;
+    }
+
+    public String getNumeroParcelas() {
+        return numeroParcelas;
+    }
+
+    public void setNumeroParcelas(String numeroParcelas) {
+        this.numeroParcelas = numeroParcelas;
+    }
+
     public List<Curso> getListaCursos() {
+        if (listaCursos==null){
+            gerarLitaCurso();
+        }
         return listaCursos;
     }
 
@@ -58,6 +103,9 @@ public class MatriculaMB implements Serializable{
     }
 
     public List<Aluno> getListaAlunos() {
+        if (listaAlunos==null){
+            gerarListaAlunos();
+        }
         return listaAlunos;
     }
 
@@ -66,6 +114,9 @@ public class MatriculaMB implements Serializable{
     }
 
     public List<Turma> getListaTurma() {
+        if (listaTurma==null){
+            gerarListaTurma();
+        }
         return listaTurma;
     }
 
@@ -102,6 +153,17 @@ public class MatriculaMB implements Serializable{
         listaTurma = turmaFacade.listar(Integer.parseInt(idCurso), 1);
         if (listaTurma==null){
             listaTurma = new ArrayList<Turma>();
+        }
+    }
+    
+    public void selecionarAluno(){
+        if (listaAlunos!=null){
+            for(int i=0;i<listaAlunos.size();i++){
+                if (listaAlunos.get(i).isSelecionado()){
+                    matricula.setAluno(listaAlunos.get(i));
+                    i=500000;
+                }
+            }
         }
     }
 }

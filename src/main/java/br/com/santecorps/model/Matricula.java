@@ -10,13 +10,16 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -26,10 +29,12 @@ import javax.validation.constraints.NotNull;
 @Table(name = "matricula")
 public class Matricula implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
+    @Column(name = "idmatricula")
+    private Integer idmatricula;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "valortotal")
     private Float valortotal;
     @Column(name = "valorentrada")
@@ -54,8 +59,16 @@ public class Matricula implements Serializable {
     public Matricula() {
     }
 
-    public Matricula(Float valortotal) {
-        this.valortotal = valortotal;
+    public Matricula(Integer idmatricula) {
+        this.idmatricula = idmatricula;
+    }
+
+    public Integer getIdmatricula() {
+        return idmatricula;
+    }
+
+    public void setIdmatricula(Integer idmatricula) {
+        this.idmatricula = idmatricula;
     }
 
     public Float getValortotal() {
@@ -122,10 +135,12 @@ public class Matricula implements Serializable {
         this.turma = turma;
     }
 
+
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (valortotal != null ? valortotal.hashCode() : 0);
+        hash += (idmatricula != null ? idmatricula.hashCode() : 0);
         return hash;
     }
 
@@ -136,7 +151,7 @@ public class Matricula implements Serializable {
             return false;
         }
         Matricula other = (Matricula) object;
-        if ((this.valortotal == null && other.valortotal != null) || (this.valortotal != null && !this.valortotal.equals(other.valortotal))) {
+        if ((this.idmatricula == null && other.idmatricula != null) || (this.idmatricula != null && !this.idmatricula.equals(other.idmatricula))) {
             return false;
         }
         return true;
@@ -144,7 +159,7 @@ public class Matricula implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.santecorps.model.Matricula[ valortotal=" + valortotal + " ]";
+        return "br.com.santecorps.model.Matricula[ idmatricula=" + idmatricula + " ]";
     }
     
 }

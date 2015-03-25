@@ -23,27 +23,26 @@
                         <p:outputLabel value="Curso:"  class="leftMeio11" />
                     </h:panelGrid>
                <h:panelGrid columns="3" cellpadding="3" class="meio2">
-                    <p:inputText id="nomeMatri"  value="" size="42" />
+                   <p:inputText id="nomeMatri"  value="#{matriculaMB.matricula.aluno.nome}" size="42" />
                     <p:commandButton  oncomplete="PF('dlg').show()" icon="ui-icon-search" class="filtrar"/>   
                    
-                     <p:selectOneMenu id="cursoTurma" value="#{cadastroCursosMB.listaCursos}" class="left" style="width:200px">
-                            <f:selectItem itemLabel="Selecione Curso" itemValue="0"  />
-                            <f:selectItems value="#{cadastroTurmasMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
+                    <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.listaCursos}" class="left" style="width:200px" var="cursoSelecionado">
+                            <f:selectItem itemLabel="Selecione Curso" itemValue=""  />
+                            <f:selectItems value="#{matriculaMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
                             <p:ajax process="@this"/>
                     </p:selectOneMenu>
                </h:panelGrid>
             <p:dialog header="Filtrar dados do Aluno" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
-                <p:dataTable var="conscursos" value="#{cadastroAlunoMB.listaAlunos}"   paginator="true" rows="10" class="tabelaMatri">
-                        <p:column headerText="Nome do Aluno" style="width:280px" >
-                            <h:outputText value="#{consAluno.nome}" />
-                        </p:column>
+                <p:dataTable var="consaluno" value="#{matriculaMB.listaAlunos}"   paginator="true" rows="10" class="tabelaMatri">
+                    <p:column headerText="Nome do Aluno" style="width:240px" >
+                        <h:outputText value="#{consaluno.nome}" />
+                    </p:column>
                     <p:column style="width:10px">
-                         <p:selectBooleanCheckbox/>
-                     </p:column>
-                   
+                        <p:selectBooleanCheckbox value="#{consaluno.selecionado}"/>
+                    </p:column>
                 </p:dataTable>
-                 <p:commandButton value="Confirmar" icon=" ui-icon-plusthick" class="botaoCadastra" />
-                    <p:commandButton value="Fechar"  onclick="dlg.hide();" icon=" ui-icon-carat-1-s" class="botaoCadastra" />
+                <p:commandButton value="Selecionar" icon="ui-icon-arrowstop-1-s" action="#{matriculaMB.selecionarAluno()}" onclick="dlg.hide();" class="botaoCadastra" />
+                <p:commandButton value="Fechar"  onclick="dlg.hide();" class="botaoCadastra" />
             </p:dialog> 
              <br></br>
                    <h:panelGrid columns="3" cellpadding="3" class="meio2">
@@ -52,7 +51,7 @@
                         <p:outputLabel value="Turno:" for="turno" class="leftMeio21" />
                   </h:panelGrid>  
              <h:panelGrid columns="3" cellpadding="2" class="meio2">
-                   <p:inputText id="matricula"  value="" size="12" />
+                 <p:inputText id="matricula"  value="#{matriculaMB.matricula.idmatricula}" size="12" />
                      
                    <p:selectOneMenu  id="turmaMatri" class="leftMeioo" style="width:170px">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
@@ -81,10 +80,10 @@
                     <p:outputLabel value="Estado:"  class="leftMeio20"/>
                 </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="5">
-                       <p:inputText id="bairro" value="#{cadastroAlunoMB.aluno.bairro}"  size="25" class="left"/>
-                      <p:inputText id="cidade" value="#{cadastroAlunoMB.aluno.cidade}"  size="22" class="leftRg"/>
+                    <p:inputText id="bairro" value="#{matriculaMB.matricula.aluno.bairro}"  size="25" class="left"/>
+                    <p:inputText id="cidade" value="#{matriculaMB.matricula.aluno.cidade}"  size="22" class="leftRg"/>
                      
-                      <p:selectOneMenu id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:162px"> 
+                    <p:selectOneMenu id="estado" value="#{matriculaMB.matricula.aluno.estado}" class="leftRg" style="width:162px"> 
                                   <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
                                  
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
@@ -119,13 +118,6 @@
                     
                   
                 </h:panelGrid>
-                <h:panelGrid columns="2" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Escola onde concluiu o Ensino Médio:" for="concluiuEnsinoMedio" class="" />
-                       
-                 </h:panelGrid>
-             <h:panelGrid columns="2" cellpadding="5" class="meio2">
-                  <p:inputText id="concluiuEnsinoMedio"  value="" size="40" />
-             </h:panelGrid>
              <br></br>
                 <legend id="iUsu5"><b>Forma de Pagamento </b></legend>
                 <br></br>
@@ -136,11 +128,11 @@
             </h:panelGrid>
              
             <h:panelGrid columns="3" cellpadding="3" >
-                <p:inputMask id="valort" label="valort"  size="16" required="false" mask="R$999999999"  class="left">
-                </p:inputMask>
-                <p:inputText id="valorentrada" label="valorEntrada"  size="21" maxlength="19" required="false" class="leftMeioo"> 
-                </p:inputText>
-                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy" mask="true" size="18" maxlength="15" class="leftMeioo" />
+                <p:inputText id="valort" label="valort"  size="16" required="false"  class="left" value="#{matriculaMB.valorTotal}"/>
+                <p:inputText id="valorentrada" label="valorEntrada"  size="21" maxlength="19" required="false" class="leftMeioo" value="#{matriculaMB.valorEntrada}"/> 
+                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy" mask="true" size="18" maxlength="15" class="leftMeioo" value="#{matriculaMB.matricula.dataentrada}">
+                    <f:convertDateTime parent="dd/MM/yyyy" />
+                </p:calendar>
             </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="4" >
                 <h:outputText value="Número de Parcelas: " class="left"/>
@@ -152,7 +144,7 @@
 
               
                 <p:selectOneMenu id="numparcela" class="left" style="width:150px">
-                    <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
+                    <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" value="#{matriculaMB.numeroParcelas}"/> 
                         <f:selectItem itemLabel="1x" itemValue="1x" />  
                         <f:selectItem itemLabel="2x" itemValue="2x" />  
                         <f:selectItem itemLabel="3x" itemValue="3x" />  
@@ -163,9 +155,10 @@
                         <f:selectItem itemLabel="9x" itemValue="9x" />  
                         <f:selectItem itemLabel="10x" itemValue="10x" />  
                  </p:selectOneMenu>
-                <p:inputText id="valorparcela" label="valorparcela"  size="22" maxlength="19" required="false" class="leftC"> 
-                </p:inputText>
-                <p:calendar id="datavenc"  pattern="dd/MM/yyyy" mask="true" size="17" maxlength="15" class="leftMeioo" />
+                <p:inputText id="valorparcela" label="valorparcela"  size="22" maxlength="19" required="false" class="leftC" value="#{matriculaMB.valorParcela}" /> 
+                <p:calendar id="datavenc"  pattern="dd/MM/yyyy" mask="true" size="17" maxlength="15" class="leftMeioo"  value="#{matriculaMB.matricula.datavencimentoparcela}">
+                    <f:convertDateTime parent="dd/MM/yyyy" />
+                </p:calendar>
             </h:panelGrid>
                <br></br>
              </p:tab>
