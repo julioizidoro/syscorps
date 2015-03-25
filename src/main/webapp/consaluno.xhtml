@@ -11,7 +11,7 @@
               <div id="centro">
                   <p:growl id="growl" showDetail="true" sticky="true" />
                   <br></br>
-                  <legend id="iUsu" ><b>Consulta de Aluno </b></legend>
+                  <legend id="iUsu" ><b>Consulta de Participante </b></legend>
                    <br></br>
                  <h:panelGrid columns="2" cellpadding="3">
                     <p:outputLabel value="Nome:" for="nome"  class="left" /> 
@@ -22,14 +22,11 @@
                     
                 </h:panelGrid>
                    <p:dataTable id="tabAluno" var="consAluno" value="#{cadastroAlunoMB.listaAlunos}" class="tabelacurso" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
-                    <p:column headerText="Nome" style="width:130px">
+                    <p:column headerText="Nome" >
                         <h:outputText value="#{consAluno.nome}" />
                     </p:column>
                     <p:column headerText="Email" >
-                        <h:outputText value="#{consAluno.email}"  style="width:140px" />
-                    </p:column>
-                    <p:column headerText="CPF" style="width:94px" >
-                        <h:outputText value="#{consAluno.cpf}" />
+                        <h:outputText value="#{consAluno.email}"  />
                     </p:column>
                     <p:column headerText="Telefone Fixo" style="width:100px" >
                         <h:outputText value="#{consAluno.foneFixo}" />

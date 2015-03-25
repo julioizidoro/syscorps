@@ -11,21 +11,21 @@
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
-                    <legend id="iUsu" ><b>Dados do Professor </b></legend>
+                    <legend id="iUsu" ><b>Dados do Facilitador </b></legend>
                     <br></br>
                     <p:tabView class="tabelaaluno">
                         <p:tab title="Dados" >
                             <h:panelGrid columns="2" cellpadding="3">
-                                <p:outputLabel value="Nome:" for="nomeDis"  class="left" /> 
+                                <p:outputLabel value="Nome" for="nomeDis"  class="left" /> 
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="5">
                                 <p:inputText id="nomeDis"   size="87" maxlength="100" class="left"  value="#{cadastroProfessorMB.professor.nome}" required="true"/>
                             </h:panelGrid>
 
                             <h:panelGrid columns="3" cellpadding="4" >
-                                <p:outputLabel value="CPF: " class="left" for="cpf"/>
-                                <p:outputLabel value="RG:" class="leftMeio7" for="rg"/>
-                                <p:outputLabel value="Data de Nascimento:" class="leftMeio2"/> 
+                                <p:outputLabel value="CPF " class="left" for="cpf"/>
+                                <p:outputLabel value="RG" class="leftMeio7" for="rg"/>
+                                <p:outputLabel value="Data de Nascimento" class="leftMeio2"/> 
                             </h:panelGrid>  
                             <h:panelGrid columns="3" cellpadding="3" >
                                 <p:inputMask id="cpf" label="CPF/CNPJ" size="16" required="true" mask="999.999.999-99"  class="left" value="#{cadastroProfessorMB.professor.cpf}">
@@ -34,8 +34,8 @@
                                 <p:calendar id="nasciP"  pattern="dd/MM/yyyy" mask="true" size="25" maxlength="15" class="leftP" value="#{cadastroProfessorMB.professor.dataNascimento}"/>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
-                                <p:outputLabel value="Tipo Logradouro:"  class="left" />
-                                <p:outputLabel value="Logradouro:" for="logra" class="leftMeio20" />
+                                <p:outputLabel value="Tipo Logradouro"  class="left" />
+                                <p:outputLabel value="Logradouro" for="logra" class="leftMeio20" />
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="3">
     
@@ -50,9 +50,9 @@
                                 <p:inputText id="logra"   size="40"  class="leftMeio4" value="#{cadastroProfessorMB.professor.logradouro}"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:outputLabel value="Número:" for="numero"  class="left"/>
-                                <p:outputLabel value="Complemento:" for="comple" class="leftMeio4"/>
-                                <p:outputLabel value="CEP:" for="cep" class="leftMeio21"/>
+                                <p:outputLabel value="Número" for="numero"  class="left"/>
+                                <p:outputLabel value="Complemento" for="comple" class="leftMeio4"/>
+                                <p:outputLabel value="CEP" for="cep" class="leftMeio21"/>
                             </h:panelGrid>       
                             <h:panelGrid columns="6" cellpadding="5">   
                                 <p:inputMask id="numero"   size="13" required="true" class="left" value="#{cadastroProfessorMB.professor.numero}" mask="?999999999"/>
@@ -60,9 +60,9 @@
                                 <p:inputMask id="cep"   size="13" required="true" maxlength="9" class="leftRg" value="#{cadastroProfessorMB.professor.cep}" mask="99999-999"/>
                             </h:panelGrid> 
                             <h:panelGrid columns="3" cellpadding="5">
-                                 <p:outputLabel value="Bairro:" for="bairro" class="left"/>
-                                   <p:outputLabel value="Cidade:" for="cidade" class="leftMeio21"/>
-                                 <p:outputLabel value="Estado:" class="leftMeio7"/>
+                                 <p:outputLabel value="Bairro" for="bairro" class="left"/>
+                                   <p:outputLabel value="Cidade" for="cidade" class="leftMeio21"/>
+                                 <p:outputLabel value="Estado" class="leftMeio7"/>
                               
                                
                             </h:panelGrid>
@@ -106,8 +106,8 @@
                             </h:panelGrid>
                                
                             <h:panelGrid columns="2" cellpadding="3">
-                                <p:outputLabel value="Telefone Fixo:" for="telFixo"  class="left"/>
-                                <p:outputLabel value="Telefone Celular:" for="telCelular"  class="leftMeio3"/>
+                                <p:outputLabel value="Telefone Fixo" for="telFixo"  class="left"/>
+                                <p:outputLabel value="Telefone Celular" for="telCelular"  class="leftMeio3"/>
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="5">
                                 <p:inputMask id="telFixo"   size="22" maxlength="16" required="true" class="left" mask="(99)9999-9999" value="#{cadastroProfessorMB.professor.foneFixo}"/>

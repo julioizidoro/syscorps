@@ -11,7 +11,7 @@
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
-                    <legend id="iUsu" ><b>Consulta de Professores </b></legend>
+                    <legend id="iUsu" ><b>Consulta de Facilitador </b></legend>
                     <br></br>
                     <h:panelGrid columns="2" cellpadding="3">
                         <p:outputLabel value="Nome:" for="nome"  class="left" /> 
@@ -25,16 +25,14 @@
                         <p:column headerText="Nome" >
                             <h:outputText value="#{consProfessor.nome}" />
                         </p:column>
-                        <p:column headerText="Cidade" >
-                            <h:outputText value="#{consProfessor.cidade}" />
-                        </p:column>
-                        <p:column headerText="CPF" >
+                       
+                        <p:column headerText="CPF" style="width:110px">
                             <h:outputText value="#{consProfessor.cpf}" />
                         </p:column>
-                        <p:column headerText="Telefone Fixo" >
+                        <p:column headerText="Telefone Fixo" style="width:140px">
                             <h:outputText value="#{consProfessor.foneFixo}" />
                         </p:column>
-                        <p:column headerText="Telefone Celular" >
+                        <p:column headerText="Telefone Celular" style="width:140px">
                             <h:outputText value="#{consProfessor.foneCelular}" />
                         </p:column>
                         <p:column style="width:26px">

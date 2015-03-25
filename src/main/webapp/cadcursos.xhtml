@@ -17,16 +17,19 @@
                     <h:panelGrid columns="2" cellpadding="5" class="meio2">
 
                         <p:outputLabel value="Nome do Curso:" for="nomeCurso" />
-                        <p:inputText id="nomeCurso" required="true" value="#{cadastroCursosMB.curso.nome}"/>
+                        <p:inputText id="nomeCurso" required="true"  size="24" value="#{cadastroCursosMB.curso.nome}"/>
 
                         <p:outputLabel value="Carga Hóraria:" for="cargaHora" />
-                        <p:inputText id="cargaHora" required="true" value="#{cadastroCursosMB.curso.cargahoraria}"/>
+                        <p:inputText id="cargaHora" size="24" required="true" value="#{cadastroCursosMB.curso.cargahoraria}"/>
 
                         <p:outputLabel value="Tipo de Curso:" />
                         
-                         <p:selectOneMenu id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" required="true" style="width:205px">
+                         <p:selectOneMenu id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" required="true" style="width:203px">
                              <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
-                                 <f:selectItem itemLabel="Livre" itemValue="Livre" />  
+                                 <f:selectItem itemLabel="Capacitação" itemValue="Capacitação" />  
+                                 <f:selectItem itemLabel="Especialização" itemValue="Especialização" />  
+                                 <f:selectItem itemLabel="Intensivo" itemValue="Intensivo" />  
+                                 <f:selectItem itemLabel="50/50" itemValue="50/50" />  
                                  <f:selectItem itemLabel="Técnico" itemValue="Técnico" />  
                                 
                           </p:selectOneMenu>

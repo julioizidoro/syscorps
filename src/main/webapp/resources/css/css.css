@@ -176,17 +176,17 @@ box-shadow: 5px 5px 5px #6C7B8B;
      
        position:relative;
        margin-left:40%;
-       right:15%;
+       right:20%;
        top:20px;
-       width: 500px;
+       width: 600px;
 }
 .tabelacursoss{
      font-size:14px;
        position:relative;
        margin-left:40%;
-       right:15%;
+       right:25%;
        top:20px;
-       width: 500px;
+       width: 650px;
 }
 .tabelacursosss{
      font-size:14px;
@@ -232,9 +232,6 @@ box-shadow: 5px 5px 5px #6C7B8B;
        top:20px;
        width: 800px;
        background:#FAEBD7;
-}
-.tabelacursos{
-    left:-170px;
 }
 .tabelacursos1{
     width:12px;

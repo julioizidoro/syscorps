@@ -33,12 +33,20 @@
                     </p:selectOneMenu>
                </h:panelGrid>
             <p:dialog header="Filtrar dados do Aluno" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
+                 <h:panelGrid columns="2" cellpadding="3">
+                    <p:outputLabel value="Nome:" for="nome"  class="left" /> 
+                </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="1">
+                    <p:inputText id="nome" size="40" maxlength="100" class="left" value="#{cadastroAlunoMB.nomeAluno}"/>
+                    <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa" action="#{cadastroAlunoMB.pesquisarNome()}"   update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  />
+                    
+                </h:panelGrid>
                 <p:dataTable var="consaluno" value="#{matriculaMB.listaAlunos}"   paginator="true" rows="10" class="tabelaMatri">
                     <p:column headerText="Nome do Aluno" style="width:240px" >
                         <h:outputText value="#{consaluno.nome}" />
                     </p:column>
                     <p:column style="width:10px">
-                        <p:selectBooleanCheckbox value="#{consaluno.selecionado}"/>
+                        <p:selectBooleanCheckbox />
                     </p:column>
                 </p:dataTable>
                 <p:commandButton value="Selecionar" icon="ui-icon-arrowstop-1-s" action="#{matriculaMB.selecionarAluno()}" onclick="dlg.hide();" class="botaoCadastra" />
@@ -142,24 +150,24 @@
              
             <h:panelGrid columns="3" cellpadding="3" >
 
-              
-                <p:selectOneMenu id="numparcela" class="left" style="width:150px">
-                    <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" value="#{matriculaMB.numeroParcelas}"/> 
-                        <f:selectItem itemLabel="1x" itemValue="1x" />  
-                        <f:selectItem itemLabel="2x" itemValue="2x" />  
-                        <f:selectItem itemLabel="3x" itemValue="3x" />  
-                        <f:selectItem itemLabel="4x" itemValue="5x" />  
-                        <f:selectItem itemLabel="6x" itemValue="6x" />    
-                        <f:selectItem itemLabel="7x" itemValue="7x" />  
-                        <f:selectItem itemLabel="8x" itemValue="8x" />  
-                        <f:selectItem itemLabel="9x" itemValue="9x" />  
-                        <f:selectItem itemLabel="10x" itemValue="10x" />  
-                 </p:selectOneMenu>
+                <p:inputText id="numparcela" class="left"   size="18"  value="#{matriculaMB.numeroParcelas}" /> 
                 <p:inputText id="valorparcela" label="valorparcela"  size="22" maxlength="19" required="false" class="leftC" value="#{matriculaMB.valorParcela}" /> 
                 <p:calendar id="datavenc"  pattern="dd/MM/yyyy" mask="true" size="17" maxlength="15" class="leftMeioo"  value="#{matriculaMB.matricula.datavencimentoparcela}">
                     <f:convertDateTime parent="dd/MM/yyyy" />
                 </p:calendar>
             </h:panelGrid>
+                <h:panelGrid columns="7" cellpadding="3">
+                    <p:outputLabel value="Tipo de Pagamento"  class="left"/>
+                </h:panelGrid>
+                <h:panelGrid columns="5">
+                    <h:selectOneRadio id="tipoPagamento" class="left">
+                        <f:selectItem itemValue="Boleto" itemLabel="Boleto" class="left"/>
+                        <f:selectItem itemValue="Cartão Débito" itemLabel="Cartão Débito" class="left2"/>
+                        <f:selectItem itemValue="Cartão Credito" itemLabel="Cartão Credito" class="left2"/>
+                        <f:selectItem itemValue="Cheque" itemLabel="Cheque" class="left2"/>
+                        <f:selectItem itemValue="Dinheiro" itemLabel="Dinheiro" class="left2"/>
+                    </h:selectOneRadio>
+                </h:panelGrid>
                <br></br>
              </p:tab>
                     </p:tabView>

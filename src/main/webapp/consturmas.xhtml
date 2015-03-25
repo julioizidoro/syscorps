@@ -16,11 +16,11 @@
                         <f:facet name="header">
                             Lista de Turmas
                         </f:facet>
-                        <p:column headerText="Número da Turma" >
+                        <p:column headerText="Número da Turma"  style="width:120px">
                             <h:outputText value="#{consturma.numero}" />
                         </p:column>
 
-                        <p:column headerText="Turno" >
+                        <p:column headerText="Turno"  style="width:100px">
                             <h:outputText value="#{consturma.turno}" />
                         </p:column>
 
@@ -28,13 +28,13 @@
                             <h:outputText value="#{consturma.curso.nome}" />
                         </p:column>
 
-                        <p:column headerText="Data Inicio" >
+                        <p:column headerText="Data Inicio"  style="width:80px" >
                             <h:outputText value="#{consturma.datainicio}" >
                                 <f:convertDateTime pattern="dd/MM/yyyy"/> 
                             </h:outputText>
                         </p:column>
 
-                        <p:column headerText="Data Termino" >
+                        <p:column headerText="Data Termino"  style="width:80px">
                             <h:outputText value="#{consturma.datatermino}"> 
                                 <f:convertDateTime pattern="dd/MM/yyyy"/> 
                             </h:outputText>
