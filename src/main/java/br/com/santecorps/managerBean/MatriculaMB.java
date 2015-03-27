@@ -108,6 +108,11 @@ public class MatriculaMB implements Serializable{
         }
         return listaAlunos;
     }
+     public String pesquisarNomeMatricula(){
+        
+        gerarListaAlunos();
+        return "matricula";
+    }
 
     public void setListaAlunos(List<Aluno> listaAlunos) {
         this.listaAlunos = listaAlunos;

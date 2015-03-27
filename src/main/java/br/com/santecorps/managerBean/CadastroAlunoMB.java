@@ -205,7 +205,7 @@ public class CadastroAlunoMB implements Serializable{
         CarregarLitaAluno();
         return "consaluno";
     }
-    
+   
     
     public String salvarAvalista(){
         float rmAvalista = 0.0f;
