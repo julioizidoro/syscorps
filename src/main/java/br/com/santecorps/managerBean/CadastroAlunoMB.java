@@ -204,6 +204,18 @@ public class CadastroAlunoMB implements Serializable{
         
         CarregarLitaAluno();
         return "consaluno";
+    
+    }        
+     public String pesquisarNome2(){
+        
+        CarregarLitaAluno();
+        return "selecionarAluno";
+    
+    }
+    public String pesquisarNomeMatricula(){
+        
+        CarregarLitaAluno();
+        return "selecionarAluno";
     }
    
     

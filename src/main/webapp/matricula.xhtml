@@ -24,7 +24,7 @@
                     </h:panelGrid>
                <h:panelGrid columns="3" cellpadding="3" class="meio2">
                    <p:inputText id="nomeMatri"  value="#{matriculaMB.matricula.aluno.nome}" size="42" />
-                    <p:commandButton  oncomplete="PF('dlg').show()" icon="ui-icon-search" class="filtrar"/>   
+                   <p:commandButton action="#{matriculaMB.filtrarAluno()}" icon="ui-icon-search" class="filtrar"/>   
                    
                     <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.listaCursos}" class="left" style="width:200px" var="cursoSelecionado">
                             <f:selectItem itemLabel="Selecione Curso" itemValue=""  />
@@ -32,27 +32,7 @@
                             <p:ajax process="@this"/>
                     </p:selectOneMenu>
                </h:panelGrid>
-            <p:dialog header="Filtrar dados do Aluno" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat">
-                
-                <h:panelGrid columns="2" cellpadding="3">
-                    <p:outputLabel value="Nome:" for="nome"  class="left" /> 
-                </h:panelGrid>
-                <h:panelGrid columns="2" cellpadding="1">
-                    <p:inputText id="nome" size="40" maxlength="100" class="left" value="#{cadastroAlunoMB.nomeAluno}"/>
-                    <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa"  action="#{matriculaMB.pesquisarNomeMatricula()}"   update="@all"  oncomplete="popAprovar.hide(); PF('dlg').show()"  />
-                    
-                </h:panelGrid>
-                <p:dataTable var="consaluno" value="#{matriculaMB.listaAlunos}"   paginator="true" rows="10" class="tabelaMatri">
-                    <p:column headerText="Nome do Aluno" style="width:240px" >
-                        <h:outputText value="#{consaluno.nome}" />
-                    </p:column>
-                    <p:column style="width:10px">
-                        <p:selectBooleanCheckbox />
-                    </p:column>
-                </p:dataTable>
-                <p:commandButton value="Selecionar" icon="ui-icon-arrowstop-1-s" action="#{matriculaMB.selecionarAluno()}" onclick="dlg.hide();" class="botaoCadastra" />
-                <p:commandButton value="Fechar"  onclick="dlg.hide();" class="botaoCadastra" />
-            </p:dialog> 
+           
              <br></br>
                    <h:panelGrid columns="3" cellpadding="3" class="meio2">
                         <p:outputLabel value="Matrícula:" for="matricula" class="" />

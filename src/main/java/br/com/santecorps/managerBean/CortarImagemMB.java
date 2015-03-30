@@ -2,7 +2,9 @@
 package br.com.santecorps.managerBean;
 
 import java.io.File;
-import javax.faces.application.FacesMessage;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -13,51 +15,49 @@ import org.primefaces.model.CroppedImage;
 @ManagedBean
 @ViewScoped
 public class CortarImagemMB {
-        private CroppedImage croppedImage;
+        private CroppedImage cortarImagem;
      
-    private String novaImagem;
+    private String filename;
  
     public CroppedImage getCroppedImage() {
-        return croppedImage;
+        return cortarImagem;
     }
  
-    public void setCroppedImage(CroppedImage croppedImage) {
-        this.croppedImage = croppedImage;
+    public void setCroppedImage(CroppedImage cortarImagem) {
+        this.cortarImagem = cortarImagem;
     }
- 
-    public void crop() {
-        if(croppedImage == null) {
-            return;
-        }
+     //criando nome 
+      private String getRandomImageName() {
+        int i = (int) (Math.random() * 10000000);
          
-        setNovaImagem(getRandomImageName());
+        return String.valueOf(i);
+    }
+ 
+    public String getFilename() {
+        return filename;
+    }
+ 
+       public String crop() {
+       //recebendo o nome aleatorio
+       filename = getRandomImageName();
+
+        //direcionando local para salvar   
         ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-         String newFileName = servletContext.getRealPath("") + File.separator + "resources" + File.separator + "img" +
-                                    File.separator + novaImagem + ".jpeg";
+        String novoNome = servletContext.getRealPath("")  + File.separator + "resources" + File.separator + "img" + File.separator + filename + ".jpeg";
         
       
         FileImageOutputStream imageOutput;
         try {
-            imageOutput = new FileImageOutputStream(new File(newFileName));
-            imageOutput.write(croppedImage.getBytes(), 0, croppedImage.getBytes().length);
+            imageOutput = new FileImageOutputStream(new File(novoNome));
+            imageOutput.write(cortarImagem.getBytes(), 0, cortarImagem.getBytes().length);
             imageOutput.close();
-        } catch (Exception e) {
+       } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-         
-    }
-     
-    private String getRandomImageName() {
-        int i = (int) (Math.random() * 100000);
-         
-        return String.valueOf(i);
-    }
-     
-    public String getNovaImagem() {
-        return novaImagem;
-    }
  
-    public void setNovaImagem(String novaImagem) {
-        this.novaImagem = novaImagem;
+        return null;
     }
+   
 }
-

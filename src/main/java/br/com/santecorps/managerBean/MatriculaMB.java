@@ -15,9 +15,7 @@ import br.com.santecorps.model.Turma;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -161,7 +159,7 @@ public class MatriculaMB implements Serializable{
         }
     }
     
-    public void selecionarAluno(){
+    public String selecionarAluno(){
         if (listaAlunos!=null){
             for(int i=0;i<listaAlunos.size();i++){
                 if (listaAlunos.get(i).isSelecionado()){
@@ -170,5 +168,20 @@ public class MatriculaMB implements Serializable{
                 }
             }
         }
+        return "matricula";
     }
+    
+    public String voltar(){
+        return "matricula";
+    }
+     
+     public String filtrarAluno(){
+         return "selecionarAluno";
+    }
+     
+     public String pesquisarNome(){
+        gerarListaAlunos();
+        return "selecionarAluno";
+    }
+   
 }
