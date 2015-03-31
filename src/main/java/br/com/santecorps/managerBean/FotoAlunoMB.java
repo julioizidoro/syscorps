@@ -2,6 +2,7 @@ package br.com.santecorps.managerBean;
  
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import javax.faces.FacesException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -12,7 +13,7 @@ import org.primefaces.event.CaptureEvent;
  
 @ManagedBean
 @ViewScoped
-public class FotoAlunoMB {
+public class FotoAlunoMB implements Serializable{
      
     private String filename;
      

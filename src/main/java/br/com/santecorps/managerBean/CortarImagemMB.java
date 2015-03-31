@@ -4,6 +4,8 @@ package br.com.santecorps.managerBean;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -13,11 +15,11 @@ import javax.servlet.ServletContext;
 import org.primefaces.model.CroppedImage;
  
 @ManagedBean
-@ViewScoped
-public class CortarImagemMB {
+@RequestScoped
+public class CortarImagemMB implements Serializable{
         private CroppedImage cortarImagem;
      
-    private String filename;
+    private String filename="";
  
     public CroppedImage getCroppedImage() {
         return cortarImagem;
@@ -35,6 +37,10 @@ public class CortarImagemMB {
  
     public String getFilename() {
         return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
  
        public String crop() {
