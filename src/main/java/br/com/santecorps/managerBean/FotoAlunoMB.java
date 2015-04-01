@@ -1,18 +1,19 @@
 package br.com.santecorps.managerBean;
- 
+
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.FacesException;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
+import javax.inject.Named;
 import javax.servlet.ServletContext;
 import org.primefaces.event.CaptureEvent;
  
-@ManagedBean
-@ViewScoped
+@Named
+@SessionScoped
 public class FotoAlunoMB implements Serializable{
      
     private String filename;
@@ -46,5 +47,11 @@ public class FotoAlunoMB implements Serializable{
         catch(IOException e) {
             throw new FacesException("Erro em capturar imagem.", e);
         }
+    }
+    public String tirarFoto() {
+        return "tirarFoto";
+    }
+    public String confirmar() {
+        return "cadaluno";
     }
 }

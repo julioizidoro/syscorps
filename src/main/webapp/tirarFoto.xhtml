@@ -11,31 +11,27 @@
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
-                   
-                    <p:tabView class="tabelaaluno">
-                        <p:tab title="Foto Cadastro de Participante" >
-                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
-                         <h:form>       
-                            <h:panelGrid columns="10" cellpadding="5" >
-                            <p:photoCam widgetVar="pc" listener="#{fotoAlunoMB.oncapture}" update="photo" />
-                            <p:commandButton type="button" value="Capture" onclick="PF('pc').capture()"/>
-                            <p:outputPanel id="photo">
-                                <p:imageCropper value="#{cortarImagemMB.croppedImage}" image="resources/img/#{fotoAlunoMB.filename}.jpeg" initialCoords="225,75,300,125"/>
-                            </p:outputPanel>
-                             <p:commandButton value="Cortar" action="#{cortarImagemMB.crop()}"  icon="ui-icon-scissors"/>
-                             <p:graphicImage id="cropped" value="resources/img/#{cortarImagemMB.filename}.jpeg" />
-                        </h:panelGrid>
-                    </h:panelGrid>
-                            </p:tab>
-                         </p:tabView>  
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroCursosMB.salvarCurso()}" />
-                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroCursosMB.cancelar()}" />
-                    <br></br>
-                    <br></br>
 
+                    <p:tabView class="tabelaaluno" >
+                        <p:tab title="Foto Cadastro de Participante" >
+                            <h:panelGrid columns="4" cellpadding="5" class="telaCortar" >
+                                <p:photoCam widgetVar="pc" listener="#{fotoAlunoMB.oncapture}" update="photo" />
+                                <p:commandButton type="button" value="Capture" onclick="PF('pc').capture()"/>
+                            </h:panelGrid>
+                            <h:panelGrid columns="5" >
+                                <p:outputPanel id="photo">
+                                    <p:imageCropper value="#{cortarImagemMB.croppedImage}" image="/resources/img/#{fotoAlunoMB.filename}.jpeg" initialCoords="300,100,380,155"/>
+                                </p:outputPanel>
+                                <p:commandButton value="Cortar" action="#{cortarImagemMB.cortar()}"  icon="ui-icon-scissors" onclick="history.forward()()"/>
+                                <p:graphicImage id="cropped" value="resources/img/#{cortarImagemMB.filename}.jpeg" />
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:tabView>  
+                     <p:commandButton value="Confirmar" action="#{fotoAlunoMB.confirmar}" class="botaoConsulta"/>
+                    <br></br>
+                    <br></br>
                 </div>
             </h:form>
-
         </ui:define>
     </ui:composition>
 </html>
