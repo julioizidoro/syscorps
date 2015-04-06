@@ -1,44 +1,41 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version='1.0' encoding='UTF-8' ?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>  
-    <head>
-        <meta charset="UTF-8" />
-
-        <title>Login</title>
-
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head><meta charset="utf-8"/> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+        <title>Login</title> 
         <link href="resources/css/cssLogin.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
+    </h:head> 
+    <h:body> 
         <div class="container">
-
-            <section>				
-                <div id="container_demo" >
-
-                    <div id="wrapper">
-                        <div id="login" class="animate form">
-                            <form autocomplete="on"> 
+            <section>	
+                <h:form>
+                    <div id="container_demo" >
+                        <div id="wrapper">
+                            <div id="login" class="animate form">
                                 <h1>Login</h1> 
-                                <p> 
-                                    <label for="usuario" class="uname"  >Usuário</label>
-                                    <input id="usuario" name="username" required="required" type="text" />
-                                </p>
-                                <p> 
-                                    <label for="senha" class="youpasswd" >Senha</label>
-                                    <input id="senha" name="senha" required="required" type="password"/> 
-                                </p>
-                                <p class="keeplogin"> 
-                                </p>
-                                <p class="login button"> 
-                                    <input type="submit" value="Entrar" /> 
-                                </p>
+                                <h:panelGrid >
+                                    <p:outputLabel value="Usuário" for="usuario"  class="uname"/>
+                                    <p:inputText id="usuario" size="50" required="required"/>
+                                </h:panelGrid>
+                                <br></br>
+                                <h:panelGrid >
+                                    <p:outputLabel value="Senha" for="senha"  class="uname"/>
+                                    <p:inputText id="senha" size="50" required="required"  type="password"/>
+                                </h:panelGrid>
+                                <h:panelGrid class="loginButton">
+                                    <p:commandButton value="Login" class="loginButton"/>
+                                </h:panelGrid>
                                 <p class="change_link">
-
                                 </p>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                </div>  
+                    </div> 
+                </h:form>
             </section>
         </div>
-    </body>
+    </h:body>
 </html>
