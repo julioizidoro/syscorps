@@ -2,11 +2,23 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="syscorpsPU" transaction-type="JTA">
     <jta-data-source>jdbc/syscorpsDS</jta-data-source>
-    <class>br.com.santecorps.model.Curso</class>
+    <class>br.com.santecorps.controller.model.Professor</class>
+    <class>br.com.santecorps.controller.model.Curso</class>
+    <class>br.com.santecorps.controller.model.Avalista</class>
+    <class>br.com.santecorps.controller.model.Avalistaaluno</class>
+    <class>br.com.santecorps.controller.model.Localtrabalho</class>
+    <class>br.com.santecorps.controller.model.Matricula</class>
+    <class>br.com.santecorps.controller.model.Unidade</class>
+    <class>br.com.santecorps.controller.model.Disciplina</class>
+    <class>br.com.santecorps.controller.model.Conjuge</class>
+    <class>br.com.santecorps.controller.model.Gradeturma</class>
+    <class>br.com.santecorps.controller.model.Turma</class>
+    <class>br.com.santecorps.controller.model.Aluno</class>
     <class>br.com.santecorps.model.Aluno</class>
     <class>br.com.santecorps.model.Avalista</class>
     <class>br.com.santecorps.model.Avalistaaluno</class>
     <class>br.com.santecorps.model.Conjuge</class>
+    <class>br.com.santecorps.model.Curso</class>
     <class>br.com.santecorps.model.Disciplina</class>
     <class>br.com.santecorps.model.Gradeturma</class>
     <class>br.com.santecorps.model.Localtrabalho</class>
@@ -14,6 +26,7 @@
     <class>br.com.santecorps.model.Professor</class>
     <class>br.com.santecorps.model.Turma</class>
     <class>br.com.santecorps.model.Unidade</class>
+    <class>br.com.santecorps.model.Usuario</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

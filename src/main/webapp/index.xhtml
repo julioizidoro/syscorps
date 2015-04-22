@@ -16,18 +16,19 @@
                     <div id="container_demo" >
                         <div id="wrapper">
                             <div id="login" class="animate form">
+                                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                                 <h1>Login</h1> 
                                 <h:panelGrid >
                                     <p:outputLabel value="Usuário" for="usuario"  class="uname"/>
-                                    <p:inputText id="usuario" size="50" required="required"/>
+                                    <p:inputText id="usuario" size="50" required="required" requiredMessage="Campo Obrigatorio" value="#{UsuarioLogadoMB.usuario.login}"/>
                                 </h:panelGrid>
                                 <br></br>
                                 <h:panelGrid >
                                     <p:outputLabel value="Senha" for="senha"  class="uname"/>
-                                    <p:inputText id="senha" size="50" required="required"  type="password"/>
+                                    <p:inputText id="senha" size="50" required="required" requiredMessage="Campo Obrigatorio" type="password" value="#{UsuarioLogadoMB.usuario.senha}"/>
                                 </h:panelGrid>
                                 <h:panelGrid class="loginButton">
-                                    <p:commandButton value="Login" class="loginButton"/>
+                                    <p:commandButton value="Login" class="loginButton" action="#{UsuarioLogadoMB.validarUsuario()}"/>
                                 </h:panelGrid>
                                 <p class="change_link">
                                 </p>

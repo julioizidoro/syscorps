@@ -30,20 +30,21 @@
                                 <p:commandButton value="Adicionar" oncomplete="PF('dlg').show()" icon="ui-icon-plusthick" class="botaoInformacoes" />
                                 <p:commandButton value="Alterar" icon="ui-icon-closethick" class="botaoInformacoes"  action="#{cadastroAlunoMB.informacoesClientes()}" oncomplete="PF('dlg').show()"/>
                             </h:panelGrid>
+                            
                             <p:dialog header="Adicionar avalista" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat" width="50%">
                                 <h:panelGrid columns="2" cellpadding="5" >
                                     <p:outputLabel value="Nome:" for="nomeAvalista"  class="left"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="2" cellpadding="5" >
-                                    <p:inputText id="nomeAvalista"   value="#{cadastroAlunoMB.avalista.nome}" size="88" maxlength="100"  class="left"/>
+                                    <p:inputText id="nomeAvalista"   value="#{cadastroAlunoMB.avalista.nome}" size="76" maxlength="100"  class="left"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="5" >
                                     <h:outputText value="Profissão: " class="left"/>
                                     <p:outputLabel value="Renda Mensal:" for="rendaAvalista" class="leftMeio5"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="5" >
-                                    <p:inputText id="profissaoAvalista" label="profissao:" value="#{cadastroAlunoMB.avalista.profissao}" size="44" maxlength="100" required="false" class="left"> </p:inputText>
-                                    <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.rendaMensalAvalista}" class="leftRg" size="30"/>
+                                    <p:inputText id="profissaoAvalista" label="profissao:" value="#{cadastroAlunoMB.avalista.profissao}" size="37" maxlength="100" required="false" class="left"> </p:inputText>
+                                    <p:inputText id="rendaAvalista"  value="#{cadastroAlunoMB.rendaMensalAvalista}" class="leftRg" size="27"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="3" cellpadding="4" >
                                     <h:outputText value="CPF: " class="left"/>
@@ -51,11 +52,11 @@
                                     <h:outputText value="Data de Nascimento:" class="leftMeio2"/> 
                                 </h:panelGrid>
                                 <h:panelGrid columns="3" cellpadding="3" >
-                                    <p:inputMask id="cpfAvalista" label="CPFavalista" value="#{cadastroAlunoMB.avalista.cpf}" size="20" required="false" mask="999.999.999-99"  class="left"/>
-                                    <p:inputText id="rgAval" label="RG" value="#{cadastroAlunoMB.avalista.rg}" size="18" maxlength="19" required="false" class="leftRg"> 
+                                    <p:inputMask id="cpfAvalista" label="CPFavalista" value="#{cadastroAlunoMB.avalista.cpf}" size="17" required="false" mask="999.999.999-99"  class="left"/>
+                                    <p:inputText id="rgAval" label="RG" value="#{cadastroAlunoMB.avalista.rg}" size="16" maxlength="10" required="false" class="leftRg"> 
                                     </p:inputText>
-                                    <p:calendar id="maskAval" value="#{cadastroAlunoMB.avalista.dataNascimento}" pattern="dd/MM/yyyy" mask="true" size="24" maxlength="10" class="leftP" >
-                                        <f:convertDateTime parent="dd/MM/yyyy"/>
+                                    <p:calendar id="maskAval" value="#{cadastroAlunoMB.avalista.dataNascimento}" pattern="dd/MM/yyyy"  size="21" maxlength="10" class="leftP" >
+                                       <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                     </p:calendar>
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="5">
@@ -64,7 +65,7 @@
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="3">
 
-                                    <p:selectOneMenu id="logradouroAval" value="#{cadastroAlunoMB.avalista.tipoLogradouro}"  style="width:185px" class="left">
+                                    <p:selectOneMenu id="logradouroAval" value="#{cadastroAlunoMB.avalista.tipoLogradouro}"  style="width:170px" class="left">
                                         <f:selectItem itemLabel="Selecione" itemValue="Selecione" noSelectionOption="true"/> 
                                         <f:selectItem itemLabel="Rua" itemValue="Rua" />  
                                         <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
@@ -72,7 +73,7 @@
                                         <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                         <f:selectItem itemLabel="BR" itemValue="BR" />       
                                     </p:selectOneMenu>
-                                    <p:inputText id="tipoAval"   size="40"  class="leftMeio4" value="#{cadastroAlunoMB.avalista.logradouro}"/>
+                                    <p:inputText id="tipoAval"   size="38"  class="leftMeio4" value="#{cadastroAlunoMB.avalista.logradouro}"/>
                                 </h:panelGrid>
 
                                 <h:panelGrid columns="6" cellpadding="5">   
@@ -81,8 +82,8 @@
                                     <p:outputLabel value="CEP:" for="cepAval" class="leftMeio12"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="6" cellpadding="5">   
-                                    <p:inputMask id="numeroAval"   size="6" class="left" value="#{cadastroAlunoMB.avalista.numero}" mask="?999999999"/>
-                                    <p:inputText id="complementoAval"  value="#{cadastroAlunoMB.avalista.complemento}" size="37" class="leftRg"/>
+                                    <p:inputMask id="numeroAval"   size="5" class="left" value="#{cadastroAlunoMB.avalista.numero}" mask="?999999999"/>
+                                    <p:inputText id="complementoAval"  value="#{cadastroAlunoMB.avalista.complemento}" size="32" class="leftRg"/>
                                     <p:inputMask id="cepAval"  value="#{cadastroAlunoMB.avalista.cep}" size="15" class="leftRg" mask="99999-999"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="3" cellpadding="5">
@@ -93,8 +94,8 @@
 
                                 </h:panelGrid>
                                 <h:panelGrid columns="3" cellpadding="5">
-                                    <p:inputText id="bairroAvalista" value="#{cadastroAlunoMB.avalista.bairro}"  size="25" class="left"/>
-                                    <p:inputText id="cidadeAval"  value="#{cadastroAlunoMB.avalista.cidade}" size="19" class="leftRg"/>
+                                    <p:inputText id="bairroAvalista" value="#{cadastroAlunoMB.avalista.bairro}"  size="21" class="left"/>
+                                    <p:inputText id="cidadeAval"  value="#{cadastroAlunoMB.avalista.cidade}" size="16" class="leftRg"/>
 
                                     <p:selectOneMenu  id="estadoAval" value="#{cadastroAlunoMB.avalista.estado}" class="leftRg" style="width:135px">
                                         <f:selectItem itemLabel="Selecione o Estado" itemValue="sn" noSelectionOption="true"/> 
@@ -134,7 +135,7 @@
                                     <p:outputLabel value="Telefone Celular:" for="telCelAvalista" class="leftMeio10" />
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="3">
-                                    <p:inputMask id="telFixoAvalista" value="#{cadastroAlunoMB.avalista.foneFixo}" size="18" class="left" mask="(99)9999-9999"/>
+                                    <p:inputMask id="telFixoAvalista" value="#{cadastroAlunoMB.avalista.foneFixo}" size="15" class="left" mask="(99)9999-9999"/>
                                     <p:inputMask id="telCelAvalista"  value="#{cadastroAlunoMB.avalista.foneCelular}" size="15"  class="leftMeioo" mask="(99)9999-9999"/>
                                 </h:panelGrid>
                                 <p:commandButton value="Cadatrar" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.salvarAvalista()}" onclick="dlg.hide();"/>
@@ -157,23 +158,23 @@
 
                                 </h:panelGrid>        
                                 <h:panelGrid columns="2" cellpadding="5" >
-                                    <p:inputText  id="nomeTrab" value="#{cadastroAlunoMB.localTrabalho.nome}"  size="84" maxlength="100"  class="left"/> 
+                                    <p:inputText  id="nomeTrab" value="#{cadastroAlunoMB.localTrabalho.nome}"  size="70" maxlength="100"  class="left"/> 
                                 </h:panelGrid>
                                 <h:panelGrid columns="2" cellpadding="5" >
                                     <p:outputLabel value="Cargo:" for="cargoTra"   class="left" />
                                     <p:outputLabel value="Telefone Comercial:" for="telComer"  class="leftMeio22"/>      
                                 </h:panelGrid>
                                 <h:panelGrid columns="2" cellpadding="5" >
-                                    <p:inputText id="cargoTra" value="#{cadastroAlunoMB.localTrabalho.cargo}"  size="52" maxlength="50"   class="left"/>
-                                    <p:inputMask id="telComer"   value="#{cadastroAlunoMB.localTrabalho.foneComercial}" size="18" maxlength="50" class="leftRg" mask="(99)9999-9999"/>
+                                    <p:inputText id="cargoTra" value="#{cadastroAlunoMB.localTrabalho.cargo}"  size="44" maxlength="50"   class="left"/>
+                                    <p:inputMask id="telComer"   value="#{cadastroAlunoMB.localTrabalho.foneComercial}" size="14" maxlength="50" class="leftRg" mask="(99)9999-9999"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="5" >          
                                     <p:outputLabel value="Comprovante de Renda:" for="comproRenda"   class="left"/>
                                     <p:outputLabel value="Outras Rendas:" for="outraRenda" class="leftMeio21"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="5" >
-                                    <p:inputText id="comproRenda"   value="#{cadastroAlunoMB.localTrabalho.comprovanteRenda}" size="43" maxlength="50"   class="left"/>
-                                    <p:inputText id="outraRenda"   value="#{cadastroAlunoMB.localTrabalho.outrasRendas}" size="27" maxlength="50"  class="leftRg" />
+                                    <p:inputText id="comproRenda"   value="#{cadastroAlunoMB.localTrabalho.comprovanteRenda}" size="35" maxlength="50"   class="left"/>
+                                    <p:inputText id="outraRenda"   value="#{cadastroAlunoMB.localTrabalho.outrasRendas}" size="23" maxlength="50"  class="leftRg" />
                                 </h:panelGrid>
                                 <p:commandButton value="Cadastrar" icon="ui-icon-plusthick" class="botaoCadastra" action="#{cadastroAlunoMB.salvarLocalTrabalho()}" onclick="dll.hide();" />
                                 <p:commandButton value="Cancelar" onclick="dll.hide();" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroAlunoMB.cancelarDialog()}"/>
@@ -189,20 +190,21 @@
                                 <p:inputText id="conjuge" readonly="true" class="left" size="60" maxlength="100" value="#{cadastroAlunoMB.conjuge.nome}"/>
                                 <p:commandButton value="Adicionar" oncomplete="PF('dlgg').show()" icon="ui-icon-plusthick" class="botaoInformacoes" />
                                 <p:commandButton value="Alterar" icon="ui-icon-closethick" class="botaoInformacoes"  oncomplete="PF('dlgg').show()" action="#{cadastroAlunoMB.informacoesClientes()}"/>
+                                
                                 <p:dialog header="Adicionar Cônjuge" modal="true" showEffect="bounce" widgetVar="dlgg" resizable="false"  class="tabelaMat" width="50%">
                                     <h:panelGrid columns="2" cellpadding="5" >
                                         <p:outputLabel value="Nome:" for="nomeConjuge"  class="left"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="2" cellpadding="5" >
-                                        <p:inputText   id="nomeConjuge" value="#{cadastroAlunoMB.conjuge.nome}" size="87" maxlength="100"  class="left"/>
+                                        <p:inputText   id="nomeConjuge" value="#{cadastroAlunoMB.conjuge.nome}" size="76" maxlength="100"  class="left"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="4" cellpadding="5" >
                                         <h:outputText value="Profissão: " class="left"/>
-                                        <p:outputLabel value="Renda Mensal:" for="rendaConjuge" class="leftMeio13"/>
+                                        <p:outputLabel value="Renda Mensal:" for="rendaConjuge" class="leftMeio5"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="4" cellpadding="5" >
-                                        <p:inputText id="profissaoConjuge" label="profissao:" value="#{cadastroAlunoMB.conjuge.profissao}" size="48" maxlength="100" required="false" class="left"> </p:inputText>
-                                        <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.rendaMensalConjuge}"   class="leftRg" size="25"/>
+                                        <p:inputText id="profissaoConjuge" label="profissao:" value="#{cadastroAlunoMB.conjuge.profissao}" size="37" maxlength="100" required="false" class="left"> </p:inputText>
+                                        <p:inputText id="rendaConjuge"  value="#{cadastroAlunoMB.rendaMensalConjuge}"   class="leftRg" size="27"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="3" cellpadding="4" >
                                         <h:outputText value="CPF: " class="left"/>
@@ -210,11 +212,11 @@
                                         <h:outputText value="Data de Nascimento:" class="leftMeio2"/> 
                                     </h:panelGrid>
                                     <h:panelGrid columns="3" cellpadding="3" >
-                                        <p:inputMask id="cpfConjuge" label="CPF/CNPJ" value="#{cadastroAlunoMB.conjuge.cpf}" size="19" required="false" mask="999.999.999-99"  class="left"/>
-                                        <p:inputText id="rgConjuge" label="RG" value="#{cadastroAlunoMB.conjuge.rg}" size="18" maxlength="19" required="false" class="leftRg"> 
+                                        <p:inputMask id="cpfConjuge" label="CPF/CNPJ" value="#{cadastroAlunoMB.conjuge.cpf}" size="17" required="false" mask="999.999.999-99"  class="left"/>
+                                        <p:inputText id="rgConjuge" label="RG" value="#{cadastroAlunoMB.conjuge.rg}" size="16" maxlength="19" required="false" class="leftRg"> 
                                         </p:inputText>
-                                        <p:calendar id="maskConjuge" value="#{cadastroAlunoMB.conjuge.dataNascimento}" pattern="dd/MM/yyyy" mask="true" size="24" maxlength="15" class="leftP" >
-                                            <f:convertDateTime parent="dd/MM/yyyy"/>
+                                        <p:calendar id="maskConjuge" value="#{cadastroAlunoMB.conjuge.dataNascimento}" pattern="dd/MM/yyyy" size="21" maxlength="15" class="leftP" >
+                                            <f:convertDateTime parent="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                         </p:calendar>
                                     </h:panelGrid>
                                     <h:panelGrid columns="4" cellpadding="5">
@@ -222,7 +224,7 @@
                                         <p:outputLabel value="Telefone Celular:" for="telConjuge" class="leftMeio10" />
                                     </h:panelGrid>
                                     <h:panelGrid columns="4" cellpadding="3">
-                                        <p:inputMask id="telFixoConjuge" value="#{cadastroAlunoMB.conjuge.foneFixo}" size="19"  class="left" mask="(99)9999-9999"/>
+                                        <p:inputMask id="telFixoConjuge" value="#{cadastroAlunoMB.conjuge.foneFixo}" size="15"  class="left" mask="(99)9999-9999"/>
                                         <p:inputMask id="telConjuge"  value="#{cadastroAlunoMB.conjuge.foneCelular}" size="15"  class="leftMeioo" mask="(99)9999-9999"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="4" cellpadding="5">
@@ -230,7 +232,7 @@
                                         <p:outputLabel value="Logradouro:" for="logradouroConjuge" class="leftMeio2" />
                                     </h:panelGrid>
                                     <h:panelGrid columns="4" cellpadding="3">
-                                        <p:selectOneMenu  id="tipoConjuge" value="#{cadastroAlunoMB.conjuge.tipoLogradouro}" style="width:175px" class="left">
+                                        <p:selectOneMenu  id="tipoConjuge" value="#{cadastroAlunoMB.conjuge.tipoLogradouro}" style="width:170px" class="left">
                                             <f:selectItem itemLabel="Selecione" itemValue="sn" noSelectionOption="true"/> 
                                             <f:selectItem itemLabel="Rua" itemValue="Rua" />  
                                             <f:selectItem itemLabel="Rodovia" itemValue="Rodivia" />  
@@ -238,7 +240,7 @@
                                             <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                             <f:selectItem itemLabel="BR" itemValue="BR" />       
                                         </p:selectOneMenu>
-                                        <p:inputText id="logradouroConjuge"  value="#{cadastroAlunoMB.conjuge.logradouro}" size="41"  class="leftMeio4"/>
+                                        <p:inputText id="logradouroConjuge"  value="#{cadastroAlunoMB.conjuge.logradouro}" size="38"  class="leftMeio4"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="6" cellpadding="5">   
                                         <p:outputLabel value="Número:" for="numeroConjuge"  class="left"/>
@@ -246,20 +248,20 @@
                                         <p:outputLabel value="CEP:" for="cepConjuge" class="leftMeio12"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="6" cellpadding="5">   
-                                        <p:inputMask id="numeroConjuge"   size="6"  class="left" value="#{cadastroAlunoMB.conjuge.numero}" mask="?999999999"/>
-                                        <p:inputText id="complementoConjuge"  value="#{cadastroAlunoMB.conjuge.complemento}" size="37" class="leftRg"/>
+                                        <p:inputMask id="numeroConjuge"   size="5"  class="left" value="#{cadastroAlunoMB.conjuge.numero}" mask="?999999999"/>
+                                        <p:inputText id="complementoConjuge"  value="#{cadastroAlunoMB.conjuge.complemento}" size="32" class="leftRg"/>
                                         <p:inputMask id="cepConjuge"  value="#{cadastroAlunoMB.conjuge.cep}" size="15" class="leftRg" mask="99999-999"/>
                                     </h:panelGrid>
                                     <h:panelGrid columns="3" cellpadding="5">
                                         <p:outputLabel value="Bairro:" for="bairroConjuge" class="left"/>
                                         <p:outputLabel value="Cidade:" for="cidadeConjuge" class="leftMeio21"/>
-                                        <p:outputLabel value="Estado:" class="leftMeio7"/>
+                                        <p:outputLabel value="Estado:" class="leftMeio10"/>
 
                                     </h:panelGrid>
                                     <h:panelGrid columns="3" cellpadding="5">
-                                        <p:inputText id="bairroConjuge"  value="#{cadastroAlunoMB.conjuge.bairro}" size="24" class="left"/>
-                                        <p:inputText id="cidadeConjuge"  value="#{cadastroAlunoMB.conjuge.cidade}" size="17" class="leftRg"/>
-                                        <p:selectOneMenu   id="estadoConjuge" value="#{cadastroAlunoMB.conjuge.estado}" class="leftRg" style="width:140px"> 
+                                        <p:inputText id="bairroConjuge"  value="#{cadastroAlunoMB.conjuge.bairro}" size="21" class="left"/>
+                                        <p:inputText id="cidadeConjuge"  value="#{cadastroAlunoMB.conjuge.cidade}" size="16" class="leftRg"/>
+                                        <p:selectOneMenu   id="estadoConjuge" value="#{cadastroAlunoMB.conjuge.estado}" class="leftRg" style="width:135px"> 
                                             <f:selectItem itemLabel="Selecione o Estado" itemValue="sn" noSelectionOption="true"/> 
 
                                             <f:selectItem itemLabel="Acre" itemValue="AC" /> 

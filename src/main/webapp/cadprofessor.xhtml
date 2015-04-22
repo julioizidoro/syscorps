@@ -31,7 +31,9 @@
                                 <p:inputMask id="cpf" label="CPF/CNPJ" size="13" required="true" mask="999.999.999-99"  class="left" value="#{cadastroProfessorMB.professor.cpf}">
                                 </p:inputMask>  
                                 <p:inputMask id="rg"  required="true" class="leftRg" size="17" value="#{cadastroProfessorMB.professor.rg}" mask="?9999999999999999" /> 
-                                <p:calendar id="nasciP"  pattern="dd/MM/yyyy" size="23" maxlength="15" class="leftP" value="#{cadastroProfessorMB.professor.dataNascimento}"/>
+                                <p:calendar id="maskAval" value="#{cadastroProfessorMB.professor.dataNascimento}" pattern="dd/MM/yyyy"  size="23" maxlength="10" class="leftP" >
+                                       <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+                                    </p:calendar>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel value="Tipo Logradouro"  class="left" />
@@ -116,7 +118,7 @@
                             </h:panelGrid>
                         </p:tab>
                     </p:tabView>     
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroProfessorMB.salvar()}"  />
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroProfessorMB.salvar()}" actionListener="#{mensagemMB.saveMessagem}" update="growl" />
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroProfessorMB.cancelar()}"/>
                     <br></br>
                     <br></br>

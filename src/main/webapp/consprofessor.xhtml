@@ -14,10 +14,10 @@
                     <legend id="iUsu" ><b>Consulta de Facilitador </b></legend>
                     <br></br>
                     <h:panelGrid columns="2" cellpadding="3">
-                        <p:outputLabel value="Nome:" for="nome"  class="left" /> 
+                        <p:outputLabel value="Nome:" for="nome"  class="left4" /> 
                     </h:panelGrid>
                     <h:panelGrid columns="2" cellpadding="1">
-                        <p:inputText id="nome" size="40" maxlength="100" class="left" value="#{cadastroProfessorMB.nomeProfessor}"/>
+                        <p:inputText id="nome" size="40" maxlength="100" class="left4" value="#{cadastroProfessorMB.nomeProfessor}"/>
                         <p:commandButton icon=" ui-icon-search" class="botaoConsultaa" action="#{cadastroProfessorMB.pesquisarProfessor()}"    update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}" />
 
                     </h:panelGrid>

@@ -23,10 +23,10 @@
                         <p:outputLabel value="Curso:"  class="leftMeio11" />
                     </h:panelGrid>
                <h:panelGrid columns="3" cellpadding="3" class="meio2">
-                   <p:inputText id="nomeMatri"  value="#{matriculaMB.matricula.aluno.nome}" size="42" />
+                   <p:inputText id="nomeMatri"  value="#{matriculaMB.matricula.aluno.nome}" size="44" />
                    <p:commandButton action="#{matriculaMB.filtrarAluno()}" icon="ui-icon-search" class="filtrar"/>   
                    
-                    <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.listaCursos}" class="left" style="width:200px" var="cursoSelecionado">
+                    <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.listaCursos}" class="left" style="width:190px" var="cursoSelecionado">
                             <f:selectItem itemLabel="Selecione Curso" itemValue=""  />
                             <f:selectItems value="#{matriculaMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
                             <p:ajax process="@this"/>
@@ -40,7 +40,7 @@
                         <p:outputLabel value="Turno:" for="turno" class="leftMeio21" />
                   </h:panelGrid>  
              <h:panelGrid columns="3" cellpadding="2" class="meio2">
-                 <p:inputText id="matricula"  value="#{matriculaMB.matricula.idmatricula}" size="10" />
+                 <p:inputText id="matricula"  value="#{matriculaMB.matricula.idmatricula}" size="12" />
                      
                    <p:selectOneMenu  id="turmaMatri" class="leftMeioo" style="width:170px">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
@@ -58,9 +58,11 @@
             <h:panelGrid columns="3" cellpadding="3" >
                 <p:inputMask id="cpfCnpj" label="CPF"  size="16" required="false" mask="999.999.999-99"  class="left">
                 </p:inputMask>
-                <p:inputText id="rg" label="RG"  size="22" maxlength="19" required="false" class="leftMeioo"> 
+                <p:inputText id="rg" label="RG"  size="19" maxlength="19" required="false" class="leftMeioo"> 
                 </p:inputText>
-                <p:calendar id="mask"  pattern="dd/MM/yyyy" mask="true" size="24" maxlength="15" class="leftP" />
+                <p:calendar id="mask"  pattern="dd/MM/yyyy"  size="22" maxlength="12" class="leftP" >
+                         <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
+                </p:calendar>            
             </h:panelGrid>
                   
                  <h:panelGrid columns="3" cellpadding="5">
@@ -69,10 +71,10 @@
                     <p:outputLabel value="Estado:"  class="leftMeio20"/>
                 </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="5">
-                    <p:inputText id="bairro" value="#{matriculaMB.matricula.aluno.bairro}"  size="23" class="left"/>
-                    <p:inputText id="cidade" value="#{matriculaMB.matricula.aluno.cidade}"  size="22" class="leftRg"/>
+                    <p:inputText id="bairro" value="#{matriculaMB.matricula.aluno.bairro}"  size="21" class="left"/>
+                    <p:inputText id="cidade" value="#{matriculaMB.matricula.aluno.cidade}"  size="19" class="leftRg"/>
                      
-                    <p:selectOneMenu id="estado" value="#{matriculaMB.matricula.aluno.estado}" class="leftRg" style="width:180px"> 
+                    <p:selectOneMenu id="estado" value="#{matriculaMB.matricula.aluno.estado}" class="leftRg" style="width:190px"> 
                                   <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
                                  
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
@@ -118,9 +120,9 @@
              
             <h:panelGrid columns="3" cellpadding="3" >
                 <p:inputText id="valort" label="valort"  size="15" required="false"  class="left" value="#{matriculaMB.valorTotal}"/>
-                <p:inputText id="valorentrada" label="valorEntrada"  size="19" maxlength="19" required="false" class="leftMeioo" value="#{matriculaMB.valorEntrada}"/> 
-                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy" mask="true" size="18" maxlength="15" class="leftMeioo" value="#{matriculaMB.matricula.dataentrada}">
-                    <f:convertDateTime parent="dd/MM/yyyy" />
+                <p:inputText id="valorentrada" label="valorEntrada"  size="17" maxlength="20" required="false" class="leftMeioo" value="#{matriculaMB.valorEntrada}"/> 
+                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy"  size="18" maxlength="15" class="leftMeioo" value="#{matriculaMB.matricula.dataentrada}">
+                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                 </p:calendar>
             </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="4" >
@@ -132,9 +134,9 @@
             <h:panelGrid columns="3" cellpadding="3" >
 
                 <p:inputText id="numparcela" class="left"   size="18"  value="#{matriculaMB.numeroParcelas}" /> 
-                <p:inputText id="valorparcela" label="valorparcela"  size="21" maxlength="19" required="false" class="leftC" value="#{matriculaMB.valorParcela}" /> 
-                <p:calendar id="datavenc"  pattern="dd/MM/yyyy" mask="true" size="17" maxlength="15" class="leftMeioo"  value="#{matriculaMB.matricula.datavencimentoparcela}">
-                    <f:convertDateTime parent="dd/MM/yyyy" />
+                <p:inputText id="valorparcela" label="valorparcela"  size="20" maxlength="19"  required="false" class="leftC" value="#{matriculaMB.valorParcela}" /> 
+                <p:calendar id="datavenc"  pattern="dd/MM/yyyy"  size="16" maxlength="15" class="leftMeioo"  value="#{matriculaMB.matricula.datavencimentoparcela}">
+                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                 </p:calendar>
             </h:panelGrid>
                 <h:panelGrid columns="7" cellpadding="3">

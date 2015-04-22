@@ -163,7 +163,7 @@
         -moz-box-shadow: 2px 2px 2px #ffc;
     }
     .tabelacurso{
-        font-size:14px;
+        font-size:12px;
 
         position:relative;
         margin-left:17%;
@@ -172,7 +172,7 @@
         width: 900px;
     }
     .tabelacursos{
-        font-size:14px;
+        font-size:12px;
 
         position:relative;
         margin-left:40%;
@@ -181,7 +181,7 @@
         width: 600px;
     }
     .tabelacursoss{
-        font-size:14px;
+        font-size:12px;
         position:relative;
         margin-left:40%;
         right:25%;
@@ -502,7 +502,7 @@
     }
     .left{
         margin-left:55px;
-        
+          font-size: 15px;
     }
     .left4{
         margin-left:26px;

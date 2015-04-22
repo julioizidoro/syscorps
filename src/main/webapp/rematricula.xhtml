@@ -32,7 +32,7 @@
                         </p:column>
                         <p:column headerText="Data de Nascimento" style="width:50px" >
                             <h:outputText value="#{consAluno.dataNascimento}" >
-                                <f:convertDateTime pattern="dd/MM/yyyy" />  
+                                 <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                             </h:outputText>
                         </p:column>
                         <p:column headerText="CPF" style="width:50px" >

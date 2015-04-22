@@ -41,7 +41,7 @@ public class MenuMB implements Serializable{
         return "consgrade";
     }
      public String inicio(){
-         return "index";
+         return "inicial";
      }
      public String matricula(){
          return "matricula";

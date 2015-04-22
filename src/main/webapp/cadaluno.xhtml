@@ -40,7 +40,7 @@
                                 <p:inputText id="rg" label="RG" value="#{cadastroAlunoMB.aluno.rg}" size="14" maxlength="19" required="false" class="leftC"> 
                                 </p:inputText>
                                 <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd/MM/yyyy"  size="19" maxlength="15" class="leftC" >
-                                    <f:convertDateTime parent="dd/MM/yyyy"/>
+                                    <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                 </p:calendar>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="3">
@@ -69,7 +69,7 @@
                             <h:panelGrid columns="3" cellpadding="3">
 
 
-                                <p:selectOneMenu id="trabalha" class="left"  style="width:113px" value="#{cadastroAlunoMB.aluno.trabalha}">
+                                <p:selectOneMenu id="trabalha" class="left"  style="width:120px" value="#{cadastroAlunoMB.aluno.trabalha}">
                                     <f:selectItem itemLabel="Nao" itemValue="Não" />  
                                     <f:selectItem itemLabel="Sim" itemValue="Sim" />       
                                 </p:selectOneMenu>
@@ -208,7 +208,7 @@
 
                         </p:tab>
                     </p:tabView>  
-                    <p:commandButton value="Cadastrar" icon="ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.salvarAluno()}" actionListener="#{mensagem.saveMessagem}" update="growl"/>
+                    <p:commandButton value="Cadastrar" icon="ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.salvarAluno()}" actionListener="#{mensagemMB.saveMessagem}" update="growl"/>
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoConsulta" action="#{cadastroAlunoMB.cancelar()}" />
                     <br></br>
                     <br></br>
