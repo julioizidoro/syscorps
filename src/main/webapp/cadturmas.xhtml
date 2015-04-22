@@ -33,12 +33,12 @@
                         </p:selectOneMenu>
                        
                         <p:outputLabel for="dataInic" value="Data Início:" class="left4"/>
-                        <p:calendar id="dataInic" value="#{cadastroTurmasMB.turma.datainicio}" pattern="dd/MM/yyyy" mask="true" >
+                        <p:calendar id="dataInic" value="#{cadastroTurmasMB.turma.datainicio}" pattern="dd/MM/yyyy" >
                             <f:convertDateTime parent="dd/MM/yyyy"/>
                         </p:calendar>
 
                         <p:outputLabel for="dataTerm" value="Data Termino:" class="left4" />
-                        <p:calendar id="dataTerm" value="#{cadastroTurmasMB.turma.datatermino}" pattern="dd/MM/yyyy" mask="true" >
+                        <p:calendar id="dataTerm" value="#{cadastroTurmasMB.turma.datatermino}" pattern="dd/MM/yyyy" >
                              <f:convertDateTime parent="dd/MM/yyyy"/>
                         </p:calendar>
                     </h:panelGrid>

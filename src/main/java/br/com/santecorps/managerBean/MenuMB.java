@@ -46,4 +46,10 @@ public class MenuMB implements Serializable{
      public String matricula(){
          return "matricula";
      }
+     public String rematricula(){
+         return "rematricula";
+     }
+     public String formarturma(){
+        return "formarturma";
+    }
 }

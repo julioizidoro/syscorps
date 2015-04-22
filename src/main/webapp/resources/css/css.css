@@ -406,8 +406,8 @@
         font-family: tahoma;
 
     }
-    .tabelaturmas1{
-        margin-top:35px;
+    .tabelaturmas{
+        margin-top:20px;
         margin-left:55px;
         border: 0px solid ;
         width: 860px;
@@ -416,6 +416,21 @@
         border-radius: 8px;
         font-size:12px;
         font-family: tahoma;
+
+    }
+    .formarturma{
+        margin-top:35px;
+        margin-left:200px;
+        border: 0px solid ;
+        width: 500px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        font-size:12px;
+        font-family: tahoma;
+    }
+    .centeformar{
+        text-align: center;
     }
     #centro legend#iUsu b{
 
@@ -487,9 +502,11 @@
     }
     .left{
         margin-left:55px;
+        
     }
     .left4{
         margin-left:26px;
+        font-size: 15px;
     }
     .leftC{
         margin-left:69px;

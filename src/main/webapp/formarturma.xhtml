@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        <ui:define name="corpo">
+            <h:form>
+                <div id="centro">
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <br></br>
+                    <legend id="iUsu" ><b>Formar Turmas</b></legend>
+                    <p:dataTable var="consturma" value="#{cadastroTurmasMB.listaTurmas}" class="formarturma" rowStyleClass="tabela" paginator="true" rows="10">
+                        
+                        <p:column headerText="Número da Turma" style="width:85px"  styleClass="centeformar" >
+                            <h:outputText value="#{consturma.numero}" />
+                        </p:column>
+
+                        <p:column headerText="Data Formatura" style="width:90px" styleClass="centeformar">
+                            <p:inplace id="basic">
+                            <p:calendar value="#{consturma.datatermino}" > 
+                                <f:convertDateTime pattern="dd/MM/yyyy"/> 
+                            </p:calendar>
+                            </p:inplace>
+                        </p:column>
+
+                       <p:column style="width:60px">
+                           <p:commandButton  id="formar" value="Formar Turma" action="#" >
+                               <f:param name="id_turma" value="#{consturma.idturma}"/>
+                            </p:commandButton>
+                     </p:column>
+                    </p:dataTable>
+                   
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+
+
