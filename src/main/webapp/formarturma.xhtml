@@ -20,14 +20,14 @@
 
                         <p:column headerText="Data Formatura" style="width:90px" styleClass="centeformar">
                             <p:inplace id="basic">
-                            <p:calendar value="#{consturma.datatermino}" > 
+                                <p:calendar value="#{consturma.dataformatura}" > 
                                  <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                             </p:calendar>
                             </p:inplace>
                         </p:column>
 
                        <p:column style="width:60px">
-                           <p:commandButton  id="formar" value="Formar Turma" action="#" >
+                           <p:commandButton  id="formar" value="Formar Turma" update="@all"  oncomplete="popAprovar.hide();  #{meuBean.objetos}" action="#{cadastroTurmasMB.formaTurma()}" >
                                <f:param name="id_turma" value="#{consturma.idturma}"/>
                             </p:commandButton>
                      </p:column>

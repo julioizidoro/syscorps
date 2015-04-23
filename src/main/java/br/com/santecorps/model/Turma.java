@@ -75,6 +75,12 @@ public class Turma implements Serializable {
     @Size(max = 100)
     @Column(name = "responsavel")
     private String responsavel;
+    @Size(max = 1)
+    @Column(name = "formada")
+    private String formada;
+    @Column(name = "dataformatura")
+    @Temporal(TemporalType.DATE)
+    private Date dataformatura;
     @Size(max = 100)
     @Column(name = "liderclasse")
     private String liderclasse;
@@ -130,6 +136,22 @@ public class Turma implements Serializable {
 
     public Date getDatatermino() {
         return datatermino;
+    }
+
+    public String getFormada() {
+        return formada;
+    }
+
+    public void setFormada(String formada) {
+        this.formada = formada;
+    }
+
+    public Date getDataformatura() {
+        return dataformatura;
+    }
+
+    public void setDataformatura(Date dataformatura) {
+        this.dataformatura = dataformatura;
     }
 
     public void setDatatermino(Date datatermino) {
