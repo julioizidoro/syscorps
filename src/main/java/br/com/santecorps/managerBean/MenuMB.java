@@ -52,4 +52,7 @@ public class MenuMB implements Serializable{
       public String aniversariantes(){
         return "aniversariantes";
     }
+      public String formar(){
+        return "formarturmas";
+    }
 }

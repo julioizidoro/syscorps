@@ -26,7 +26,7 @@ public class TurmaDao {
     
     public List<Turma> listar(String numero){
         EntityManager manager =ConectionFactory.getConnection();
-        Query q = manager.createQuery("select t from Turma t where t.numero like '%" + numero + "%' order by t.numero" );
+        Query q = manager.createQuery("select t from Turma t where t.numero like '%" + numero + "%' and formada='N' order by t.numero" );
         List<Turma> listaTurma = q.getResultList();
         return listaTurma;
     }

@@ -37,6 +37,7 @@ public class CadastroTurmasMB implements Serializable{
 
     public CadastroTurmasMB() {
         turma = new Turma();
+        turma.setFormada("N");
         listarTurmas();
     }
     public List<Turma> getListaTurmas() {
@@ -126,6 +127,20 @@ public class CadastroTurmasMB implements Serializable{
         if (listaCursos==null){
             listaCursos = new ArrayList<Curso>();
         }
+    }
+    
+    public String formaTurma(){
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+        int idturma =  Integer.parseInt(params.get("id_turma"));
+        if (idturma>0){
+            TurmaFacade turmaFacade = new TurmaFacade();
+            turma = turmaFacade.getTurmaId(idturma);
+             if (turma!=null){
+                
+            }
+        }
+        return null;
     }
     
 }
