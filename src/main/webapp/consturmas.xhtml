@@ -40,9 +40,14 @@
                             </h:outputText>
                         </p:column>
 
-                       <p:column style="width:26px">
-                           <p:commandButton  id="iconOnly" icon="ui-icon-pencil" title="Icon Only" action="#{cadastroTurmasMB.consultarTurma()}" >
+                       <p:column style="width:24px">
+                           <p:commandButton  id="edita" icon="ui-icon-pencil" title="Editar" action="#{cadastroTurmasMB.consultarTurma()}" >
                                <f:param name="id_turma" value="#{consturma.idturma}"/>
+                            </p:commandButton>
+                     </p:column>
+                     <p:column style="width:24px">
+                         <p:commandButton  id="excluir" icon="	ui-icon-check" title="Formar Turma" action="#{cadastroTurmasMB.excluir()}" >
+                               <f:param name="idturma" value="#{consturma.idturma}"/>
                             </p:commandButton>
                      </p:column>
                     </p:dataTable>

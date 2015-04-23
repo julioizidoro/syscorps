@@ -9,39 +9,93 @@
         <ui:define name="corpo">
             <h:form>
                 <div id="centro">
+                    <br></br>
                     <p:growl id="growl" showDetail="true" sticky="true" />
-                    <br></br>
-                    <legend id="iUsu" ><b>Formar Turmas</b></legend>
-                    <p:dataTable var="consturma" value="#{cadastroTurmasMB.listaTurmas}" class="formarturma" rowStyleClass="tabela" paginator="true" rows="10">
-                        
-                        <p:column headerText="Número da Turma" style="width:85px"  styleClass="centeformar" >
-                            <h:outputText value="#{consturma.numero}" />
-                        </p:column>
+                     <p:tabView class="tabelaaluno">
+                        <p:tab title="Dados da Turma" >
+                    <h:panelGrid columns="4" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Número:" for="numTurma" class="left" />
+                        <p:inputText id="numTurma"  value="#{cadastroTurmasMB.turma.numero}" size="10"  readonly="true"/>
 
-                        <p:column headerText="Data Formatura" style="width:90px" styleClass="centeformar">
-                            <p:inplace id="basic">
-                            <p:calendar value="#{consturma.datatermino}" > 
-                                 <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
-                            </p:calendar>
-                            </p:inplace>
-                        </p:column>
+                        <p:outputLabel value="Turno:" class="left" />
+                                
+                        <p:selectOneMenu id="turno"  value="#{cadastroTurmasMB.turma.turno}" style="width:190px" >
+                            <f:selectItem itemLabel="Selecione" itemValue="0"  />
+                            <f:selectItem itemLabel="Diurno" itemValue="Diurno"  />
+                            <f:selectItem itemLabel="Matutino" itemValue="Matutino"  />
+                            <f:selectItem itemLabel="Vespertino" itemValue="Vespertino"  />
+                            <f:selectItem itemLabel="Noturno" itemValue="Noturno"  />
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Curso:"  class="leftC"/>
+                        <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.idCurso}"  >
+                            <f:selectItem itemLabel="Selecione Curso" itemValue="0"  />
+                            <f:selectItems value="#{cadastroTurmasMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
+                        </p:selectOneMenu>
+                       
+                        <p:outputLabel for="dataInic" value="Data Início:" class="left4"/>
+                        <p:calendar id="dataInic" value="#{cadastroTurmasMB.turma.datainicio}" pattern="dd/MM/yyyy" readonly="true" >
+                           <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+                        </p:calendar>
 
-                       <p:column style="width:60px">
-                           <p:commandButton  id="formar" value="Formar Turma" action="#" >
-                               <f:param name="id_turma" value="#{consturma.idturma}"/>
-                            </p:commandButton>
-                     </p:column>
-                    </p:dataTable>
-                   
+                        <p:outputLabel for="dataTerm" value="Data Termino:" class="left4" />
+                        <p:calendar id="dataTerm" value="#{cadastroTurmasMB.turma.datatermino}" pattern="dd/MM/yyyy" readonly="true" >
+                             <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+                        </p:calendar>
+                         <p:outputLabel for="datafotm" value="Data Formatura:" class="left4"/>
+                         <p:calendar id="datafotm" value="" pattern="dd/MM/yyyy" >
+                             <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+                        </p:calendar>
+                    </h:panelGrid>
+                       </p:tab>
+                        <p:tab title="Agenda da Turma">
+                    
+                    <h:panelGrid columns="2" cellpadding="5" class="meioTurmas">
+                        <p:outputLabel value="Horário Inicio:" class="left"/>
+                        <p:inputMask id="horarioInicio" value="#{cadastroTurmasMB.turma.horarioinicio}"  mask="99:99" readonly="true"/>
+
+                        <p:outputLabel value="Horário Inicio Intervalo:" />
+                        <p:inputMask id="horarioInicioIntervalo" value="#{cadastroTurmasMB.turma.horaioiniciointervalo}"  mask="99:99" readonly="true"/>
+
+                        <p:outputLabel value="Horário Volta Intervalo:" />
+                        <p:inputMask id="horarioTerminoIntervalo" value="#{cadastroTurmasMB.turma.horarioterminointervalo}"  mask="99:99" readonly="true"/>
+
+                        <p:outputLabel value="Horário Termino:" class="left4"/>
+                        <p:inputMask id="horarioTermino" value="#{cadastroTurmasMB.turma.horariotermino}"  mask="99:99" readonly="true"/>
+
+                        <p:outputLabel value="Responsável:" for="responsavel" class="left"/>
+                        <p:inputText id="responsavel"  value="#{cadastroTurmasMB.turma.responsavel}" readonly="true"/>
+
+                        <p:outputLabel value="Líder Classe:" for="liderClas" class="left" />
+                        <p:inputText id="liderClas"  value="#{cadastroTurmasMB.turma.liderclasse}" readonly="true"/>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" class="meioTurmas2">
+                        <h:outputText value="Segunda:" />
+                        <p:selectBooleanCheckbox value="#{cadastroTurmasMB.turma.segunda}" />
+                        <h:outputText value="Terça:" />
+                        <p:selectBooleanCheckbox value="#{cadastroTurmasMB.turma.terca}" />
+                        <h:outputText value="Quarta:" />
+                        <p:selectBooleanCheckbox value="#{cadastroTurmasMB.turma.quarta}" />
+                        <h:outputText value="Quinta:" />
+                        <p:selectBooleanCheckbox value="#{cadastroTurmasMB.turma.quita}" />
+                        <h:outputText value="Sexta:" />
+                        <p:selectBooleanCheckbox value="#{cadastroTurmasMB.turma.sexta}" />
+                        <h:outputText value="Sábado:" />
+                        <p:selectBooleanCheckbox value="#{cadastroTurmasMB.turma.sabado}" />
+                         <br></br>
+                    </h:panelGrid>
+                    </p:tab>
+                    </p:tabView>  
+                    <br></br>
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroTurmasMB.salvarTurma()}"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroTurmasMB.cancelar()}"/>
                     <br></br>
                     <br></br>
-                    <br></br>
+
                 </div>
             </h:form>
+
         </ui:define>
     </ui:composition>
 </html>
-
-
 
 
