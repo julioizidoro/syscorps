@@ -12,7 +12,7 @@
         position: relative;
         background: #87CEEB;
         margin: 0px 0 20px -390px;
-        width: 950px;
+        width: 800px;
         left:18%;
 
         border: 0px solid #aaa;
@@ -23,7 +23,7 @@
         position: relative;
         background: #87CEEB;
         margin: 0px 0 20px -390px;
-        width: 950px;
+        width: 800px;
         left:18%;
 
         border: 0px solid #aaa;
@@ -50,7 +50,7 @@
         position: relative;
         background: #87CEEB;
         margin: 0px 0 20px -390px;
-        width: 950px;
+        width: 800px;
         left:18%;
         border: 0px solid #aaa;
         margin-left:-10px;
@@ -101,25 +101,25 @@
         font-family: tahoma;
         list-style:none; 
         border:1px solid #EEE5DE; 
-        width:940px;
+        width:790px;
         float:left;
         margin-top:-10px;
         background: #EEE5DE;
-        font-size: 15px;
+        font-size: 12px;
 
     }
     .submenu{
         font-family: tahoma;
         border:1px solid #EEE5DE; 
         float:left;
-        font-size: 14px;
+       font-size: 12px;
 
     }
     legend#iUsu5 b{
 
         position:relative;
         left:260px;
-        font-size: 17px;
+        font-size: 14px;
         font-family: tahoma;
 
     }
@@ -144,7 +144,7 @@
         margin-top:-10px;
     }
     .meio{
-        margin-left:240px;
+        margin-left:180px;
         margin-top:100px;
         //arredondamento
         -webkit-border-radius: 35px;
@@ -164,46 +164,39 @@
     }
     .tabelacurso{
         font-size:12px;
-
+        margin-left:5px;
         position:relative;
-        margin-left:17%;
-        right:15%;
         top:20px;
-        width: 900px;
+        width: 790px;
     }
     .tabelacursos{
         font-size:12px;
-
         position:relative;
-        margin-left:40%;
-        right:20%;
+        margin-left:15%;
         top:20px;
         width: 600px;
     }
     .tabelacursoss{
         font-size:12px;
         position:relative;
-        margin-left:40%;
-        right:25%;
+        margin-left:11%;
         top:20px;
         width: 650px;
     }
     .tabelacursosss{
-        font-size:14px;
-        position:relative;
-        margin-left:30%;
-        right:15%;
+        font-size: 12px;
+        margin-left:8%;
         top:20px;
         width: 680px;
     }
     .tabelacursossss{
         margin-left: 100px;
-        font-size:16px;
+       font-size: 12px;
         width: 600px;
 
     }
     .tabelaalunoss{
-        font-size:14px;
+        font-size: 12px;
         font-family: tahoma;
         position:relative;
         margin-left:30%;
@@ -214,23 +207,30 @@
         background:#FAEBD7;
     }
     .tabelaalunos{
-        font-size:14px;
+        font-size: 12px;
         font-family: tahoma;
         position:relative;
-        margin-left:40%;
-        right:30%;
+        margin-left:7%;
         top:3px;
-        width: 750px;
+        width: 640px;
         background:#FAEBD7;
     }
     .tabelaaluno{
-        font-size:13px;
+        font-size: 12px;
         font-family: tahoma;
         position:relative;
-        margin-left:30%;
-        right:23%;
+        margin-left:10%;
         top:20px;
-        width: 800px;
+        width: 600px;
+        background:#FAEBD7;
+    }
+    .tabelamatricula{
+        font-size: 12px;
+        font-family: tahoma;
+        position:relative;
+        margin-left:10%;
+        top:20px;
+        width: 650px;
         background:#FAEBD7;
     }
     .tabelacursos1{
@@ -242,7 +242,7 @@
         margin-left:-5px;
     }
     .botaoConsulta{
-        font-size: 16px;
+        font-size: 12px;
         margin-top:35px;
         margin-left:15px;
         left:330px;
@@ -317,7 +317,7 @@
     .botaoConsultaa{
         font-size: 16px;
         margin-top:-3px;
-        margin-left:15px;
+        font-size: 12px;
         -webkit-border-top-left-radius: 15px;
         -webkit-border-bottom-right-radius: 15px;
         -moz-border-radius-topleft: 15px;
@@ -355,12 +355,12 @@
         margin-top:10px;
         font-family: tahoma;
         color:#4F4F4F;
-        font-size: 15px;
+        font-size: 12px;
     }
     .botaoCadastra{
         font-size: 16px;
         margin-top:25px;
-        margin-left:15px;
+        font-size: 12px;
         left:100px;
         -webkit-border-top-left-radius: 15px;
         -webkit-border-bottom-right-radius: 15px;
@@ -396,21 +396,9 @@
     }
     .tabelaturmas{
         margin-top:20px;
-        margin-left:55px;
+        margin-left:5px;
         border: 0px solid ;
-        width: 860px;
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        border-radius: 8px;
-        font-size:12px;
-        font-family: tahoma;
-
-    }
-    .tabelaturmas{
-        margin-top:20px;
-        margin-left:55px;
-        border: 0px solid ;
-        width: 860px;
+        width: 790px;
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
         border-radius: 8px;
@@ -435,15 +423,15 @@
     #centro legend#iUsu b{
 
         position:relative;
-        left:370px;
-        font-size: 17px;
+        left:310px;
+        font-size: 15px;
         font-family: tahoma;
         color:#fff;
 
     }
     #centro legend#iUsu{
         background-color:#FF8C00;
-        width: 947px;
+        width: 800px;
 
     }
     legend#iUsu3 b{
@@ -471,7 +459,7 @@
 
         position:relative;
         left:370px;
-        font-size: 17px;
+        font-size: 14px;
         font-family: tahoma;
         color:#fff;  
     }
@@ -483,13 +471,13 @@
         margin-top:5px;
         margin-left:70px;
         color:#4F4F4F;
-        font-size: 15px;
+        font-size: 12px;
     }
     .meioTurmas2{
         margin-top:-220px;
         margin-left:500px;
         color:#4F4F4F;
-        font-size: 14px;
+        font-size: 12px;
     }
     .tabela{
         color: #4F4F4F;
@@ -502,79 +490,110 @@
     }
     .left{
         margin-left:55px;
-          font-size: 15px;
+         font-size: 12px;
     }
     .left4{
         margin-left:26px;
-        font-size: 15px;
+        font-size: 12px;
     }
     .leftC{
         margin-left:69px;
+        font-size: 12px;
     }
     .leftP{
         margin-left:34px;
+        font-size: 12px;
     }
     .leftMeio{
         margin-left:390px;
+        font-size: 12px;
     }
     .leftMeio2{
         margin-left:155px;
+        font-size: 12px;
+    }
+    .cadprofessorr{
+        margin-left:130px;
+        font-size: 12px;
     }
     .leftMeio3{
         margin-left:227px;
-        font-size: 15px;
+        font-size: 12px;
     }
     .leftMeio4{
         margin-left:90px;
+        font-size: 12px;
     }
     .leftMeio5{
         margin-left:275px;
+        font-size: 12px;
     }
     .leftMeio6{
         margin-left:355px;
     }
+    .lefttelefone{
+        margin-left:255px;
+         font-size: 12px;
+    }
     .leftRg{
         margin-left:40px;
+        font-size: 12px;
     }
     .leftTel{
         margin-left:5px;
+        font-size: 12px;
     }
     .leftMeio7{
         margin-left:120px;
-        
+        font-size: 12px;
+    }
+    .cadaaluno{
+        margin-left:105px;
+        font-size: 12px;
     }
     .leftMeioo{
         margin-left:95px;
+        font-size: 12px;
+    }
+    .leftmatricula{
+        margin-left:180px;
+        font-size: 12px;
     }
     .leftMeio8{
         margin-left:60px;
+        font-size: 12px;
     }
     .leftMeio9{
         margin-left:220px;
-        font-size: 15px;
+        font-size: 12px;
     }
     .leftMeio10{
         margin-left:145px;
-        
+        font-size: 12px;
     }
     .leftMeio11{
         margin-left:387px;
+        font-size: 12px;
     }
     .leftMeio12{
         margin-left:205px;
+        font-size: 12px;
     }
     .leftMeio13{
         margin-left:300px;
+        font-size: 12px;
     }
     .leftMeio20{
         margin-left:163px;
-        font-size: 15px;
+        font-size: 12px;
     }
     .leftMeio21{
+        font-size: 12px;
         margin-left:180px;
     }
     .leftMeio22{
         margin-left:340px;
+        font-size: 12px;
     }
     #tipoCurso{
         margin-left:-150px;

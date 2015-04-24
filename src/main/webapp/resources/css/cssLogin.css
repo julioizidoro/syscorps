@@ -35,7 +35,7 @@ a.hiddenanchor{
 }
 /** The wrapper that will contain our two forms **/
 #wrapper{
-    top: 100px;
+    top: 8px;
     width: 60%;
     right: 0px;
     min-height: 560px;	
@@ -47,13 +47,13 @@ a.hiddenanchor{
 
 /**** general text styling ****/
 #wrapper a{
-    color: rgb(95, 155, 198);
+    color: #87CEEB;
     text-decoration: underline;
 }
 
 #wrapper h1{
     font-size: 48px;
-    color: rgb(6, 106, 117);
+    color: #87CEEB;
     padding: 2px 0 10px 0;
     font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;
     font-weight: bold;
@@ -115,7 +115,7 @@ input {
 #wrapper input:not([type="checkbox"]){
     width: 92%;
     margin-top: 4px;
-    padding: 10px 5px 10px 32px;	
+    padding: 10px 5px 1px 32px;	
     border: 1px solid rgb(178, 178, 178);
     -webkit-appearance: textfield;
     -webkit-box-sizing: content-box;
@@ -204,7 +204,7 @@ p.signin.button{
     font-size: 15px;
     text-align: left;
     margin: 5px 0;
-    margin-left:183px;
+    margin-left:115px;
     color:rgb(40, 137, 154);
 }
 
@@ -233,8 +233,9 @@ p.change_link{
     position: absolute;
     color: rgb(127, 124, 124);
     left: 0px;
-    height: 20px;
-    width: 440px;
+    top:320px;
+    height: 10px;
+    width: 300px;
     padding: 17px 30px 20px 30px;
     font-size: 16px	;
     text-align: right;
@@ -303,9 +304,10 @@ p.change_link{
 #register, 
 #login{
     position: absolute;
-    top: 0px;
-    width: 88%;	
-    padding: 18px 6% 60px 6%;
+    top: 120px;
+    width: 60%;	
+    left:80px;
+    padding: 18px 6% 10px 6%;
     margin: 0 0 35px 0;
     background: rgb(247, 247, 247);
     border: 1px solid rgba(147, 184, 189,0.8);
@@ -373,7 +375,7 @@ p.change_link{
 
 .lt8 #wrapper input{
     padding: 10px 5px 10px 32px;
-    width: 92%;
+    width: 50%;
 }
 .lt8 #wrapper input[type=checkbox]{
     width: 10px;
@@ -558,4 +560,31 @@ body{
     font-family: tahoma;
     background-color: #E8E8E8;
     color: #333;
+}
+#corpologin{
+     top:-68px;
+        position: relative;
+        background: #87CEEB;
+        margin: 0px 0 20px -390px;
+        width: 800px;
+        left:18%;
+
+        border: 0px solid #aaa;
+        margin-left:-10px;
+        //borda arredondada
+        -webkit-border-bottom-right-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -moz-border-radius-bottomright: 10px;
+        -moz-border-radius-bottomleft: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        //////////
+        //borda sombreada
+        box-shadow: 5px 4px 10px #828282;
+        -moz-box-shadow: 5px 4px 10px #828282;
+        -webkit-box-shadow: 5px 4px 10px #828282;
+        -khtml-box-shadow: 5px 4px 10px #828282;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4)"; /* IE8+ */
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#ccc,direction=120,strength=4); /* IE7 and lower */
+        ///////
 }

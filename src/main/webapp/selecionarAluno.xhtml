@@ -22,7 +22,7 @@
                     
                 </h:panelGrid>
                    <p:dataTable var="consaluno" value="#{cadastroAlunoMB.listaAlunos}"   paginator="true" rows="10" class="tabelaalunos">
-                    <p:column headerText="Nome do Aluno" style="width:240px" >
+                    <p:column headerText="Nome do Aluno"  >
                         <h:outputText value="#{consaluno.nome}" />
                     </p:column>
                     <p:column style="width:40px">
