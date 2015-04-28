@@ -138,7 +138,7 @@
                                     <p:inputMask id="telFixoAvalista" value="#{cadastroAlunoMB.avalista.foneFixo}" size="20" class="left" mask="(99)9999-9999"/>
                                     <p:inputMask id="telCelAvalista"  value="#{cadastroAlunoMB.avalista.foneCelular}" size="18"  class="leftMeioo" mask="(99)9999-9999"/>
                                 </h:panelGrid>
-                                <p:commandButton value="Cadatrar" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.salvarAvalista()}" onclick="dlg.hide();"/>
+                                <p:commandButton value="Cadatrar" icon=" ui-icon-plusthick" class="botaoConsulta" oncomplete="popAprovar.hide();  #{meuBean.objetos}" action="#{cadastroAlunoMB.salvarAvalista()}" onclick="dlg.hide();"/>
                                 <p:commandButton value="Cancelar" onclick="dlg.hide();" icon=" ui-icon-carat-1-s" class="botaoConsulta" action="#{cadastroAlunoMB.cancelarDialog()}"/>
 
                             </p:dialog> 

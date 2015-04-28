@@ -27,7 +27,7 @@
 
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="5">
-                                <p:inputText id="nome"  value="#{cadastroAlunoMB.aluno.nome}" size="75" maxlength="100" class="left" />
+                                <p:inputText id="nome"  value="#{cadastroAlunoMB.aluno.nome}" size="86" maxlength="100" class="left" />
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="4" >
                                 <h:outputText value="CPF " class="left"/>
@@ -35,9 +35,9 @@
                                 <h:outputText value="Data de Nascimento" class="leftMeio2"/> 
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="3" >
-                                <p:inputMask id="cpfCnpj" label="CPF/CNPJ" value="#{cadastroAlunoMB.aluno.cpf}" size="11" required="false" mask="999.999.999-99"  class="left">
+                                <p:inputMask id="cpfCnpj" label="CPF/CNPJ" value="#{cadastroAlunoMB.aluno.cpf}" size="14" required="false" mask="999.999.999-99"  class="left">
                                 </p:inputMask>
-                                <p:inputText id="rg" label="RG" value="#{cadastroAlunoMB.aluno.rg}" size="14" maxlength="19" required="false" class="leftC"> 
+                                <p:inputText id="rg" label="RG" value="#{cadastroAlunoMB.aluno.rg}" size="14" maxlength="19" required="false" class="left"> 
                                 </p:inputText>
                                 <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd/MM/yyyy"  size="19" maxlength="15" class="leftC" >
                                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
