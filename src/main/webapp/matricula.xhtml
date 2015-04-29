@@ -23,10 +23,10 @@
                         <p:outputLabel value="Curso"  class="leftMeio13" />
                     </h:panelGrid>
                <h:panelGrid columns="3" cellpadding="3" class="meio2">
-                   <p:inputText id="nomeMatri"  value="#{matriculaMB.matricula.aluno.nome}" size="44" />
+                   <p:inputText id="nomeMatri"  value="#{matriculaMB.matricula.aluno.nome}" size="54" />
                    <p:commandButton action="#{matriculaMB.filtrarAluno()}" icon="ui-icon-search" class="filtrar"/>   
                    
-                    <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.listaCursos}" class="left" style="width:190px" var="cursoSelecionado">
+                    <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.listaCursos}" class="leftTel" style="width:190px" var="cursoSelecionado">
                             <f:selectItem itemLabel="Selecione Curso" itemValue=""  />
                             <f:selectItems value="#{matriculaMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
                             <p:ajax process="@this"/>
@@ -36,18 +36,18 @@
              <br></br>
                    <h:panelGrid columns="3" cellpadding="3" class="meio2">
                         <p:outputLabel value="Matrícula" for="matricula" class="" />
-                        <p:outputLabel value="Turma"  class="leftMeio7" />
-                        <p:outputLabel value="Turno" for="turno" class="leftMeio21" />
+                        <p:outputLabel value="Turma"  class="leftMeio31" />
+                        <p:outputLabel value="Turno" for="turno" class="leftMeio20" />
                   </h:panelGrid>  
              <h:panelGrid columns="3" cellpadding="2" class="meio2">
-                 <p:inputText id="matricula"  value="#{matriculaMB.matricula.idmatricula}" size="10" />
+                 <p:inputText id="matricula"  value="#{matriculaMB.matricula.idmatricula}" size="16" />
                      
-                   <p:selectOneMenu  id="turmaMatri" class="leftMeioo" style="width:160px">
+                   <p:selectOneMenu  id="turmaMatri" class="leftMeioo" style="width:130px">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
                             <f:selectItems />
                             <p:ajax process="@this"/>
                         </p:selectOneMenu>
-                     <p:inputText id="turno"  class="left" size="23" />
+                     <p:inputText id="turno"  class="leftC" size="20" />
                     
              </h:panelGrid>
               <h:panelGrid columns="3" cellpadding="4" >
@@ -67,14 +67,14 @@
                   
                  <h:panelGrid columns="3" cellpadding="5">
                       <p:outputLabel value="Bairro" for="bairro" class="left"/>
-                       <p:outputLabel value="Cidade" for="cidade" class="leftMeio10"/>
+                       <p:outputLabel value="Cidade" for="cidade" class="leftMeio20"/>
                     <p:outputLabel value="Estado"  class="leftMeio7"/>
                 </h:panelGrid>
                 <h:panelGrid columns="3" cellpadding="5">
-                    <p:inputText id="bairro" value="#{matriculaMB.matricula.aluno.bairro}"  size="22" class="left"/>
+                    <p:inputText id="bairro" value="#{matriculaMB.matricula.aluno.bairro}"  size="26" class="left"/>
                     <p:inputText id="cidade" value="#{matriculaMB.matricula.aluno.cidade}"  size="18" class="leftRg"/>
                      
-                    <p:selectOneMenu id="estado" value="#{matriculaMB.matricula.aluno.estado}" class="leftRg" style="width:190px"> 
+                    <p:selectOneMenu id="estado" value="#{matriculaMB.matricula.aluno.estado}" class="leftRg" style="width:168px"> 
                                   <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
                                  
                                  <f:selectItem itemLabel="Acre" itemValue="AC" /> 
@@ -125,26 +125,21 @@
                      <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                 </p:calendar>
             </h:panelGrid>
-                <h:panelGrid columns="3" cellpadding="4" >
+                <h:panelGrid columns="4" cellpadding="4" >
                 <h:outputText value="Número de Parcelas " class="left"/>
-                <h:outputText value="Valor da Parcela" class="leftMeio8"/>
-                <h:outputText value="Data de Vencimento" class="leftMeio10"/> 
+                <h:outputText value="Valor da Parcela" class="left4"/>
+                <h:outputText value="Data de Vencimento" class="left4"/> 
+                 <p:outputLabel value="Tipo de Pagamento"  class="left4"/>
             </h:panelGrid>
              
-            <h:panelGrid columns="3" cellpadding="3" >
+            <h:panelGrid columns="4" cellpadding="3" >
 
                 <p:inputText id="numparcela" class="left"   size="15"  value="#{matriculaMB.numeroParcelas}" /> 
-                <p:inputText id="valorparcela" label="valorparcela"  size="21" maxlength="19"  required="false" class="leftC" value="#{matriculaMB.valorParcela}" /> 
-                <p:calendar id="datavenc"  pattern="dd/MM/yyyy"  size="21" maxlength="15" class="leftMeioo"  value="#{matriculaMB.matricula.datavencimentoparcela}">
+                <p:inputText id="valorparcela" label="valorparcela"  size="12" maxlength="19"  required="false" class="leftP" value="#{matriculaMB.valorParcela}" /> 
+                <p:calendar id="datavenc"  pattern="dd/MM/yyyy"  size="15" maxlength="15" class="left4"  value="#{matriculaMB.matricula.datavencimentoparcela}">
                      <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                 </p:calendar>
-            </h:panelGrid>
-                <h:panelGrid columns="7" cellpadding="3">
-                    <p:outputLabel value="Tipo de Pagamento"  class="left"/>
-                </h:panelGrid>
-                <h:panelGrid columns="5">
-                       
-                    <p:selectOneMenu id="tipoPagamento" class="left">
+                 <p:selectOneMenu id="tipoPagamento" class="leftP" style="width:135px">
                         <f:selectItem itemValue="0" itemLabel="Selecione" class="left"/>
                         <f:selectItem itemValue="Boleto" itemLabel="Boleto" class="left"/>
                         <f:selectItem itemValue="Cartão Débito" itemLabel="Cartão Débito" class="left2"/>
@@ -152,13 +147,13 @@
                         <f:selectItem itemValue="Cheque" itemLabel="Cheque" class="left2"/>
                         <f:selectItem itemValue="Dinheiro" itemLabel="Dinheiro" class="left2"/>
                     </p:selectOneMenu>
-                </h:panelGrid>
+            </h:panelGrid>
                <br></br>
              </p:tab>
                     </p:tabView>
                  <br></br>
                  
-                    <p:commandButton value="Matricular" icon=" ui-icon-plusthick" class="botaoCadastra" actionListener="#{mensagem.matriculaMessagem}" update="growl" />
+                    <p:commandButton value="Matricular" icon=" ui-icon-plusthick" class="botaoCadastramatricula" actionListener="#{mensagem.matriculaMessagem}" update="growl" />
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra"/>
                     <br></br>
                 <br></br>
