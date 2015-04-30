@@ -39,6 +39,9 @@ public class Turma implements Serializable {
     @Size(max = 30)
     @Column(name = "numero")
     private String numero;
+    @Size(max = 100)
+    @Column(name = "nome")
+    private String nome;
     @Size(max = 50)
     @Column(name = "turno")
     private String turno;
@@ -112,6 +115,14 @@ public class Turma implements Serializable {
 
     public String getNumero() {
         return numero;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setNumero(String numero) {

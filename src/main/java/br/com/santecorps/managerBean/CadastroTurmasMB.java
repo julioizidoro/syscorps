@@ -31,13 +31,12 @@ public class CadastroTurmasMB implements Serializable{
     
     private List<Turma> listaTurmas;
     private Turma turma;
-    private String idCurso;
+    private String idCurso="0";
     private List<Curso> listaCursos;
    
 
     public CadastroTurmasMB() {
         turma = new Turma();
-        turma.setFormada("N");
         listarTurmas();
     }
     public List<Turma> getListaTurmas() {
@@ -58,6 +57,8 @@ public class CadastroTurmasMB implements Serializable{
     public void setIdCurso(String idCurso) {
         this.idCurso = idCurso;
     }
+
+    
 
     public List<Curso> getListaCursos() {
         return listaCursos;
@@ -92,6 +93,9 @@ public class CadastroTurmasMB implements Serializable{
     public String salvarTurma(){
         TurmaFacade turmaFacade = new TurmaFacade();
         CursoFacade cursoFacade = new CursoFacade();
+        if (turma.getIdturma()==null){
+            turma.setFormada("N");
+        }
         Curso curso = cursoFacade.getCurso(Integer.parseInt(idCurso));
         turma.setCurso(curso);
         UnidadeFacade unidadeFacade = new UnidadeFacade();

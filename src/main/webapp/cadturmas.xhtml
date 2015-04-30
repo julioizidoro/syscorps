@@ -27,7 +27,7 @@
                             <f:selectItem itemLabel="Noturno" itemValue="Noturno"  />
                         </p:selectOneMenu>
                         <p:outputLabel value="Curso:"  class="leftC"/>
-                        <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.idCurso}"  >
+                        <p:selectOneMenu id="cursoTurma" value="#{cadastroTurmasMB.idCurso}"  >
                             <f:selectItem itemLabel="Selecione Curso" itemValue="0"  />
                             <f:selectItems value="#{cadastroTurmasMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
                         </p:selectOneMenu>
