@@ -11,41 +11,52 @@
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
+                    
                     <legend id="iUsu" ><b>Consulta de Turmas </b></legend>
+                    <h:panelGrid columns="2" cellpadding="3">
+                    <p:outputLabel value="Nome:" for="nome"  class="left4" /> 
+                </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="1">
+                    <p:inputText id="nome" size="40" maxlength="100" class="left4" value="#{cadastroTurmasMB.nomeTurma}"/>
+                    <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa" action="#{cadastroTurmasMB.pesquisarNome()}" update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  />
+                    
+                </h:panelGrid>
                     <p:dataTable var="consturma" value="#{cadastroTurmasMB.listaTurmas}" class="tabelaturmas" rowStyleClass="tabela" paginator="true" rows="10">
                         <f:facet name="header">
                             Lista de Turmas
                         </f:facet>
-                        <p:column headerText="Número da Turma"  style="width:120px">
+                        <p:column headerText="Número da Turma"  style="width:55px">
                             <h:outputText value="#{consturma.numero}" />
                         </p:column>
-
-                        <p:column headerText="Turno"  style="width:100px">
+                        <p:column headerText="Nome" >
+                            <h:outputText value="#{consturma.nome}" />
+                        </p:column>
+                        <p:column headerText="Turno"  style="width:60px">
                             <h:outputText value="#{consturma.turno}" />
                         </p:column>
 
-                        <p:column headerText="Curso" >
+                        <p:column headerText="Curso"  style="width:130px">
                             <h:outputText value="#{consturma.curso.nome}" />
                         </p:column>
 
-                        <p:column headerText="Data Inicio"  style="width:80px" >
+                        <p:column headerText="Data Inicio"  style="width:60px" >
                             <h:outputText value="#{consturma.datainicio}" >
                                <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                             </h:outputText>
                         </p:column>
 
-                        <p:column headerText="Data Termino"  style="width:80px">
+                        <p:column headerText="Data Termino"  style="width:60px">
                             <h:outputText value="#{consturma.datatermino}"> 
                                <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                             </h:outputText>
                         </p:column>
 
-                       <p:column style="width:24px">
+                       <p:column style="width:21px">
                            <p:commandButton  id="edita" icon="ui-icon-pencil" title="Editar" action="#{cadastroTurmasMB.consultarTurma()}" >
                                <f:param name="id_turma" value="#{consturma.idturma}"/>
                             </p:commandButton>
                      </p:column>
-                     <p:column style="width:24px">
+                     <p:column style="width:21px">
                          <p:commandButton  id="excluir" icon="	ui-icon-check" title="Formar Turma" action="#{cadastroTurmasMB.excluir()}" >
                                <f:param name="idturma" value="#{consturma.idturma}"/>
                             </p:commandButton>
