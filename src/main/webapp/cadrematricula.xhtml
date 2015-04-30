@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        <ui:define name="corpo">
+            <h:form>
+            
+            <div id="centro">
+                 <p:growl id="growl" showDetail="true" sticky="true" />
+                <br></br>
+                <legend id="iUsu" ><b>Rematricula </b></legend>
+                <br></br>
+            <p:tabView class="tabelamatricula">
+                        <p:tab title="Rematricula" >
+                            
+             <p:messages autoUpdate="true" />
+                    <h:panelGrid columns="3" cellpadding="5" class="meio2">
+                        <p:outputLabel value="Nome" for="nomeMatri" class="" />
+                        <p:outputLabel value="Curso"  class="leftMeio13" />
+                    </h:panelGrid>
+               <h:panelGrid columns="3" cellpadding="3" class="meio2">
+                   <p:inputText id="nomeMatri"  value="#" size="54" />
+                   <p:commandButton action="#" icon="ui-icon-search" class="filtrar"/>   
+                   <p:selectOneMenu id="cursoTurma" value="#" class="leftTel" style="width:190px">
+                            <f:selectItem itemLabel="Selecione Curso" itemValue="0"   />
+                            <f:selectItems value="#" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
+                            <p:ajax event="change" update="@all"/>  
+                    </p:selectOneMenu>
+               </h:panelGrid>
+           
+             <br></br>
+                   <h:panelGrid columns="4" cellpadding="3" class="meio2">
+                        <p:outputLabel value="Matrícula" for="matricula" class="" />
+                        <p:outputLabel value="Turma"  class="leftC" />
+                        <p:outputLabel value="Turno" for="turno" class="cadaaluno" />
+                        <h:outputText value="Data Nova Rematricula" class="cadaaluno"/> 
+                  </h:panelGrid>  
+             <h:panelGrid columns="4" cellpadding="2" class="meio2">
+                 <p:inputText id="matricula"  value="#" size="12" />
+                     
+                 <p:selectOneMenu  id="turmaMatri" class="leftP" style="width:135px" value="#">
+                            <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
+                            <f:selectItems value="#" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
+                            <p:ajax event="change" update="@all"/>  
+                </p:selectOneMenu>
+                 <p:inputText id="turno"  class="leftTel" size="16" value="#" readonly="true"/>
+                 <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="20" maxlength="12" class="left4"  readonly="true">
+                         <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
+                </p:calendar>    
+             </h:panelGrid>
+             
+             
+               <br></br>
+             </p:tab>
+                    </p:tabView>
+                 <br></br>
+                 
+                 <p:commandButton value="Rematricular" icon=" ui-icon-plusthick" class="botaoCadastramatricula" actionListener="#{mensagemMB.matriculaMessagem()}" update="growl" action="#" />
+                 <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#"/>
+                    <br></br>
+                <br></br>
+                     
+                  <br></br>
+            </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

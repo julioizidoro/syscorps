@@ -237,9 +237,9 @@
         font-size: 12px;
         font-family: tahoma;
         position:relative;
-        margin-left:10%;
+        margin-left:6%;
         top:20px;
-        width: 650px;
+        width: 700px;
         background:#FAEBD7;
     }
     .tabelacursos1{
@@ -578,6 +578,11 @@
         margin-left:55px;
          font-size: 12px;
     }
+    .leftright{
+        margin-left:55px;
+         font-size: 12px;
+         text-align: right;
+    }
     .left4{
         margin-left:26px;
         font-size: 12px;
@@ -589,6 +594,11 @@
     .leftP{
         margin-left:34px;
         font-size: 12px;
+    }
+    .leftPright{
+        margin-left:34px;
+        font-size: 12px;
+        text-align: right;
     }
     .leftMeio{
         margin-left:390px;
