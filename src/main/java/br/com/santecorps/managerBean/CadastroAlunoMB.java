@@ -40,10 +40,12 @@ public class CadastroAlunoMB implements Serializable{
     Avalistaaluno avalistaaluno;
     private String rendaMensalAvalista;
     private String rendaMensalConjuge;
+    private String paginaRetorno;
     
      
 
     public CadastroAlunoMB() {
+        aluno = new Aluno();
         CarregarLitaAluno();
     }
 
@@ -61,6 +63,22 @@ public class CadastroAlunoMB implements Serializable{
 
     public void setRendaMensalConjuge(String rendaMensalConjuge) {
         this.rendaMensalConjuge = rendaMensalConjuge;
+    }
+
+    public Avalistaaluno getAvalistaaluno() {
+        return avalistaaluno;
+    }
+
+    public void setAvalistaaluno(Avalistaaluno avalistaaluno) {
+        this.avalistaaluno = avalistaaluno;
+    }
+
+    public String getPaginaRetorno() {
+        return paginaRetorno;
+    }
+
+    public void setPaginaRetorno(String paginaRetorno) {
+        this.paginaRetorno = paginaRetorno;
     }
     
 
@@ -201,19 +219,16 @@ public class CadastroAlunoMB implements Serializable{
     }
         
     public String pesquisarNome(){
-        
         CarregarLitaAluno();
         return "consaluno";
+    }
     
-    }        
-     public String pesquisarNome2(){
-        
+     public String pesquisarNomeSelecionado(){
         CarregarLitaAluno();
         return "selecionarAluno";
-    
     }
-    public String pesquisarNomeMatricula(){
-        
+     
+    public String pesquisarNomeMatricula(){   
         CarregarLitaAluno();
         return "selecionarAluno";
     }
@@ -253,6 +268,24 @@ public class CadastroAlunoMB implements Serializable{
         AlunoFacade alunoFacade = new AlunoFacade();
         localTrabalho = alunoFacade.salvarLocalTrabalho(localTrabalho);
         return "cadinfoaluno";
+    }
+    
+    public String selecionarAluno(){
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+        int idAluno =  Integer.parseInt(params.get("id_aluno"));
+        if (idAluno>0){
+            AlunoFacade alunoFacade = new AlunoFacade();
+            aluno = alunoFacade.getAlunoId(idAluno);
+             if (aluno!=null){
+                return paginaRetorno;
+            }
+        }
+        return null;
+    }
+    
+    public String voltarSelecionarAluno(){
+        return paginaRetorno;
     }
     
     

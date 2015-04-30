@@ -5,17 +5,19 @@
  */
 package br.com.santecorps.managerBean;
 
-import br.com.santecorps.facade.AlunoFacade;
 import br.com.santecorps.facade.CursoFacade;
+import br.com.santecorps.facade.MatriculaFacade;
 import br.com.santecorps.facade.TurmaFacade;
 import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Curso;
 import br.com.santecorps.model.Matricula;
 import br.com.santecorps.model.Turma;
+import br.com.santecorps.util.Formatacao;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -27,21 +29,24 @@ import javax.inject.Named;
 @SessionScoped
 public class MatriculaMB implements Serializable{
     
+    @Inject
+    private CadastroAlunoMB cadastroAlunoMB;
     private Matricula matricula;
     private List<Curso> listaCursos;
-    private List<Aluno> listaAlunos;
     private List<Turma> listaTurma;
     private String idCurso;
-    
+    private String idTurma;
     private String valorTotal;
     private String valorEntrada;
     private String valorParcela;
     private String numeroParcelas;
+    private Turma turma;
     
 
     public MatriculaMB() {
         matricula = new Matricula();
         matricula.setAluno(new Aluno());
+        gerarLitaCurso();
     }
     
     
@@ -51,6 +56,22 @@ public class MatriculaMB implements Serializable{
 
     public Matricula getMatricula() {
         return matricula;
+    }
+
+    public CadastroAlunoMB getCadastroAlunoMB() {
+        return cadastroAlunoMB;
+    }
+
+    public void setCadastroAlunoMB(CadastroAlunoMB cadastroAlunoMB) {
+        this.cadastroAlunoMB = cadastroAlunoMB;
+    }
+
+    public String getIdTurma() {
+        return idTurma;
+    }
+
+    public void setIdTurma(String idTurma) {
+        this.idTurma = idTurma;
     }
 
     public void setMatricula(Matricula matricula) {
@@ -67,6 +88,14 @@ public class MatriculaMB implements Serializable{
 
     public String getValorEntrada() {
         return valorEntrada;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 
     public void setValorEntrada(String valorEntrada) {
@@ -90,9 +119,6 @@ public class MatriculaMB implements Serializable{
     }
 
     public List<Curso> getListaCursos() {
-        if (listaCursos==null){
-            gerarLitaCurso();
-        }
         return listaCursos;
     }
 
@@ -100,26 +126,7 @@ public class MatriculaMB implements Serializable{
         this.listaCursos = listaCursos;
     }
 
-    public List<Aluno> getListaAlunos() {
-        if (listaAlunos==null){
-            gerarListaAlunos();
-        }
-        return listaAlunos;
-    }
-     public String pesquisarNomeMatricula(){
-        
-        gerarListaAlunos();
-        return "matricula";
-    }
-
-    public void setListaAlunos(List<Aluno> listaAlunos) {
-        this.listaAlunos = listaAlunos;
-    }
-
     public List<Turma> getListaTurma() {
-        if (listaTurma==null){
-            gerarListaTurma();
-        }
         return listaTurma;
     }
 
@@ -143,45 +150,49 @@ public class MatriculaMB implements Serializable{
         }
     }
     
-    public void gerarListaAlunos(){
-        AlunoFacade alunoFacade = new AlunoFacade();
-        listaAlunos = alunoFacade.listar("");
-        if (listaAlunos==null){
-            listaAlunos = new ArrayList<Aluno>();
-        }
-    }
     
-    public void gerarListaTurma(){
-        TurmaFacade turmaFacade = new TurmaFacade();
-        listaTurma = turmaFacade.listar(Integer.parseInt(idCurso), 1);
-        if (listaTurma==null){
-            listaTurma = new ArrayList<Turma>();
-        }
-    }
     
-    public String selecionarAluno(){
-        if (listaAlunos!=null){
-            for(int i=0;i<listaAlunos.size();i++){
-                if (listaAlunos.get(i).isSelecionado()){
-                    matricula.setAluno(listaAlunos.get(i));
-                    i=500000;
-                }
+    public void gerarListaTurma() {
+        if (idCurso != null) {
+            TurmaFacade turmaFacade = new TurmaFacade();
+            listaTurma = turmaFacade.listar(Integer.parseInt(idCurso), 1);
+            if (listaTurma == null) {
+                listaTurma = new ArrayList<Turma>();
             }
         }
-        return "matricula";
     }
     
     public String voltar(){
         return "matricula";
     }
      
-     public String filtrarAluno(){
+     public String selecionarAluno(){
+         cadastroAlunoMB.setPaginaRetorno("matricula");
          return "selecionarAluno";
     }
      
-     public String pesquisarNome(){
-        gerarListaAlunos();
-        return "selecionarAluno";
-    }
-   
+     public String salvar(){
+         MatriculaFacade matriculaFacade = new MatriculaFacade();
+         TurmaFacade turmaFacade = new TurmaFacade();
+         CursoFacade cursoFacade = new CursoFacade();
+         matricula.setAluno(cadastroAlunoMB.getAluno());
+         matricula.setNumeroparcelas(Integer.parseInt(numeroParcelas));
+         matricula.setTurma(turmaFacade.getTurmaId(Integer.parseInt(idTurma)));
+         matricula.setValorentrada(Formatacao.formatarStringfloat(valorEntrada));
+         matricula.setValorparcela(Formatacao.formatarStringfloat(valorParcela));
+         matricula.setValortotal(Formatacao.formatarStringfloat(valorTotal));
+         matriculaFacade.salvar(matricula);
+         return "inicial";
+     }
+     
+     public String cancelar(){
+         return "inicial";
+     }
+     
+     public void selecoinarTurma(){
+         if (idTurma!=null){
+             TurmaFacade turmaFacade = new TurmaFacade();
+             turma = turmaFacade.getTurmaId(Integer.parseInt(idTurma));
+         }
+     }
 }

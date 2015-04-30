@@ -18,18 +18,19 @@
                 </h:panelGrid>
                 <h:panelGrid columns="2" cellpadding="1">
                      <p:inputText id="nome" size="40" maxlength="100" class="left" value="#{cadastroAlunoMB.nomeAluno}"/>
-                    <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa" action="#{cadastroAlunoMB.pesquisarNome2()}"   update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  />
-                    
+                     <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa" action="#{cadastroAlunoMB.pesquisarNomeSelecionado()}"   update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  />
                 </h:panelGrid>
                    <p:dataTable var="consaluno" value="#{cadastroAlunoMB.listaAlunos}"   paginator="true" rows="10" class="tabelaalunos">
                     <p:column headerText="Nome do Aluno"  >
                         <h:outputText value="#{consaluno.nome}" />
                     </p:column>
                     <p:column style="width:40px">
-                      <p:commandButton value="Selecionar" icon="ui-icon-arrowstop-1-s" action="#{matriculaMB.selecionarAluno()}"/>
+                        <p:commandButton value="Selecionar" icon="ui-icon-arrowstop-1-s" action="#{cadastroAlunoMB.selecionarAluno()}">
+                          <f:param name="id_aluno" value="#{consaluno.idaluno}"/>
+                      </p:commandButton>
                     </p:column>
                 </p:dataTable> 
-                   <p:commandButton value="Voltar"  action="#{matriculaMB.voltar()}" class="botaoCadastra" />
+                   <p:commandButton value="Voltar"  action="#{cadastroAlunoMB.voltarSelecionarAluno()}" class="botaoCadastra" />
                   <br></br>
                  <br></br>
                   <br></br>

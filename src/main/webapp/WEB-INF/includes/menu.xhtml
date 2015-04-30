@@ -20,9 +20,11 @@
             <p:menuitem class="submenu" value="DISCIPLINA" action="#{menuMB.cadastroDisciplina()}" />
             <p:menuitem class="submenu" value="FORMAR TURMA" action="#{menuMB.formar()}" />
         </p:submenu>
-        <p:menuitem value="MATRICULA" action="#{menuMB.matricula()}"/>
-        <p:menuitem value="REMATRICULA" action="#{menuMB.rematricula()}" />
-        <p:menuitem value="ANIVERSARIANTES" action="#{menuMB.aniversariantes()}" />
+        <p:submenu label="PROCESSO">
+            <p:menuitem class="submenu" value="Matrícula"  action="#{menuMB.matricula()}"/>
+            <p:menuitem class="submenu" value="Rematríclua" action="#{menuMB.rematricula()}" />
+            <p:menuitem class="submenu" value="Aniversariantes" action="#{menuMB.aniversariantes()}" />
+        </p:submenu>
         <p:menuitem value="INICIO" action="#{menuMB.inicio()}" />
     </p:menubar>
     <br>  </br>

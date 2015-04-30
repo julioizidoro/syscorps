@@ -20,6 +20,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -34,6 +35,9 @@ public class Matricula implements Serializable {
     @Basic(optional = false)
     @Column(name = "idmatricula")
     private Integer idmatricula;
+    @Size(max = 20)
+    @Column(name = "tipopagamento")
+    private String tipopagamento;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "valortotal")
     private Float valortotal;
@@ -81,6 +85,14 @@ public class Matricula implements Serializable {
 
     public Float getValorentrada() {
         return valorentrada;
+    }
+
+    public String getTipopagamento() {
+        return tipopagamento;
+    }
+
+    public void setTipopagamento(String tipopagamento) {
+        this.tipopagamento = tipopagamento;
     }
 
     public void setValorentrada(Float valorentrada) {
