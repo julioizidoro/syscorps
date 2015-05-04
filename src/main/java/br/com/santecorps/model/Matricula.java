@@ -60,9 +60,12 @@ public class Matricula implements Serializable {
     @Column(name = "datamatricula")
     @Temporal(TemporalType.DATE)
     private Date datamatricula;
-    @Column(name = "dataproximamatricula")
+    @Column(name = "datarematricula01")
     @Temporal(TemporalType.DATE)
-    private Date dataproximamatricula;
+    private Date datarematricula01;
+    @Column(name = "datarematricula02")
+    @Temporal(TemporalType.DATE)
+    private Date datarematricula02;
 
     
     public Matricula() {
@@ -88,12 +91,20 @@ public class Matricula implements Serializable {
         this.datamatricula = datamatricula;
     }
 
-    public Date getDataproximamatricula() {
-        return dataproximamatricula;
+    public Date getDatarematricula01() {
+        return datarematricula01;
     }
 
-    public void setDataproximamatricula(Date dataproximamatricula) {
-        this.dataproximamatricula = dataproximamatricula;
+    public void setDatarematricula01(Date datarematricula01) {
+        this.datarematricula01 = datarematricula01;
+    }
+
+    public Date getDatarematricula02() {
+        return datarematricula02;
+    }
+
+    public void setDatarematricula02(Date datarematricula02) {
+        this.datarematricula02 = datarematricula02;
     }
 
     public Float getValortotal() {

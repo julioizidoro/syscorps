@@ -9,6 +9,7 @@ import br.com.santecorps.facade.ProfessorFacade;
 import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Professor;
 import br.com.santecorps.model.Unidade;
+import br.com.santecorps.util.Formatacao;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,6 +86,7 @@ public class CadastroProfessorMB implements Serializable{
         UnidadeFacade unidadeFacade = new UnidadeFacade();
         Unidade unidade = unidadeFacade.getUnidade(1);
         professor.setUnidade(unidade);
+        professor.setMes(Formatacao.retornoMesData(professor.getDataNascimento()));
         ProfessorFacade professorFacade = new ProfessorFacade();
         professorFacade.salvar(professor);
         listaProfessor();

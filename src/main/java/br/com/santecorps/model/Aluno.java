@@ -122,7 +122,17 @@ public class Aluno implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
     private List<Conjuge> conjugeList;
     @Column(name = "selecionado")
-   private boolean selecionado;
+    private boolean selecionado;
+    @Column(name = "mes")
+    private int mes;
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
 
     public Aluno() {
     }

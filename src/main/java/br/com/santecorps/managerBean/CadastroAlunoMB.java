@@ -158,6 +158,7 @@ public class CadastroAlunoMB implements Serializable{
         UnidadeFacade unidadeFacade = new UnidadeFacade();
         Unidade unidade = unidadeFacade.getUnidade(1);
         aluno.setUnidade(unidade);
+        aluno.setMes(Formatacao.retornoMesData(aluno.getDataNascimento()));
         aluno = alunoFacade.salvar(aluno);
         CarregarLitaAluno();
         return "consaluno";

@@ -90,6 +90,8 @@ public class Professor implements Serializable {
     private Unidade unidade;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
     private List<Gradeturma> gradeturmaList;
+    @Column(name = "mes")
+    private int mes;
 
     public Professor() {
         
@@ -101,6 +103,14 @@ public class Professor implements Serializable {
 
     public Integer getIdprofessor() {
         return idprofessor;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
     }
 
     public void setIdprofessor(Integer idprofessor) {
