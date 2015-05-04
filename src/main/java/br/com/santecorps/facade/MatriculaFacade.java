@@ -32,4 +32,9 @@ public class MatriculaFacade {
         return matriculaDao.getMatricula(idMatricula);
     }
     
+    public List<Matricula> listar(int idTurma, int mes){
+        matriculaDao = new MatriculaDao();
+        return matriculaDao.listar(idTurma, mes);
+    }
+    
 }

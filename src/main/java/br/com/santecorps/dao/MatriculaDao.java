@@ -42,4 +42,13 @@ public class MatriculaDao {
         return matricula;
     }
     
+    public List<Matricula> listar(int idTurma, int mes){
+        EntityManager manager =ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Query q = manager.createQuery("select m from Matricula m where m.turma.idturma=" + idTurma + " and m.aluno.mes=" + mes + " order by m.aluno.nome");
+        List<Matricula> listaMatriculas = q.getResultList();
+        manager.getTransaction().commit();
+        return listaMatriculas;
+    }
+    
 }

@@ -88,7 +88,12 @@ public class RematriculaMB  implements Serializable{
         MatriculaFacade matriculaFacade = new MatriculaFacade();
         matricula = matriculaFacade.getMatricula(idMatricula);
         if (matricula!=null){
-            matricula.setDatamatricula(new Date());
+            if (matricula.getDatarematricula01()==null){
+                matricula.setDatarematricula01(new Date());
+            }else if (matricula.getDatarematricula02()==null){
+                matricula.setDatarematricula02(new Date());
+            }
+            
             return "cadrematricula";
         }
         return "";

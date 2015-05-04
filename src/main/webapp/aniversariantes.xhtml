@@ -8,67 +8,67 @@
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
-              <div id="centro">
-                  <p:growl id="growl" showDetail="true" sticky="true" />
-                  <br></br>
-                  <legend id="iUsu" ><b>Aniversariantes do Mês</b></legend>
-                   <br></br>
-                 <h:panelGrid columns="2" cellpadding="3">
-                    <p:outputLabel value="Mês" for="mes"  class="leftMeio9" /> 
-                    <p:outputLabel value="Turma" for="turma"  class="leftMeio20" /> 
-                </h:panelGrid>
-                <h:panelGrid columns="3" cellpadding="1">
-                    <p:selectOneMenu id="mes" class="leftMeio9" style="width:170px">
-                        <f:selectItem itemValue="0" itemLabel="Selecione um Mês" class="left"/>
-                        <f:selectItem itemValue="Janeiro" itemLabel="Janeiro" class="left"/>
-                        <f:selectItem itemValue="Fevereiro" itemLabel="Fevereiro" class="left2"/>
-                        <f:selectItem itemValue="Março" itemLabel="Março" class="left2"/>
-                        <f:selectItem itemValue="Abril" itemLabel="Cheque" class="left2"/>
-                        <f:selectItem itemValue="Maio" itemLabel="Maio" class="left2"/>
-                        <f:selectItem itemValue="Junho" itemLabel="Junho" class="left"/>
-                        <f:selectItem itemValue="Julho" itemLabel="Julho" class="left2"/>
-                        <f:selectItem itemValue="Agosto" itemLabel="Agosto" class="left2"/>
-                        <f:selectItem itemValue="Setembro" itemLabel="Setembro" class="left2"/>
-                        <f:selectItem itemValue="Outubro" itemLabel="Outubro" class="left2"/>
-                        <f:selectItem itemValue="Novembro" itemLabel="Novembro" class="left2"/>
-                        <f:selectItem itemValue="Dezembro" itemLabel="Dezembro" class="left2"/>
-                    </p:selectOneMenu>
-                    
-                    <p:selectOneMenu  id="turma" class="left4" style="width:170px">
+                <div id="centro">
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <br></br>
+                    <legend id="iUsu" ><b>Aniversariantes do Mês</b></legend>
+                    <br></br>
+                    <h:panelGrid columns="2" cellpadding="3">
+                        <p:outputLabel value="Mês" for="mes"  class="leftMeio9" /> 
+                        <p:outputLabel value="Turma" for="turma"  class="leftMeio20" /> 
+                    </h:panelGrid>
+                    <h:panelGrid columns="3" cellpadding="1">
+                        <p:selectOneMenu id="mes" class="leftMeio9" style="width:170px" value="#{aniversariantesMB.mes}">
+                            <f:selectItem itemValue="00" itemLabel="Selecione um Mês" class="left"/>
+                            <f:selectItem itemValue="01" itemLabel="Janeiro" class="left"/>
+                            <f:selectItem itemValue="02" itemLabel="Fevereiro" class="left2"/>
+                            <f:selectItem itemValue="03" itemLabel="Março" class="left2"/>
+                            <f:selectItem itemValue="04" itemLabel="Abril" class="left2"/>
+                            <f:selectItem itemValue="05" itemLabel="Maio" class="left2"/>
+                            <f:selectItem itemValue="06" itemLabel="Junho" class="left"/>
+                            <f:selectItem itemValue="07" itemLabel="Julho" class="left2"/>
+                            <f:selectItem itemValue="08" itemLabel="Agosto" class="left2"/>
+                            <f:selectItem itemValue="09" itemLabel="Setembro" class="left2"/>
+                            <f:selectItem itemValue="10" itemLabel="Outubro" class="left2"/>
+                            <f:selectItem itemValue="11" itemLabel="Novembro" class="left2"/>
+                            <f:selectItem itemValue="12" itemLabel="Dezembro" class="left2"/>
+                            <p:ajax event="change" update="@all" />
+                        </p:selectOneMenu>
+
+                        <p:selectOneMenu  id="turma" class="left4" style="width:200px" value="#{aniversariantesMB.idTurma}">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
-                            <f:selectItems />
-                            <p:ajax process="@this"/>
-                    </p:selectOneMenu>
-                    <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa" action="#{cadastroAlunoMB.pesquisarNome()}"   update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  />
-                    
-                </h:panelGrid>
-                   <p:dataTable id="tabAluno" var="consAluno" value="#{cadastroAlunoMB.listaAlunos}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
-                    <p:column headerText="Nome" >
-                        <h:outputText value="#{consAluno.nome}" />
-                    </p:column>
-                    <p:column headerText="Data de Aniversario" style="width:70px">
-                        <h:outputText value="#{consAluno.dataNascimento}" >
-                            <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
-                        </h:outputText>
-                    </p:column>
-                    <p:column headerText="Turma" style="width:80px" >
-                        <h:outputText value="#" />
-                    </p:column>
-                </p:dataTable>
-                 
-                  <br></br>
-                 <br></br>
-                  <br></br>
-             </div>
-          </h:form>
+                            <f:selectItems value="#{aniversariantesMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
+                            <p:ajax event="change" listener="#{aniversariantesMB.gerarLista()}" update="@all" />
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                    <p:dataTable id="tabAluno" var="consAluno" value="#{aniversariantesMB.listaAniversariantes}" class="tabelacursos" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
+                        <p:column headerText="Nome" >
+                            <h:outputText value="#{consAluno.nome}" />
+                        </p:column>
+                        <p:column headerText="Data de Aniversario" style="width:70px">
+                            <h:outputText value="#{consAluno.dataAniversario}"/> 
+                        </p:column>
+                        <p:column headerText="E-mail" style="width:80px" >
+                            <h:outputText value="#{consAluno.email}" />
+                        </p:column>
+                        <p:column headerText="Categoria" style="width:80px" >
+                            <h:outputText value="#{consAluno.categoria}" />
+                        </p:column>
+                    </p:dataTable>
+
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>
 
-    
 
 
- 
-    
-  
+
+
+
+
 

@@ -675,4 +675,10 @@ public class Formatacao {
         String mes = sData.substring(3, 5);
         return Integer.valueOf(mes);
     }
+    
+    public static String dataAniversario(Date data){
+        String sData = Formatacao.ConvercaoDataPadrao(data);
+        String mes = sData.substring(0,5);
+        return mes;
+    }
 }
