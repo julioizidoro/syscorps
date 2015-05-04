@@ -23,26 +23,41 @@
                         <p:outputLabel value="Curso" for="nomeCurso" class="leftMeio13" />
                     </h:panelGrid>
                <h:panelGrid columns="3" cellpadding="3" class="meio2">
-                   <p:inputText id="nomeMatri"  value="#{rematriculaMB.matricula.aluno.nome}" size="54" readonly="true" />
-                   <p:inputText id="nomeCurso"  value="#{rematriculaMB.matricula.turma.curso.nome}" size="54" readonly="true" />
+                   <p:inputText id="nomeMatri"  value="#{rematriculaMB.matricula.aluno.nome}" size="51" readonly="true" />
+                   <p:inputText id="nomeCurso"  value="#{rematriculaMB.matricula.turma.curso.nome}" size="40" readonly="true" class="left"/>
                </h:panelGrid>
              <br></br>
-                   <h:panelGrid columns="4" cellpadding="3" class="meio2">
-                        <p:outputLabel value="Matrícula" for="matricula" class="" />
-                        <p:outputLabel value="Turma"  class="leftC" />
-                        <p:outputLabel value="Turno" for="turno" class="cadaaluno" />
-                        <h:outputText value="Data Nova Rematricula" class="cadaaluno"/> 
-                  </h:panelGrid>  
+                <h:panelGrid columns="4" cellpadding="3" class="meio2">
+                     <p:outputLabel value="Matrícula" for="matricula" class="" />
+                     <p:outputLabel value="Turma"  class="leftMeio2" />
+                     <p:outputLabel value="Turno" for="turno" class="leftMeio2" />
+
+               </h:panelGrid>  
              <h:panelGrid columns="4" cellpadding="2" class="meio2">
-                 <p:inputText id="matricula"  value="#{rematriculaMB.matricula.idmatricula}" size="12" readonly="true"/>
-                 <p:inputText id="turmaMatri"  value="#{rematriculaMB.matricula.turma.numero}" size="12" />
-                 <p:inputText id="turno"  class="leftTel" size="16" value="#{rematriculaMB.matricula.turma.turno}" readonly="true"/>
-                 <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="20" maxlength="12" class="left4"  readonly="true" value="#{rematriculaMB.matricula.datamatricula}">
+                 <p:inputText id="matricula"  value="#{rematriculaMB.matricula.idmatricula}" size="9" readonly="true"/>
+                 <p:inputText id="turmaMatri"  value="#{rematriculaMB.matricula.turma.numero}" size="15" class="cadprofessorr"/>
+                 <p:inputText id="turno"  class="leftMeio4" size="27" value="#{rematriculaMB.matricula.turma.turno}" readonly="true"/>
+                    
+             </h:panelGrid>
+             <h:panelGrid columns="4" cellpadding="3" class="meio2">
+                     <p:outputLabel value="Data Matricula" for="datamatricula" class="" />
+                     <p:outputLabel value="Data 1º Rematricula" for="rematricula1" class="leftMeio7" />
+                     <p:outputLabel value="Data 2º Rematricula" for="rematricula2" class="cadaaluno" />
+
+               </h:panelGrid>  
+             <h:panelGrid columns="4" cellpadding="2" class="meio2">
+                 <p:calendar id="datamatricula"  pattern="dd/MM/yyyy"  size="20" maxlength="12"  readonly="true" value="#{rematriculaMB.matricula.datamatricula}">
                          <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
-                </p:calendar>    
+                </p:calendar> 
+                 <p:calendar id="rematricula1"  pattern="dd/MM/yyyy"  size="20" maxlength="12" class="leftC"  readonly="true" >
+                         <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
+                </p:calendar> 
+                 <p:calendar id="rematricula2"  pattern="dd/MM/yyyy"  size="23" maxlength="12" class="leftMeio4"  readonly="true" >
+                         <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
+                </p:calendar> 
              </h:panelGrid>
              
-             
+                
                <br></br>
              </p:tab>
                     </p:tabView>

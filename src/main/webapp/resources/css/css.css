@@ -115,6 +115,9 @@
        font-size: 12px;
 
     }
+    .fontsize{
+        font-size: 12px;
+    }
     legend#iUsu5 b{
 
         position:relative;
@@ -253,7 +256,7 @@
     .botaoConsulta{
         font-size: 12px;
         margin-top:35px;
-        margin-left:15px;
+        margin-left:10px;
         left:330px;
         -webkit-border-top-left-radius: 15px;
         -webkit-border-bottom-right-radius: 15px;

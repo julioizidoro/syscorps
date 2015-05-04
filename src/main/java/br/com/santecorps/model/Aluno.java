@@ -121,8 +121,6 @@ public class Aluno implements Serializable {
     private List<Matricula> matriculaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
     private List<Conjuge> conjugeList;
-    @Column(name = "selecionado")
-    private boolean selecionado;
     @Column(name = "mes")
     private int mes;
 
@@ -151,14 +149,6 @@ public class Aluno implements Serializable {
 
     public String getNome() {
         return nome;
-    }
-
-    public boolean isSelecionado() {
-        return selecionado;
-    }
-
-    public void setSelecionado(boolean selecionado) {
-        this.selecionado = selecionado;
     }
 
     public String getTrabalha() {
