@@ -11,14 +11,13 @@
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
-
                     <p:tabView class="tabelafoto" >
                         <p:tab title="Foto Cadastro de Participante" >
                             <h:panelGrid columns="4" cellpadding="5" class="telaCortar" >
                                 <p:photoCam widgetVar="pc" listener="#{fotoAlunoMB.oncapture}" update="photo" />
                                 <p:commandButton type="button" value="Capture" onclick="PF('pc').capture()"/>
                             </h:panelGrid>
-                            <h:panelGrid columns="5" >
+                              <h:panelGrid columns="5" >
                                 <p:outputPanel id="photo">
                                     <p:imageCropper value="#{cortarImagemMB.croppedImage}" image="/resources/img/#{fotoAlunoMB.filename}.jpeg" initialCoords="300,100,380,155"/>
                                 </p:outputPanel>
@@ -29,11 +28,9 @@
                     </p:tabView>  
                      <p:commandButton value="Confirmar" action="#{fotoAlunoMB.confirmar}" class="botaoConsulta"/>
                     <br></br>
-                    <br></br>
+                         <br></br>
                 </div>
             </h:form>
         </ui:define>
     </ui:composition>
 </html>
-
-

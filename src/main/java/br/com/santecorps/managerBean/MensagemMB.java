@@ -27,6 +27,6 @@ public class MensagemMB {
     }
      public void matriculaMessagem() {
         FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage("Excluido com Sucesso", ""));
+        context.addMessage(null, new FacesMessage("Matriculado com Sucesso", ""));
     }
 }

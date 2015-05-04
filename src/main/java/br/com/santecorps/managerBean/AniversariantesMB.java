@@ -92,4 +92,7 @@ public class AniversariantesMB implements Serializable{
             }
         }
     }
+    public String voltar(){
+        return "inicial";
+    }
 }
