@@ -7,6 +7,7 @@ package br.com.santecorps.facade;
 
 import br.com.santecorps.dao.MatriculaDao;
 import br.com.santecorps.model.Matricula;
+import java.util.List;
 
 /**
  *
@@ -19,6 +20,16 @@ public class MatriculaFacade {
     public void salvar(Matricula matricula){
         matriculaDao = new MatriculaDao();
         matriculaDao.salvar(matricula);
+    }
+    
+    public List<Matricula> listar(int idTurma){
+        matriculaDao = new MatriculaDao();
+        return matriculaDao.listar(idTurma);
+    }
+    
+    public Matricula getMatricula(int idMatricula){
+        matriculaDao = new MatriculaDao();
+        return matriculaDao.getMatricula(idMatricula);
     }
     
 }

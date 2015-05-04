@@ -94,7 +94,7 @@ public class CadastroTurmasMB implements Serializable{
     
     public void listarTurmas(){
         TurmaFacade turmaFacade = new TurmaFacade();
-        listaTurmas = turmaFacade.listar("");
+        listaTurmas = turmaFacade.listar(" ",1);
         if (listaTurmas==null){
             listaTurmas = new ArrayList<Turma>();
         }

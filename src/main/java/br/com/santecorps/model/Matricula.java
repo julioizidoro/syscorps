@@ -15,8 +15,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -58,8 +56,15 @@ public class Matricula implements Serializable {
     private Aluno aluno;
     @JoinColumn(name = "turma_idturma", referencedColumnName = "idturma")
     @ManyToOne(optional = false)
-    private Turma turma;
+    private Turma turma;    
+    @Column(name = "datamatricula")
+    @Temporal(TemporalType.DATE)
+    private Date datamatricula;
+    @Column(name = "dataproximamatricula")
+    @Temporal(TemporalType.DATE)
+    private Date dataproximamatricula;
 
+    
     public Matricula() {
     }
 
@@ -73,6 +78,22 @@ public class Matricula implements Serializable {
 
     public void setIdmatricula(Integer idmatricula) {
         this.idmatricula = idmatricula;
+    }
+
+    public Date getDatamatricula() {
+        return datamatricula;
+    }
+
+    public void setDatamatricula(Date datamatricula) {
+        this.datamatricula = datamatricula;
+    }
+
+    public Date getDataproximamatricula() {
+        return dataproximamatricula;
+    }
+
+    public void setDataproximamatricula(Date dataproximamatricula) {
+        this.dataproximamatricula = dataproximamatricula;
     }
 
     public Float getValortotal() {

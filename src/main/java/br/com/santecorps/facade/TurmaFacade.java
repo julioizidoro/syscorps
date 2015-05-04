@@ -22,9 +22,9 @@ public class TurmaFacade {
         turmaDao.salvar(turma);
     }
     
-    public List<Turma> listar(String numero){
+    public List<Turma> listar(String numero, int idUnidade){
         turmaDao = new TurmaDao();
-        return turmaDao.listar(numero);
+        return turmaDao.listar(numero, idUnidade);
     }
     
     public List<Turma> listar(int idCurso, int idUnidade){

@@ -20,18 +20,12 @@
              <p:messages autoUpdate="true" />
                     <h:panelGrid columns="3" cellpadding="5" class="meio2">
                         <p:outputLabel value="Nome" for="nomeMatri" class="" />
-                        <p:outputLabel value="Curso"  class="leftMeio13" />
+                        <p:outputLabel value="Curso" for="nomeCurso" class="leftMeio13" />
                     </h:panelGrid>
                <h:panelGrid columns="3" cellpadding="3" class="meio2">
-                   <p:inputText id="nomeMatri"  value="#" size="54" />
-                   <p:commandButton action="#" icon="ui-icon-search" class="filtrar"/>   
-                   <p:selectOneMenu id="cursoTurma" value="#" class="leftTel" style="width:190px">
-                            <f:selectItem itemLabel="Selecione Curso" itemValue="0"   />
-                            <f:selectItems value="#" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
-                            <p:ajax event="change" update="@all"/>  
-                    </p:selectOneMenu>
+                   <p:inputText id="nomeMatri"  value="#{rematriculaMB.matricula.aluno.nome}" size="54" readonly="true" />
+                   <p:inputText id="nomeCurso"  value="#{rematriculaMB.matricula.turma.curso.nome}" size="54" readonly="true" />
                </h:panelGrid>
-           
              <br></br>
                    <h:panelGrid columns="4" cellpadding="3" class="meio2">
                         <p:outputLabel value="Matrícula" for="matricula" class="" />
@@ -40,15 +34,10 @@
                         <h:outputText value="Data Nova Rematricula" class="cadaaluno"/> 
                   </h:panelGrid>  
              <h:panelGrid columns="4" cellpadding="2" class="meio2">
-                 <p:inputText id="matricula"  value="#" size="12" />
-                     
-                 <p:selectOneMenu  id="turmaMatri" class="leftP" style="width:135px" value="#">
-                            <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
-                            <f:selectItems value="#" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
-                            <p:ajax event="change" update="@all"/>  
-                </p:selectOneMenu>
-                 <p:inputText id="turno"  class="leftTel" size="16" value="#" readonly="true"/>
-                 <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="20" maxlength="12" class="left4"  readonly="true">
+                 <p:inputText id="matricula"  value="#{rematriculaMB.matricula.idmatricula}" size="12" readonly="true"/>
+                 <p:inputText id="turmaMatri"  value="#{rematriculaMB.matricula.turma.numero}" size="12" />
+                 <p:inputText id="turno"  class="leftTel" size="16" value="#{rematriculaMB.matricula.turma.turno}" readonly="true"/>
+                 <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="20" maxlength="12" class="left4"  readonly="true" value="#{rematriculaMB.matricula.datamatricula}">
                          <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
                 </p:calendar>    
              </h:panelGrid>
@@ -59,8 +48,8 @@
                     </p:tabView>
                  <br></br>
                  
-                 <p:commandButton value="Rematricular" icon=" ui-icon-plusthick" class="botaoCadastramatricula" actionListener="#{mensagemMB.matriculaMessagem()}" update="growl" action="#" />
-                 <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#"/>
+                 <p:commandButton value="Rematricular" icon=" ui-icon-plusthick" class="botaoCadastramatricula" actionListener="#{mensagemMB.matriculaMessagem()}" update="growl" action="#{rematriculaMB.salvar()}" />
+                 <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{rematriculaMB.cancelar()}"/>
                     <br></br>
                 <br></br>
                      

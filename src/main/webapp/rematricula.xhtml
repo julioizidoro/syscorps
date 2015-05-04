@@ -17,30 +17,30 @@
                         <p:outputLabel value="Turma:" for="turma"  class="left4" /> 
                     </h:panelGrid>
                     <h:panelGrid columns="2" cellpadding="1">
-                        <p:selectOneMenu  id="turma" class="left4" style="width:200px">
+                        <p:selectOneMenu  id="turma" class="left4" style="width:200px" value="#{rematriculaMB.idTurma}">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
-                            <f:selectItems />
-
+                            <f:selectItems value="#{rematriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
+                            <p:ajax event="change" listener="#{rematriculaMB.carregarListaMatricula()}" update="@all" />
                         </p:selectOneMenu>
                     </h:panelGrid>
-                    <p:dataTable id="tabAluno" var="consAluno" value="#{rematriculaMB.listaAlunos}" class="tabelacurso" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
+                    <p:dataTable id="tabAluno" var="consAluno" value="#{rematriculaMB.listaMatricula}" class="tabelacurso" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
                         <p:column headerText="Nome" >
-                            <h:outputText value="#{consAluno.nome}" />
+                            <h:outputText value="#{consAluno.aluno.nome}" />
                         </p:column>
                         <p:column headerText="Email" >
-                            <h:outputText value="#{consAluno.email}"  />
+                            <h:outputText value="#{consAluno.aluno.email}"  />
                         </p:column>
                         <p:column headerText="Data de Nascimento" style="width:50px" >
-                            <h:outputText value="#{consAluno.dataNascimento}" >
+                            <h:outputText value="#{consAluno.aluno.dataNascimento}" >
                                  <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                             </h:outputText>
                         </p:column>
                         <p:column headerText="CPF" style="width:50px" >
-                            <h:outputText value="#{consAluno.cpf}" />
+                            <h:outputText value="#{consAluno.aluno.cpf}" />
                         </p:column>
                         <p:column style="width:70px">
-                            <p:commandButton  id="rematricular" value="Rematricular" action="#" >
-                                <f:param />
+                            <p:commandButton  id="rematricular" value="Rematricular" action="#{rematriculaMB.efetivar()}" >
+                                <f:param name="id_matricula" value="#{consAluno.idmatricula}"/>
                             </p:commandButton>
                         </p:column>
 

@@ -24,9 +24,10 @@ public class TurmaDao {
         manager.getTransaction().commit();
     }
     
-    public List<Turma> listar(String numero){
+    public List<Turma> listar(String numero, int idUnidade){
         EntityManager manager =ConectionFactory.getConnection();
-        Query q = manager.createQuery("select t from Turma t where t.numero like '%" + numero + "%' and t.formada='N' order by t.numero" );
+        String sql = "select t from Turma t where t.numero like '%" + numero + "%' and t.formada='N' and t.unidade.idunidade=" + idUnidade + " order by t.numero";
+        Query q = manager.createQuery(sql);
         List<Turma> listaTurma = q.getResultList();
         return listaTurma;
     }
