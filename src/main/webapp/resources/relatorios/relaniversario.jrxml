@@ -39,6 +39,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{turma}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="10" y="12" width="270" height="62" uuid="d8a65140-17ec-421c-b4dd-dab43639ca50"/>
+				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -81,6 +85,15 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="31" splitType="Stretch"/>
+		<band height="31" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="8" y="7" width="100" height="20" uuid="4cee26b0-0ad9-43d9-bb70-c0ee09dfc57f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="7" width="100" height="20" uuid="8a389be1-42a1-4fbb-ab16-18096247bf1d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 </jasperReport>

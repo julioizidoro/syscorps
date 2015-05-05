@@ -32,7 +32,7 @@
                             <f:selectItem itemValue="10" itemLabel="Outubro" class="left2"/>
                             <f:selectItem itemValue="11" itemLabel="Novembro" class="left2"/>
                             <f:selectItem itemValue="12" itemLabel="Dezembro" class="left2"/>
-                            <p:ajax event="change" update="@all" />
+                            <p:ajax event="change" update="@all"/>
                         </p:selectOneMenu>
 
                         <p:selectOneMenu  id="turma" class="left4" style="width:200px" value="#{aniversariantesMB.idTurma}">
@@ -62,7 +62,7 @@
                             <p:commandButton value="Exportar" class="botaoConsulta"  icon="ui-icon-document"  />
                             <p:dataExporter type="xls" target="aniversariante" fileName="aniversariantes" />
                         </h:commandLink>
-                    <p:commandButton value="Imprimir" icon="ui-icon-print" class="botaoConsulta" action="#{aniversariantesMB.imprimirRelacaoAniversariantes()}"/>   
+                    <p:commandButton value="Imprimir" icon="ui-icon-print" class="botaoConsulta" action="#{aniversariantesMB.imprimirRelacaoAniversariantes()}" ajax="false"/>   
                     <p:commandButton value="Voltar" icon="ui-icon-arrowreturnthick-1-w" class="botaoConsulta" action="#{aniversariantesMB.voltar()}"/>  
                     <br></br>
                     <br></br>
