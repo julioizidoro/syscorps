@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relaniversario" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6e7832d-3693-478a-ad31-cfe43e9a987c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="314"/>
+	<parameter name="valor" class="java.lang.Float"/>
+	<parameter name="valorextenso" class="java.lang.String"/>
+	<parameter name="nomealuno" class="java.lang.String"/>
+	<parameter name="curso" class="java.lang.String"/>
+	<parameter name="cidade" class="java.lang.String"/>
+	<parameter name="usuario" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="dataAniversario" class="java.lang.String">
+		<fieldDescription><![CDATA[dataAniversario]]></fieldDescription>
+	</field>
+	<field name="categoria" class="java.lang.String">
+		<fieldDescription><![CDATA[categoria]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="106" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="79" width="555" height="24" uuid="c04b32a8-7e0b-474f-b509-534defcd7913"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RECIBO"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="12" width="270" height="62" uuid="d8a65140-17ec-421c-b4dd-dab43639ca50"/>
+				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="683">
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="412" y="8" width="118" height="27" uuid="87e62c61-88a6-4789-a09b-73835f199c2f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="47" width="529" height="57" uuid="8c66409b-24c3-42e7-a0cd-78dc5ee61174"/>
+				<textFieldExpression><![CDATA["Recebi (emos) de " + $P{nomealuno} + " a quantia de R$ " +
+$P{valor} + "(" + $P{valorextenso} +
+") correspondente ao pagamento da matícula do curso de " + $P{curso}
+]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="73" y="110" width="236" height="20" uuid="4c704d01-4700-4b2d-848c-f377fa01b281"/>
+				<text><![CDATA[Para maior firmeza firmo o presente]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="267" y="142" width="111" height="20" uuid="36a3a2bf-3889-459b-804f-b15bce6dd2e8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="142" width="86" height="17" uuid="d79eeb08-c237-457b-aa42-e5d3872e93cc"/>
+				<textFieldExpression><![CDATA[$P{cidade}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="108" y="212" width="304" height="1" uuid="6960fb20-b2f7-41c7-9c58-379aba87b843"/>
+			</rectangle>
+			<textField>
+				<reportElement x="108" y="218" width="304" height="17" uuid="43f69c2f-2125-4923-a76b-6bc8a0ba1ded"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="5" y="251" width="550" height="1" uuid="259c72c8-eaa9-419f-bcb4-2b486ed4903c"/>
+			</rectangle>
+			<image>
+				<reportElement x="12" y="264" width="270" height="62" uuid="39853b88-23cc-46bc-a6fc-f27f0fedfd58"/>
+				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="2" y="339" width="555" height="24" uuid="49545248-ed56-436b-b8cf-a911dbc4f67e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RECIBO"]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="426" y="377" width="118" height="27" uuid="f50e843f-be14-4961-a95f-efd0ad68da02"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="443" width="529" height="57" uuid="dc4cc2d8-0505-4c18-8cf1-c78722b1fe7a"/>
+				<textFieldExpression><![CDATA["Recebi (emos) de " + $P{nomealuno} + " a quantia de R$ " +
+$P{valor} + "(" + $P{valorextenso} +
+") correspondente ao pagamento da matícula do curso de " + $P{curso}
+]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="87" y="510" width="236" height="20" uuid="d7556a13-c652-448f-9e04-d76dbf9ba2d7"/>
+				<text><![CDATA[Para maior firmeza firmo o presente]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="281" y="546" width="111" height="20" uuid="68b7cdb7-ccc3-4c00-a2dc-45504c5af515"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="546" width="86" height="17" uuid="a7bc2196-da87-43ed-a6a8-6dcf4222ed27"/>
+				<textFieldExpression><![CDATA[$P{cidade}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="122" y="619" width="304" height="1" uuid="c3ad7b68-f462-4089-a3a3-467858cf466d"/>
+			</rectangle>
+			<textField>
+				<reportElement x="122" y="625" width="304" height="17" uuid="624d808f-58f4-445d-a917-102a4a35cff3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

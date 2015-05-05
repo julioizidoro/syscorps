@@ -21,8 +21,6 @@ import net.sf.jasperreports.engine.JasperPrint;
  * @author Wolverine
  */
 public class GerarRelatorio {
-    
-    
     public void gerarRelatorioDSPDF(String caminhoRelatorio, Map parameters, JRDataSource jrds, String nomeArquivo ) throws JRException, IOException{
         FacesContext facesContext = FacesContext.getCurrentInstance();  
         ServletContext servletContext = (ServletContext)facesContext.getExternalContext().getContext();
