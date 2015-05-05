@@ -62,7 +62,7 @@
                             <p:commandButton value="Exportar" class="botaoConsulta"  icon="ui-icon-document"  />
                             <p:dataExporter type="xls" target="aniversariante" fileName="aniversariantes" />
                         </h:commandLink>
-                    <p:commandButton value="Imprimir" icon="ui-icon-print" class="botaoConsulta"/>   
+                    <p:commandButton value="Imprimir" icon="ui-icon-print" class="botaoConsulta" action="#{aniversariantesMB.imprimirRelacaoAniversariantes()}"/>   
                     <p:commandButton value="Voltar" icon="ui-icon-arrowreturnthick-1-w" class="botaoConsulta" action="#{aniversariantesMB.voltar()}"/>  
                     <br></br>
                     <br></br>
