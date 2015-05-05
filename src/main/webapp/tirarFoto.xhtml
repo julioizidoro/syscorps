@@ -15,7 +15,7 @@
                         <p:tab title="Foto Cadastro de Participante" >
                             <h:panelGrid columns="4" cellpadding="5" class="telaCortar" >
                                 <p:photoCam widgetVar="pc" listener="#{fotoAlunoMB.oncapture}" update="photo" />
-                                <p:commandButton type="button" value="Capture" onclick="PF('pc').capture()"/>
+                                <p:commandButton type="button" value="Capture" onclick="PF('pc').capture()"  update="photo"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"/>
                             </h:panelGrid>
                               <h:panelGrid columns="5" >
                                 <p:outputPanel id="photo">

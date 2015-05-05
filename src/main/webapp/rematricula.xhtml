@@ -20,7 +20,7 @@
                         <p:selectOneMenu  id="turma" class="left4" style="width:200px" value="#{rematriculaMB.idTurma}">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
                             <f:selectItems value="#{rematriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
-                            <p:ajax event="change" listener="#{rematriculaMB.carregarListaMatricula()}" update="@all" />
+                            <p:ajax event="change" listener="#{rematriculaMB.carregarListaMatricula()}" update="tabAluno" />
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <p:dataTable id="tabAluno" var="consAluno" value="#{rematriculaMB.listaMatricula}" class="tabelacurso" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
@@ -30,15 +30,15 @@
                         <p:column headerText="Email" >
                             <h:outputText value="#{consAluno.aluno.email}"  />
                         </p:column>
-                        <p:column headerText="Data de Nascimento" style="width:50px" >
+                        <p:column headerText="Data de Nascimento" style="width:60px" >
                             <h:outputText value="#{consAluno.aluno.dataNascimento}" >
                                  <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                             </h:outputText>
                         </p:column>
-                        <p:column headerText="CPF" style="width:50px" >
+                        <p:column headerText="CPF" style="width:80px" >
                             <h:outputText value="#{consAluno.aluno.cpf}" />
                         </p:column>
-                        <p:column style="width:70px">
+                        <p:column style="width:95px">
                             <p:commandButton  id="rematricular" value="Rematricular" action="#{rematriculaMB.efetivar()}" >
                                 <f:param name="id_matricula" value="#{consAluno.idmatricula}"/>
                             </p:commandButton>

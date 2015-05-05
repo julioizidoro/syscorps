@@ -18,7 +18,7 @@
                         <p:outputLabel value="Turma" for="turma"  class="leftMeio20" /> 
                     </h:panelGrid>
                     <h:panelGrid columns="3" cellpadding="1">
-                        <p:selectOneMenu id="mes" class="leftMeio9" style="width:170px" value="#{aniversariantesMB.mes}">
+                        <p:selectOneMenu id="mes" class="leftMeio9" style="width:165px" value="#{aniversariantesMB.mes}">
                             <f:selectItem itemValue="00" itemLabel="Selecione um Mês" class="left"/>
                             <f:selectItem itemValue="01" itemLabel="Janeiro" class="left"/>
                             <f:selectItem itemValue="02" itemLabel="Fevereiro" class="left2"/>
@@ -38,7 +38,7 @@
                         <p:selectOneMenu  id="turma" class="left4" style="width:200px" value="#{aniversariantesMB.idTurma}">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
                             <f:selectItems value="#{aniversariantesMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
-                            <p:ajax event="change" listener="#{aniversariantesMB.gerarLista()}" update="@all" />
+                            <p:ajax event="change" listener="#{aniversariantesMB.gerarLista()}" update="aniversariante" />
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <p:dataTable id="aniversariante" var="aniversariantes" value="#{aniversariantesMB.listaAniversariantes}" class="tabelacursos" rowStyleClass="tabela" 
@@ -51,7 +51,7 @@
                         <p:column headerText="Data de Aniversario" style="width:70px">
                             <h:outputText value="#{aniversariantes.dataAniversario}"/> 
                         </p:column>
-                        <p:column headerText="E-mail" style="width:80px" >
+                            <p:column headerText="E-mail" style="width:150px" >
                             <h:outputText value="#{aniversariantes.email}" />
                         </p:column>
                         <p:column headerText="Categoria" style="width:80px" >

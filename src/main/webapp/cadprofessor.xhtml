@@ -28,9 +28,9 @@
                                 <p:outputLabel value="Data de Nascimento" class="cadprofessorr"/> 
                             </h:panelGrid>  
                             <h:panelGrid columns="3" cellpadding="3" >
-                                <p:inputMask id="cpf" label="CPF/CNPJ" size="17" required="true" mask="999.999.999-99"  class="left" value="#{cadastroProfessorMB.professor.cpf}">
+                                <p:inputMask id="cpf" label="CPF/CNPJ" size="18" required="true" mask="999.999.999-99"  class="left" value="#{cadastroProfessorMB.professor.cpf}">
                                 </p:inputMask>  
-                                <p:inputMask id="rg"  required="true" class="leftRg" size="21" value="#{cadastroProfessorMB.professor.rg}" mask="?9999999999999999" /> 
+                                <p:inputMask id="rg"  required="true" class="leftRg" size="20" value="#{cadastroProfessorMB.professor.rg}" mask="?9999999999999999" /> 
                                 <p:calendar id="maskAval" value="#{cadastroProfessorMB.professor.dataNascimento}" pattern="dd/MM/yyyy"  size="23" maxlength="10" class="leftP" >
                                        <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                     </p:calendar>
@@ -118,7 +118,7 @@
                             </h:panelGrid>
                         </p:tab>
                     </p:tabView>     
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastra" action="#{cadastroProfessorMB.salvar()}" actionListener="#{mensagemMB.saveMessagem}" update="growl" />
+                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastraturma" action="#{cadastroProfessorMB.salvar()}" actionListener="#{mensagemMB.saveMessagem}" update="growl" />
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroProfessorMB.cancelar()}"/>
                     <br></br>
                     <br></br>
