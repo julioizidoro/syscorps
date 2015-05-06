@@ -167,7 +167,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{bairroUnidade} + " - " + $F{cidadeUnidade} + " - " + $F{estadoUnidade}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="7" y="4" width="114" height="62" uuid="2c6776ad-6809-417d-ae60-7d12f850c627"/>
+				<reportElement x="12" y="13" width="114" height="62" uuid="2c6776ad-6809-417d-ae60-7d12f850c627"/>
 				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -309,7 +309,6 @@ Parágrafo 2o  O CONTRATANTE declara, neste ato, que conheceu previamente as ins
 Parágrafo 6o.Se o número de alunos matriculados até a data prevista para o início do Curso for considerado insuficiente pelo CONTRATADO, o Curso poderá ser adiado no máximo até 30 dias do início previsto no Parágrafo anterior, implicando no adiamento das parcelas à pagar referente a prestação de serviços educacionais referida neste Contrato.
 Parágrafo 7o. A distribuição dos alunos em turmas ou campos de estágio, inclusão e exclusão do aluno nos grupos, são deliberações de competência exclusiva do CONTRATADO.
 Parágrafo 8o.Para participar das aulas práticas (laboratório) e estágios supervisionados, é obrigatório ao CONTRATANTE, disponibilizar o material solicitado pelo CONTRATADO, quando solicitado, inclusive uniforme.
-
 
 
 
