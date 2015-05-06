@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -82,8 +84,9 @@ public class Avalista implements Serializable {
     @Size(max = 14)
     @Column(name = "foneCelular")
     private String foneCelular;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "avalista")
-    private List<Avalistaaluno> avalistaalunoList;
+    @JoinColumn(name = "aluno_idaluno", referencedColumnName = "idaluno")
+    @ManyToOne(optional = false)
+    private Aluno aluno;
 
     public Avalista() {
     }
@@ -228,13 +231,15 @@ public class Avalista implements Serializable {
         this.foneCelular = foneCelular;
     }
 
-    public List<Avalistaaluno> getAvalistaalunoList() {
-        return avalistaalunoList;
+    public Aluno getAluno() {
+        return aluno;
     }
 
-    public void setAvalistaalunoList(List<Avalistaaluno> avalistaalunoList) {
-        this.avalistaalunoList = avalistaalunoList;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
+
+
 
     @Override
     public int hashCode() {

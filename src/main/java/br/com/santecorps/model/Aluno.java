@@ -121,6 +121,8 @@ public class Aluno implements Serializable {
     private List<Matricula> matriculaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
     private List<Conjuge> conjugeList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
+    private List<Avalista> avalistaList;
     @Column(name = "mes")
     private int mes;
 
@@ -377,6 +379,14 @@ public class Aluno implements Serializable {
 
     public void setConjugeList(List<Conjuge> conjugeList) {
         this.conjugeList = conjugeList;
+    }
+
+    public List<Avalista> getAvalistaList() {
+        return avalistaList;
+    }
+
+    public void setAvalistaList(List<Avalista> avalistaList) {
+        this.avalistaList = avalistaList;
     }
 
     @Override

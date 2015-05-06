@@ -9,7 +9,6 @@ import br.com.santecorps.facade.AlunoFacade;
 import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Avalista;
-import br.com.santecorps.model.Avalistaaluno;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
 import br.com.santecorps.model.Unidade;
@@ -37,7 +36,6 @@ public class CadastroAlunoMB implements Serializable{
     private Avalista avalista;
     private Localtrabalho localTrabalho;
     private String nomeAluno;
-    Avalistaaluno avalistaaluno;
     private String rendaMensalAvalista;
     private String rendaMensalConjuge;
     private String paginaRetorno;
@@ -65,13 +63,6 @@ public class CadastroAlunoMB implements Serializable{
         this.rendaMensalConjuge = rendaMensalConjuge;
     }
 
-    public Avalistaaluno getAvalistaaluno() {
-        return avalistaaluno;
-    }
-
-    public void setAvalistaaluno(Avalistaaluno avalistaaluno) {
-        this.avalistaaluno = avalistaaluno;
-    }
 
     public String getPaginaRetorno() {
         return paginaRetorno;
@@ -160,6 +151,12 @@ public class CadastroAlunoMB implements Serializable{
         aluno.setUnidade(unidade);
         aluno.setMes(Formatacao.retornoMesData(aluno.getDataNascimento()));
         aluno = alunoFacade.salvar(aluno);
+        avalista.setAluno(aluno);
+        avalista = alunoFacade.salvarAvalista(avalista);
+        conjuge.setAluno(aluno);
+        conjuge = alunoFacade.salvarConjuge(conjuge);
+        localTrabalho.setAluno(aluno);
+        localTrabalho = alunoFacade.salvarLocalTrabalho(localTrabalho);
         CarregarLitaAluno();
         return "consaluno";
     }
@@ -181,10 +178,10 @@ public class CadastroAlunoMB implements Serializable{
                 localTrabalho = new Localtrabalho();
                 conjuge = new Conjuge();
                 avalista = new Avalista();
-                avalistaaluno = new Avalistaaluno();
-                avalistaaluno = alunoFacade.getAvalistaAlunoIdAluno(aluno.getIdaluno());
-                if (avalistaaluno!=null){
-                    avalista = avalistaaluno.getAvalista();
+                if (aluno.getAvalistaList()!=null){
+                    if (aluno.getAvalistaList().size()>0){
+                        avalista = aluno.getAvalistaList().get(0);
+                    }
                 }
                 if (avalista==null){
                     avalista = new Avalista();
@@ -244,10 +241,8 @@ public class CadastroAlunoMB implements Serializable{
         }
         AlunoFacade alunoFacade = new AlunoFacade();
         avalista.setRendaMensal(rmAvalista);
+        avalista.setAluno(aluno);
         avalista = alunoFacade.salvarAvalista(avalista);
-        avalistaaluno.setAvalista(avalista);
-        avalistaaluno.setAluno(aluno.getIdaluno());
-        alunoFacade.salvarAvalistaAluno(avalistaaluno);
         return "cadinfoaluno";
     }
     public String salvarConjuge(){

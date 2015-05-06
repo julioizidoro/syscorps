@@ -8,7 +8,6 @@ package br.com.santecorps.facade;
 import br.com.santecorps.dao.AlunoDao;
 import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Avalista;
-import br.com.santecorps.model.Avalistaaluno;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
 import java.util.List;
@@ -39,16 +38,6 @@ public class AlunoFacade {
     public Avalista salvarAvalista(Avalista avalista){
         alunoDao = new AlunoDao();
         return alunoDao.salvarAvalista(avalista);
-    }
-    
-    public Avalistaaluno salvarAvalistaAluno(Avalistaaluno avalistaaluno){
-        alunoDao = new AlunoDao();
-        return alunoDao.salvarAvalistaAluno(avalistaaluno);
-    }
-    
-    public Avalistaaluno getAvalistaAlunoIdAluno(int idAluno){
-       alunoDao = new AlunoDao();
-       return alunoDao.getAvalistaAlunoIdAluno(idAluno);
     }
     
     public Localtrabalho salvarLocalTrabalho(Localtrabalho localtrabalho){
