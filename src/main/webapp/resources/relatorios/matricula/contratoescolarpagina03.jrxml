@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 03" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71440329-288f-438f-8945-2a4cc95f8bf7">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="485"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="idmatricula" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Google Drive\\Desenvolvimento\\syscorps\\sistema\\syscorps\\src\\main\\webapp\\resources\\relatorios\\matricula\\"]]></defaultValueExpression>
@@ -140,9 +140,9 @@ where matricula.idmatricula=$P{idmatricula}]]>
 		<band splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="788" splitType="Stretch">
+		<band height="802" splitType="Stretch">
 			<staticText>
-				<reportElement x="7" y="5" width="548" height="783" uuid="4ef3345f-e40c-4eb4-87ad-a1c608117bd1"/>
+				<reportElement x="4" y="5" width="548" height="761" uuid="4ef3345f-e40c-4eb4-87ad-a1c608117bd1"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Parágrafo 8o. Os valores da contraprestação das demais atividades, inclusive as extracurriculares, de caráter não obrigatório, serão fixadas a cada serviço pelo CONTRATADO.
 Parágrafo 9o.O CONTRATADO reserva-se o direito de não realizar cerimônia de formatura, portanto é isenta do pagamento de quaisquer despesas referentes a mesma.
@@ -166,8 +166,12 @@ V - Independentemente da adoção das medidas acima, poderá contratar Empresa e
 
 ]]></text>
 			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="20">
 			<subreport>
-				<reportElement x="0" y="770" width="200" height="18" uuid="4f3d8339-fa6b-4e62-b9cf-4ab8690b11c0"/>
+				<reportElement x="0" y="0" width="200" height="18" uuid="4f3d8339-fa6b-4e62-b9cf-4ab8690b11c0"/>
 				<subreportParameter name="idmatricula">
 					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -178,5 +182,5 @@ V - Independentemente da adoção das medidas acima, poderá contratar Empresa e
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "contratoescolarpagina04.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-	</pageHeader>
+	</summary>
 </jasperReport>

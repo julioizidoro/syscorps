@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 04" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1faac309-e3d8-4ca1-813a-cc82d6224154">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 04" pageWidth="595" pageHeight="840" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1faac309-e3d8-4ca1-813a-cc82d6224154">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="499"/>
+	<property name="ireport.y" value="508"/>
 	<parameter name="idmatricula" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString>
@@ -135,7 +135,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 	<field name="foneUnidade" class="java.lang.String"/>
 	<field name="cnpjUnidade" class="java.lang.String"/>
 	<pageHeader>
-		<band height="802" splitType="Stretch">
+		<band height="795" splitType="Stretch">
 			<staticText>
 				<reportElement x="10" y="0" width="517" height="787" uuid="3ef1f6f7-da6e-48d6-9258-dabb79b19020"/>
 				<textElement textAlignment="Justified"/>
@@ -165,8 +165,12 @@ ClÁUSULA 15ª.  – O CONTRATANTE se responsabiliza pelos dados declarados, com
 
 ]]></text>
 			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="16">
 			<subreport>
-				<reportElement x="0" y="787" width="200" height="12" uuid="b6c3335e-cdea-425f-aa7a-7d132e62bf6f"/>
+				<reportElement x="0" y="0" width="200" height="12" uuid="b6c3335e-cdea-425f-aa7a-7d132e62bf6f"/>
 				<subreportParameter name="idmatricula">
 					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -177,5 +181,5 @@ ClÁUSULA 15ª.  – O CONTRATANTE se responsabiliza pelos dados declarados, com
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "contratoescolarpagina05.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-	</pageHeader>
+	</summary>
 </jasperReport>
