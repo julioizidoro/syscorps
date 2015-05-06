@@ -55,6 +55,8 @@
                             <h:outputText value="Recibo"  class="fontsize"/> 
                             <p:selectBooleanCheckbox  class="leftP" value="#{matriculaMB.lista}" />
                             <h:outputText value="Lista"  class="fontsize"/>  
+                            <p:selectBooleanCheckbox  class="leftP" value="#{matriculaMB.requerimento}" />
+                            <h:outputText value="Requerimento"  class="fontsize"/> 
                         </h:panelGrid>
                         <br></br>
                         <p:commandButton value="Imprimir" icon="ui-icon-print" class="botaoImprimir" action="#{matriculaMB.imprimir()}" ajax="false"  oncomplete="PF('imprimir').show()"/>   
