@@ -8,7 +8,6 @@ package br.com.santecorps.dao;
 import br.com.santecorps.connection.ConectionFactory;
 import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Avalista;
-import br.com.santecorps.model.Avalistaaluno;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
 import java.util.List;
@@ -44,18 +43,6 @@ public class AlunoDao {
         return listaAlunos;
     }
     
-    public Avalistaaluno getAvalistaAlunoIdAluno(int idAluno){
-        EntityManager manager =ConectionFactory.getConnection();
-        manager.getTransaction().begin();
-        Query q = manager.createQuery("select a from Avalistaaluno a where a.aluno=" + idAluno);
-        Avalistaaluno avalistaaluno = new Avalistaaluno();
-        if (q.getResultList().size()>0){
-            avalistaaluno = (Avalistaaluno) q.getResultList().get(0);
-        }
-        manager.getTransaction().commit();
-        return avalistaaluno;
-    }
-    
     public Conjuge salvarConjuge(Conjuge conjuge){
         EntityManager manager = ConectionFactory.getConnection();
         manager.getTransaction().begin();
@@ -70,14 +57,6 @@ public class AlunoDao {
         avalista = manager.merge(avalista);
         manager.getTransaction().commit();
         return avalista;
-    }
-    
-    public Avalistaaluno salvarAvalistaAluno(Avalistaaluno avalistaaluno){
-        EntityManager manager = ConectionFactory.getConnection();
-        manager.getTransaction().begin();
-        avalistaaluno = manager.merge(avalistaaluno);
-        manager.getTransaction().commit();
-        return avalistaaluno;
     }
     
     public Localtrabalho salvarLocalTrabalho(Localtrabalho localtrabalho){
