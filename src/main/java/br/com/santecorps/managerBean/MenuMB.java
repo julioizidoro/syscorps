@@ -55,4 +55,7 @@ public class MenuMB implements Serializable{
       public String formar(){
         return "formarturmas";
     }
+      public String listarAlunos(){
+          return "listarAlunos";
+      }
 }

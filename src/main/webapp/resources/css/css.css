@@ -293,7 +293,43 @@
     .botaoInformacoes{
         font-size: 12px;
         margin-top:-20px;
-        left:35px;
+        margin-left:10px;
+        -webkit-border-top-left-radius: 15px;
+        -webkit-border-bottom-right-radius: 15px;
+        -moz-border-radius-topleft: 15px;
+        -moz-border-radius-bottomright: 15px;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        font-family: tahoma;
+        padding: 1px 3px;
+        background: -moz-linear-gradient(
+            top,
+            #94e7f2 0%,
+            #ffffff 50%,
+            #f7d7af);
+        background: -webkit-gradient(
+            linear, left top, left bottom,
+            from(#94e7f2),
+            color-stop(0.50, #ffffff),
+            to(#f7d7af));
+        border: 2px solid #dbdbdb;
+        -moz-box-shadow:
+            0px 1px 3px rgba(250,250,250,0.5),
+            inset 0px 0px 3px rgba(240,240,240,1);
+        -webkit-box-shadow:
+            0px 1px 3px rgba(250,250,250,0.5),
+            inset 0px 0px 3px rgba(240,240,240,1);
+        box-shadow:
+            0px 1px 3px rgba(250,250,250,0.5),
+            inset 0px 0px 3px rgba(240,240,240,1);
+        text-shadow:
+            0px -1px 0px rgba(046,042,046,0),
+            0px 1px 0px rgba(255,255,255,1);
+    }
+     .botaoImprimir{
+        font-size: 12px;
+        margin-top:-20px;
+        margin-left:60px;
         -webkit-border-top-left-radius: 15px;
         -webkit-border-bottom-right-radius: 15px;
         -moz-border-radius-topleft: 15px;
@@ -710,11 +746,12 @@
 
     }
     .tabelaMat{
-
+        font-size:12px;
         margin-top:-200px;
         margin-right: 270px;
         background:#FAEBD7;
     }
+    
     .tabelaMatri{
         font-size:15px;
         width: 500px;

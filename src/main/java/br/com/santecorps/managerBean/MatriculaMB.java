@@ -85,6 +85,13 @@ public class MatriculaMB implements Serializable{
     public void setValorTotal(String valorTotal) {
         this.valorTotal = valorTotal;
     }
+    public List<Turma> getListaTurma() {
+        return listaTurma;
+    }
+
+    public void setListaTurma(List<Turma> listaTurma) {
+        this.listaTurma = listaTurma;
+    }
 
     public String getValorEntrada() {
         return valorEntrada;
@@ -125,14 +132,7 @@ public class MatriculaMB implements Serializable{
     public void setListaCursos(List<Curso> listaCursos) {
         this.listaCursos = listaCursos;
     }
-
-    public List<Turma> getListaTurma() {
-        return listaTurma;
-    }
-
-    public void setListaTurma(List<Turma> listaTurma) {
-        this.listaTurma = listaTurma;
-    }
+    
 
     public String getIdCurso() {
         return idCurso;
@@ -195,4 +195,5 @@ public class MatriculaMB implements Serializable{
              turma = turmaFacade.getTurmaId(Integer.parseInt(idTurma));
          }
      }
+     
 }
