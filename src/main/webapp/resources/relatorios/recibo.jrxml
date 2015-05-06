@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relaniversario" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6e7832d-3693-478a-ad31-cfe43e9a987c">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="314"/>
+	<property name="ireport.y" value="486"/>
 	<parameter name="valor" class="java.lang.Float"/>
 	<parameter name="valorextenso" class="java.lang.String"/>
 	<parameter name="nomealuno" class="java.lang.String"/>
@@ -10,19 +10,22 @@
 	<parameter name="cidade" class="java.lang.String"/>
 	<parameter name="usuario" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[]]>
+		<![CDATA[select * from unidade]]>
 	</queryString>
-	<field name="nome" class="java.lang.String">
-		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	<field name="idunidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="email" class="java.lang.String">
-		<fieldDescription><![CDATA[email]]></fieldDescription>
+	<field name="razaosocial" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="dataAniversario" class="java.lang.String">
-		<fieldDescription><![CDATA[dataAniversario]]></fieldDescription>
+	<field name="nomefantasia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="categoria" class="java.lang.String">
-		<fieldDescription><![CDATA[categoria]]></fieldDescription>
+	<field name="cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -55,8 +58,7 @@
 				<reportElement x="12" y="47" width="529" height="57" uuid="8c66409b-24c3-42e7-a0cd-78dc5ee61174"/>
 				<textFieldExpression><![CDATA["Recebi (emos) de " + $P{nomealuno} + " a quantia de R$ " +
 $P{valor} + "(" + $P{valorextenso} +
-") correspondente ao pagamento da matícula do curso de " + $P{curso}
-]]></textFieldExpression>
+") correspondente ao pagamento da matícula do curso de " + $P{curso}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="73" y="110" width="236" height="20" uuid="4c704d01-4700-4b2d-848c-f377fa01b281"/>
@@ -103,8 +105,7 @@ $P{valor} + "(" + $P{valorextenso} +
 				<reportElement x="26" y="443" width="529" height="57" uuid="dc4cc2d8-0505-4c18-8cf1-c78722b1fe7a"/>
 				<textFieldExpression><![CDATA["Recebi (emos) de " + $P{nomealuno} + " a quantia de R$ " +
 $P{valor} + "(" + $P{valorextenso} +
-") correspondente ao pagamento da matícula do curso de " + $P{curso}
-]]></textFieldExpression>
+") correspondente ao pagamento da matícula do curso de " + $P{curso}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="87" y="510" width="236" height="20" uuid="d7556a13-c652-448f-9e04-d76dbf9ba2d7"/>

@@ -1,9 +1,7 @@
 package br.com.santecorps.managerBean;
 
-import br.com.santecorps.facade.AlunoFacade;
 import br.com.santecorps.facade.MatriculaFacade;
 import br.com.santecorps.facade.TurmaFacade;
-import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Matricula;
 import br.com.santecorps.model.Turma;
 import java.io.Serializable;

@@ -5,7 +5,9 @@
  */
 package br.com.santecorps.util;
 
+import br.com.santecorps.connection.ConectionFactory;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Map;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
@@ -21,6 +23,7 @@ import net.sf.jasperreports.engine.JasperPrint;
  * @author Wolverine
  */
 public class GerarRelatorio {
+    
     public void gerarRelatorioDSPDF(String caminhoRelatorio, Map parameters, JRDataSource jrds, String nomeArquivo ) throws JRException, IOException{
         FacesContext facesContext = FacesContext.getCurrentInstance();  
         ServletContext servletContext = (ServletContext)facesContext.getExternalContext().getContext();
@@ -31,6 +34,26 @@ public class GerarRelatorio {
         response.setContentType("application/pdf");
         response.addHeader("Content-disposition", "attachment; filename=\"" + nomeArquivo + ".pdf\"");
         arquivoPrint = JasperFillManager.fillReport(caminhoRelatorio, parameters, jrds);
+        JasperExportManager.exportReportToPdfStream(arquivoPrint, response.getOutputStream());
+        facesContext.getApplication().getStateManager().saveView(facesContext);
+        facesContext.renderResponse();
+        facesContext.responseComplete();
+    }
+    
+    public void gerarRelatorioSqlPDF(String caminhoRelatorio, Map parameters, String nomeArquivo, String subDir ) throws JRException, IOException{
+        FacesContext facesContext = FacesContext.getCurrentInstance();  
+        ServletContext servletContext = (ServletContext)facesContext.getExternalContext().getContext();
+        caminhoRelatorio = servletContext.getRealPath(caminhoRelatorio);  
+        Connection conn = ConectionFactory.getConexao();
+        if (subDir!=null){
+            subDir = servletContext.getRealPath(subDir);
+            parameters.put("SUBREPORT_DIR", subDir + "\\");
+        }
+        JasperPrint arquivoPrint=null;
+        HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
+        response.setContentType("application/pdf");
+        response.addHeader("Content-disposition", "attachment; filename=\"" + nomeArquivo + ".pdf\"");
+        arquivoPrint = JasperFillManager.fillReport(caminhoRelatorio, parameters, conn);
         JasperExportManager.exportReportToPdfStream(arquivoPrint, response.getOutputStream());
         facesContext.getApplication().getStateManager().saveView(facesContext);
         facesContext.renderResponse();

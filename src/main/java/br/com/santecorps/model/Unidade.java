@@ -41,6 +41,12 @@ public class Unidade implements Serializable {
     @Size(max = 100)
     @Column(name = "nomefantasia")
     private String nomefantasia;
+    @Size(max = 50)
+    @Column(name = "cidade")
+    private String cidade;
+    @Size(max = 2)
+    @Column(name = "estado")
+    private String estado;
 
     public Unidade() {
     }
@@ -71,6 +77,22 @@ public class Unidade implements Serializable {
 
     public void setNomefantasia(String nomefantasia) {
         this.nomefantasia = nomefantasia;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

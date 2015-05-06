@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 03" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71440329-288f-438f-8945-2a4cc95f8bf7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="485"/>
+	<parameter name="idmatricula" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Google Drive\\Desenvolvimento\\syscorps\\sistema\\syscorps\\src\\main\\webapp\\resources\\relatorios\\matricula\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select distinct
+    matricula.tipopagamento,
+    matricula.valortotal,
+    matricula.valorentrada,
+    matricula.dataentrada,
+    matricula.numeroparcelas,
+    matricula.valorparcela,
+    matricula.datavencimentoparcela,
+    matricula.aluno_idaluno,
+    matricula.turma_idturma,
+    matricula.datamatricula,
+
+	aluno.nome as nomeAluno,
+    aluno.email as emailAluno,
+    aluno.rg as rgAluno,
+    aluno.cpf as cpfAluno,
+    aluno.nomeMae as nomeMaeAluno,
+    aluno.nomePai as nomePaiAluno,
+    aluno.dataNascimento as dataNascimentoAluno,
+    aluno.cidadeNascimento as cidadeNascimentoAluno,
+    aluno.estadoNascimento as estadoNascimentoAluno,
+    aluno.profissao as profissaoAluno,
+    aluno.nascionalidade as nacionalidadeAluno,
+    aluno.estadoCivil as estadoCivilAluno,
+    aluno.tipoLogradouro as tipoLogradouroAluno,
+    aluno.logradouro as logradouroAluno,
+    aluno.numero as numeroAluno,
+    aluno.complemento as complementoAluno,
+    aluno.bairro as bairroAluno,
+    aluno.cidade as cidadeAluno,
+    aluno.estado as estadoAluno,
+    aluno.cep as cepAluno,
+    aluno.foneFixo as foneFixoAluno,
+    aluno.foneCelular as foneCelularAluno,
+    aluno.referenciaPessoal as referenciaPessoalAluno,
+    aluno.foneReferenciaPessoal as foneReferenciaPessoalAluno,
+    aluno.trabalha as trabalaAluno,
+	turma.numero as numeroTurma,
+    turma.nome as nomeTurma,
+    turma.turno as turnoTurma,
+turma.dataInicio as dataInicioTurma,
+    unidade.nomefantasia,
+unidade.razaosocial as razaosocialUnidade,
+    unidade.cidade as cidadeUnidade,
+    unidade.estado as estadoUnidade,
+unidade.endereco as enderecoUnidade,
+unidade.complemento as complementoUnidade,
+unidade.bairro as bairroUnidade,
+unidade.cep as cepUnidade,
+unidade.fone as foneUnidade,
+unidade.cnpj as cnpjUnidade
+    From
+		matricula join aluno on matricula.aluno_idaluno = aluno.idaluno
+        join turma on matricula.turma_idturma = turma.idturma
+        join unidade on aluno.unidade_idunidade = unidade.idunidade
+where matricula.idmatricula=$P{idmatricula}]]>
+	</queryString>
+	<field name="tipopagamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valortotal" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valorentrada" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataentrada" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroparcelas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valorparcela" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="datavencimentoparcela" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="aluno_idaluno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="turma_idturma" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="datamatricula" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeAluno" class="java.lang.String"/>
+	<field name="emailAluno" class="java.lang.String"/>
+	<field name="rgAluno" class="java.lang.String"/>
+	<field name="cpfAluno" class="java.lang.String"/>
+	<field name="nomeMaeAluno" class="java.lang.String"/>
+	<field name="nomePaiAluno" class="java.lang.String"/>
+	<field name="dataNascimentoAluno" class="java.sql.Date"/>
+	<field name="cidadeNascimentoAluno" class="java.lang.String"/>
+	<field name="estadoNascimentoAluno" class="java.lang.String"/>
+	<field name="profissaoAluno" class="java.lang.String"/>
+	<field name="nacionalidadeAluno" class="java.lang.String"/>
+	<field name="estadoCivilAluno" class="java.lang.String"/>
+	<field name="tipoLogradouroAluno" class="java.lang.String"/>
+	<field name="logradouroAluno" class="java.lang.String"/>
+	<field name="numeroAluno" class="java.lang.String"/>
+	<field name="complementoAluno" class="java.lang.String"/>
+	<field name="bairroAluno" class="java.lang.String"/>
+	<field name="cidadeAluno" class="java.lang.String"/>
+	<field name="estadoAluno" class="java.lang.String"/>
+	<field name="cepAluno" class="java.lang.String"/>
+	<field name="foneFixoAluno" class="java.lang.String"/>
+	<field name="foneCelularAluno" class="java.lang.String"/>
+	<field name="referenciaPessoalAluno" class="java.lang.String"/>
+	<field name="foneReferenciaPessoalAluno" class="java.lang.String"/>
+	<field name="trabalaAluno" class="java.lang.String"/>
+	<field name="numeroTurma" class="java.lang.String"/>
+	<field name="nomeTurma" class="java.lang.String"/>
+	<field name="turnoTurma" class="java.lang.String"/>
+	<field name="dataInicioTurma" class="java.sql.Date"/>
+	<field name="nomefantasia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="razaosocialUnidade" class="java.lang.String"/>
+	<field name="cidadeUnidade" class="java.lang.String"/>
+	<field name="estadoUnidade" class="java.lang.String"/>
+	<field name="enderecoUnidade" class="java.lang.String"/>
+	<field name="complementoUnidade" class="java.lang.String"/>
+	<field name="bairroUnidade" class="java.lang.String"/>
+	<field name="cepUnidade" class="java.lang.String"/>
+	<field name="foneUnidade" class="java.lang.String"/>
+	<field name="cnpjUnidade" class="java.lang.String"/>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="788" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="5" width="548" height="783" uuid="4ef3345f-e40c-4eb4-87ad-a1c608117bd1"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Parágrafo 8o. Os valores da contraprestação das demais atividades, inclusive as extracurriculares, de caráter não obrigatório, serão fixadas a cada serviço pelo CONTRATADO.
+Parágrafo 9o.O CONTRATADO reserva-se o direito de não realizar cerimônia de formatura, portanto é isenta do pagamento de quaisquer despesas referentes a mesma.
+Parágrafo 10o.Não estão incluídos neste Contrato os serviços especiais de recuperação, reforço, dependência, transporte escolar, os opcionais e de uso facultativo para o CONTRATANTE, as segundas chamadas de prova ou exame, a segunda via de documentos, ou uniforme, alimentação e  livros de uso individual do CONTRATANTE, incluindo material necessário às aulas práticas e estágio.
+Parágrafo 11º. O CONTRATANTE está ciente da obrigatoriedade do uso do uniforme escolar completo por parte do(s) aluno(s) , quando solicitado pela SANTE CORPS, por ocasião de visitas hospitalares, eventos, aulas práticas de laboratório, freqüência de estágios em hospitais, inclusive clinicas estéticas assumindo a responsabilidade por sanções que venham a prejudicar o(s) aluno(s), pelo descumprimento desta obrigação.
+Parágrafo 12º. Os serviços extraordinários efetivamente prestados ao aluno, dos quais cita-se exemplificativamente: segunda chamada de provas e exames perdidos, horário especial, declarações, estudos de recuperação, aulas de reforço, adaptações, dependência, segunda via de documentos, segunda via do passaporte, segunda via boletins de notas, segunda via de histórico escolar, segunda via de documento de conclusão, segunda via de transferência, eventos culturais passeios, alimentação, transporte escolar e outros, serão cobrados a parte,e no caso de prova, exame, troca de turno são fixados em R$ 50,00 (vinte reais) cada. O CONTRATANTE declara que teve conhecimento dos valores estipulados para estes serviços extraordinários, conforme tabela que está a disposição na Secretaria Escolar. CIENTE________________________________________________ O CONTRATANTE se declara ciente de que o material didático-pedagógico (apostilas e outros) utilizado está salvaguardado pela titularidade de registro de direitos autorais no órgão competente, de acordo com o estabelecido na Lei nº 5.988, de 14 de dezembro de 1973, com as alterações introduzidas pela Lei nº 9.610, de 19 de fevereiro de 1998, ficando PROIBIDA A SUA REPRODUÇÃO (FOTOCÓPIA) TOTAL OU PARCIAL SEM EXPRESSA AUTORIZAÇÃO DA CONTRATADA, sob as penas da lei, além da justa rescisão de contrato.
+Parágrafo 13o no caso específico de 2ª chamada de prova ou prova de recuperação, que envolva a contratação de serviços extras de professores e demais funcionários, é obrigatório o pagamento antecipado da taxa de R$50,00 na tesouraria da ESCOLA, sem o qual a prova não será realizada, mesmo em caso de apresentação de atestado médico. O CONTRATADO se reserva o direito de autorizar ou não o referido evento, em caso de iniciativa do CONTRATANTE.
+Parágrafo 14o  Se o CONTRATANTE for reprovado em qualquer disciplina teórica, deverá solicitar a matrícula e pagar a taxa correspondente para cursar em outra turma, turno e horário, e assim sendo, deverá concluir todas as disciplinas da etapa teórica, para poder contratar a etapa de estágio, conforme disponibilidade de vagas.
+Parágrafo 15o O local de pagamento será a Tesouraria da Escola ou outro por ela indicado, inclusive Banco.
+Parágrafo 16o.Em caso de falta de pagamento no vencimento, o valor será acrescido de multa de 3% (três por cento) além da aplicação do critério adotado pelo mercado financeiro para cobrança de valores com atraso até o dia da efetivação do pagamento e isto à titulo de compensação de perdas (art. 1.056 e 1.061 do Código Civil).
+Parágrafo 17O O NÃO COMPARECIMENTO DO CONTRATANTE AOS ATOS ESCOLARES ORA CONTRATADOS NÃO EXIME O PAGAMENTO, TENDO EM VISTA A DISPONIBILIDADE DO SERVIÇO COLOCADO AO CONTRATANTE.
+Parágrafo 18O. A SUSPENSÃO OU INTERRUPÇÃO DO PAGAMENTO (CANCELAMENTO), SÓ OCORRERÁ POR EXPRESSA E ESCRITA COMUNICAÇÃO, COM A ANTECEDÊNCIA DE 30 (TRINTA) DIAS DA RESCISÃO CONTRATUAL PELO CONTRATANTE, DEVIDAMENTE PROTOCOLADA NO PRÉ-AVISO. FICA ESTABELECIDO QUE O TEMPO MEDIO DE DURAÇÃO DOS CURSOS SÃO EM TORNO DE 24 MESES, FICANDO A PROIBIÇÃO DO CANCELAMENTO APOS  A EMISSÃO DO CERTIFICADO
+Parágrafo 19. Em caso de inadimplência o CONTRATADO poderá optar:
+I – PELA SUSPENSÃO DOS SERVIÇOS, nos termos da Lei Nº.9870/99, ARTIGO 6º e § 3º E ARTIGO  476 DO CÓDIGO CIVIL
+II – PELA RESCISÃO CONTRATUAL, INDEPENDENTE DA EXIGIBILIDADE DO DÉBITO VENCIDO E DAQUELES QUE VENCERE ENQUANTO PERDURAR A PRESTAÇÃO DOS SERVIÇOS, ACRESCIDOS DAS PENALIDADES PREVISTAS NO PARÁGRAFO 16O. DA CLÁUSULA 7A.
+III – PELA EMISSÃO DE DUPLICATA DE PRESTAÇÃO DE SERVIÇOS, NOS TERMOS DA LEI 5.474 DE 18/07/68, QUE FICA DESDE JÁ AUTORIZADA, OBSERVANDO-SE O PARÁGRAFO 14O. DESTA CLÁUSULA PARA DETERMINAÇÃO DO VALOR, SEM PREJUÍZO, ENTRETANTO, DA RESCISÃO DO PRESENTE CONTRATO.
+IV - Pela emissão de letra de câmbio, desde já autorizada, pelo valor da(s) parcela(s) vencida(s) da multa de 3% (Três por cento) apresentada para aceite na forma do Capítulo III de Lei uniforme, aprovada pelo Decreto Legislativo no. 54/64, arts. 21 e seguintes, conforme previsão do artigo 7o.  do Código de Defesa do Consumidor.
+V - Independentemente da adoção das medidas acima, poderá contratar Empresa especializada para proceder com a cobrança do débito de forma amigável e/ou judicial, cabendo ao CONTRATANTE arcar com as despesas e honorários advocatícios decorrentes.
+
+
+
+]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="770" width="200" height="18" uuid="4f3d8339-fa6b-4e62-b9cf-4ab8690b11c0"/>
+				<subreportParameter name="idmatricula">
+					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "contratoescolarpagina04.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+</jasperReport>

@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 /**
@@ -66,6 +67,8 @@ public class Matricula implements Serializable {
     @Column(name = "datarematricula02")
     @Temporal(TemporalType.DATE)
     private Date datarematricula02;
+    @Transient
+    private boolean selecionado;
 
     
     public Matricula() {
@@ -77,6 +80,14 @@ public class Matricula implements Serializable {
 
     public Integer getIdmatricula() {
         return idmatricula;
+    }
+
+    public boolean isSelecionado() {
+        return selecionado;
+    }
+
+    public void setSelecionado(boolean selecionado) {
+        this.selecionado = selecionado;
     }
 
     public void setIdmatricula(Integer idmatricula) {

@@ -1,176 +1,256 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAluno" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ficha de Matricula" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="48"/>
+	<parameter name="idmatricula" class="java.lang.Integer"/>
+	<parameter name="usuairo" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select * from turma, aluno, conjuge, avalista, localTrabalho, matricula, curso;]]>
+		<![CDATA[select distinct
+    matricula.tipopagamento,
+    matricula.valortotal,
+    matricula.valorentrada,
+    matricula.dataentrada,
+    matricula.numeroparcelas,
+    matricula.valorparcela,
+    matricula.datavencimentoparcela,
+    matricula.aluno_idaluno,
+    matricula.turma_idturma,
+    matricula.datamatricula,
+
+	aluno.nome as nomeAluno,
+    aluno.email as emailAluno,
+    aluno.rg as rgAluno,
+    aluno.cpf as cpfAluno,
+    aluno.nomeMae as nomeMaeAluno,
+    aluno.nomePai as nomePaiAluno,
+    aluno.dataNascimento as dataNascimentoAluno,
+    aluno.cidadeNascimento as cidadeNascimentoAluno,
+    aluno.estadoNascimento as estadoNascimentoAluno,
+    aluno.profissao as profissaoAluno,
+    aluno.nascionalidade as nacionalidadeAluno,
+    aluno.estadoCivil as estadoCivilAluno,
+    aluno.tipoLogradouro as tipoLogradouroAluno,
+    aluno.logradouro as logradouroAluno,
+    aluno.numero as numeroAluno,
+    aluno.complemento as complementoAluno,
+    aluno.bairro as bairroAluno,
+    aluno.cidade as cidadeAluno,
+    aluno.estado as estadoAluno,
+    aluno.cep as cepAluno,
+    aluno.foneFixo as foneFixoAluno,
+    aluno.foneCelular as foneCelularAluno,
+    aluno.referenciaPessoal as referenciaPessoalAluno,
+    aluno.foneReferenciaPessoal as foneReferenciaPessoalAluno,
+    aluno.trabalha as trabalaAluno,
+
+	avalista.nome as nomeAvalista,
+    avalista.rg as rgAvalista,
+    avalista.cpf as cpfAvalista,
+    avalista.dataNascimento as dataNascimentoAvalista,
+    avalista.profissao as profissaoAvalista,
+    avalista.tipoLogradouro as tipoLogradouroAvalista,
+    avalista.logradouro as logradouroAvalista,
+    avalista.numero as numeroAvalista,
+    avalista.complemento as complementoAvalista,
+    avalista.bairro as bairroAvalista,
+    avalista.cidade as cidadeAvalista,
+    avalista.estado as estadoAvalista,
+    avalista.cep as cepAvalista,
+    avalista.rendaMensal as rendaMensalAvalista,
+    avalista.foneFixo as foneFixoAvalista,
+    avalista.foneCelular as foneCelularAvalista,
+	conjuge.nome as nomeConjuge,
+    conjuge.rg as rgConjuge,
+    conjuge.cpf as cpfConjuge,
+    conjuge.dataNascimento as dataNascimentoConjuge,
+    conjuge.profissao as profissaoConjuge,
+    conjuge.tipoLogradouro as tipoLogradouroConjuge,
+    conjuge.logradouro as logradouroConjuge,
+    conjuge.numero as numeroConjuge,
+    conjuge.complemento as complementoConjuge,
+    conjuge.bairro as bairroConjuge,
+    conjuge.cidade as cidadeConjuge,
+    conjuge.estado as estadoConjuge,
+    conjuge.cep as cepConjuge,
+    conjuge.rendaMensal as rendaMensalConjuge,
+    conjuge.foneFixo as foneFixoConjuge,
+    conjuge.foneCelular as foneCelularConjuge,
+    localtrabalho.nome as nomeLocalTrabalho,
+    localtrabalho.foneComercial as foneComercialLocalTrabalho,
+    localtrabalho.cargo as cargoLocalTrabalho,
+    localtrabalho.ComprovanteRenda as comprovanteRendaLocalTrabalho,
+    localtrabalho.outrasRendas as outrasRendasLocalTrabalho,
+    curso.nome as nomeCurso,
+    curso.cargahoraria as cargaHorariaCurso,
+    curso.tipo as tipoCurso,
+	turma.numero as numeroTurma,
+    turma.nome as nomeTurma,
+    turma.turno as turnoTurma,
+turma.dataInicio as dataInicioTurma,
+    unidade.nomefantasia,
+    unidade.cidade as cidadeUnidade,
+    unidade.estado as estadoUnidade,
+unidade.endereco as enderecoUnidade,
+unidade.complemento as complementoUnidade,
+unidade.bairro as bairroUnidade,
+unidade.cep as cepUnidade,
+unidade.fone as foneUnidade
+    From
+		matricula join aluno on matricula.aluno_idaluno = aluno.idaluno
+        join avalista on aluno.idaluno = avalista.aluno_idaluno
+        join conjuge on aluno.idaluno = conjuge.aluno_idaluno
+        join localtrabalho on aluno.idaluno = localtrabalho.aluno_idaluno
+        join turma on matricula.turma_idturma = turma.idturma
+        join curso on turma.curso_idcurso = curso.idcurso
+        join unidade on aluno.unidade_idunidade = unidade.idunidade
+where matricula.idmatricula=$P{idmatricula}]]>
 	</queryString>
-	<field name="idturma" class="java.lang.Integer">
+	<field name="tipopagamento" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numero" class="java.lang.String">
+	<field name="valortotal" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nome" class="java.lang.String">
+	<field name="valorentrada" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="turno" class="java.lang.String">
+	<field name="dataentrada" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="datainicio" class="java.sql.Date">
+	<field name="numeroparcelas" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="datatermino" class="java.sql.Date">
+	<field name="valorparcela" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="segunda" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="terca" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="quarta" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="quita" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="sexta" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="sabado" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horarioinicio" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horaioiniciointervalo" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horarioterminointervalo" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horariotermino" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="responsavel" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="liderclasse" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="curso_idcurso" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="unidade_idunidade" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="dataformatura" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="formada" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="idaluno" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="email" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="rg" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cpf" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nomeMae" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nomePai" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="dataNascimento" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cidadeNascimento" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="estadoNascimento" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="profissao" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nascionalidade" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="estadoCivil" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="tipoLogradouro" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="logradouro" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="complemento" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="bairro" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cidade" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="estado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cep" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="foneFixo" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="foneCelular" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="referenciaPessoal" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="foneReferenciaPessoal" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="trabalha" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="mes" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="idconjuge" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="rendaMensal" class="java.lang.Float">
+	<field name="datavencimentoparcela" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="aluno_idaluno" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="turma_idturma" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="datamatricula" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeAluno" class="java.lang.String"/>
+	<field name="emailAluno" class="java.lang.String"/>
+	<field name="rgAluno" class="java.lang.String"/>
+	<field name="cpfAluno" class="java.lang.String"/>
+	<field name="nomeMaeAluno" class="java.lang.String"/>
+	<field name="nomePaiAluno" class="java.lang.String"/>
+	<field name="dataNascimentoAluno" class="java.sql.Date"/>
+	<field name="cidadeNascimentoAluno" class="java.lang.String"/>
+	<field name="estadoNascimentoAluno" class="java.lang.String"/>
+	<field name="profissaoAluno" class="java.lang.String"/>
+	<field name="nacionalidadeAluno" class="java.lang.String"/>
+	<field name="estadoCivilAluno" class="java.lang.String"/>
+	<field name="tipoLogradouroAluno" class="java.lang.String"/>
+	<field name="logradouroAluno" class="java.lang.String"/>
+	<field name="numeroAluno" class="java.lang.String"/>
+	<field name="complementoAluno" class="java.lang.String"/>
+	<field name="bairroAluno" class="java.lang.String"/>
+	<field name="cidadeAluno" class="java.lang.String"/>
+	<field name="estadoAluno" class="java.lang.String"/>
+	<field name="cepAluno" class="java.lang.String"/>
+	<field name="foneFixoAluno" class="java.lang.String"/>
+	<field name="foneCelularAluno" class="java.lang.String"/>
+	<field name="referenciaPessoalAluno" class="java.lang.String"/>
+	<field name="foneReferenciaPessoalAluno" class="java.lang.String"/>
+	<field name="trabalaAluno" class="java.lang.String"/>
+	<field name="nomeAvalista" class="java.lang.String"/>
+	<field name="rgAvalista" class="java.lang.String"/>
+	<field name="cpfAvalista" class="java.lang.String"/>
+	<field name="dataNascimentoAvalista" class="java.sql.Date"/>
+	<field name="profissaoAvalista" class="java.lang.String"/>
+	<field name="tipoLogradouroAvalista" class="java.lang.String"/>
+	<field name="logradouroAvalista" class="java.lang.String"/>
+	<field name="numeroAvalista" class="java.lang.String"/>
+	<field name="complementoAvalista" class="java.lang.String"/>
+	<field name="bairroAvalista" class="java.lang.String"/>
+	<field name="cidadeAvalista" class="java.lang.String"/>
+	<field name="estadoAvalista" class="java.lang.String"/>
+	<field name="cepAvalista" class="java.lang.String"/>
+	<field name="rendaMensalAvalista" class="java.lang.Float"/>
+	<field name="foneFixoAvalista" class="java.lang.String"/>
+	<field name="foneCelularAvalista" class="java.lang.String"/>
+	<field name="nomeConjuge" class="java.lang.String"/>
+	<field name="rgConjuge" class="java.lang.String"/>
+	<field name="cpfConjuge" class="java.lang.String"/>
+	<field name="dataNascimentoConjuge" class="java.sql.Date"/>
+	<field name="profissaoConjuge" class="java.lang.String"/>
+	<field name="tipoLogradouroConjuge" class="java.lang.String"/>
+	<field name="logradouroConjuge" class="java.lang.String"/>
+	<field name="numeroConjuge" class="java.lang.String"/>
+	<field name="complementoConjuge" class="java.lang.String"/>
+	<field name="bairroConjuge" class="java.lang.String"/>
+	<field name="cidadeConjuge" class="java.lang.String"/>
+	<field name="estadoConjuge" class="java.lang.String"/>
+	<field name="cepConjuge" class="java.lang.String"/>
+	<field name="rendaMensalConjuge" class="java.lang.Float"/>
+	<field name="foneFixoConjuge" class="java.lang.String"/>
+	<field name="foneCelularConjuge" class="java.lang.String"/>
+	<field name="nomeLocalTrabalho" class="java.lang.String"/>
+	<field name="foneComercialLocalTrabalho" class="java.lang.String"/>
+	<field name="cargoLocalTrabalho" class="java.lang.String"/>
+	<field name="comprovanteRendaLocalTrabalho" class="java.lang.String"/>
+	<field name="outrasRendasLocalTrabalho" class="java.lang.String"/>
+	<field name="nomeCurso" class="java.lang.String"/>
+	<field name="cargaHorariaCurso" class="java.lang.String"/>
+	<field name="tipoCurso" class="java.lang.String"/>
+	<field name="numeroTurma" class="java.lang.String"/>
+	<field name="nomeTurma" class="java.lang.String"/>
+	<field name="turnoTurma" class="java.lang.String"/>
+	<field name="dataInicioTurma" class="java.sql.Date"/>
+	<field name="nomefantasia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cidadeUnidade" class="java.lang.String"/>
+	<field name="estadoUnidade" class="java.lang.String"/>
+	<field name="enderecoUnidade" class="java.lang.String"/>
+	<field name="complementoUnidade" class="java.lang.String"/>
+	<field name="bairroUnidade" class="java.lang.String"/>
+	<field name="cepUnidade" class="java.lang.String"/>
+	<field name="foneUnidade" class="java.lang.String"/>
 	<group name="Group2"/>
 	<group name="Group3"/>
 	<group name="Group4"/>
 	<title>
 		<band height="98">
 			<staticText>
-				<reportElement x="23" y="72" width="527" height="25" uuid="de41be37-d982-4334-85ec-e0d7a410c090"/>
+				<reportElement x="23" y="70" width="527" height="25" uuid="de41be37-d982-4334-85ec-e0d7a410c090"/>
 				<textElement textAlignment="Center">
-					<font size="17"/>
+					<font size="17" isBold="true"/>
 				</textElement>
-				<text><![CDATA[FICHA INSCRIÇÃO CURSOS INTENSIVOS E CURSOS INOVADORES]]></text>
+				<text><![CDATA[FCIHA DE INSCRIÇÃO]]></text>
 			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="21" width="312" height="15" uuid="618d5b22-5935-4aa8-89f0-8b7e527c983f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoUnidade}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="36" width="312" height="15" uuid="fb931820-854f-47e1-b1e8-3da575ac3b27"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bairroUnidade} + " - " + $F{cidadeUnidade} + " - " + $F{estadoUnidade}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="51" width="312" height="15" uuid="a8c89be5-f8c2-4152-a01f-d7ab6adb3d72"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{foneUnidade}]]></textFieldExpression>
+			</textField>
 			<image>
-				<reportElement x="4" y="3" width="97" height="69" uuid="b7787ddd-c2c5-44d8-a904-c5309aa8cb52"/>
-				<imageExpression><![CDATA["C:\\Users\\Kamila\\Pictures\\logoRelatorio.png"]]></imageExpression>
+				<reportElement x="5" y="4" width="114" height="62" uuid="2638c047-d474-41fd-9e26-317783a72fc3"/>
+				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -219,7 +299,7 @@
 				<text><![CDATA[   Local:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="424" y="75" width="20" height="15" uuid="da1d56c0-da41-450e-a4eb-d219f4f05418"/>
+				<reportElement x="463" y="75" width="20" height="15" uuid="da1d56c0-da41-450e-a4eb-d219f4f05418"/>
 				<text><![CDATA[UF:]]></text>
 			</staticText>
 			<staticText>
@@ -275,7 +355,7 @@
 				<text><![CDATA[Telefone Comercial:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="198" width="35" height="15" uuid="eb039769-df17-455a-a577-03f5fe46018f"/>
+				<reportElement x="10" y="198" width="35" height="15" uuid="eb039769-df17-455a-a577-03f5fe46018f"/>
 				<text><![CDATA[Cargo:]]></text>
 			</staticText>
 			<staticText>
@@ -287,116 +367,116 @@
 				<text><![CDATA[Outras rendas:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="237" width="100" height="15" uuid="77cce896-86cf-4de5-b44a-3a56901412e8"/>
+				<reportElement x="10" y="237" width="100" height="15" uuid="77cce896-86cf-4de5-b44a-3a56901412e8"/>
 				<text><![CDATA[ Referencia Pessoal:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="339" y="237" width="46" height="15" uuid="1a2ac105-d982-4f18-8072-dc3033656cdb"/>
 				<text><![CDATA[Telefone:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="49" y="24" width="286" height="15" uuid="79e9bd43-5ae4-463e-b901-b1b80b2ec2d1"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="53" y="41" width="183" height="15" uuid="d2a40a0d-dbb5-434f-9d8c-bc76ecda2285"/>
-				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emailAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="269" y="41" width="102" height="15" uuid="31db3336-6192-4569-a055-d6a35e7f069b"/>
-				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{rgAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="417" y="41" width="128" height="15" uuid="fc6a582d-ff19-447c-8140-937957e093d9"/>
-				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cpfAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="110" y="75" width="101" height="15" uuid="1a7e41fa-1100-450e-97fb-aff99229b754"/>
-				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dataNascimentoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="269" y="75" width="141" height="15" uuid="5c157d95-2080-462d-bd89-c3bacc8ebd9f"/>
-				<textFieldExpression><![CDATA[$F{cidadeNascimento}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="276" y="75" width="168" height="15" uuid="5c157d95-2080-462d-bd89-c3bacc8ebd9f"/>
+				<textFieldExpression><![CDATA[$F{cidadeNascimentoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="446" y="75" width="110" height="15" uuid="815f4aaa-3eff-4e40-b9cd-b00660aa0390"/>
-				<textFieldExpression><![CDATA[$F{estadoNascimento}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="486" y="75" width="57" height="15" uuid="815f4aaa-3eff-4e40-b9cd-b00660aa0390"/>
+				<textFieldExpression><![CDATA[$F{estadoNascimentoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="59" y="58" width="211" height="15" uuid="2283c543-6a5b-4633-b451-af02138e4122"/>
-				<textFieldExpression><![CDATA[$F{nomePai}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomePaiAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="281" y="58" width="263" height="15" uuid="a47fad34-46ee-43b1-902d-8567d433eeff"/>
-				<textFieldExpression><![CDATA[$F{nomeMae}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeMaeAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="76" y="126" width="310" height="15" uuid="7bb140da-5356-47a9-84c8-84f5e0a071b6"/>
-				<textFieldExpression><![CDATA[$F{tipoLogradouro}+" "+$F{logradouro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tipoLogradouroAluno}+" "+$F{logradouroAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="400" y="93" width="119" height="15" uuid="f4e86416-2828-4bdb-a9e8-d2c9aa671de3"/>
-				<textFieldExpression><![CDATA[$F{nascionalidade}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nacionalidadeAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="76" y="110" width="110" height="15" uuid="b86e3044-9513-4693-ab2e-b5a7786adc13"/>
-				<textFieldExpression><![CDATA[$F{estadoCivil}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{estadoCivilAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="444" y="126" width="100" height="15" uuid="7a936d81-4daf-47f6-a234-5d7f7cb4dc1a"/>
-				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numeroAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="89" y="143" width="215" height="15" uuid="b062cf4a-e4ab-4b61-a4d5-dc06af067902"/>
-				<textFieldExpression><![CDATA[$F{complemento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{complementoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="360" y="143" width="183" height="15" uuid="a0665e7d-2cc4-432c-9f4a-18bdc8786f2f"/>
-				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{bairroAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="59" y="161" width="142" height="15" uuid="c585abb2-76a6-4efe-a268-be2e850cc860"/>
-				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cidadeAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="264" y="161" width="107" height="15" uuid="424b2f0c-dc5c-48c9-be14-567242219443"/>
-				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cepAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="278" y="110" width="100" height="15" uuid="f02d40f0-060c-4d6b-a877-140b8ec1139d"/>
-				<textFieldExpression><![CDATA[$F{foneFixo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneFixoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="443" y="110" width="100" height="15" uuid="bd867a98-fb62-4ea9-b057-6a1297ef579b"/>
-				<textFieldExpression><![CDATA[$F{foneCelular}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneCelularAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="113" y="237" width="210" height="15" uuid="5b2e0d28-c7e4-42be-9682-e05fd7683448"/>
-				<textFieldExpression><![CDATA[$F{referenciaPessoal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{referenciaPessoalAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="385" y="237" width="158" height="15" uuid="f516fa9b-c8db-4922-b3f7-df6e257ab35c"/>
-				<textFieldExpression><![CDATA[$F{foneReferenciaPessoal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneReferenciaPessoalAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="419" y="179" width="124" height="15" uuid="a067888d-cb90-4b41-b2a0-cef54c4c7a70"/>
-				<textFieldExpression><![CDATA[$F{foneComercial}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneComercialLocalTrabalho}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="48" y="198" width="435" height="15" uuid="ff9abade-f6d4-44a6-89b8-de19be4a46fd"/>
-				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="48" y="198" width="495" height="15" uuid="ff9abade-f6d4-44a6-89b8-de19be4a46fd"/>
+				<textFieldExpression><![CDATA[$F{cargoLocalTrabalho}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="131" y="216" width="192" height="15" uuid="5392340c-db58-4100-affc-faf9646f25f4"/>
-				<textFieldExpression><![CDATA[$F{ComprovanteRenda}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{comprovanteRendaLocalTrabalho}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="411" y="216" width="139" height="15" uuid="1c6b1968-15b8-4cbd-93b3-78a01ab32d4a"/>
-				<textFieldExpression><![CDATA[$F{outrasRendas}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="411" y="216" width="132" height="15" uuid="1c6b1968-15b8-4cbd-93b3-78a01ab32d4a"/>
+				<textFieldExpression><![CDATA[$F{outrasRendasLocalTrabalho}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="62" y="93" width="242" height="15" uuid="b6915b6b-100f-442b-91cf-03ebe87b0ad1"/>
-				<textFieldExpression><![CDATA[$F{profissao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{profissaoAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="256" width="555" height="15" uuid="933c2f34-34b9-4bb0-b4fc-c5bbdc8a6dba"/>
@@ -406,7 +486,7 @@
 				<text><![CDATA[INFORMAÇÕES DO CÔNJUGE(se houver)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="276" width="36" height="15" uuid="c0d23869-83c3-47bb-9c1e-53b77317152a"/>
+				<reportElement x="10" y="276" width="36" height="15" uuid="c0d23869-83c3-47bb-9c1e-53b77317152a"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Nome:]]></text>
 			</staticText>
@@ -414,7 +494,7 @@
 				<reportElement x="2" y="270" width="551" height="1" uuid="3b787f91-ac86-43b8-820a-6149bd77bded"/>
 			</line>
 			<staticText>
-				<reportElement x="11" y="296" width="21" height="15" uuid="d41439b5-1ce5-489b-bd11-91cfb01686eb"/>
+				<reportElement x="10" y="296" width="21" height="15" uuid="d41439b5-1ce5-489b-bd11-91cfb01686eb"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[RG:]]></text>
 			</staticText>
@@ -423,7 +503,7 @@
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="286" y="277" width="100" height="15" uuid="a3901aa0-2c90-4a92-ae42-0a4065c99510"/>
+				<reportElement x="340" y="276" width="100" height="15" uuid="a3901aa0-2c90-4a92-ae42-0a4065c99510"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Data de Nascimento:]]></text>
 			</staticText>
@@ -433,15 +513,11 @@
 				<text><![CDATA[Profissão:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="230" y="335" width="51" height="15" uuid="2a4262f5-b6cd-4472-a23a-cc6e3cf4647d"/>
-				<text><![CDATA[Endereço:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="354" width="71" height="15" uuid="af11b7ee-eddd-4e24-8abb-e8bbb9180262"/>
+				<reportElement x="324" y="335" width="71" height="15" uuid="af11b7ee-eddd-4e24-8abb-e8bbb9180262"/>
 				<text><![CDATA[Renda Mensal:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="316" width="71" height="15" uuid="d4d508c2-43c8-40dd-aeab-05566ac717cb"/>
+				<reportElement x="10" y="316" width="71" height="15" uuid="d4d508c2-43c8-40dd-aeab-05566ac717cb"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Telefone Fixo:]]></text>
 			</staticText>
@@ -450,41 +526,41 @@
 				<text><![CDATA[Celular:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="373" width="555" height="15" uuid="23979f2c-2a1a-40d7-8a6e-4741a77ae8c1"/>
+				<reportElement x="0" y="353" width="555" height="15" uuid="23979f2c-2a1a-40d7-8a6e-4741a77ae8c1"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[DADOS PESSOAIS DO AVALISTA (se houver)]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="388" width="555" height="1" uuid="b983c753-3bd7-4eb7-959c-8138bac8c024"/>
+				<reportElement x="1" y="369" width="555" height="1" uuid="b983c753-3bd7-4eb7-959c-8138bac8c024"/>
 			</line>
 			<staticText>
-				<reportElement x="10" y="394" width="35" height="15" uuid="12b5a844-be86-4f80-b067-f203484c940a"/>
+				<reportElement x="10" y="376" width="35" height="15" uuid="12b5a844-be86-4f80-b067-f203484c940a"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Nome:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="414" width="22" height="15" uuid="d7de9f8b-9237-45e9-a4c5-44a9cebe31df"/>
+				<reportElement x="10" y="396" width="22" height="15" uuid="d7de9f8b-9237-45e9-a4c5-44a9cebe31df"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[RG:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="285" y="394" width="100" height="15" uuid="78b88dba-8996-4e89-9eff-9a6f7d60f756"/>
+				<reportElement x="335" y="376" width="100" height="15" uuid="78b88dba-8996-4e89-9eff-9a6f7d60f756"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Data de Nascimento:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="239" y="413" width="25" height="15" uuid="6dc59cc2-64d5-4dc6-a8e1-36299a69e9b0"/>
+				<reportElement x="147" y="396" width="25" height="15" uuid="6dc59cc2-64d5-4dc6-a8e1-36299a69e9b0"/>
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="433" width="49" height="15" uuid="6b8ae0d9-ee27-484a-a671-84e29c5e109e"/>
+				<reportElement x="304" y="396" width="49" height="15" uuid="6b8ae0d9-ee27-484a-a671-84e29c5e109e"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Profissão:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="236" y="431" width="55" height="15" uuid="1ade120d-bf7d-4dad-a195-09988f6d5c9c"/>
+				<reportElement x="10" y="415" width="55" height="15" uuid="1ade120d-bf7d-4dad-a195-09988f6d5c9c"/>
 				<text><![CDATA[Endereço:]]></text>
 			</staticText>
 			<staticText>
@@ -493,12 +569,12 @@
 				<text><![CDATA[Renda Mensal:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="452" width="73" height="15" uuid="2826ef2c-e84b-4a4f-b159-cabced0adfd7"/>
+				<reportElement x="178" y="471" width="73" height="15" uuid="2826ef2c-e84b-4a4f-b159-cabced0adfd7"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[ Telefone Fixo:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="242" y="451" width="39" height="15" uuid="ad4c8fa8-e8fa-4d2b-aa45-d5deccb71854"/>
+				<reportElement x="401" y="471" width="39" height="15" uuid="ad4c8fa8-e8fa-4d2b-aa45-d5deccb71854"/>
 				<text><![CDATA[Celular:]]></text>
 			</staticText>
 			<staticText>
@@ -512,11 +588,11 @@
 				<reportElement x="4" y="506" width="551" height="1" uuid="be7bc8cf-168f-4719-8651-f92403749661"/>
 			</line>
 			<staticText>
-				<reportElement x="11" y="513" width="120" height="15" uuid="55633af3-2ec1-49ac-8496-c05b0138f5be"/>
+				<reportElement x="10" y="513" width="120" height="15" uuid="55633af3-2ec1-49ac-8496-c05b0138f5be"/>
 				<text><![CDATA[Data assinatura contrato:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="532" width="35" height="15" uuid="880dd837-8dd5-4bb3-8d93-53be132110d8"/>
+				<reportElement x="10" y="532" width="35" height="15" uuid="880dd837-8dd5-4bb3-8d93-53be132110d8"/>
 				<text><![CDATA[Curso:]]></text>
 			</staticText>
 			<staticText>
@@ -524,7 +600,7 @@
 				<text><![CDATA[Data inicio curso:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="551" width="107" height="15" uuid="d535b6fe-5141-413a-8845-a182955b7891"/>
+				<reportElement x="10" y="551" width="107" height="15" uuid="d535b6fe-5141-413a-8845-a182955b7891"/>
 				<text><![CDATA[Forma de Pagamento:]]></text>
 			</staticText>
 			<staticText>
@@ -532,7 +608,7 @@
 				<text><![CDATA[Turma:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="570" width="96" height="15" uuid="80cbaf24-5647-49a3-b3ca-96c23768d7b0"/>
+				<reportElement x="10" y="570" width="96" height="15" uuid="80cbaf24-5647-49a3-b3ca-96c23768d7b0"/>
 				<text><![CDATA[Venc. 1a. Parcela:]]></text>
 			</staticText>
 			<staticText>
@@ -544,148 +620,144 @@
 				<text><![CDATA[Matricula:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="230" y="551" width="57" height="15" uuid="adab0f1a-d9f4-4873-8974-817f299621a7"/>
-				<text><![CDATA[n. Parcelas:]]></text>
+				<reportElement x="233" y="551" width="71" height="15" uuid="adab0f1a-d9f4-4873-8974-817f299621a7"/>
+				<text><![CDATA[No. Parcelas:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="395" y="551" width="78" height="15" uuid="f487f8a8-7bef-4427-bbc7-ce5d98e872f9"/>
 				<text><![CDATA[Valor Parcelas:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="49" y="276" width="223" height="15" uuid="c7876769-f4a0-4a40-a2de-3459c76e7082"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="260" y="296" width="154" height="15" uuid="3486f838-1439-404d-865e-35f08ceb4ad4"/>
-				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cpfConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="32" y="296" width="146" height="15" uuid="5bc30c7e-75d4-47c5-b6b9-dc4bb056d73e"/>
-				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{rgConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="386" y="277" width="100" height="15" uuid="0081f7a2-f4ea-446a-9e69-ac8c01374310"/>
-				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="440" y="276" width="100" height="15" uuid="0081f7a2-f4ea-446a-9e69-ac8c01374310"/>
+				<textFieldExpression><![CDATA[$F{dataNascimentoConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="274" y="315" width="100" height="15" uuid="195e1778-6cd8-41da-ba41-bc916943c63c"/>
-				<textFieldExpression><![CDATA[$F{foneCelular}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneCelularConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="86" y="316" width="100" height="15" uuid="d1ca8e6e-d416-4e86-831d-cefafb103feb"/>
-				<textFieldExpression><![CDATA[$F{foneFixo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneFixoConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="59" y="335" width="156" height="15" uuid="8f544130-0ce5-4d7f-ba52-1a817d2aa6d6"/>
-				<textFieldExpression><![CDATA[$F{profissao}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="59" y="335" width="249" height="15" uuid="8f544130-0ce5-4d7f-ba52-1a817d2aa6d6"/>
+				<textFieldExpression><![CDATA[$F{profissaoConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="283" y="335" width="260" height="15" uuid="261cbd27-3b72-4335-8d1d-0684d7f0e7d3"/>
-				<textFieldExpression><![CDATA[$F{tipoLogradouro}+" "+$F{logradouro}]]></textFieldExpression>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="403" y="335" width="134" height="15" uuid="01011be7-42b2-40d5-880d-801e8a6ee38a"/>
+				<textFieldExpression><![CDATA[$F{rendaMensalConjuge}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="82" y="354" width="226" height="15" uuid="01011be7-42b2-40d5-880d-801e8a6ee38a"/>
-				<textFieldExpression><![CDATA[$F{rendaMensal}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="46" y="376" width="277" height="15" uuid="1f5c1aed-8ea2-4833-a5d2-137f7e011d9d"/>
+				<textFieldExpression><![CDATA[$F{nomeAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="46" y="394" width="224" height="15" uuid="1f5c1aed-8ea2-4833-a5d2-137f7e011d9d"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="442" y="376" width="101" height="15" uuid="7a55aa19-ceda-4fc8-8c94-6b85234b84db"/>
+				<textFieldExpression><![CDATA[$F{dataNascimentoAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="385" y="394" width="101" height="15" uuid="7a55aa19-ceda-4fc8-8c94-6b85234b84db"/>
-				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="172" y="396" width="115" height="15" uuid="60f488c6-37ea-413f-bf4d-5640268d14f8"/>
+				<textFieldExpression><![CDATA[$F{cpfAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="264" y="413" width="146" height="15" uuid="60f488c6-37ea-413f-bf4d-5640268d14f8"/>
-				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="396" width="100" height="15" uuid="b2435c92-28dd-499a-93be-7bd437209831"/>
+				<textFieldExpression><![CDATA[$F{rgAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="36" y="414" width="100" height="15" uuid="b2435c92-28dd-499a-93be-7bd437209831"/>
-				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="356" y="396" width="187" height="15" uuid="910b2d1f-ebfd-40e9-a2af-42af97e4041d"/>
+				<textFieldExpression><![CDATA[$F{profissaoAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="62" y="433" width="100" height="15" uuid="910b2d1f-ebfd-40e9-a2af-42af97e4041d"/>
-				<textFieldExpression><![CDATA[$F{profissao}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="69" y="415" width="355" height="15" uuid="c6b57422-a19c-4379-bba7-5d39d4e08993"/>
+				<textFieldExpression><![CDATA[$F{tipoLogradouroAvalista}+" "+$F{logradouroAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="291" y="431" width="252" height="15" uuid="c6b57422-a19c-4379-bba7-5d39d4e08993"/>
-				<textFieldExpression><![CDATA[$F{tipoLogradouro}+" "+$F{logradouro}]]></textFieldExpression>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="87" y="471" width="85" height="15" uuid="91786b2c-675e-452b-9410-7dab6b3c53fd"/>
+				<textFieldExpression><![CDATA[$F{rendaMensalAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="87" y="471" width="221" height="15" uuid="91786b2c-675e-452b-9410-7dab6b3c53fd"/>
-				<textFieldExpression><![CDATA[$F{rendaMensal}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="251" y="471" width="111" height="15" uuid="a6e45e58-574a-49e5-8915-273a81f3997f"/>
+				<textFieldExpression><![CDATA[$F{foneFixoAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="84" y="452" width="143" height="15" uuid="a6e45e58-574a-49e5-8915-273a81f3997f"/>
-				<textFieldExpression><![CDATA[$F{foneFixo}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="445" y="471" width="100" height="15" uuid="6b54af62-b7df-4264-b520-fe480be7584b"/>
+				<textFieldExpression><![CDATA[$F{foneCelularAvalista}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="285" y="451" width="100" height="15" uuid="6b54af62-b7df-4264-b520-fe480be7584b"/>
-				<textFieldExpression><![CDATA[$F{foneCelular}]]></textFieldExpression>
-			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="120" y="551" width="95" height="15" uuid="63ea4529-62b8-481a-a994-671152a7809e"/>
 				<textFieldExpression><![CDATA[$F{tipopagamento}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="288" y="551" width="97" height="15" uuid="25064d7d-d52b-4dba-94af-61ea8c0ad576"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="308" y="551" width="77" height="15" uuid="25064d7d-d52b-4dba-94af-61ea8c0ad576"/>
 				<textFieldExpression><![CDATA[$F{numeroparcelas}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="101" y="570" width="141" height="15" uuid="26ac8068-339a-4959-9bb3-e122d22a7efe"/>
 				<textFieldExpression><![CDATA[$F{datavencimentoparcela}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="473" y="551" width="83" height="15" uuid="ffd8de2c-c709-42dd-99ec-0fd78b7b0a63"/>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="473" y="551" width="71" height="15" uuid="ffd8de2c-c709-42dd-99ec-0fd78b7b0a63"/>
 				<textFieldExpression><![CDATA[$F{valorparcela}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="463" y="512" width="92" height="15" uuid="a289242f-8286-459c-94b1-d1095d6c2d70"/>
-				<textFieldExpression><![CDATA[$F{idmatricula}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="463" y="512" width="80" height="15" uuid="a289242f-8286-459c-94b1-d1095d6c2d70"/>
+				<textFieldExpression><![CDATA[$F{aluno_idaluno}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="437" y="532" width="100" height="15" uuid="2bc1be60-c265-4fc6-94b3-7574a590a569"/>
-				<textFieldExpression><![CDATA[$F{turno}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="437" y="532" width="108" height="15" uuid="2bc1be60-c265-4fc6-94b3-7574a590a569"/>
+				<textFieldExpression><![CDATA[$F{turnoTurma}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="269" y="531" width="102" height="15" uuid="5e0c1bc8-6080-4715-bbe0-8c4b42c91988"/>
-				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numeroTurma}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="304" y="513" width="99" height="15" uuid="23171b3b-f581-4d2c-bd83-60a2352ec3ef"/>
-				<textFieldExpression><![CDATA[$F{datainicio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dataInicioTurma}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="48" y="532" width="167" height="15" uuid="bdc5c788-96ea-4d57-921c-f29057578751"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeCurso}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="441" y="24" width="104" height="15" uuid="6cdb34c1-2dbc-4fbe-a6e6-9efcb44d991c"/>
-				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{datamatricula}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="133" y="179" width="171" height="15" uuid="ccb8cdad-2ea1-453a-be40-ac3b9c1cfc26"/>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeLocalTrabalho}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="385" y="161" width="39" height="15" uuid="f577fd9e-ae99-40cc-8aff-89dd0c4e7d47"/>
 				<text><![CDATA[Estado:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="424" y="161" width="119" height="15" uuid="28f74f44-b11e-4518-98b2-e17eef768c19"/>
-				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{estadoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="129" y="513" width="82" height="15" uuid="478cb205-3667-4b2a-9fe2-d10e88765cf0"/>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{datamatricula}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="272" y="572" width="67" height="15" uuid="b01ea16c-8997-46be-b720-e158105517cc"/>
 				<text><![CDATA[Atendido por:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="339" y="572" width="193" height="15" uuid="8c9cf870-6edb-45fb-9cb3-d2b589b45891"/>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="339" y="572" width="204" height="15" uuid="8c9cf870-6edb-45fb-9cb3-d2b589b45891"/>
+				<textFieldExpression><![CDATA[$P{usuairo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="59" y="689" width="135" height="15" uuid="ef8bd3e8-993c-44f3-a501-cc4f9c78ef63"/>
@@ -702,18 +774,66 @@
 				<reportElement x="23" y="689" width="188" height="1" uuid="44a05d51-6a1d-4f5a-8ab2-f76199a788da"/>
 			</line>
 			<staticText>
-				<reportElement x="16" y="610" width="527" height="53" uuid="f18b9b86-cbfd-461d-b22e-a1fd298531d8"/>
-				<textElement>
+				<reportElement x="2" y="610" width="554" height="53" uuid="f18b9b86-cbfd-461d-b22e-a1fd298531d8"/>
+				<textElement textAlignment="Justified">
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[ATENÇÃO: caso a contratante desista do curso desta inscrição,  a instituição não fará a devolução do dinheiro e sim a contratante ficará com o valor deste contrato em crédito para a escolha de um outro curso oferecido pela instiuição. Para a validade deste crédito, o contratante deve avisar a sua ausência no curso com 03 (três) dias de antecedência da data do curso, caso contrário, perderá o o valor do crédito deste contrato. Ciente.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="16" y="595" width="527" height="15" uuid="fc26867a-f051-4b16-b830-afe501bb9697"/>
+				<reportElement x="16" y="595" width="539" height="15" uuid="fc26867a-f051-4b16-b830-afe501bb9697"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[FICHA DE INSCRIÇÃO VÁLIDA PARA OS CURSOS INTENSIVOS.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="483" y="415" width="60" height="15" uuid="80d8cc7f-917a-44c9-93cc-0ccc208b85d0"/>
+				<textFieldExpression><![CDATA[$F{numeroAvalista}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="437" y="415" width="40" height="15" uuid="c9755d7e-1f42-4108-b8bf-494811d32822"/>
+				<text><![CDATA[Número:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="433" width="37" height="15" uuid="eb3476b1-a90a-48ea-b860-3f3deb2ea565"/>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="362" y="433" width="183" height="15" uuid="78d481ff-a067-4683-99a6-fc409c7db840"/>
+				<textFieldExpression><![CDATA[$F{bairroAvalista}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="91" y="433" width="215" height="15" uuid="41dcf175-2e35-409a-96e1-74899b70a980"/>
+				<textFieldExpression><![CDATA[$F{complementoAvalista}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="433" width="77" height="15" uuid="3444017c-cfd6-43bb-a037-3e9f35054ca8"/>
+				<text><![CDATA[ Complemento:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="426" y="452" width="119" height="15" uuid="aea5c74c-964a-4b08-8c30-3a2bd874e1bb"/>
+				<textFieldExpression><![CDATA[$F{estadoAvalista}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="384" y="452" width="39" height="15" uuid="4eab67c0-ca1c-4f7c-ba4c-8bbb33a3f171"/>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="270" y="452" width="107" height="15" uuid="17873d34-5f24-40b8-b0eb-13e6c3556f15"/>
+				<textFieldExpression><![CDATA[$F{cepAvalista}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="62" y="452" width="142" height="15" uuid="cfa08376-3cda-4d24-9a12-44a99c134130"/>
+				<textFieldExpression><![CDATA[$F{cidadeAvalista}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="233" y="452" width="37" height="15" uuid="c7a1ffab-0a99-4a88-91d2-4687ebf19fdf"/>
+				<text><![CDATA[  CEP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="452" width="49" height="15" uuid="9d527690-7ab4-4c73-8a2b-75becf4003d0"/>
+				<text><![CDATA[Cidade:]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
