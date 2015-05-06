@@ -158,23 +158,23 @@
 
                                 </h:panelGrid>        
                                 <h:panelGrid columns="2" cellpadding="5" >
-                                    <p:inputText  id="nomeTrab" value="#{cadastroAlunoMB.localTrabalho.nome}"  size="75" maxlength="100"  class="left"/> 
+                                    <p:inputText  id="nomeTrab" value="#{cadastroAlunoMB.localTrabalho.nome}"  size="77" maxlength="100"  class="left"/> 
                                 </h:panelGrid>
                                 <h:panelGrid columns="2" cellpadding="5" >
                                     <p:outputLabel value="Cargo:" for="cargoTra"   class="left" />
                                     <p:outputLabel value="Telefone Comercial:" for="telComer"  class="lefttelefone"/>      
                                 </h:panelGrid>
                                 <h:panelGrid columns="2" cellpadding="5" >
-                                    <p:inputText id="cargoTra" value="#{cadastroAlunoMB.localTrabalho.cargo}"  size="44" maxlength="50"   class="left"/>
-                                    <p:inputMask id="telComer"   value="#{cadastroAlunoMB.localTrabalho.foneComercial}" size="14" maxlength="50" class="leftRg" mask="(99)9999-9999"/>
+                                    <p:inputText id="cargoTra" value="#{cadastroAlunoMB.localTrabalho.cargo}"  size="45" maxlength="50"   class="left"/>
+                                    <p:inputMask id="telComer"   value="#{cadastroAlunoMB.localTrabalho.foneComercial}" size="16" maxlength="50" class="leftRg" mask="(99)9999-9999"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="5" >          
                                     <p:outputLabel value="Comprovante de Renda:" for="comproRenda"   class="left"/>
                                     <p:outputLabel value="Outras Rendas:" for="outraRenda" class="leftMeio7"/>
                                 </h:panelGrid>
                                 <h:panelGrid columns="4" cellpadding="5" >
-                                    <p:inputText id="comproRenda"   value="#{cadastroAlunoMB.localTrabalho.comprovanteRenda}" size="38" maxlength="50"   class="left"/>
-                                    <p:inputText id="outraRenda"   value="#{cadastroAlunoMB.localTrabalho.outrasRendas}" size="20" maxlength="50"  class="leftRg" />
+                                    <p:inputText id="comproRenda"   value="#{cadastroAlunoMB.localTrabalho.comprovanteRenda}" size="37" maxlength="50"   class="left"/>
+                                    <p:inputText id="outraRenda"   value="#{cadastroAlunoMB.localTrabalho.outrasRendas}" size="24" maxlength="50"  class="leftRg" />
                                 </h:panelGrid>
                                 <p:commandButton value="Cadastrar" icon="ui-icon-plusthick" class="botaoCadastra" action="#{cadastroAlunoMB.salvarLocalTrabalho()}" onclick="dll.hide();" />
                                 <p:commandButton value="Cancelar" onclick="dll.hide();" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroAlunoMB.cancelarDialog()}"/>
