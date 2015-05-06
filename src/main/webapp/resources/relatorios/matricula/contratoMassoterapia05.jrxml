@@ -1,27 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoMassoterapia05" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a945aa47-dad6-4878-b81e-9b01f786d56e">
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="5" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="797" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="6" width="530" height="513" uuid="8b048208-3b34-4a81-98ed-04177b7fba51"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[CLÁUSULA 16 a Fica fazendo parte integrante do presente Contrato a Circular referida na Cláusula 1a e o Regimento escolar.
+CLÁUSULA 17 a. O CONTRATADO, livre de quaisquer ônus para com o CONTRATANTE, poderá utilizar-se da sua imagens para fins exclusivo de divulgação do CONTRATADO e suas atividades podendo, para tanto, reproduzí-la ou divulgá-la junto à intemet, jornais e todos os demais meios de comunicação, público ou privado.
+Parágrafo único: A autorização para uso da imagem se estende por tempo ilimitado do término do contrato.
+CLÁUSULA 18ª. É obrigatório ao CONTRATANTE informar ao CONTRATADO, o seu novo endereço residencial, caso haja mudança do mesmo.
+Parágrafo 1o.  O CONTRATANTE está ciente e concorda que o CONTRATADO monitore e filme através de câmeras continuamente suas dependências (exceto sanitários), determinações estas em benefício da segurança dos alunos.
+Parágrafo 2o. Em nenhuma hipótese poderá a imagem ser utilizada de maneira contrária a moral ou aos bons costumes ou à ordem pública.
+CLÁUSULA 19ª. É permitida a utilização do pátio do CONTRATADO para estacionamento de veículos automotores, motocicletas e bicicletas. A contratada se exime de qualquer responsabilidade civil por danos, furto ou roubo dos mesmos, inclusive veículos, motos, bicicletas, veículos automotores estacionados fora das dependências da escola e suas proximidades, declarando o CONTRATANTE ter pleno conhecimento, assumindo totalmente a responsabilidade em caso de descumprimento do acima mencionado.
+CLÁUSULA 20a. O CONTRATADO Não se responsabiliza pela guarda e conseqüente indenização, decorrente do extravio ou danos causados a quaisquer objetos levados ao estabelecimento educacional, inclusive papel moeda, documentos, aparelhos eletrônicos ou celulares pertencentes ou sob a posse do CONTRATANTE, ou de seus prepostos ou acompanhantes.
+CLÁUSULA 21a.O CONTRATANTE será responsabilizado pelo ressarcimento imediato correspondente a danos causados ao Patrimônio da Escola, tais como: quebra de cadeiras, vidros, ar-condicionado, aparelhos audiovisuais, danos a pintura das paredes, danos em sanitários, livros não devolvidos ou danificados, danos causados em elevadores ou outras áreas do condomínio, cujos valores serão acrescidos à próxima mensalidade a vencer.
+CLÁUSULA 22a . O CONTRATANTE declara neste ato que conheceu previamente as instalações físicas do estabelecimento tais como: biblioteca, laboratórios, materiais de áudio visual, salas de aula, conhecendo-as e aceitando-as livremente.
+CLÁUSULA 23a. As partes atribuem ao presente Contrato, plena eficácia e forma executiva extrajudicial, independente de prévia notificação.
+CLÁUSULA 24a. Para dirimir questões oriundas deste Contrato, fica eleito o Foro da Cidade de São José. E, por estarem juntos e contratados, assinam o presente instrumento em 02 (duas) vias de igual teor e forma, sem emendas ou rasuras, na presença das testemunhas abaixo, para que se produzam todos os efeitos legais, declarando o CONTRATANTE expressamente que teve conhecimento prévio do conteúdo do presente contrato, manifestando, neste ato, seu consentimento às suas cláusulas e condições, às quais aceita livre e espontaneamente.
+
+
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="590" width="63" height="15" uuid="51c7cdde-fc0c-491a-90d9-dfc1f6c05d97"/>
+				<text><![CDATA[Testemunha:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="26" y="589" width="157" height="1" uuid="72dca6ac-49f4-4291-8e26-56c94bc7f5a8"/>
+			</line>
+			<staticText>
+				<reportElement x="26" y="605" width="24" height="15" uuid="421828ba-ad38-4156-b227-a72a9e2cd6ca"/>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="319" y="586" width="189" height="1" uuid="040ca81e-1d7a-4633-b8d7-3e1263cd16eb"/>
+			</line>
+			<staticText>
+				<reportElement x="320" y="586" width="59" height="15" uuid="7fff9e67-7d36-4fbe-88fb-360114a3909c"/>
+				<text><![CDATA[Contratante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="601" width="23" height="15" uuid="64ce6983-7b7c-4d6a-9ac2-dbac09f64f2c"/>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="672" width="24" height="15" uuid="942350c8-36c1-4217-9aa0-76b03f576011"/>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="657" width="63" height="15" uuid="51e37642-638b-4b50-9f27-b503270ae40b"/>
+				<text><![CDATA[Testemunha:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="24" y="656" width="157" height="1" uuid="bd1316b2-03bf-4b64-bb83-c7bdde7a68cb"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="746" width="24" height="15" uuid="64ec74ef-a8e8-4d10-b22c-8e8877b1971f"/>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="731" width="119" height="15" uuid="d266565e-a1a1-4479-8eff-3b09fe856aa0"/>
+				<text><![CDATA[Responsável Solidário:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="24" y="730" width="232" height="1" uuid="e03dce8f-873d-42a7-ab89-acab13bd454f"/>
+			</line>
+			<staticText>
+				<reportElement x="320" y="668" width="118" height="15" uuid="62ffb68f-e35f-4266-b1b1-2ca19b979e33"/>
+				<text><![CDATA[CGC: 15643367/0001-09]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="653" width="171" height="15" uuid="12894dd9-b082-4683-b28e-0f3efac0b1f8"/>
+				<text><![CDATA[Centro Técnico Sante Corps Ltda]]></text>
+			</staticText>
+			<line>
+				<reportElement x="320" y="652" width="188" height="1" uuid="41c4ec5a-0550-4a3b-99e5-80d4ee3b93bb"/>
+			</line>
+		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

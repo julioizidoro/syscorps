@@ -1,27 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoMassoterapia02" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f5fe2bf-1a21-4a3e-8e85-348bbac75b49">
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="22" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="723" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="0" width="530" height="89" uuid="a2495c49-0136-443e-8edd-a749335d80f0"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[CLÁUSULA 3a. As aulas serão ministradas nas salas de aula ou locais em que o CONTRATADO indicar, tendo em vista a natureza do conteúdo e da técnica pedagógica que se fizerem necessárias, inclusive quanto a aplicação curricular em eventos relevantes.
+CLÁUSULA 4a. A configuração formal do ato de matrícula se procede pelo preenchimento do formulário próprio fornecido pelo CONTRATADO denominado “REQUERIMENTO DE MATRÍCULA” que, desde já, fica fazendo parte integrante deste Contrato.
+Parágrafo 1o. O presente Contrato somente terá validade com o deferimento expresso e da formal matrícula.
+
+
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="89" width="530" height="101" uuid="381e770d-7f4d-429f-b7f9-23c6375b811f"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Parágrafo 2o. O deferimento da matrícula é um ato do CONTRATADO , condicionado à existência de vaga, condições de habilitação e capacitação do CONTRATANTE, documentação escolar e civil, não existência de débitos vencidos do CONTRATANTE para com o CONTRATADO e consulta cadastral.
+Parágrafo 3o O Requerimento de matrícula somente será encaminhado para exame e deferimento do Diretor da Escola após certificação pela tesouraria de que o CONTRATANTE esteja quite com suas obrigações financeiras decorrentes de prestações anteriores e as previstas para pagamento no ato da matrícula e depois de verificadas as outras condições especificadas no parágrafo anterior, inclusive após a compensação de cheque referente ao pagamento de débitos anteriores ou primeira parcela deste contrato.
+
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="190" width="530" height="164" uuid="32f1450d-c4e3-464b-9528-abb3e99312cb"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Parágrafo 4º. Para os casos de matrículas de alunos novos, o CONTRATANTE é inteiramente responsável no tocante as declarações que prestar referente à aptidão legal do(s) aluno(s) indicado(s) no(s) requerimento(s) de matrícula, para freqüência na série e cursos indicados no mesmo documento. A vaga aberta ao estudante, será cancelada na hipótese em que não ocorrer a entrega dos documentos legais comprobatórios das declarações prestadas até o início das aulas, previsto no calendário escolar do CONTRATADO, ficando o CONTRATANTE Isento da responsabilidade pelos eventuais problemas resultantes.
+Parágrafo 5o O presente contrato somente obrigará as partes após o expresso deferimento do CONTRATADO ou pela sua não manifestação até 20(vinte) dias corridos antes do início das aulas.
+CLÁUSULA 5a. É de inteira responsabilidade do CONTRATADO o planejamento e a prestação dos serviços de ensino no que se refere a marcação de datas para provas de aproveitamento, fixação de carga horária, designação de professores, orientação didático-pedagógica e educacional, além de outras providências que as atividades docentes exigirem, obedecendo o seu exclusivo critério, sem ingerência do CONTRATANTE.
+
+
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="354" width="530" height="51" uuid="12fe1771-2325-488b-8d05-7dc6a20d03f8"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[CLÁUSULA 6a. Ao afirmar o presente, o CONTRATANTE submete-se ao Regimento Escolar, à Proposta Pedagógica e às demais obrigações constantes na legislação aplicável à área de ensino e, ainda, às emanadas de outras fontes legais, desde que regulem, supletivamente a matéria, inclusive o plano Escolar aprovado.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="405" width="530" height="27" uuid="dca20daa-f262-4177-9ad3-d1254b8e8427"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[CLÁUSULA 7a.  O CONTRATANTE pagará pelo Curso referido na Cláusula Segunda, uma parcela no ato da inscrição no valor  de
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="11" y="432" width="530" height="29" uuid="5c851bbd-8f29-4957-be79-c1ae916eadba"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{numeroparcelas}+" parcelas no valor de "+$F{valorparcela}+" sendo a primeira com vencimento em "+$F{datavencimento}+" CIENTE:"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="156" y="455" width="100" height="1" uuid="06843ba0-2fa4-4bb3-81f6-089505181514"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="461" width="530" height="38" uuid="2843f464-b6d4-4ace-b617-0d14cefa093c"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Parágrafo 2º. Qualquer abatimento, desconto ou redução nas parcelas de valores contratuais constitui mera liberalidade do CONTRATADO, não caracterizando novação, nem renúncia de direitos, podendo ser suprimidos a qualquer tempo, respeitando-se as promoções divulgadas e sua validade.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="499" width="530" height="58" uuid="7f1e52ff-cb21-45cb-8aea-29c0a7e1fb43"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Parágrafo 3º. O CONTRATADO poderá terceirizar a cobrança das parcelas do presente contrato para empresa de cobrança especializada ou instituição bancária, com o que concorda o CONTRATANTE.
+Parágrafo 4º. O pagamento das obrigações financeiras do CONTRATANTE comprovar-se-á mediante apresentação do recibo ou carnê que individualize a obrigação quitada. 		]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="557" width="530" height="103" uuid="1dd789f2-be60-4bc4-8395-f7cda046642c"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Parágrafo 5º. Se o CONTRATADO optar pela cobrança via sistema bancário, internet, empresa de cobrança terceirizada, o CONTRATANTE pagará R$2,70 por bloqueto emitido, referente as parcelas constantes na Cláusula 7ª. deste contrato.
+Parágrafo 6o Caso o pagamento inicial seja feito em cheque, este será recebido em caráter pró-solvendo,não se concretizando a matrícula senão após a regular compensação/desconto do cheque sem prejuízo da necessidade do Deferimento do Diretor da Escola.
+Parágrafo 7o. Durante as férias escolares e o recesso escolar , as mensalidades deverão ser pagas no vencimento previstos na Cláusula 7a do Contrato.
+
+
+
+
+]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

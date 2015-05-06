@@ -1,27 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoMassoterapia04" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1faac309-e3d8-4ca1-813a-cc82d6224154">
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="450"/>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="3" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="799" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="517" height="787" uuid="3ef1f6f7-da6e-48d6-9258-dabb79b19020"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Parágrafo 20o No caso de reprovação em qualquer etapa do estágio, o CONTRATANTE dever contratar nova matrícula de estágio.
+Parágrafo 21º. Em caso de cancelamento até a data do início das aulas previsto  neste contrato  o contratante efetuará o pagamento de R$200,00 referentes aos serviços prestados de: confecção de carteira estudantil, avaliação de crédito, arquivo, registro de documentos e outras despesas administrativas. Em caso de cancelamento do curso pela CONTRATADA, a mesma fica responsável em reembolsar o valor efetuado pelo CONTRATANTE.  CIENTE _________________________________________________.
+CLÁUSULA 8a. Será preservado o equilíbrio contratual caso qualquer mudança legislativa, normativa, convenção coletiva ou dissídio caso alterem a equação econômico-financeira do presente Contrato.
+CLÁUSULA 9a. Tem ciência nesta ato o CONTRATANTE que em caso de inadimplência das parcelas ou qualquer obrigação de pagamento decorrente desse Contrato, terá seu cadastro negativado junto aos órgãos de proteção ao crédito (SPC / SERASA), nos termos do artigo 43 § 2º. Da Lei 8.078 Consumidor legalmente existente para registro nos termos do artigo 43 parágrafo segundo da Lei n0. 8.078 de setembro de 1990 (Código de Defesa do Consumidor).
+CLÁUSULA 10ª  A cada semestre letivo, para cursos acima de 6 meses de duração, durante o período de férias escolares, previstos no calendário escolar, entre julho e agosto e, entre dezembro a janeiro é obrigatório ao CONTRATANTE fazer a rematrícula Termo Aditivo do Contrato de Prestação de Serviços
+Parágrafo 1º -  Para a efetivação da rematrícula, o CONTRATANTE deverá apresentar: comprovante de residência atualizado, carnê de pagamentos em dia, 1 foto 3X4 e assinar novo termo aditivo do contrato de prestação de serviços.
+Parágrafo 2º - A contratada reserva-se o direito de não aceitar rematrícula do CONTRATANTE que tiver sido reincidente numa das infrações expressas e elencadas no Regimento Interno Escolar.
+CLÁUSULA 11a. Ao Cumprir a etapa teórica ( aprovação em todas as disciplinas), o CONTRATANTE que desejar ingressar na etapa ESTÁGIO, deverá firmar Termo Aditivo do Contrato de Prestação de Serviços Específico, sendo obrigatória a apresentação do carnê de pagamentos em dia ( REMATRÍCULA PARA ESTÁGIO).
+Parágrafo 1o. Caso haja cobrança por parte dos hospitais conveniados, fornecedores de Campo de Estágio, os valores serão integralmente repassados às mensalidades deste contrato, com o que concorda expressamente o CONTRATANTE.
+Parágrafo 2o. O histórico Escolar, Declaração de Conclusão de Curso e Diploma,  serão fornecidos ao CONTRATANTE sem débitos com o CONTRATADO, no prazo de até 30 (trinta) dias da solicitação, após o término do Curso.
+CLÁUSULA 12a CANCELAMENTO DA MATRÍCULA - O presente Contrato tem duração até o final do período letivo contratado e poderá ser rescindido nas seguintes hipóteses:
+a - Pelo CONTRATANTE e/ou responsável: I - Por desistência formal, comunicada por escrito.
+II - Por transferência formal.
+b - Pelo CONTRATADO: I - Por desligamento nos termos do Regimento Escolar.
+III – Caso o aluno comprometa o bom nome ou reputação do estabelecimento, pratique atos de indisciplina ou outros atos graves tais como: calúnia, difamação de professores ou do corpo administrativo ou desvio de alunos para outro estabelecimento, estará sujeito a processo de danos morais e indenizatórios.
+IV - Por inadimplência conforme Cláusula 9ª. deste contrato (Lei 9870/99 artigo 6º. Parágrafo 3º. E artigo 476 do código Civil)
+Parágrafo único – Em  caso de Rescisão de contrato fica o CONTRATANTE obrigado a pagar o valor da parcela do mês em que ocorre o evento, além de outros débitos eventualmente existentes, incluído uma parcela referente a pré-aviso, corrigidos na forma do Parágrafo 16º  da Cláusula 7a .(indenização por quebra de contrato). CIENTE: __________________________________
+CLÁUSULA 13ª.  – Além dos casos previstos na legislação do ensino e nas normas de funcionamento da escola, o CONTRATADO não aceitará ou não renovará a matrícula de aluno(s) em razão de inadimplência, de não observância do calendário e regimento escolares, de indisciplina ou incompatibilidade com o regime didático-pedagógico do estabelecimento; de desarmonia prejudicial ao(s) aluno(s), ao processo educacional ou ao bom entendimento das partes (art. 1º e 5º da Lei nº 9.870/99).
+Parágrafo único – Havendo incompatibilidade do(s) aluno(s) com o regime didático-pedagógico-disciplinar do estabelecimento e prejuízo para ele(s) ou para a comunidade escolar, poderá ser expedida a transferência do(s) mesmo(s) antes do término do ano letivo, rompendo-se o presente contrato.
+CLÁUSULA 14ª.  – Também assina o presente instrumento, na qualidade de CONTRATANTE, o responsável solidário (pai, mãe,conjugue), devidamente identificado por ficha cadastral e documento de identidade, abaixo nomeado, o qual tem portanto, os mesmos direitos, deveres e obrigações.
+ClÁUSULA 15ª.  – O CONTRATANTE se responsabiliza pelos dados declarados, comprometendo-se a informar à CONTRATADA, por escrito e mediante recibo, qualquer alteração ou mudança de endereço capaz de prejudicar sua localização, e fica ciente, desde já, de que a omissão acarretará na pena de serem consideradas válidas as correspondências enviadas aos endereços constantes do presente instrumento, inclusive para efeitos de citação judicial e inclusão de seu nome no SPC sem prévio conhecimento.
+
+
+
+]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
