@@ -4,162 +4,160 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-       xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
             <h:form>
-            
-            <div id="centro">
-                 <p:growl id="growl" showDetail="true" sticky="true" />
-                <br></br>
-                <legend id="iUsu" ><b>Matricula </b></legend>
-                <br></br>
-            <p:tabView class="tabelamatricula">
-                        <p:tab title="Matricula" >
-                            
-             <p:messages autoUpdate="true" />
-                    <h:panelGrid columns="3" cellpadding="5" class="meio2">
-                        <p:outputLabel value="Nome" for="nomeMatri" class="" />
-                        <p:outputLabel value="Curso"  class="leftMeio13" />
-                    </h:panelGrid>
-               <h:panelGrid columns="3" cellpadding="3" class="meio2">
-                   <p:inputText id="nomeMatri"  value="#{matriculaMB.cadastroAlunoMB.aluno.nome}" size="54" />
-                   <p:commandButton action="#{matriculaMB.selecionarAluno()}" icon="ui-icon-search" class="filtrar"/>   
-                   <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.idCurso}" class="leftTel" style="width:190px">
-                            <f:selectItem itemLabel="Selecione Curso" itemValue="0"   />
-                            <f:selectItems value="#{matriculaMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
-                            <p:ajax event="change" listener="#{matriculaMB.gerarListaTurma()}" update="turmaMatri"/>  
-                    </p:selectOneMenu>
-               </h:panelGrid>
-           
-             <br></br>
-                   <h:panelGrid columns="4" cellpadding="3" class="meio2">
-                        <p:outputLabel value="Matrícula" for="matricula" class="" />
-                        <p:outputLabel value="Turma"  class="leftC" />
-                        <p:outputLabel value="Turno" for="turno" class="cadaaluno" />
-                        <h:outputText value="Data de Rematricula" class="cadaaluno"/> 
-                  </h:panelGrid>  
-             <h:panelGrid columns="4" cellpadding="2" class="meio2">
-                 <p:inputText id="matricula"  value="#{matriculaMB.matricula.idmatricula}" size="12" />
-                     
-                 <p:selectOneMenu  id="turmaMatri" class="leftP" style="width:135px" value="#{matriculaMB.idTurma}">
-                            <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
-                            <f:selectItems value="#{matriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
-                            <p:ajax event="change" listener="#{matriculaMB.selecoinarTurma()}" update="turno"/>  
-                        </p:selectOneMenu>
-                 <p:inputText id="turno"  class="leftTel" size="17" value="#{matriculaMB.turma.turno}" readonly="true"/>
-                 <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="19" maxlength="12" class="left4"  readonly="true">
-                         <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
-                </p:calendar>    
-             </h:panelGrid>
-              <h:panelGrid columns="3" cellpadding="4" >
-                <h:outputText value="CPF " class="left"/>
-                <h:outputText value="RG" class="leftmatricula"/>
-                <h:outputText value="Data de Nascimento" class="leftMeio21"/> 
-            </h:panelGrid>
-            <h:panelGrid columns="3" cellpadding="3" >
-                <p:inputMask id="cpfCnpj" label="CPF"  size="16"  mask="999.999.999-99"  class="left" value="#{matriculaMB.cadastroAlunoMB.aluno.cpf}" readonly="true">
-                </p:inputMask>
-                <p:inputText id="rg" label="RG"  size="20" maxlength="19" class="leftMeioo" value="#{matriculaMB.cadastroAlunoMB.aluno.rg}"  readonly="true" />  
-                <p:calendar id="mask"  pattern="dd/MM/yyyy"  size="21" maxlength="12" class="leftC" value="#{matriculaMB.cadastroAlunoMB.aluno.dataNascimento}" readonly="true">
-                         <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
-                </p:calendar>            
-            </h:panelGrid>
-                  
-                 <h:panelGrid columns="3" cellpadding="5">
-                      <p:outputLabel value="Bairro" for="bairro" class="left"/>
-                       <p:outputLabel value="Cidade" for="cidade" class="leftMeio20"/>
-                    <p:outputLabel value="Estado"  class="leftMeio7"/>
-                </h:panelGrid>
-                <h:panelGrid columns="3" cellpadding="5">
-                    <p:inputText id="bairro" value="#{matriculaMB.cadastroAlunoMB.aluno.bairro}"  size="26" class="left" readonly="true"/>
-                    <p:inputText id="cidade" value="#{matriculaMB.cadastroAlunoMB.aluno.cidade}"  size="18" class="leftRg"/>
-                     
-                    <p:selectOneMenu id="estado" value="#{matriculaMB.cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:168px"> 
-                                  <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
-                                 <f:selectItem itemLabel="Acre" itemValue="AC" /> 
-                                 <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
-                                 <f:selectItem itemLabel="Amapá" itemValue="AP" />  
-                                 <f:selectItem itemLabel="Amazonas" itemValue="AM" />  
-                                 <f:selectItem itemLabel="Bahia" itemValue="BA" />  
-                                 <f:selectItem itemLabel="Ceará" itemValue="CE" />  
-                                 <f:selectItem itemLabel="Distrito Federal" itemValue="DF" />  
-                                 <f:selectItem itemLabel="Espirito Santo" itemValue="ES" />  
-                                 <f:selectItem itemLabel="Goiás" itemValue="GO" />  
-                                 <f:selectItem itemLabel="Maranhão" itemValue="MA" />  
-                                 <f:selectItem itemLabel="Mato Grosso" itemValue="MT" />  
-                                 <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
-                                 <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
-                                 <f:selectItem itemLabel="Pará" itemValue="PA" />  
-                                 <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
-                                 <f:selectItem itemLabel="Paraná" itemValue="PR" />  
-                                 <f:selectItem itemLabel="Pernambuco" itemValue="PE" />  
-                                 <f:selectItem itemLabel="Piauí" itemValue="PI" />  
-                                 <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />  
-                                 <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
-                                 <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
-                                 <f:selectItem itemLabel="Rondônia" itemValue="RO" />  
-                                 <f:selectItem itemLabel="Roraima" itemValue="RR" />  
-                                 <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />  
-                                 <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
-                                 <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
-                                 <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
-                                   
-                          </p:selectOneMenu>
-                    
-                  
-                </h:panelGrid>
-             <br></br>
-                <legend id="iUsu5"><b>Forma de Pagamento </b></legend>
-                <br></br>
-             <h:panelGrid columns="3" cellpadding="4" >
-                <h:outputText value="Valor Total " class="left"/>
-                <h:outputText value="Valor Entrada" class="leftC"/>
-                <h:outputText value="Data Entrada" class="left"/> 
-            </h:panelGrid>
-             
-            <h:panelGrid columns="3" cellpadding="3" >
-                <p:inputText id="valort" label="valort"  size="14" required="false"  class="leftright" value="#{matriculaMB.valorTotal}"/>
-                <p:inputText id="valorentrada" label="valorEntrada"  size="12" maxlength="20" required="false" class="leftPright" value="#{matriculaMB.valorEntrada}"/> 
-                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy"  size="14" maxlength="15" class="leftP" value="#{matriculaMB.matricula.dataentrada}">
-                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
-                </p:calendar>
-            </h:panelGrid>
-                <h:panelGrid columns="4" cellpadding="4" >
-                <h:outputText value="Número de Parcelas " class="left"/>
-                <h:outputText value="Valor da Parcela" class="left4"/>
-                <h:outputText value="Data de Vencimento" class="left4"/> 
-                 <p:outputLabel value="Tipo de Pagamento"  class="left4"/>
-            </h:panelGrid>
-             
-            <h:panelGrid columns="4" cellpadding="3" >
 
-                <p:inputText id="numparcela" class="leftright"   size="15"  value="#{matriculaMB.numeroParcelas}" /> 
-                <p:inputText id="valorparcela" label="valorparcela"  size="12" maxlength="19"  required="false" class="leftPright" value="#{matriculaMB.valorParcela}" /> 
-                <p:calendar id="datavenc"  pattern="dd/MM/yyyy"  size="15" maxlength="15" class="left4"  value="#{matriculaMB.matricula.datavencimentoparcela}">
-                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
-                </p:calendar>
-                <p:selectOneMenu id="tipoPagamento" class="leftP" style="width:135px" value="#{matriculaMB.matricula.tipopagamento}">
-                        <f:selectItem itemValue="0" itemLabel="Selecione" class="left"/>
-                        <f:selectItem itemValue="Boleto" itemLabel="Boleto" class="left"/>
-                        <f:selectItem itemValue="Cartão Débito" itemLabel="Cartão Débito" class="left2"/>
-                        <f:selectItem itemValue="Cartão Credito" itemLabel="Cartão Credito" class="left2"/>
-                        <f:selectItem itemValue="Cheque" itemLabel="Cheque" class="left2"/>
-                        <f:selectItem itemValue="Dinheiro" itemLabel="Dinheiro" class="left2"/>
-                    </p:selectOneMenu>
-            </h:panelGrid>
-               <br></br>
-             </p:tab>
-                    </p:tabView>
-                 <br></br>
-                 
-                 <p:commandButton value="Matricular" icon=" ui-icon-plusthick" class="botaoCadastramatricula" actionListener="#{mensagemMB.matriculaMessagem()}" update="growl" action="#{matriculaMB.salvar}" />
-                 <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{matriculaMB.cancelar()}"/>
+                <div id="centro">
+                    <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
-                <br></br>
-                     
-                  <br></br>
-            </div>
+                    <legend id="iUsu" ><b>Matricula </b></legend>
+                    <br></br>
+                    <p:tabView class="tabelamatricula">
+                        <p:tab title="Matricula" >
+
+                            <p:messages autoUpdate="true" />
+                            <h:panelGrid columns="3" cellpadding="5" class="meio2">
+                                <p:outputLabel value="Nome" for="nomeMatri" class="" />
+                                <p:outputLabel value="Curso"  class="leftMeio13" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="3" cellpadding="3" class="meio2">
+                                <p:inputText id="nomeMatri"  value="#{matriculaMB.cadastroAlunoMB.aluno.nome}" size="54" />
+                                <p:commandButton action="#{matriculaMB.selecionarAluno()}" icon="ui-icon-search" class="filtrar"/>   
+                                <p:selectOneMenu id="cursoTurma" value="#{matriculaMB.idCurso}" class="leftTel" style="width:190px">
+                                    <f:selectItem itemLabel="Selecione Curso" itemValue="0"   />
+                                    <f:selectItems value="#{matriculaMB.listaCursos}" var="cursoSelecionado" itemLabel="#{cursoSelecionado.nome}" itemValue="#{cursoSelecionado.idcurso}"/>
+                                    <p:ajax event="change" listener="#{matriculaMB.gerarListaTurma()}" update="turmaMatri"/>  
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+
+                            <br></br>
+                            <h:panelGrid columns="4" cellpadding="3" class="meio2">
+                                <p:outputLabel value="Matrícula" for="matricula" class="" />
+                                <p:outputLabel value="Turma"  class="leftC" />
+                                <p:outputLabel value="Turno" for="turno" class="cadaaluno" />
+                                <h:outputText value="Data de Rematricula" class="cadaaluno"/> 
+                            </h:panelGrid>  
+                            <h:panelGrid columns="4" cellpadding="2" class="meio2">
+                                <p:inputText id="matricula"  value="#{matriculaMB.matricula.idmatricula}" size="12" />
+
+                                <p:selectOneMenu  id="turmaMatri" class="leftP" style="width:135px" value="#{matriculaMB.idTurma}">
+                                    <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
+                                    <f:selectItems value="#{matriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
+                                    <p:ajax event="change" listener="#{matriculaMB.selecoinarTurma()}" update="turno"/>  
+                                </p:selectOneMenu>
+                                <p:inputText id="turno"  class="leftTel" size="17" value="#{matriculaMB.turma.turno}" readonly="true"/>
+                                <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="19" maxlength="12" class="left4"  readonly="true">
+                                    <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
+                                </p:calendar>    
+                            </h:panelGrid>
+                            <h:panelGrid columns="3" cellpadding="4" >
+                                <h:outputText value="CPF " class="left"/>
+                                <h:outputText value="RG" class="leftmatricula"/>
+                                <h:outputText value="Data de Nascimento" class="leftMeio21"/> 
+                            </h:panelGrid>
+                            <h:panelGrid columns="3" cellpadding="3" >
+                                <p:inputMask id="cpfCnpj" label="CPF"  size="16"  mask="999.999.999-99"  class="left" value="#{matriculaMB.cadastroAlunoMB.aluno.cpf}" readonly="true">
+                                </p:inputMask>
+                                <p:inputText id="rg" label="RG"  size="20" maxlength="19" class="leftMeioo" value="#{matriculaMB.cadastroAlunoMB.aluno.rg}"  readonly="true" />  
+                                <p:calendar id="mask"  pattern="dd/MM/yyyy"  size="21" maxlength="12" class="leftC" value="#{matriculaMB.cadastroAlunoMB.aluno.dataNascimento}" readonly="true">
+                                    <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
+                                </p:calendar>            
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="3" cellpadding="5">
+                                <p:outputLabel value="Bairro" for="bairro" class="left"/>
+                                <p:outputLabel value="Cidade" for="cidade" class="leftMeio20"/>
+                                <p:outputLabel value="Estado"  class="leftMeio7"/>
+                            </h:panelGrid>
+                            <h:panelGrid columns="3" cellpadding="5">
+                                <p:inputText id="bairro" value="#{matriculaMB.cadastroAlunoMB.aluno.bairro}"  size="26" class="left" readonly="true"/>
+                                <p:inputText id="cidade" value="#{matriculaMB.cadastroAlunoMB.aluno.cidade}"  size="18" class="leftRg"/>
+
+                                <p:selectOneMenu id="estado" value="#{matriculaMB.cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:168px"> 
+                                    <f:selectItem itemLabel="Selecione o Estado" itemValue="" noSelectionOption="true"/> 
+                                    <f:selectItem itemLabel="Acre" itemValue="AC" /> 
+                                    <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
+                                    <f:selectItem itemLabel="Amapá" itemValue="AP" />  
+                                    <f:selectItem itemLabel="Amazonas" itemValue="AM" />  
+                                    <f:selectItem itemLabel="Bahia" itemValue="BA" />  
+                                    <f:selectItem itemLabel="Ceará" itemValue="CE" />  
+                                    <f:selectItem itemLabel="Distrito Federal" itemValue="DF" />  
+                                    <f:selectItem itemLabel="Espirito Santo" itemValue="ES" />  
+                                    <f:selectItem itemLabel="Goiás" itemValue="GO" />  
+                                    <f:selectItem itemLabel="Maranhão" itemValue="MA" />  
+                                    <f:selectItem itemLabel="Mato Grosso" itemValue="MT" />  
+                                    <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="MS" />  
+                                    <f:selectItem itemLabel="Minas Gerais" itemValue="MG" />  
+                                    <f:selectItem itemLabel="Pará" itemValue="PA" />  
+                                    <f:selectItem itemLabel="Paraíba" itemValue="PB" />  
+                                    <f:selectItem itemLabel="Paraná" itemValue="PR" />  
+                                    <f:selectItem itemLabel="Pernambuco" itemValue="PE" />  
+                                    <f:selectItem itemLabel="Piauí" itemValue="PI" />  
+                                    <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />  
+                                    <f:selectItem itemLabel="Rio Grande do Norte" itemValue="RN" />  
+                                    <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />  
+                                    <f:selectItem itemLabel="Rondônia" itemValue="RO" />  
+                                    <f:selectItem itemLabel="Roraima" itemValue="RR" />  
+                                    <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />  
+                                    <f:selectItem itemLabel="São Paulo" itemValue="SP" />  
+                                    <f:selectItem itemLabel="Sergipe" itemValue="SE" />  
+                                    <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
+
+                                </p:selectOneMenu>
+
+
+                            </h:panelGrid>
+                            <br></br>
+                            <legend id="iUsu5"><b>Forma de Pagamento </b></legend>
+                            <br></br>
+                            <h:panelGrid columns="3" cellpadding="4" >
+                                <h:outputText value="Valor Total " class="left"/>
+                                <h:outputText value="Valor Entrada" class="leftC"/>
+                                <h:outputText value="Data Entrada" class="left"/> 
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="3" cellpadding="3" >
+                                <p:inputText id="valort" label="valort"  size="14" required="false"  class="leftright" value="#{matriculaMB.valorTotal}"/>
+                                <p:inputText id="valorentrada" label="valorEntrada"  size="12" maxlength="20" required="false" class="leftPright" value="#{matriculaMB.valorEntrada}"/> 
+                                <p:calendar id="dataentrada"  pattern="dd/MM/yyyy"  size="14" maxlength="15" class="leftP" value="#{matriculaMB.matricula.dataentrada}">
+                                    <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+                                </p:calendar>
+                            </h:panelGrid>
+                            <h:panelGrid columns="4" cellpadding="4" >
+                                <h:outputText value="Número de Parcelas " class="left"/>
+                                <h:outputText value="Valor da Parcela" class="left4"/>
+                                <h:outputText value="Data de Vencimento" class="left4"/> 
+                                <p:outputLabel value="Tipo de Pagamento"  class="left4"/>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="4" cellpadding="3" >
+
+                                <p:inputText id="numparcela" class="leftright"   size="15"  value="#{matriculaMB.numeroParcelas}" /> 
+                                <p:inputText id="valorparcela" label="valorparcela"  size="12" maxlength="19"  required="false" class="leftPright" value="#{matriculaMB.valorParcela}" /> 
+                                <p:calendar id="datavenc"  pattern="dd/MM/yyyy"  size="15" maxlength="15" class="left4"  value="#{matriculaMB.matricula.datavencimentoparcela}">
+                                    <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+                                </p:calendar>
+                                <p:selectOneMenu id="tipoPagamento" class="leftP" style="width:135px" value="#{matriculaMB.matricula.tipopagamento}">
+                                    <f:selectItem itemValue="0" itemLabel="Selecione" class="left"/>
+                                    <f:selectItem itemValue="Boleto" itemLabel="Boleto" class="left"/>
+                                    <f:selectItem itemValue="Cartão Débito" itemLabel="Cartão Débito" class="left2"/>
+                                    <f:selectItem itemValue="Cartão Credito" itemLabel="Cartão Credito" class="left2"/>
+                                    <f:selectItem itemValue="Cheque" itemLabel="Cheque" class="left2"/>
+                                    <f:selectItem itemValue="Dinheiro" itemLabel="Dinheiro" class="left2"/>
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+                            <br></br>
+                        </p:tab>
+                    </p:tabView>
+                    <br></br>
+                    <p:commandButton value="Matricular" icon=" ui-icon-plusthick" class="botaoCadastramatricula" actionListener="#{mensagemMB.matriculaMessagem()}" update="growl" action="#{matriculaMB.salvar}" />
+                    <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{matriculaMB.cancelar()}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>
