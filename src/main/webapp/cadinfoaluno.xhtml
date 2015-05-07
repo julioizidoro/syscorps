@@ -53,7 +53,7 @@
                                 </h:panelGrid>
                                 <h:panelGrid columns="3" cellpadding="3" >
                                     <p:inputMask id="cpfAvalista" label="CPFavalista" value="#{cadastroAlunoMB.avalista.cpf}" size="18" required="false" mask="999.999.999-99"  class="left"/>
-                                    <p:inputText id="rgAval" label="RG" value="#{cadastroAlunoMB.avalista.rg}" size="18" maxlength="10" required="false" class="leftRg"> 
+                                    <p:inputText id="rgAval" label="RG" value="#{cadastroAlunoMB.avalista.rg}" size="18" maxlength="20" required="false" class="leftRg"> 
                                     </p:inputText>
                                     <p:calendar id="maskAval" value="#{cadastroAlunoMB.avalista.dataNascimento}" pattern="dd/MM/yyyy"  size="24" maxlength="10" class="leftP" >
                                        <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
