@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAluno" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Requerimento de Matrícula" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="424"/>
+	<property name="ireport.y" value="300"/>
 	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="texto" class="java.lang.String"/>
 	<queryString>
@@ -278,67 +278,67 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<reportElement x="319" y="222" width="98" height="15" uuid="3cb56efa-de42-4b9b-bb12-f6cf2e37584e"/>
 				<text><![CDATA[Telefone Comercial:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="49" y="67" width="286" height="15" uuid="79e9bd43-5ae4-463e-b901-b1b80b2ec2d1"/>
 				<textFieldExpression><![CDATA[$F{nomeAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="53" y="108" width="183" height="15" uuid="d2a40a0d-dbb5-434f-9d8c-bc76ecda2285"/>
 				<textFieldExpression><![CDATA[$F{emailAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="269" y="108" width="102" height="15" uuid="31db3336-6192-4569-a055-d6a35e7f069b"/>
 				<textFieldExpression><![CDATA[$F{rgAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="417" y="108" width="128" height="15" uuid="fc6a582d-ff19-447c-8140-937957e093d9"/>
 				<textFieldExpression><![CDATA[$F{cpfAluno}]]></textFieldExpression>
 			</textField>
-			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="110" y="129" width="101" height="15" uuid="1a7e41fa-1100-450e-97fb-aff99229b754"/>
 				<textFieldExpression><![CDATA[$F{dataNascimentoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="269" y="129" width="141" height="15" uuid="5c157d95-2080-462d-bd89-c3bacc8ebd9f"/>
 				<textFieldExpression><![CDATA[$F{cidadeNascimentoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="444" y="129" width="99" height="15" uuid="815f4aaa-3eff-4e40-b9cd-b00660aa0390"/>
 				<textFieldExpression><![CDATA[$F{estadoNascimentoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="76" y="169" width="310" height="15" uuid="7bb140da-5356-47a9-84c8-84f5e0a071b6"/>
 				<textFieldExpression><![CDATA[$F{tipoLogradouroAluno}+" "+$F{logradouroAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="444" y="169" width="100" height="15" uuid="7a936d81-4daf-47f6-a234-5d7f7cb4dc1a"/>
 				<textFieldExpression><![CDATA[$F{numeroAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="89" y="186" width="215" height="15" uuid="b062cf4a-e4ab-4b61-a4d5-dc06af067902"/>
 				<textFieldExpression><![CDATA[$F{complementoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="360" y="186" width="183" height="15" uuid="a0665e7d-2cc4-432c-9f4a-18bdc8786f2f"/>
 				<textFieldExpression><![CDATA[$F{bairroAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="59" y="204" width="142" height="15" uuid="c585abb2-76a6-4efe-a268-be2e850cc860"/>
 				<textFieldExpression><![CDATA[$F{cidadeAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="264" y="204" width="107" height="15" uuid="424b2f0c-dc5c-48c9-be14-567242219443"/>
 				<textFieldExpression><![CDATA[$F{cepAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="86" y="148" width="100" height="15" uuid="f02d40f0-060c-4d6b-a877-140b8ec1139d"/>
 				<textFieldExpression><![CDATA[$F{foneFixoAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="288" y="148" width="100" height="15" uuid="bd867a98-fb62-4ea9-b057-6a1297ef579b"/>
 				<textFieldExpression><![CDATA[$F{foneCelularAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="418" y="222" width="124" height="15" uuid="a067888d-cb90-4b41-b2a0-cef54c4c7a70"/>
 				<textFieldExpression><![CDATA[$F{foneComercialLocalTrabalho}]]></textFieldExpression>
 			</textField>
@@ -354,23 +354,23 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<reportElement x="399" y="88" width="41" height="15" uuid="4a022058-a9b5-4f35-b33d-6f9ab21b4427"/>
 				<text><![CDATA[Turno:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="439" y="88" width="105" height="15" uuid="2bc1be60-c265-4fc6-94b3-7574a590a569"/>
 				<textFieldExpression><![CDATA[$F{turnoTurma}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="269" y="88" width="102" height="15" uuid="5e0c1bc8-6080-4715-bbe0-8c4b42c91988"/>
 				<textFieldExpression><![CDATA[$F{numeroTurma}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="48" y="88" width="167" height="15" uuid="bdc5c788-96ea-4d57-921c-f29057578751"/>
 				<textFieldExpression><![CDATA[$F{nomeCurso}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="395" y="67" width="148" height="15" uuid="6cdb34c1-2dbc-4fbe-a6e6-9efcb44d991c"/>
 				<textFieldExpression><![CDATA[$F{idaluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="133" y="222" width="171" height="15" uuid="ccb8cdad-2ea1-453a-be40-ac3b9c1cfc26"/>
 				<textFieldExpression><![CDATA[$F{nomeLocalTrabalho}]]></textFieldExpression>
 			</textField>
@@ -378,7 +378,7 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<reportElement x="385" y="204" width="39" height="15" uuid="f577fd9e-ae99-40cc-8aff-89dd0c4e7d47"/>
 				<text><![CDATA[Estado:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="424" y="204" width="119" height="15" uuid="28f74f44-b11e-4518-98b2-e17eef768c19"/>
 				<textFieldExpression><![CDATA[$F{estadoAluno}]]></textFieldExpression>
 			</textField>
@@ -403,15 +403,16 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				</textElement>
 				<text><![CDATA[Pelo presente venho requerer a matrícula no curso de capacitação técnica em ]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="124" y="286" width="339" height="15" uuid="4f3c9b00-7aac-4612-9d4b-b274e5c9f912"/>
-				<textFieldExpression><![CDATA[$F{cidadeUnidade}+"/"+$F{estadoUnidade}+"," + new java.util.Date()]]></textFieldExpression>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="124" y="286" width="221" height="15" uuid="4f3c9b00-7aac-4612-9d4b-b274e5c9f912"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{cidadeUnidade}+"/"+$F{estadoUnidade}+","]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="12" y="258" width="234" height="15" uuid="fc668a8f-e3f2-4e5c-8fb1-8ba3044d1e0f"/>
 				<textFieldExpression><![CDATA[$F{nomeMaeAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="269" y="258" width="273" height="15" uuid="fd025a0f-0132-4919-bbf9-0894fd58d114"/>
 				<textFieldExpression><![CDATA[$F{nomePaiAluno}]]></textFieldExpression>
 			</textField>
@@ -464,14 +465,18 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<reportElement x="395" y="625" width="139" height="15" uuid="7e34e219-391d-463d-a969-43130bda3451"/>
 				<text><![CDATA[Ass:___________________]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="32" y="347" width="237" height="15" uuid="9fd645b9-ac73-4a82-9c84-e15abe669b14"/>
 				<textFieldExpression><![CDATA[$F{nomeCurso}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="10" y="375" width="534" height="82" uuid="80c4011a-a8c1-45af-ab49-966504d4a5e5"/>
 				<textElement textAlignment="Justified"/>
 				<textFieldExpression><![CDATA[$P{texto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="345" y="286" width="100" height="15" uuid="b330a984-08be-485a-ae79-f48790de12e8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
