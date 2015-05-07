@@ -264,10 +264,32 @@ public class MatriculaMB implements Serializable{
          matricula.setValorparcela(Formatacao.formatarStringfloat(valorParcela));
          matricula.setValortotal(Formatacao.formatarStringfloat(valorTotal));
          matriculaFacade.salvar(matricula);
+         cadastroAlunoMB.setAluno(new Aluno());
+         matricula = new Matricula();
+         idTurma="0";
+         listaCursos = null;
+         listaTurma=null;
+         valorEntrada="";
+         valorParcela="";
+         valorTotal="";
+         idCurso="0";
+         numeroParcelas="";
+         turma = new Turma();
          return "inicial";
      }
      
      public String cancelar(){
+         cadastroAlunoMB.setAluno(new Aluno());
+         matricula = new Matricula();
+         idTurma="0";
+         listaCursos = null;
+         listaTurma=null;
+         valorEntrada="";
+         valorParcela="";
+         valorTotal="";
+         idCurso="0";
+         numeroParcelas="";
+         turma = new Turma();
          return "inicial";
      }
      

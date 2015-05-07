@@ -27,13 +27,13 @@
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
                                  paginator="true" rows="10" style="margin-bottom:20px"> 
                         <p:column headerText="Nome" >
-                            <h:outputText value="#{listaMatricula.aluno.nome}" />
+                            <h:outputText value="#{listaaluno.aluno.nome}" />
                         </p:column>
                         <p:column headerText="E-mail" style="width:300px" >
-                            <h:outputText value="#{listaMatricula.aluno.email}" />
+                            <h:outputText value="#{listaaluno.aluno.email}" />
                         </p:column>
                         <p:column style="width:28px">
-                            <p:selectBooleanCheckbox value="#{listaMatricula.selecionado}"/>
+                            <p:selectBooleanCheckbox value="#{listaaluno.selecionado}"/>
                         </p:column>
                     </p:dataTable>
                     <h:commandLink>

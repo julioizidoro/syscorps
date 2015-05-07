@@ -5,8 +5,10 @@
  */
 package br.com.santecorps.managerBean;
 
+import br.com.santecorps.model.Aluno;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -16,6 +18,9 @@ import javax.inject.Named;
 @Named
 @SessionScoped
 public class MenuMB implements Serializable{
+    
+    @Inject
+    private CadastroAlunoMB cadastroAlunoMB;
     
     public String cadastroCursos(){
         return "conscursos";
@@ -44,6 +49,7 @@ public class MenuMB implements Serializable{
          return "inicial";
      }
      public String matricula(){
+         cadastroAlunoMB.setAluno(new Aluno());
          return "matricula";
      }
      public String rematricula(){
