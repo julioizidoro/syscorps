@@ -56,6 +56,7 @@ public class MatriculaMB implements Serializable{
     private boolean termo;
     private boolean recibo;
     private boolean lista;
+    private boolean requerimento;
     
 
     public MatriculaMB() {
@@ -80,6 +81,14 @@ public class MatriculaMB implements Serializable{
 
     public void setCadastroAlunoMB(CadastroAlunoMB cadastroAlunoMB) {
         this.cadastroAlunoMB = cadastroAlunoMB;
+    }
+
+    public boolean isRequerimento() {
+        return requerimento;
+    }
+
+    public void setRequerimento(boolean requerimento) {
+        this.requerimento = requerimento;
     }
 
     public String getIdTurma() {
@@ -302,6 +311,9 @@ public class MatriculaMB implements Serializable{
         if (contrato){
             imprimirContratoEscolar();
         }
+        if (requerimento){
+            imprimirRequerimento();
+        }
     }
     
     public void finalizarImpressao(){
@@ -393,7 +405,7 @@ public class MatriculaMB implements Serializable{
         }
     }
     
-    public void imprimirTermo(){
+    public void imprimirRequerimento(){
         if (matricula!=null) {
             String caminhoRelatorio = "/resources/relatorios/matricula/requerimento.jasper";
             Map parameters = new HashMap();
