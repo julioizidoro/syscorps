@@ -145,18 +145,24 @@ public class CadastroAlunoMB implements Serializable{
     }
     
     public String salvarAluno(){
+        boolean cadAluno = false;
+        if (aluno.getIdaluno()==null){
+            cadAluno = true;
+        }
         AlunoFacade alunoFacade = new AlunoFacade();
         UnidadeFacade unidadeFacade = new UnidadeFacade();
         Unidade unidade = unidadeFacade.getUnidade(1);
         aluno.setUnidade(unidade);
         aluno.setMes(Formatacao.retornoMesData(aluno.getDataNascimento()));
         aluno = alunoFacade.salvar(aluno);
-        avalista.setAluno(aluno);
-        avalista = alunoFacade.salvarAvalista(avalista);
-        conjuge.setAluno(aluno);
-        conjuge = alunoFacade.salvarConjuge(conjuge);
-        localTrabalho.setAluno(aluno);
-        localTrabalho = alunoFacade.salvarLocalTrabalho(localTrabalho);
+        if (cadAluno) {
+            avalista.setAluno(aluno);
+            avalista = alunoFacade.salvarAvalista(avalista);
+            conjuge.setAluno(aluno);
+            conjuge = alunoFacade.salvarConjuge(conjuge);
+            localTrabalho.setAluno(aluno);
+            localTrabalho = alunoFacade.salvarLocalTrabalho(localTrabalho);
+        }
         CarregarLitaAluno();
         return "consaluno";
     }
@@ -182,9 +188,6 @@ public class CadastroAlunoMB implements Serializable{
                     if (aluno.getAvalistaList().size()>0){
                         avalista = aluno.getAvalistaList().get(0);
                     }
-                }
-                if (avalista==null){
-                    avalista = new Avalista();
                 }
                 if (aluno.getLocaltrabalhoList()!=null){
                     if (aluno.getLocaltrabalhoList().size()>0){

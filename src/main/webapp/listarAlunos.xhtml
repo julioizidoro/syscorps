@@ -23,7 +23,7 @@
                             <p:ajax event="change" listener="#{matriculaMB.carregarListaMatricula()}" update="listaaluno"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
-                    <p:dataTable id="listaaluno" var="listaMatricula" value="#{matriculaMB.listaMatricula}" class="tabelacursos" rowStyleClass="tabela" 
+                    <p:dataTable id="listaaluno" var="listaaluno" value="#{matriculaMB.listaMatricula}" class="tabelacursos" rowStyleClass="tabela" 
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
                                  paginator="true" rows="10" style="margin-bottom:20px"> 
                         <p:column headerText="Nome" >

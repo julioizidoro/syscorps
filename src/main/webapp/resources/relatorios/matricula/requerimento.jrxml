@@ -2,181 +2,200 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAluno" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="258"/>
+	<property name="ireport.y" value="424"/>
+	<parameter name="idmatricula" class="java.lang.Integer"/>
+	<parameter name="texto" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select * from turma, aluno, conjuge, avalista, localTrabalho, matricula, curso;]]>
+		<![CDATA[select distinct
+    matricula.tipopagamento,
+    matricula.valortotal,
+    matricula.valorentrada,
+    matricula.dataentrada,
+    matricula.numeroparcelas,
+    matricula.valorparcela,
+    matricula.datavencimentoparcela,
+    matricula.aluno_idaluno,
+    matricula.turma_idturma,
+    matricula.datamatricula,
+    aluno.idaluno,
+    aluno.nome as nomeAluno,
+    aluno.email as emailAluno,
+    aluno.rg as rgAluno,
+    aluno.cpf as cpfAluno,
+    aluno.nomeMae as nomeMaeAluno,
+    aluno.nomePai as nomePaiAluno,
+    aluno.dataNascimento as dataNascimentoAluno,
+    aluno.cidadeNascimento as cidadeNascimentoAluno,
+    aluno.estadoNascimento as estadoNascimentoAluno,
+    aluno.profissao as profissaoAluno,
+    aluno.nascionalidade as nacionalidadeAluno,
+    aluno.estadoCivil as estadoCivilAluno,
+    aluno.tipoLogradouro as tipoLogradouroAluno,
+    aluno.logradouro as logradouroAluno,
+    aluno.numero as numeroAluno,
+    aluno.complemento as complementoAluno,
+    aluno.bairro as bairroAluno,
+    aluno.cidade as cidadeAluno,
+    aluno.estado as estadoAluno,
+    aluno.cep as cepAluno,
+    aluno.foneFixo as foneFixoAluno,
+    aluno.foneCelular as foneCelularAluno,
+    aluno.referenciaPessoal as referenciaPessoalAluno,
+    aluno.foneReferenciaPessoal as foneReferenciaPessoalAluno,
+    aluno.trabalha as trabalaAluno,
+
+    localtrabalho.nome as nomeLocalTrabalho,
+    localtrabalho.foneComercial as foneComercialLocalTrabalho,
+    localtrabalho.cargo as cargoLocalTrabalho,
+    localtrabalho.ComprovanteRenda as comprovanteRendaLocalTrabalho,
+    localtrabalho.outrasRendas as outrasRendasLocalTrabalho,
+    curso.nome as nomeCurso,
+    curso.cargahoraria as cargaHorariaCurso,
+    curso.tipo as tipoCurso,
+	turma.numero as numeroTurma,
+    turma.nome as nomeTurma,
+    turma.turno as turnoTurma,
+turma.dataInicio as dataInicioTurma,
+    unidade.nomefantasia,
+    unidade.cidade as cidadeUnidade,
+    unidade.estado as estadoUnidade,
+unidade.endereco as enderecoUnidade,
+unidade.complemento as complementoUnidade,
+unidade.bairro as bairroUnidade,
+unidade.cep as cepUnidade,
+unidade.fone as foneUnidade
+    From
+		matricula join aluno on matricula.aluno_idaluno = aluno.idaluno
+        join avalista on aluno.idaluno = avalista.aluno_idaluno
+        join conjuge on aluno.idaluno = conjuge.aluno_idaluno
+        join localtrabalho on aluno.idaluno = localtrabalho.aluno_idaluno
+        join turma on matricula.turma_idturma = turma.idturma
+        join curso on turma.curso_idcurso = curso.idcurso
+        join unidade on aluno.unidade_idunidade = unidade.idunidade
+where matricula.idmatricula=$P{idmatricula};]]>
 	</queryString>
-	<field name="idturma" class="java.lang.Integer">
+	<field name="tipopagamento" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numero" class="java.lang.String">
+	<field name="valortotal" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nome" class="java.lang.String">
+	<field name="valorentrada" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="turno" class="java.lang.String">
+	<field name="dataentrada" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="datainicio" class="java.sql.Date">
+	<field name="numeroparcelas" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="datatermino" class="java.sql.Date">
+	<field name="valorparcela" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="segunda" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="terca" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="quarta" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="quita" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="sexta" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="sabado" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horarioinicio" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horaioiniciointervalo" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horarioterminointervalo" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horariotermino" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="responsavel" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="liderclasse" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="curso_idcurso" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="unidade_idunidade" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="dataformatura" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="formada" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="idaluno" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="email" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="rg" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cpf" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nomeMae" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nomePai" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="dataNascimento" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cidadeNascimento" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="estadoNascimento" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="profissao" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nascionalidade" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="estadoCivil" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="tipoLogradouro" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="logradouro" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="complemento" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="bairro" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cidade" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="estado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cep" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="foneFixo" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="foneCelular" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="referenciaPessoal" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="foneReferenciaPessoal" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="trabalha" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="mes" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="idconjuge" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="rendaMensal" class="java.lang.Float">
+	<field name="datavencimentoparcela" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="aluno_idaluno" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="turma_idturma" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="datamatricula" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idaluno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeAluno" class="java.lang.String"/>
+	<field name="emailAluno" class="java.lang.String"/>
+	<field name="rgAluno" class="java.lang.String"/>
+	<field name="cpfAluno" class="java.lang.String"/>
+	<field name="nomeMaeAluno" class="java.lang.String"/>
+	<field name="nomePaiAluno" class="java.lang.String"/>
+	<field name="dataNascimentoAluno" class="java.sql.Date"/>
+	<field name="cidadeNascimentoAluno" class="java.lang.String"/>
+	<field name="estadoNascimentoAluno" class="java.lang.String"/>
+	<field name="profissaoAluno" class="java.lang.String"/>
+	<field name="nacionalidadeAluno" class="java.lang.String"/>
+	<field name="estadoCivilAluno" class="java.lang.String"/>
+	<field name="tipoLogradouroAluno" class="java.lang.String"/>
+	<field name="logradouroAluno" class="java.lang.String"/>
+	<field name="numeroAluno" class="java.lang.String"/>
+	<field name="complementoAluno" class="java.lang.String"/>
+	<field name="bairroAluno" class="java.lang.String"/>
+	<field name="cidadeAluno" class="java.lang.String"/>
+	<field name="estadoAluno" class="java.lang.String"/>
+	<field name="cepAluno" class="java.lang.String"/>
+	<field name="foneFixoAluno" class="java.lang.String"/>
+	<field name="foneCelularAluno" class="java.lang.String"/>
+	<field name="referenciaPessoalAluno" class="java.lang.String"/>
+	<field name="foneReferenciaPessoalAluno" class="java.lang.String"/>
+	<field name="trabalaAluno" class="java.lang.String"/>
+	<field name="nomeLocalTrabalho" class="java.lang.String"/>
+	<field name="foneComercialLocalTrabalho" class="java.lang.String"/>
+	<field name="cargoLocalTrabalho" class="java.lang.String"/>
+	<field name="comprovanteRendaLocalTrabalho" class="java.lang.String"/>
+	<field name="outrasRendasLocalTrabalho" class="java.lang.String"/>
+	<field name="nomeCurso" class="java.lang.String"/>
+	<field name="cargaHorariaCurso" class="java.lang.String"/>
+	<field name="tipoCurso" class="java.lang.String"/>
+	<field name="numeroTurma" class="java.lang.String"/>
+	<field name="nomeTurma" class="java.lang.String"/>
+	<field name="turnoTurma" class="java.lang.String"/>
+	<field name="dataInicioTurma" class="java.sql.Date"/>
+	<field name="nomefantasia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cidadeUnidade" class="java.lang.String"/>
+	<field name="estadoUnidade" class="java.lang.String"/>
+	<field name="enderecoUnidade" class="java.lang.String"/>
+	<field name="complementoUnidade" class="java.lang.String"/>
+	<field name="bairroUnidade" class="java.lang.String"/>
+	<field name="cepUnidade" class="java.lang.String"/>
+	<field name="foneUnidade" class="java.lang.String"/>
 	<group name="Group2"/>
 	<group name="Group3"/>
 	<group name="Group4"/>
 	<title>
-		<band height="98">
+		<band height="122">
 			<staticText>
-				<reportElement x="23" y="60" width="527" height="38" uuid="de41be37-d982-4334-85ec-e0d7a410c090"/>
+				<reportElement x="0" y="79" width="555" height="21" uuid="de41be37-d982-4334-85ec-e0d7a410c090"/>
 				<textElement textAlignment="Center">
-					<font size="15"/>
+					<font size="15" isBold="true"/>
 				</textElement>
 				<text><![CDATA[REQUERIMENTO DE MATRÍCULA
-Centro Técnico Santé Corps Ltda]]></text>
+]]></text>
 			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="240" y="42" width="312" height="15" uuid="5b1fb95b-a1fc-4a60-898b-e214fe7b866e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bairroUnidade} + " - " + $F{cidadeUnidade} + " - " + $F{estadoUnidade}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="240" y="57" width="312" height="15" uuid="00d4047e-1fa1-4ca7-94ad-6b040c78c51b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{foneUnidade}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="240" y="27" width="312" height="15" uuid="00aad1c1-8ecf-46ab-b4fe-efc37d3ad5eb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoUnidade}]]></textFieldExpression>
+			</textField>
 			<image>
-				<reportElement x="4" y="3" width="97" height="69" uuid="b7787ddd-c2c5-44d8-a904-c5309aa8cb52"/>
-				<imageExpression><![CDATA["C:\\Users\\Kamila\\Pictures\\logoRelatorio.png"]]></imageExpression>
+				<reportElement x="10" y="10" width="114" height="62" uuid="d5257f69-159c-4e0e-a067-2d67a5226013"/>
+				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="704">
+		<band height="653">
 			<line>
 				<reportElement x="0" y="36" width="555" height="1" forecolor="#666666" uuid="fb65ae6c-7923-469f-a021-5aff68ad8e13"/>
 			</line>
@@ -213,7 +232,7 @@ Centro Técnico Santé Corps Ltda]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="227" y="129" width="42" height="15" uuid="2c275450-f5f1-4f82-b997-0190c3b0c67f"/>
-				<text><![CDATA[   Local:]]></text>
+				<text><![CDATA[Local:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="424" y="129" width="20" height="15" uuid="da1d56c0-da41-450e-a4eb-d219f4f05418"/>
@@ -229,7 +248,7 @@ Centro Técnico Santé Corps Ltda]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="10" y="186" width="77" height="15" uuid="0d08e444-f3c8-4aa3-bf87-d0bb520acd77"/>
-				<text><![CDATA[ Complemento:]]></text>
+				<text><![CDATA[Complemento:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="323" y="186" width="37" height="15" uuid="8295a9d3-f781-46c4-b2cf-1e0d026e0223"/>
@@ -240,8 +259,8 @@ Centro Técnico Santé Corps Ltda]]></text>
 				<text><![CDATA[Cidade:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="227" y="204" width="37" height="15" uuid="f97a2202-3b96-4cfe-bde6-deb23d4cd351"/>
-				<text><![CDATA[  CEP:]]></text>
+				<reportElement x="230" y="204" width="34" height="15" uuid="f97a2202-3b96-4cfe-bde6-deb23d4cd351"/>
+				<text><![CDATA[CEP:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="10" y="148" width="77" height="15" uuid="399c1db7-e622-4e85-9c95-8e659ad416ab"/>
@@ -249,7 +268,7 @@ Centro Técnico Santé Corps Ltda]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="238" y="148" width="49" height="15" uuid="6a3a939c-cce9-48b1-9a95-d98966b15219"/>
-				<text><![CDATA[   Celular:]]></text>
+				<text><![CDATA[Celular:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="10" y="222" width="123" height="15" uuid="8e06a3ae-6640-4507-b5c9-b0b01a6ce8b8"/>
@@ -261,70 +280,70 @@ Centro Técnico Santé Corps Ltda]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="49" y="67" width="286" height="15" uuid="79e9bd43-5ae4-463e-b901-b1b80b2ec2d1"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="53" y="108" width="183" height="15" uuid="d2a40a0d-dbb5-434f-9d8c-bc76ecda2285"/>
-				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emailAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="269" y="108" width="102" height="15" uuid="31db3336-6192-4569-a055-d6a35e7f069b"/>
-				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{rgAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="417" y="108" width="128" height="15" uuid="fc6a582d-ff19-447c-8140-937957e093d9"/>
-				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cpfAluno}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
 				<reportElement x="110" y="129" width="101" height="15" uuid="1a7e41fa-1100-450e-97fb-aff99229b754"/>
-				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dataNascimentoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="269" y="129" width="141" height="15" uuid="5c157d95-2080-462d-bd89-c3bacc8ebd9f"/>
-				<textFieldExpression><![CDATA[$F{cidadeNascimento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cidadeNascimentoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="444" y="129" width="110" height="15" uuid="815f4aaa-3eff-4e40-b9cd-b00660aa0390"/>
-				<textFieldExpression><![CDATA[$F{estadoNascimento}]]></textFieldExpression>
+				<reportElement x="444" y="129" width="99" height="15" uuid="815f4aaa-3eff-4e40-b9cd-b00660aa0390"/>
+				<textFieldExpression><![CDATA[$F{estadoNascimentoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="76" y="169" width="310" height="15" uuid="7bb140da-5356-47a9-84c8-84f5e0a071b6"/>
-				<textFieldExpression><![CDATA[$F{tipoLogradouro}+" "+$F{logradouro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tipoLogradouroAluno}+" "+$F{logradouroAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="444" y="169" width="100" height="15" uuid="7a936d81-4daf-47f6-a234-5d7f7cb4dc1a"/>
-				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numeroAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="89" y="186" width="215" height="15" uuid="b062cf4a-e4ab-4b61-a4d5-dc06af067902"/>
-				<textFieldExpression><![CDATA[$F{complemento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{complementoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="360" y="186" width="183" height="15" uuid="a0665e7d-2cc4-432c-9f4a-18bdc8786f2f"/>
-				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{bairroAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="59" y="204" width="142" height="15" uuid="c585abb2-76a6-4efe-a268-be2e850cc860"/>
-				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cidadeAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="264" y="204" width="107" height="15" uuid="424b2f0c-dc5c-48c9-be14-567242219443"/>
-				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cepAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="86" y="148" width="100" height="15" uuid="f02d40f0-060c-4d6b-a877-140b8ec1139d"/>
-				<textFieldExpression><![CDATA[$F{foneFixo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneFixoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="288" y="148" width="100" height="15" uuid="bd867a98-fb62-4ea9-b057-6a1297ef579b"/>
-				<textFieldExpression><![CDATA[$F{foneCelular}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneCelularAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="418" y="222" width="124" height="15" uuid="a067888d-cb90-4b41-b2a0-cef54c4c7a70"/>
-				<textFieldExpression><![CDATA[$F{foneComercial}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{foneComercialLocalTrabalho}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="12" y="88" width="35" height="15" uuid="880dd837-8dd5-4bb3-8d93-53be132110d8"/>
+				<reportElement x="10" y="88" width="35" height="15" uuid="880dd837-8dd5-4bb3-8d93-53be132110d8"/>
 				<text><![CDATA[Curso:]]></text>
 			</staticText>
 			<staticText>
@@ -336,24 +355,24 @@ Centro Técnico Santé Corps Ltda]]></text>
 				<text><![CDATA[Turno:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="439" y="88" width="100" height="15" uuid="2bc1be60-c265-4fc6-94b3-7574a590a569"/>
-				<textFieldExpression><![CDATA[$F{turno}]]></textFieldExpression>
+				<reportElement x="439" y="88" width="105" height="15" uuid="2bc1be60-c265-4fc6-94b3-7574a590a569"/>
+				<textFieldExpression><![CDATA[$F{turnoTurma}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="269" y="88" width="102" height="15" uuid="5e0c1bc8-6080-4715-bbe0-8c4b42c91988"/>
-				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numeroTurma}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="48" y="88" width="167" height="15" uuid="bdc5c788-96ea-4d57-921c-f29057578751"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeCurso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="395" y="67" width="149" height="15" uuid="6cdb34c1-2dbc-4fbe-a6e6-9efcb44d991c"/>
-				<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+				<reportElement x="395" y="67" width="148" height="15" uuid="6cdb34c1-2dbc-4fbe-a6e6-9efcb44d991c"/>
+				<textFieldExpression><![CDATA[$F{idaluno}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="133" y="222" width="171" height="15" uuid="ccb8cdad-2ea1-453a-be40-ac3b9c1cfc26"/>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeLocalTrabalho}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="385" y="204" width="39" height="15" uuid="f577fd9e-ae99-40cc-8aff-89dd0c4e7d47"/>
@@ -361,15 +380,15 @@ Centro Técnico Santé Corps Ltda]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="424" y="204" width="119" height="15" uuid="28f74f44-b11e-4518-98b2-e17eef768c19"/>
-				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{estadoAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="43" y="519" width="219" height="15" uuid="ef8bd3e8-993c-44f3-a501-cc4f9c78ef63"/>
 				<text><![CDATA[Assinatura do Participante e/ou Responsável]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="371" y="518" width="104" height="15" uuid="26b8d735-c4ad-4c10-9ac1-0bcd2931ce46"/>
-				<text><![CDATA[Derimento do Diretor]]></text>
+				<reportElement x="371" y="518" width="146" height="15" uuid="26b8d735-c4ad-4c10-9ac1-0bcd2931ce46"/>
+				<text><![CDATA[Deferimento do Diretor]]></text>
 			</staticText>
 			<line>
 				<reportElement x="316" y="517" width="227" height="1" uuid="866016d7-521b-4038-9a93-f9122a062549"/>
@@ -378,37 +397,27 @@ Centro Técnico Santé Corps Ltda]]></text>
 				<reportElement x="27" y="518" width="237" height="1" uuid="44a05d51-6a1d-4f5a-8ab2-f76199a788da"/>
 			</line>
 			<staticText>
-				<reportElement x="19" y="369" width="392" height="15" uuid="fc26867a-f051-4b16-b830-afe501bb9697"/>
+				<reportElement x="18" y="328" width="392" height="15" uuid="fc26867a-f051-4b16-b830-afe501bb9697"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Pelo presente venho requerer a matrícula no curso de capacitação técnica em ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="143" y="286" width="243" height="15" uuid="4f3c9b00-7aac-4612-9d4b-b274e5c9f912"/>
-				<textFieldExpression><![CDATA[$F{cidade}+"/"+$F{estado}+",  "+new java.util.Date()]]></textFieldExpression>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="124" y="286" width="339" height="15" uuid="4f3c9b00-7aac-4612-9d4b-b274e5c9f912"/>
+				<textFieldExpression><![CDATA[$F{cidadeUnidade}+"/"+$F{estadoUnidade}+"," + new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="66" y="258" width="196" height="15" uuid="fc668a8f-e3f2-4e5c-8fb1-8ba3044d1e0f"/>
-				<textFieldExpression><![CDATA[$F{nomeMae}]]></textFieldExpression>
+				<reportElement x="12" y="258" width="234" height="15" uuid="fc668a8f-e3f2-4e5c-8fb1-8ba3044d1e0f"/>
+				<textFieldExpression><![CDATA[$F{nomeMaeAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="269" y="258" width="196" height="15" uuid="fd025a0f-0132-4919-bbf9-0894fd58d114"/>
-				<textFieldExpression><![CDATA[$F{nomePai}]]></textFieldExpression>
+				<reportElement x="269" y="258" width="273" height="15" uuid="fd025a0f-0132-4919-bbf9-0894fd58d114"/>
+				<textFieldExpression><![CDATA[$F{nomePaiAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="238" y="243" width="46" height="15" uuid="7b72693e-735e-467e-807b-3f569f01f12c"/>
+				<reportElement x="12" y="243" width="46" height="15" uuid="7b72693e-735e-467e-807b-3f569f01f12c"/>
 				<text><![CDATA[Filiação]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="19" y="399" width="525" height="82" uuid="cde692e0-d891-4370-ad93-5eb67abd9522"/>
-				<textElement textAlignment="Justified"/>
-				<text><![CDATA[Declaro que as informações contidas estão corretas e verdadeiras, ficando o Centro Técnico Santé Corps Ltda, desde já autorizado a verificá-las. Autorizo o Centro Técnico  Santé Corps, em caráter irrevogável e irretratável a transmitir e consultar informações de crédito do Banco Central do Brasil, listas impeditivas e SERASA/SPC da forma de regulamentação aplicável, e encaminhar sem qualquer ônus mensagem de texto e voz, através de telefone celular de minha titularidade acima mencionado, a respeito de promoções eventuais e pendências junto o Centro Técnico Santé Corps Ltda.
-
-
-
-
-]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="113" y="578" width="51" height="14" uuid="c280f3bf-4204-4565-8814-a931d4c5b993"/>
@@ -456,8 +465,13 @@ Centro Técnico Santé Corps Ltda]]></text>
 				<text><![CDATA[Ass:___________________]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="86" y="384" width="237" height="15" uuid="9fd645b9-ac73-4a82-9c84-e15abe669b14"/>
+				<reportElement x="32" y="347" width="237" height="15" uuid="9fd645b9-ac73-4a82-9c84-e15abe669b14"/>
 				<textFieldExpression><![CDATA[$F{nomeCurso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="375" width="534" height="82" uuid="80c4011a-a8c1-45af-ab49-966504d4a5e5"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$P{texto}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
