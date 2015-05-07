@@ -673,6 +673,11 @@
         margin-left:40px;
         font-size: 12px;
     }
+    .leftRgRight{
+        margin-left:40px;
+        font-size: 12px;
+        text-align: right;
+    }
     .leftTel{
         margin-left:5px;
         font-size: 12px;
