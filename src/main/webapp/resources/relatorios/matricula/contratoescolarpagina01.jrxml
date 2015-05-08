@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 01" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a36d150-d094-4fe4-9053-566166e9ec94">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="454"/>
+	<property name="ireport.y" value="423"/>
 	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Google Drive\\Desenvolvimento\\syscorps\\sistema\\syscorps\\src\\main\\webapp\\resources\\relatorios\\matricula\\"]]></defaultValueExpression>
@@ -187,11 +187,11 @@ $F{cidadeUnidade}+"/" + $F{estadoUnidade} + " , doravante denominada CONTRATADO,
 				<textFieldExpression><![CDATA[$F{nomeAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="426" y="109" width="117" height="15" uuid="b491cccd-2f1a-4623-8577-8f2b69e37140"/>
+				<reportElement x="430" y="109" width="113" height="15" uuid="b491cccd-2f1a-4623-8577-8f2b69e37140"/>
 				<textFieldExpression><![CDATA[$F{cpfAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="397" y="109" width="29" height="15" uuid="30a26df1-fd1c-42a9-b5b8-dd256447cc14"/>
+				<reportElement x="401" y="109" width="29" height="15" uuid="30a26df1-fd1c-42a9-b5b8-dd256447cc14"/>
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<textField>
@@ -208,14 +208,14 @@ $F{cidadeUnidade}+"/" + $F{estadoUnidade} + " , doravante denominada CONTRATADO,
 			</staticText>
 			<staticText>
 				<reportElement x="245" y="128" width="49" height="15" uuid="f58d8c7f-51a1-480f-a185-e4ba9b006d6a"/>
-				<text><![CDATA[   Celular:]]></text>
+				<text><![CDATA[Celular:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="87" y="128" width="100" height="15" uuid="3fe3b7d9-3f2a-4976-8652-53402bd54cdc"/>
 				<textFieldExpression><![CDATA[$F{foneFixoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="297" y="128" width="100" height="15" uuid="809f2241-9aad-438c-bdfc-88561881b0c0"/>
+				<reportElement x="287" y="128" width="100" height="15" uuid="809f2241-9aad-438c-bdfc-88561881b0c0"/>
 				<textFieldExpression><![CDATA[$F{foneCelularAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -231,15 +231,15 @@ $F{cidadeUnidade}+"/" + $F{estadoUnidade} + " , doravante denominada CONTRATADO,
 				<text><![CDATA[ Complemento:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="227" y="181" width="37" height="15" uuid="6327f099-1eed-48c3-85cc-66424607def0"/>
-				<text><![CDATA[  CEP:]]></text>
+				<reportElement x="245" y="181" width="37" height="15" uuid="6327f099-1eed-48c3-85cc-66424607def0"/>
+				<text><![CDATA[ CEP:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="385" y="181" width="39" height="15" uuid="65d2130c-f38b-4a57-ae19-06aeb4364d89"/>
+				<reportElement x="402" y="181" width="39" height="15" uuid="65d2130c-f38b-4a57-ae19-06aeb4364d89"/>
 				<text><![CDATA[Estado:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="59" y="181" width="142" height="15" uuid="cdf13ad3-9233-4cbe-b056-e71cd3cb7426"/>
+				<reportElement x="53" y="181" width="142" height="15" uuid="cdf13ad3-9233-4cbe-b056-e71cd3cb7426"/>
 				<textFieldExpression><![CDATA[$F{cidadeAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -255,7 +255,7 @@ $F{cidadeUnidade}+"/" + $F{estadoUnidade} + " , doravante denominada CONTRATADO,
 				<text><![CDATA[Cidade:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="89" y="163" width="215" height="15" uuid="22a5b987-ed9f-4a0e-a868-e4a2867eec55"/>
+				<reportElement x="85" y="163" width="215" height="15" uuid="22a5b987-ed9f-4a0e-a868-e4a2867eec55"/>
 				<textFieldExpression><![CDATA[$F{complementoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -263,15 +263,15 @@ $F{cidadeUnidade}+"/" + $F{estadoUnidade} + " , doravante denominada CONTRATADO,
 				<textFieldExpression><![CDATA[$F{numeroAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="424" y="181" width="119" height="15" uuid="c19abe8b-95f6-422a-867d-d017708a8fd0"/>
+				<reportElement x="441" y="181" width="103" height="15" uuid="c19abe8b-95f6-422a-867d-d017708a8fd0"/>
 				<textFieldExpression><![CDATA[$F{estadoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="264" y="181" width="107" height="15" uuid="8de6c6b4-cef0-4bcc-89b1-d356f259162a"/>
+				<reportElement x="280" y="181" width="107" height="15" uuid="8de6c6b4-cef0-4bcc-89b1-d356f259162a"/>
 				<textFieldExpression><![CDATA[$F{cepAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="76" y="146" width="310" height="15" uuid="db0ba90d-f1ad-4e00-b411-f58d8c22bc2c"/>
+				<reportElement x="65" y="146" width="310" height="15" uuid="db0ba90d-f1ad-4e00-b411-f58d8c22bc2c"/>
 				<textFieldExpression><![CDATA[$F{tipoLogradouroAluno}+" "+$F{logradouroAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -298,12 +298,12 @@ Parágrafo 2o  O CONTRATANTE declara, neste ato, que conheceu previamente as ins
 " na turma "+ $F{numeroTurma}+" no turno "+$F{turnoTurma}+" ou até 30 dias da presente data."]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="7" y="487" width="548" height="42" uuid="0b1129e1-1259-482c-b392-3a1be585c570"/>
+				<reportElement x="7" y="482" width="548" height="42" uuid="0b1129e1-1259-482c-b392-3a1be585c570"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Parágrafo 4o. Reserva-se o CONTRATADO, até 5(cInco) dias antes do início de cada curso, o direito de cancelar qualquer turma cujo  número de alunos matriculados seja inferior a 10 (dez), ficando assegurado ao aluno, neste caso, o direito de ocupar uma vaga em outra  turma da mesma natureza, no mesmo ou em outro turno, desde que exista.  ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="7" y="529" width="548" height="123" uuid="43206b18-a108-4018-81b2-fddcb59ea82c"/>
+				<reportElement x="7" y="523" width="548" height="123" uuid="43206b18-a108-4018-81b2-fddcb59ea82c"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Parágrafo 5o. O CONTRATADO, não se responsabiliza e não realiza transporte de alunos.
 Parágrafo 6o.Se o número de alunos matriculados até a data prevista para o início do Curso for considerado insuficiente pelo CONTRATADO, o Curso poderá ser adiado no máximo até 30 dias do início previsto no Parágrafo anterior, implicando no adiamento das parcelas à pagar referente a prestação de serviços educacionais referida neste Contrato.

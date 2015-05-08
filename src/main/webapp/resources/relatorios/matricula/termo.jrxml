@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="termo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65b9b9cc-f66d-4680-a011-7e0f021da4eb">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="192"/>
+	<property name="ireport.y" value="240"/>
 	<parameter name="idmatricula" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select distinct
@@ -273,7 +273,7 @@ where matricula.idmatricula=$P{idmatricula};]]>
 			</textField>
 			<staticText>
 				<reportElement x="10" y="360" width="77" height="15" uuid="73926685-cbc8-4d07-a6aa-6b8e84f9b078"/>
-				<text><![CDATA[ Complemento:]]></text>
+				<text><![CDATA[Complemento:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="227" y="378" width="37" height="15" uuid="cdd84e82-6f13-4f53-ab0e-feaa26478172"/>
@@ -288,7 +288,7 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<textFieldExpression><![CDATA[$F{cidadeAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="400" y="343" width="40" height="15" uuid="1ae7a4d3-d16f-4ff4-8b3a-2dbe13a2decd"/>
+				<reportElement x="383" y="343" width="40" height="15" uuid="1ae7a4d3-d16f-4ff4-8b3a-2dbe13a2decd"/>
 				<text><![CDATA[Número:]]></text>
 			</staticText>
 			<staticText>
@@ -300,11 +300,11 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<text><![CDATA[Cidade:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="89" y="360" width="215" height="15" uuid="f09c5ab3-2966-4227-93c5-09462dae4df5"/>
+				<reportElement x="87" y="360" width="215" height="15" uuid="f09c5ab3-2966-4227-93c5-09462dae4df5"/>
 				<textFieldExpression><![CDATA[$F{complementoAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="444" y="343" width="99" height="15" uuid="96d8167f-5353-422d-8cea-d73745c7aa2a"/>
+				<reportElement x="423" y="343" width="120" height="15" uuid="96d8167f-5353-422d-8cea-d73745c7aa2a"/>
 				<textFieldExpression><![CDATA[$F{numeroAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -316,7 +316,7 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<textFieldExpression><![CDATA[$F{cepAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="76" y="343" width="310" height="15" uuid="bea9e52f-bf53-4bd8-8784-3ea87efa3615"/>
+				<reportElement x="76" y="343" width="284" height="15" uuid="bea9e52f-bf53-4bd8-8784-3ea87efa3615"/>
 				<textFieldExpression><![CDATA[$F{tipoLogradouroAluno}+" "+$F{logradouroAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>

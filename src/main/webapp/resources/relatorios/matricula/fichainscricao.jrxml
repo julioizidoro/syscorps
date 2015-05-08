@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ficha de Matricula" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="450"/>
 	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="usuairo" class="java.lang.String"/>
 	<queryString>
@@ -324,7 +324,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 			</staticText>
 			<staticText>
 				<reportElement x="10" y="143" width="77" height="15" uuid="0d08e444-f3c8-4aa3-bf87-d0bb520acd77"/>
-				<text><![CDATA[ Complemento:]]></text>
+				<text><![CDATA[Complemento:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="323" y="143" width="37" height="15" uuid="8295a9d3-f781-46c4-b2cf-1e0d026e0223"/>
@@ -415,7 +415,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{tipoLogradouroAluno}+" "+$F{logradouroAluno}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="400" y="93" width="119" height="15" uuid="f4e86416-2828-4bdb-a9e8-d2c9aa671de3"/>
+				<reportElement x="400" y="93" width="143" height="15" uuid="f4e86416-2828-4bdb-a9e8-d2c9aa671de3"/>
 				<textFieldExpression><![CDATA[$F{nacionalidadeAluno}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -427,7 +427,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{numeroAluno}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="89" y="143" width="215" height="15" uuid="b062cf4a-e4ab-4b61-a4d5-dc06af067902"/>
+				<reportElement x="84" y="143" width="215" height="15" uuid="b062cf4a-e4ab-4b61-a4d5-dc06af067902"/>
 				<textFieldExpression><![CDATA[$F{complementoAluno}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -486,7 +486,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<text><![CDATA[INFORMAÇÕES DO CÔNJUGE(se houver)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="276" width="36" height="15" uuid="c0d23869-83c3-47bb-9c1e-53b77317152a"/>
+				<reportElement x="10" y="276" width="34" height="15" uuid="c0d23869-83c3-47bb-9c1e-53b77317152a"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Nome:]]></text>
 			</staticText>
@@ -508,16 +508,16 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<text><![CDATA[Data de Nascimento:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="335" width="49" height="15" uuid="ee70cf31-df40-47c1-a8b3-99535d8f23f0"/>
+				<reportElement x="9" y="335" width="49" height="15" uuid="ee70cf31-df40-47c1-a8b3-99535d8f23f0"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Profissão:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="324" y="335" width="71" height="15" uuid="af11b7ee-eddd-4e24-8abb-e8bbb9180262"/>
+				<reportElement x="332" y="335" width="71" height="15" uuid="af11b7ee-eddd-4e24-8abb-e8bbb9180262"/>
 				<text><![CDATA[Renda Mensal:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="316" width="71" height="15" uuid="d4d508c2-43c8-40dd-aeab-05566ac717cb"/>
+				<reportElement x="8" y="316" width="71" height="15" uuid="d4d508c2-43c8-40dd-aeab-05566ac717cb"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Telefone Fixo:]]></text>
 			</staticText>
@@ -536,12 +536,12 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<reportElement x="1" y="369" width="555" height="1" uuid="b983c753-3bd7-4eb7-959c-8138bac8c024"/>
 			</line>
 			<staticText>
-				<reportElement x="10" y="376" width="35" height="15" uuid="12b5a844-be86-4f80-b067-f203484c940a"/>
+				<reportElement x="7" y="376" width="35" height="15" uuid="12b5a844-be86-4f80-b067-f203484c940a"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Nome:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="396" width="22" height="15" uuid="d7de9f8b-9237-45e9-a4c5-44a9cebe31df"/>
+				<reportElement x="8" y="396" width="22" height="15" uuid="d7de9f8b-9237-45e9-a4c5-44a9cebe31df"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[RG:]]></text>
 			</staticText>
@@ -560,11 +560,11 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<text><![CDATA[Profissão:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="415" width="55" height="15" uuid="1ade120d-bf7d-4dad-a195-09988f6d5c9c"/>
+				<reportElement x="11" y="415" width="55" height="15" uuid="1ade120d-bf7d-4dad-a195-09988f6d5c9c"/>
 				<text><![CDATA[Endereço:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="471" width="75" height="15" uuid="a9bac013-cced-4afb-b66d-75e65de824b5"/>
+				<reportElement x="9" y="471" width="75" height="15" uuid="a9bac013-cced-4afb-b66d-75e65de824b5"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Renda Mensal:]]></text>
 			</staticText>
@@ -620,15 +620,15 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<text><![CDATA[Matricula:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="233" y="551" width="71" height="15" uuid="adab0f1a-d9f4-4873-8974-817f299621a7"/>
+				<reportElement x="230" y="551" width="71" height="15" uuid="adab0f1a-d9f4-4873-8974-817f299621a7"/>
 				<text><![CDATA[No. Parcelas:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="395" y="551" width="78" height="15" uuid="f487f8a8-7bef-4427-bbc7-ce5d98e872f9"/>
+				<reportElement x="400" y="551" width="78" height="15" uuid="f487f8a8-7bef-4427-bbc7-ce5d98e872f9"/>
 				<text><![CDATA[Valor Parcelas:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="49" y="276" width="223" height="15" uuid="c7876769-f4a0-4a40-a2de-3459c76e7082"/>
+				<reportElement x="46" y="276" width="223" height="15" uuid="c7876769-f4a0-4a40-a2de-3459c76e7082"/>
 				<textFieldExpression><![CDATA[$F{nomeConjuge}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -648,7 +648,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{foneCelularConjuge}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="86" y="316" width="100" height="15" uuid="d1ca8e6e-d416-4e86-831d-cefafb103feb"/>
+				<reportElement x="79" y="316" width="100" height="15" uuid="d1ca8e6e-d416-4e86-831d-cefafb103feb"/>
 				<textFieldExpression><![CDATA[$F{foneFixoConjuge}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -700,7 +700,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{tipopagamento}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="308" y="551" width="77" height="15" uuid="25064d7d-d52b-4dba-94af-61ea8c0ad576"/>
+				<reportElement x="297" y="551" width="77" height="15" uuid="25064d7d-d52b-4dba-94af-61ea8c0ad576"/>
 				<textFieldExpression><![CDATA[$F{numeroparcelas}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
@@ -708,7 +708,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{datavencimentoparcela}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00" isBlankWhenNull="true">
-				<reportElement x="473" y="551" width="71" height="15" uuid="ffd8de2c-c709-42dd-99ec-0fd78b7b0a63"/>
+				<reportElement x="477" y="551" width="66" height="15" uuid="ffd8de2c-c709-42dd-99ec-0fd78b7b0a63"/>
 				<textFieldExpression><![CDATA[$F{valorparcela}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -808,15 +808,15 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{complementoAvalista}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="10" y="433" width="77" height="15" uuid="3444017c-cfd6-43bb-a037-3e9f35054ca8"/>
+				<reportElement x="8" y="433" width="77" height="15" uuid="3444017c-cfd6-43bb-a037-3e9f35054ca8"/>
 				<text><![CDATA[ Complemento:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="426" y="452" width="119" height="15" uuid="aea5c74c-964a-4b08-8c30-3a2bd874e1bb"/>
+				<reportElement x="443" y="452" width="100" height="15" uuid="aea5c74c-964a-4b08-8c30-3a2bd874e1bb"/>
 				<textFieldExpression><![CDATA[$F{estadoAvalista}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="384" y="452" width="39" height="15" uuid="4eab67c0-ca1c-4f7c-ba4c-8bbb33a3f171"/>
+				<reportElement x="402" y="452" width="39" height="15" uuid="4eab67c0-ca1c-4f7c-ba4c-8bbb33a3f171"/>
 				<text><![CDATA[Estado:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
@@ -824,7 +824,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<textFieldExpression><![CDATA[$F{cepAvalista}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="62" y="452" width="142" height="15" uuid="cfa08376-3cda-4d24-9a12-44a99c134130"/>
+				<reportElement x="58" y="452" width="142" height="15" uuid="cfa08376-3cda-4d24-9a12-44a99c134130"/>
 				<textFieldExpression><![CDATA[$F{cidadeAvalista}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -832,7 +832,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 				<text><![CDATA[  CEP:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="452" width="49" height="15" uuid="9d527690-7ab4-4c73-8a2b-75becf4003d0"/>
+				<reportElement x="12" y="452" width="49" height="15" uuid="9d527690-7ab4-4c73-8a2b-75becf4003d0"/>
 				<text><![CDATA[Cidade:]]></text>
 			</staticText>
 		</band>
