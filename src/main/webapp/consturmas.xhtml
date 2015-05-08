@@ -18,7 +18,7 @@
                 </h:panelGrid>
                 <h:panelGrid columns="2" cellpadding="1">
                     <p:inputText id="nome" size="40" maxlength="100" class="left4" value="#{cadastroTurmasMB.nomeTurma}"/>
-                    <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa" action="#{cadastroTurmasMB.pesquisarNome()}" update="tabTurmas"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  />
+                    <p:commandButton icon=" ui-icon-search"  class="botaoConsultaa" action="#{cadastroTurmasMB.pesquisarNome()}" update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  />
                     
                 </h:panelGrid>
                     <p:dataTable var="consturma" id="tabTurmas" value="#{cadastroTurmasMB.listaTurmas}" class="tabelaturmas" rowStyleClass="tabela" paginator="true" rows="10">
