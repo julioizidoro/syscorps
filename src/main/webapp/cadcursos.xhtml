@@ -11,32 +11,32 @@
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
-                   <legend id="iUsu" ><b>Dados do Curso </b></legend>
+                    <legend id="iUsu" ><b>Dados do Curso </b></legend>
                     <p:tabView class="tabelaaluno">
                         <p:tab title="Dados do Curso" >
-                    <h:panelGrid columns="2" cellpadding="5" class="meio2">
+                            <h:panelGrid columns="2" cellpadding="5" class="meio2">
 
-                        <p:outputLabel value="Nome do Curso:" for="nomeCurso" />
-                        <p:inputText id="nomeCurso" required="true"  size="23" value="#{cadastroCursosMB.curso.nome}"/>
+                                <p:outputLabel value="Nome do Curso:" for="nomeCurso" />
+                                <p:inputText id="nomeCurso" required="true"  size="23" value="#{cadastroCursosMB.curso.nome}"/>
 
-                        <p:outputLabel value="Carga Hóraria:" for="cargaHora" />
-                        <p:inputText id="cargaHora" size="23" required="true" value="#{cadastroCursosMB.curso.cargahoraria}"/>
+                                <p:outputLabel value="Carga Hóraria:" for="cargaHora" />
+                                <p:inputText id="cargaHora" size="23" required="true" value="#{cadastroCursosMB.curso.cargahoraria}"/>
 
-                        <p:outputLabel value="Tipo de Curso:" />
-                        
-                         <p:selectOneMenu id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" required="true" style="width:203px">
-                             <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
-                                 <f:selectItem itemLabel="Capacitação" itemValue="Capacitação" />  
-                                 <f:selectItem itemLabel="Especialização" itemValue="Especialização" />  
-                                 <f:selectItem itemLabel="Intensivo" itemValue="Intensivo" />  
-                                 <f:selectItem itemLabel="50/50" itemValue="50/50" />  
-                                 <f:selectItem itemLabel="Técnico" itemValue="Técnico" />  
-                                
-                          </p:selectOneMenu>
-                    </h:panelGrid>
-                            </p:tab>
-                         </p:tabView>  
-                    <p:commandButton value="Cadastrar" icon=" ui-icon-plusthick" class="botaoCadastraturma" action="#{cadastroCursosMB.salvarCurso()}" />
+                                <p:outputLabel value="Tipo de Curso:" />
+
+                                <p:selectOneMenu id="tipocurso" value="#{cadastroCursosMB.curso.tipo}" required="true" style="width:203px">
+                                    <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/> 
+                                    <f:selectItem itemLabel="Capacitação" itemValue="Capacitação" />  
+                                    <f:selectItem itemLabel="Especialização" itemValue="Especialização" />  
+                                    <f:selectItem itemLabel="Intensivo" itemValue="Intensivo" />  
+                                    <f:selectItem itemLabel="50/50" itemValue="50/50" />  
+                                    <f:selectItem itemLabel="Técnico" itemValue="Técnico" />  
+
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:tabView>  
+                    <p:commandButton value="Confirmar" icon=" ui-icon-plusthick" class="botaoCadastraturma" action="#{cadastroCursosMB.salvarCurso()}" actionListener="#{mensagemMB.saveMessagem()}" update="growl"/>
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastra" action="#{cadastroCursosMB.cancelar()}" />
                     <br></br>
                     <br></br>

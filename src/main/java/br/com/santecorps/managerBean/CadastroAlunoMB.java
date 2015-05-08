@@ -286,7 +286,9 @@ public class CadastroAlunoMB implements Serializable{
     public String voltarSelecionarAluno(){
         return paginaRetorno;
     }
-    
+    public String voltar(){
+        return "inicial";
+    }
     
 
 }

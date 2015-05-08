@@ -78,10 +78,12 @@ public class CadastroProfessorMB implements Serializable{
         return "cadprofessor";
     }
     
+    public String voltar(){
+        return "consprofessor";
+    }
     public String cancelar(){
         return "consprofessor";
     }
-    
     public String salvar(){
         UnidadeFacade unidadeFacade = new UnidadeFacade();
         Unidade unidade = unidadeFacade.getUnidade(1);

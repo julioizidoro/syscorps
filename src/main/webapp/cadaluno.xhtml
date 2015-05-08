@@ -15,13 +15,7 @@
                     <br></br>
                     <p:tabView class="tabelaaluno">
                         <p:tab title="Dados" >
-                            <h:panelGrid columns="2" cellpadding="3"  class="telaCad">  
-                                <p:commandButton value="Tirar Foto" action="#{fotoAlunoMB.tirarFoto}" icon="ui-icon-image"/>
-                                <p:commandButton value="Ver Foto" oncomplete="PF('dlg').show()"/>
-                            </h:panelGrid>
-                            <p:dialog header="Foto do Participante" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false"  class="tabelaMat" > 
-                                <p:graphicImage id="cropped" value="resources/img/#{cortarImagemMB.filename}.jpeg" /> 
-                            </p:dialog>  
+
                             <h:panelGrid columns="2" cellpadding="3">
                                 <p:outputLabel value="Nome" for="nome"  class="left" /> 
 
@@ -39,19 +33,19 @@
                                 </p:inputMask>
                                 <p:inputText id="rg" label="RG" value="#{cadastroAlunoMB.aluno.rg}" size="14" maxlength="19" required="false" class="left"> 
                                 </p:inputText>
-                                <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd/MM/yyyy"  size="19" maxlength="15" class="leftC" >
+                                <p:calendar id="mask" value="#{cadastroAlunoMB.aluno.dataNascimento}" pattern="dd/MM/yyyy"  size="18" maxlength="15" class="leftC" >
                                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                 </p:calendar>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="3">
                                 <p:outputLabel value="Email" for="email" class="left" />
-                                <p:outputLabel value="Telefone Fixo" for="telFixo"  class="leftMeio2"/>
-                                <p:outputLabel value="Telefone Celular" for="telCel"  class="leftMeio4"/>
+                                <p:outputLabel value="Telefone Fixo" for="telFixo"  class="leftMeio7"/>
+                                <p:outputLabel value="Telefone Celular" for="telCel"  class="cadaaluno"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="5">
                                 <p:inputText id="email"  value="#{cadastroAlunoMB.aluno.email}"  size="23" maxlength="100"  class="left"/>
-                                <p:inputMask id="telFixo" value="#{cadastroAlunoMB.aluno.foneFixo}"  size="17" maxlength="14"  class="leftRg" mask="(99)9999-9999"/>
-                                <p:inputMask id="telCel" value="#{cadastroAlunoMB.aluno.foneCelular}"  size="15" maxlength="14"  class="leftRg" mask="(99)9999-9999"/>
+                                <p:inputMask id="telFixo" value="#{cadastroAlunoMB.aluno.foneFixo}"  size="17" maxlength="14"  class="leftTel" mask="(99)9999-9999"/>
+                                <p:inputMask id="telCel" value="#{cadastroAlunoMB.aluno.foneCelular}"  size="16" maxlength="14"  class="leftMeio8" mask="(99)9999-9999"/>
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="5">
                                 <p:outputLabel value="Nome da Mãe" for="nomeMae" class="left" />
@@ -59,7 +53,7 @@
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="2">
                                 <p:inputText id="nomeMae"  value="#{cadastroAlunoMB.aluno.nomeMae}"  size="36" maxlength="100" class="left" /> 
-                                <p:inputText id="nomePai" value="#{cadastroAlunoMB.aluno.nomePai}"  size="33" maxlength="100" class="left"/>
+                                <p:inputText id="nomePai" value="#{cadastroAlunoMB.aluno.nomePai}"  size="32" maxlength="100" class="left"/>
                             </h:panelGrid>
                             <h:panelGrid columns="3" cellpadding="4">
                                 <h:outputText value="Trabalha?" class="left"/>
@@ -76,7 +70,7 @@
 
                                 <p:inputText id="profissao" label="profissao:" value="#{cadastroAlunoMB.aluno.profissao}" size="21" maxlength="60" required="false" class="leftRg">
                                 </p:inputText>
-                                <p:selectOneMenu  id="estadoCiv" value="#{cadastroAlunoMB.aluno.estadoCivil}" style="width:127px" class="leftRg">
+                                <p:selectOneMenu  id="estadoCiv" value="#{cadastroAlunoMB.aluno.estadoCivil}" style="width:120px" class="leftRg">
                                     <f:selectItem itemLabel="Selecione" itemValue="Selecione" noSelectionOption="true"/> 
                                     <f:selectItem itemLabel="solteiro" itemValue="solteiro" />  
                                     <f:selectItem itemLabel="Casado" itemValue="Casado" />  
@@ -90,8 +84,8 @@
                                 <p:outputLabel value="Telefone Referência" for="telReferen" class="leftmatricula"/>
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="4">
-                                <p:inputText id="referenPessoal" value="#{cadastroAlunoMB.aluno.referenciaPessoal}"  size="34" maxlength="100" class="left"  />
-                                <p:inputMask id="telReferen"  value="#{cadastroAlunoMB.aluno.foneReferenciaPessoal}"  size="27" maxlength="14" class="leftMeio4" mask="(99)9999-9999"/>
+                                <p:inputText id="referenPessoal" value="#{cadastroAlunoMB.aluno.referenciaPessoal}"  size="52" maxlength="100" class="left"  />
+                                <p:inputMask id="telReferen"  value="#{cadastroAlunoMB.aluno.foneReferenciaPessoal}"  size="26" maxlength="14" class="" mask="(99)9999-9999"/>
                             </h:panelGrid>
                         </p:tab>
                         <p:tab title="Endereço">
@@ -139,12 +133,13 @@
 
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel value="Tipo Logradouro"  class="left" />
-                                <p:outputLabel value="Logradouro" for="logra" class="leftMeio20" />
+                                <p:outputLabel value="Logradouro" for="logra" class="leftMeio8" />
+                                <p:outputLabel value="Número" for="numero"  class="leftMeio2"/>
                             </h:panelGrid>
                             <h:panelGrid columns="4" cellpadding="3">
 
 
-                                <p:selectOneMenu id="tipologra" value="#{cadastroAlunoMB.aluno.tipoLogradouro}" style="width:165px" class="left">
+                                <p:selectOneMenu id="tipologra" value="#{cadastroAlunoMB.aluno.tipoLogradouro}" style="width:154px" class="left">
                                     <f:selectItem itemLabel="Selecione" itemValue="Selecione" noSelectionOption="true"/> 
                                     <f:selectItem itemLabel="Rua" itemValue="Rua" />  
                                     <f:selectItem itemLabel="Rodovia" itemValue="Rodovia" />  
@@ -152,28 +147,27 @@
                                     <f:selectItem itemLabel="Servidão" itemValue="Servidão" />  
                                     <f:selectItem itemLabel="BR" itemValue="BR" />       
                                 </p:selectOneMenu>
-                                <p:inputText id="logra"   size="40"  class="leftMeioo" value="#{cadastroAlunoMB.aluno.logradouro}"/>
+                                <p:inputText id="logra"   size="38"  class="" value="#{cadastroAlunoMB.aluno.logradouro}"/>
+                                <p:inputMask id="numero"   size="15" class="" value="#{cadastroAlunoMB.aluno.numero}" mask="?999999999"/>
                             </h:panelGrid>
                             <h:panelGrid columns="6" cellpadding="5">   
-                                <p:outputLabel value="Número" for="numero"  class="left"/>
-                                <p:outputLabel value="Complemento" for="complemento" class="leftC"/>
-                                <p:outputLabel value="CEP" for="cep" class="leftMeio10"/>
-                            </h:panelGrid>
-                            <h:panelGrid columns="6" cellpadding="5">   
-                                <p:inputMask id="numero"   size="9" class="left" value="#{cadastroAlunoMB.aluno.numero}" mask="?999999999"/>
-                                <p:inputText id="complemento" value="#{cadastroAlunoMB.aluno.complemento}"  size="31" class="leftRg"/>
-                                <p:inputMask id="cep" value="#{cadastroAlunoMB.aluno.cep}"  size="21"  maxlength="9" class="leftRg" mask="99999-999"/>
-                            </h:panelGrid>
-                            <h:panelGrid columns="3" cellpadding="5">
-                                <p:outputLabel value="Bairro" for="bairro" class="left"/>
-                                <p:outputLabel value="Cidade" for="cidade" class="leftMeio10"/>
-                                <p:outputLabel value="Estado"  class="cadaaluno"/>
-                            </h:panelGrid>
-                            <h:panelGrid columns="3" cellpadding="5">
-                                <p:inputText id="bairro" value="#{cadastroAlunoMB.aluno.bairro}"  size="22" class="left"/>
-                                <p:inputText id="cidade" value="#{cadastroAlunoMB.aluno.cidade}"  size="15" class="leftRg"/>
+                                <p:outputLabel value="Complemento" for="complemento" class="left"/>
+                                <p:outputLabel value="Bairro" for="bairro" class="leftmatricula"/>
 
-                                <p:selectOneMenu  id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="leftRg" style="width:150px">
+                            </h:panelGrid>
+                            <h:panelGrid columns="6" cellpadding="5">  
+                                <p:inputText id="complemento" value="#{cadastroAlunoMB.aluno.complemento}"  size="45" class="left"/>
+                                <p:inputText id="bairro" value="#{cadastroAlunoMB.aluno.bairro}"  size="40" class=""/>
+
+                            </h:panelGrid>
+                            <h:panelGrid columns="3" cellpadding="5">
+                                <p:outputLabel value="Cidade" for="cidade" class="left"/>
+                                <p:outputLabel value="Estado"  class="leftMeio2"/>
+                                <p:outputLabel value="CEP" for="cep" class="leftMeio2"/>
+                            </h:panelGrid>
+                            <h:panelGrid columns="3" cellpadding="5">
+                                <p:inputText id="cidade" value="#{cadastroAlunoMB.aluno.cidade}"  size="33" class="left"/>
+                                <p:selectOneMenu  id="estado" value="#{cadastroAlunoMB.aluno.estado}" class="" style="width:148px">
                                     <f:selectItem itemLabel="Selecione o Estado" itemValue="sn" noSelectionOption="true"/> 
                                     <f:selectItem itemLabel="Acre" itemValue="AC" /> 
                                     <f:selectItem itemLabel="Alagoas" itemValue="AL" /> 
@@ -204,11 +198,12 @@
                                     <f:selectItem itemLabel="Tocantins" itemValue="TO" /> 
 
                                 </p:selectOneMenu>
+                                <p:inputMask id="cep" value="#{cadastroAlunoMB.aluno.cep}"  size="11"  maxlength="9" class="leftRg" mask="99999-999"/>
                             </h:panelGrid>
 
                         </p:tab>
                     </p:tabView>  
-                    <p:commandButton value="Cadastrar" icon="ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.salvarAluno()}" actionListener="#{mensagemMB.saveMessagem()}" update="growl"/>
+                    <p:commandButton value="Confirmar" icon="ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.salvarAluno()}" actionListener="#{mensagemMB.saveMessagem()}" update="growl"/>
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoConsulta" action="#{cadastroAlunoMB.cancelar()}" />
                     <br></br>
                     <br></br>

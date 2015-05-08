@@ -18,7 +18,7 @@
                     </h:panelGrid>
                     <h:panelGrid columns="2" cellpadding="1">
                         <p:inputText id="nome" size="40" maxlength="100" class="left4" value="#{cadastroProfessorMB.nomeProfessor}"/>
-                        <p:commandButton icon=" ui-icon-search" class="botaoConsultaa" action="#{cadastroProfessorMB.pesquisarProfessor()}"    update="tabProfessor"  oncomplete="popAprovar.hide(); #{meuBean.objetos}" />
+                        <p:commandButton icon=" ui-icon-search" class="botaoConsultaa" action="#{cadastroProfessorMB.pesquisarProfessor()}"    update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}" />
 
                     </h:panelGrid>
                     <p:dataTable var="consProfessor" value="#{cadastroProfessorMB.listaProfessor}" class="tabelacurso" rowStyleClass="tabela" id="tabProfessor" paginator="true" rows="10">
@@ -41,8 +41,8 @@
                             </p:commandButton>
                         </p:column>
                     </p:dataTable>
-                    <p:commandButton value="Nova" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroProfessorMB.novoProfessor()}" />
-                    <p:commandButton value="Filtrar" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
+                    <p:commandButton value="Novo" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroProfessorMB.novoProfessor()}" />
+                    <p:commandButton value="Voltar"  action="#{cadastroAlunoMB.voltar()}" icon=" ui-icon-carat-1-s" class="botaoConsulta"/>
                     <br></br>
                     <br></br>
                     <br></br>
