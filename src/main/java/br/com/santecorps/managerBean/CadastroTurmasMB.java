@@ -107,12 +107,12 @@ public class CadastroTurmasMB implements Serializable{
         CursoFacade cursoFacade = new CursoFacade();
         if (turma.getIdturma()==null){
             turma.setFormada("N");
+            UnidadeFacade unidadeFacade = new UnidadeFacade();
+            Unidade unidade = unidadeFacade.getUnidade(1);
+            turma.setUnidade(unidade);
         }
         Curso curso = cursoFacade.getCurso(Integer.parseInt(idCurso));
         turma.setCurso(curso);
-        UnidadeFacade unidadeFacade = new UnidadeFacade();
-        Unidade unidade = unidadeFacade.getUnidade(1);
-        turma.setUnidade(unidade);
         turmaFacade.salvar(turma);
         listarTurmas("");
         return "consturmas";
@@ -156,11 +156,18 @@ public class CadastroTurmasMB implements Serializable{
             TurmaFacade turmaFacade = new TurmaFacade();
             turma = turmaFacade.getTurmaId(idturma);
              if (turma!=null){
-                
+                 return "formarturmas";
             }
         }
         return null;
     }
     
-   
+    public String salvarTurmaFormada(){
+        TurmaFacade turmaFacade = new TurmaFacade();
+        CursoFacade cursoFacade = new CursoFacade();
+        turma.setFormada("S");
+        turmaFacade.salvar(turma);
+        listarTurmas("");
+        return "consturmas";
+    }
 }

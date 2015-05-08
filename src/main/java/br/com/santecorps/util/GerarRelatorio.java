@@ -6,6 +6,7 @@
 package br.com.santecorps.util;
 
 import br.com.santecorps.connection.ConectionFactory;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Map;
@@ -47,7 +48,10 @@ public class GerarRelatorio {
         Connection conn = ConectionFactory.getConexao();
         if (subDir!=null){
             subDir = servletContext.getRealPath(subDir);
-            parameters.put("SUBREPORT_DIR", subDir + "\\");
+            subDir = subDir + File.separator + "a";
+            subDir = subDir.substring(0, (subDir.length()-1));
+            System.out.println(subDir);
+            parameters.put("SUBREPORT_DIR", subDir);
         }
         JasperPrint arquivoPrint=null;
         HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();

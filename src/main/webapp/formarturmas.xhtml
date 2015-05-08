@@ -15,57 +15,34 @@
                         <p:tab title="Dados da Turma" >
                             <h:panelGrid columns="4" cellpadding="5" class="meio2">
                                 <p:outputLabel value="Número:" for="numTurma" class="left" />
-                                <p:inputText id="numTurma"  value="" size="10"  readonly="true"/>
+                                <p:inputText id="numTurma"  value="#{cadastroTurmasMB.turma.numero}" size="10"  readonly="true"/>
                                 
                                 <p:outputLabel value="Turno:" class="left" />
-                                <p:inputText id="turno" size="20" value="" readonly="true"/>       
+                                <p:inputText id="turno" size="20" value="#{cadastroTurmasMB.turma.turno}" readonly="true"/>       
 
                                 <p:outputLabel value="Curso:"  class="leftC"/>
-                                <p:inputText id="cursoTurma" size="20" value="" readonly="true"/>   
+                                <p:inputText id="cursoTurma" size="20" value="#{cadastroTurmasMB.turma.curso.nome}" readonly="true" />   
 
                                 <p:outputLabel for="dataInic" value="Data Início:" class="left4"/>
-                                <p:inputText id="dataInic" value="" readonly="true" >
+                                <p:inputText id="dataInic" value="#{cadastroTurmasMB.turma.datainicio}" readonly="true" >
                                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                 </p:inputText>
                                 <p:outputLabel for="dataTerm" value="Data Termino:" class="left4" />
-                                 <p:inputText id="dataTerm"  value="" readonly="true">  
+                                <p:inputText id="dataTerm"  value="#{cadastroTurmasMB.turma.datatermino}" readonly="true">  
                                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                 </p:inputText>
 
                                 <p:outputLabel for="datafotm" value="Data Formatura:" class="fontsize"/>
-                                <p:calendar id="datafotm" value="" pattern="dd/MM/yyyy" >
+                                <p:calendar id="datafotm" value="#{cadastroTurmasMB.turma.dataformatura}" pattern="dd/MM/yyyy" >
                                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                 </p:calendar>
                             </h:panelGrid>
-                        </p:tab>
-                        <p:tab title="Agenda da Turma">
-
-                            <h:panelGrid columns="2" cellpadding="5" class="meioTurmas">
-                                <p:outputLabel value="Horário Inicio:" class="left"/>
-                                <p:inputMask id="horarioInicio" value=""  mask="99:99" readonly="true"/>
-
-                                <p:outputLabel value="Horário Inicio Intervalo:" />
-                                <p:inputMask id="horarioInicioIntervalo" value=""  mask="99:99" readonly="true"/>
-
-                                <p:outputLabel value="Horário Volta Intervalo:" />
-                                <p:inputMask id="horarioTerminoIntervalo" value=""  mask="99:99" readonly="true"/>
-
-                                <p:outputLabel value="Horário Termino:" class="left4"/>
-                                <p:inputMask id="horarioTermino" value=""  mask="99:99" readonly="true"/>
-
-                                <p:outputLabel value="Responsável:" for="responsavel" class="left"/>
-                                <p:inputText id="responsavel"  value="" readonly="true"/>
-
-                                <p:outputLabel value="Líder Classe:" for="liderClas" class="left" />
-                                <p:inputText id="liderClas"  value="" readonly="true"/>
-                            </h:panelGrid>
-
                         </p:tab>
                     </p:tabView>  
                     <br></br>
                    
                     <p:commandButton value="Cancelar" icon="ui-icon-closethick" class="botaoCadastraturma" action="#{cadastroTurmasMB.cancelar()}"/>
-                    <p:commandButton  value="Formar Turma" action="#{cadastroTurmasMB.formaTurma()}"  class="botaoCadastra"/> 
+                    <p:commandButton  value="Formar Turma" action="#{cadastroTurmasMB.salvarTurmaFormada()}"  class="botaoCadastra"/> 
 
                     
 

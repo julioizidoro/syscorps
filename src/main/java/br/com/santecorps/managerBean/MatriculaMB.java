@@ -192,6 +192,9 @@ public class MatriculaMB implements Serializable{
     }
 
     public List<Turma> getListaTurma() {
+        if (listaTurma==null){
+            carregarListaTurma();
+        }
         return listaTurma;
     }
 
@@ -336,6 +339,9 @@ public class MatriculaMB implements Serializable{
         if (requerimento){
             imprimirRequerimento();
         }
+        if (termo){
+            imprimirTermo();
+        }
     }
     
     public void finalizarImpressao(){
@@ -435,6 +441,24 @@ public class MatriculaMB implements Serializable{
             String texto = "Declaro que as informações contidas estão corretas e verdadeiras, ficando o " + usuarioLogadoMB.getUsuario().getUnidade().getRazaosocial() +" , desde já autorizado a verificá-las. Autorizo o "+ usuarioLogadoMB.getUsuario().getUnidade().getRazaosocial()  + ", em caráter irrevogável e irretratável a transmitir e consultar informações de crédito do Banco Central do Brasil, listas impeditivas e SERASA/SPC da forma de regulamentação aplicável, e encaminhar sem qualquer ônus mensagem de texto e voz, através de telefone celular de minha titularidade acima mencionado, a respeito de promoções eventuais e pendências junto o "  + usuarioLogadoMB.getUsuario().getUnidade().getRazaosocial();
             parameters.put("texto", texto);
             String nomeArquivo = "requerimentomatriculados";
+            //parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
+            GerarRelatorio gerarRelatorio = new GerarRelatorio();
+            try {
+                gerarRelatorio.gerarRelatorioSqlPDF(caminhoRelatorio, parameters, nomeArquivo, null);
+            } catch (JRException ex) {
+                Logger.getLogger(MatriculaMB.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MatriculaMB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void imprimirTermo(){
+        if (matricula!=null) {
+            String caminhoRelatorio = "/resources/relatorios/matricula/termo.jasper";
+            Map parameters = new HashMap();
+            parameters.put("idmatricula", matricula.getIdmatricula());
+             String nomeArquivo = "termo";
             //parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
             GerarRelatorio gerarRelatorio = new GerarRelatorio();
             try {
