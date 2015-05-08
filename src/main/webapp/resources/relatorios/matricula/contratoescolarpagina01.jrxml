@@ -2,8 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 01" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a36d150-d094-4fe4-9053-566166e9ec94">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="327"/>
-	<parameter name="idmatricula" class="java.lang.String"/>
+	<property name="ireport.y" value="454"/>
+	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Google Drive\\Desenvolvimento\\syscorps\\sistema\\syscorps\\src\\main\\webapp\\resources\\relatorios\\matricula\\"]]></defaultValueExpression>
 	</parameter>
@@ -173,7 +173,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="704" splitType="Stretch">
+		<band height="661" splitType="Stretch">
 			<textField>
 				<reportElement x="12" y="19" width="533" height="87" uuid="42db93d4-0d7f-437a-9c5c-4e027068a03b"/>
 				<textElement textAlignment="Justified"/>
@@ -183,7 +183,7 @@ $F{razaosocialUnidade} + ", devidamente inscrita no CNPJ/MF sob o numero " + $F{
 $F{cidadeUnidade}+"/" + $F{estadoUnidade} + " , doravante denominada CONTRATADO, neste ato representada pelo seu representante legal e de outro lado."]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="12" y="109" width="222" height="15" uuid="825ce222-3202-4b27-b9ff-0312dd288ee4"/>
+				<reportElement x="10" y="109" width="222" height="15" uuid="825ce222-3202-4b27-b9ff-0312dd288ee4"/>
 				<textFieldExpression><![CDATA[$F{nomeAluno}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -316,4 +316,19 @@ Parágrafo 8o.Para participar das aulas práticas (laboratório) e estágios sup
 			</staticText>
 		</band>
 	</pageHeader>
+	<summary>
+		<band height="16">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="14" uuid="4fb16d7e-3a57-496b-ba53-62752174999f"/>
+				<subreportParameter name="idmatricula">
+					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "contratoescolarpagina02.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
 </jasperReport>

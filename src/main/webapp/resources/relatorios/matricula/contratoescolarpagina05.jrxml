@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 05" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a945aa47-dad6-4878-b81e-9b01f786d56e">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 05" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a945aa47-dad6-4878-b81e-9b01f786d56e">
+	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="424"/>
-	<parameter name="idmatricula" class="java.lang.String"/>
+	<property name="ireport.y" value="200"/>
+	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select distinct
@@ -135,11 +135,13 @@ where matricula.idmatricula=$P{idmatricula}]]>
 	<field name="foneUnidade" class="java.lang.String"/>
 	<field name="cnpjUnidade" class="java.lang.String"/>
 	<pageHeader>
-		<band height="727" splitType="Stretch">
+		<band height="755" splitType="Stretch">
 			<staticText>
-				<reportElement x="12" y="6" width="530" height="513" uuid="8b048208-3b34-4a81-98ed-04177b7fba51"/>
+				<reportElement x="10" y="2" width="545" height="580" uuid="8b048208-3b34-4a81-98ed-04177b7fba51"/>
 				<textElement textAlignment="Justified"/>
-				<text><![CDATA[CLÁUSULA 16 a Fica fazendo parte integrante do presente Contrato a Circular referida na Cláusula 1a e o Regimento escolar.
+				<text><![CDATA[CLÁUSULA 14ª.  – Também assina o presente instrumento, na qualidade de CONTRATANTE, o responsável solidário (pai, mãe,conjugue), devidamente identificado por ficha cadastral e documento de identidade, abaixo nomeado, o qual tem portanto, os mesmos direitos, deveres e obrigações.
+ClÁUSULA 15ª.  – O CONTRATANTE se responsabiliza pelos dados declarados, comprometendo-se a informar à CONTRATADA, por escrito e mediante recibo, qualquer alteração ou mudança de endereço capaz de prejudicar sua localização, e fica ciente, desde já, de que a omissão acarretará na pena de serem consideradas válidas as correspondências enviadas aos endereços constantes do presente instrumento, inclusive para efeitos de citação judicial e inclusão de seu nome no SPC sem prévio conhecimento.
+CLÁUSULA 16 a Fica fazendo parte integrante do presente Contrato a Circular referida na Cláusula 1a e o Regimento escolar.
 CLÁUSULA 17 a. O CONTRATADO, livre de quaisquer ônus para com o CONTRATANTE, poderá utilizar-se da sua imagens para fins exclusivo de divulgação do CONTRATADO e suas atividades podendo, para tanto, reproduzí-la ou divulgá-la junto à intemet, jornais e todos os demais meios de comunicação, público ou privado.
 Parágrafo único: A autorização para uso da imagem se estende por tempo ilimitado do término do contrato.
 CLÁUSULA 18ª. É obrigatório ao CONTRATANTE informar ao CONTRATADO, o seu novo endereço residencial, caso haja mudança do mesmo.
@@ -157,58 +159,58 @@ CLÁUSULA 24a. Para dirimir questões oriundas deste Contrato, fica eleito o For
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="26" y="544" width="63" height="15" uuid="51c7cdde-fc0c-491a-90d9-dfc1f6c05d97"/>
+				<reportElement x="26" y="602" width="63" height="15" uuid="51c7cdde-fc0c-491a-90d9-dfc1f6c05d97"/>
 				<text><![CDATA[Testemunha:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="26" y="543" width="157" height="1" uuid="72dca6ac-49f4-4291-8e26-56c94bc7f5a8"/>
+				<reportElement x="26" y="601" width="230" height="1" uuid="72dca6ac-49f4-4291-8e26-56c94bc7f5a8"/>
 			</line>
 			<staticText>
-				<reportElement x="26" y="559" width="24" height="15" uuid="421828ba-ad38-4156-b227-a72a9e2cd6ca"/>
+				<reportElement x="26" y="617" width="24" height="15" uuid="421828ba-ad38-4156-b227-a72a9e2cd6ca"/>
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="319" y="540" width="189" height="1" uuid="040ca81e-1d7a-4633-b8d7-3e1263cd16eb"/>
+				<reportElement x="319" y="598" width="189" height="1" uuid="040ca81e-1d7a-4633-b8d7-3e1263cd16eb"/>
 			</line>
 			<staticText>
-				<reportElement x="320" y="540" width="59" height="15" uuid="7fff9e67-7d36-4fbe-88fb-360114a3909c"/>
+				<reportElement x="320" y="598" width="59" height="15" uuid="7fff9e67-7d36-4fbe-88fb-360114a3909c"/>
 				<text><![CDATA[Contratante:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="24" y="626" width="24" height="15" uuid="942350c8-36c1-4217-9aa0-76b03f576011"/>
+				<reportElement x="24" y="681" width="24" height="15" uuid="942350c8-36c1-4217-9aa0-76b03f576011"/>
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="24" y="611" width="63" height="15" uuid="51e37642-638b-4b50-9f27-b503270ae40b"/>
+				<reportElement x="24" y="666" width="63" height="15" uuid="51e37642-638b-4b50-9f27-b503270ae40b"/>
 				<text><![CDATA[Testemunha:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="24" y="610" width="157" height="1" uuid="bd1316b2-03bf-4b64-bb83-c7bdde7a68cb"/>
+				<reportElement x="24" y="665" width="232" height="1" uuid="bd1316b2-03bf-4b64-bb83-c7bdde7a68cb"/>
 			</line>
 			<staticText>
-				<reportElement x="24" y="700" width="24" height="15" uuid="64ec74ef-a8e8-4d10-b22c-8e8877b1971f"/>
+				<reportElement x="24" y="735" width="24" height="15" uuid="64ec74ef-a8e8-4d10-b22c-8e8877b1971f"/>
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="24" y="685" width="119" height="15" uuid="d266565e-a1a1-4479-8eff-3b09fe856aa0"/>
+				<reportElement x="24" y="720" width="119" height="15" uuid="d266565e-a1a1-4479-8eff-3b09fe856aa0"/>
 				<text><![CDATA[Responsável Solidário:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="24" y="684" width="232" height="1" uuid="e03dce8f-873d-42a7-ab89-acab13bd454f"/>
+				<reportElement x="24" y="719" width="232" height="1" uuid="e03dce8f-873d-42a7-ab89-acab13bd454f"/>
 			</line>
 			<line>
-				<reportElement x="320" y="606" width="188" height="1" uuid="41c4ec5a-0550-4a3b-99e5-80d4ee3b93bb"/>
+				<reportElement x="320" y="661" width="188" height="1" uuid="41c4ec5a-0550-4a3b-99e5-80d4ee3b93bb"/>
 			</line>
 			<textField>
-				<reportElement x="320" y="611" width="188" height="15" uuid="9d7dab19-e881-4f78-8eb6-6f7ffe362e1f"/>
+				<reportElement x="320" y="666" width="188" height="15" uuid="9d7dab19-e881-4f78-8eb6-6f7ffe362e1f"/>
 				<textFieldExpression><![CDATA[$F{razaosocialUnidade}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="320" y="628" width="188" height="15" uuid="8aab269e-a9cb-4d18-9b86-9330c7d072a7"/>
+				<reportElement x="320" y="683" width="188" height="15" uuid="8aab269e-a9cb-4d18-9b86-9330c7d072a7"/>
 				<textFieldExpression><![CDATA["CNPJ/MF Nº : " + $F{cnpjUnidade}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="320" y="559" width="188" height="15" uuid="0943bd7c-724a-43b2-8f7a-83acc4d7c0b5"/>
+				<reportElement x="320" y="617" width="188" height="15" uuid="0943bd7c-724a-43b2-8f7a-83acc4d7c0b5"/>
 				<textFieldExpression><![CDATA["CPF Nº : " + $F{cpfAluno}]]></textFieldExpression>
 			</textField>
 		</band>

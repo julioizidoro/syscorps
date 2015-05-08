@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 02" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f5fe2bf-1a21-4a3e-8e85-348bbac75b49">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 02" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f5fe2bf-1a21-4a3e-8e85-348bbac75b49">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<parameter name="idmatricula" class="java.lang.String"/>
+	<property name="ireport.y" value="315"/>
+	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Google Drive\\Desenvolvimento\\syscorps\\sistema\\syscorps\\src\\main\\webapp\\resources\\relatorios\\matricula\\"]]></defaultValueExpression>
 	</parameter>
@@ -137,7 +137,7 @@ where matricula.idmatricula=$P{idmatricula}]]>
 	<field name="foneUnidade" class="java.lang.String"/>
 	<field name="cnpjUnidade" class="java.lang.String"/>
 	<pageHeader>
-		<band height="723" splitType="Stretch">
+		<band height="665" splitType="Stretch">
 			<staticText>
 				<reportElement x="11" y="0" width="530" height="89" uuid="a2495c49-0136-443e-8edd-a749335d80f0"/>
 				<textElement textAlignment="Justified"/>
@@ -210,8 +210,12 @@ Parágrafo 7o. Durante as férias escolares e o recesso escolar , as mensalidade
 
 ]]></text>
 			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="11">
 			<subreport>
-				<reportElement x="0" y="701" width="200" height="22" uuid="aa3556bb-b8ee-45d5-8879-6690c5f57cdf"/>
+				<reportElement x="0" y="0" width="200" height="11" uuid="31367911-8b34-41ee-bc68-16cc20936ced"/>
 				<subreportParameter name="idmatricula">
 					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -222,5 +226,5 @@ Parágrafo 7o. Durante as férias escolares e o recesso escolar , as mensalidade
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "contratoescolarpagina03.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-	</pageHeader>
+	</summary>
 </jasperReport>

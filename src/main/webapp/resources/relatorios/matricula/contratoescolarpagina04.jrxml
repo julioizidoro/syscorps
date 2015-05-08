@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 04" pageWidth="595" pageHeight="840" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1faac309-e3d8-4ca1-813a-cc82d6224154">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 04" pageWidth="595" pageHeight="840" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1faac309-e3d8-4ca1-813a-cc82d6224154">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="508"/>
-	<parameter name="idmatricula" class="java.lang.String"/>
+	<property name="ireport.y" value="361"/>
+	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select distinct
@@ -135,11 +135,13 @@ where matricula.idmatricula=$P{idmatricula}]]>
 	<field name="foneUnidade" class="java.lang.String"/>
 	<field name="cnpjUnidade" class="java.lang.String"/>
 	<pageHeader>
-		<band height="795" splitType="Stretch">
+		<band height="672" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="0" width="517" height="787" uuid="3ef1f6f7-da6e-48d6-9258-dabb79b19020"/>
+				<reportElement x="10" y="0" width="545" height="667" uuid="3ef1f6f7-da6e-48d6-9258-dabb79b19020"/>
 				<textElement textAlignment="Justified"/>
-				<text><![CDATA[Parágrafo 20o No caso de reprovação em qualquer etapa do estágio, o CONTRATANTE dever contratar nova matrícula de estágio.
+				<text><![CDATA[IV - Pela emissão de letra de câmbio, desde já autorizada, pelo valor da(s) parcela(s) vencida(s) da multa de 3% (Três por cento) apresentada para aceite na forma do Capítulo III de Lei uniforme, aprovada pelo Decreto Legislativo no. 54/64, arts. 21 e seguintes, conforme previsão do artigo 7o.  do Código de Defesa do Consumidor.
+V - Independentemente da adoção das medidas acima, poderá contratar Empresa especializada para proceder com a cobrança do débito de forma amigável e/ou judicial, cabendo ao CONTRATANTE arcar com as despesas e honorários advocatícios decorrentes.
+Parágrafo 20o No caso de reprovação em qualquer etapa do estágio, o CONTRATANTE dever contratar nova matrícula de estágio.
 Parágrafo 21º. Em caso de cancelamento até a data do início das aulas previsto  neste contrato  o contratante efetuará o pagamento de R$200,00 referentes aos serviços prestados de: confecção de carteira estudantil, avaliação de crédito, arquivo, registro de documentos e outras despesas administrativas. Em caso de cancelamento do curso pela CONTRATADA, a mesma fica responsável em reembolsar o valor efetuado pelo CONTRATANTE.  CIENTE _________________________________________________.
 CLÁUSULA 8a. Será preservado o equilíbrio contratual caso qualquer mudança legislativa, normativa, convenção coletiva ou dissídio caso alterem a equação econômico-financeira do presente Contrato.
 CLÁUSULA 9a. Tem ciência nesta ato o CONTRATANTE que em caso de inadimplência das parcelas ou qualquer obrigação de pagamento decorrente desse Contrato, terá seu cadastro negativado junto aos órgãos de proteção ao crédito (SPC / SERASA), nos termos do artigo 43 § 2º. Da Lei 8.078 Consumidor legalmente existente para registro nos termos do artigo 43 parágrafo segundo da Lei n0. 8.078 de setembro de 1990 (Código de Defesa do Consumidor).
@@ -158,8 +160,7 @@ IV - Por inadimplência conforme Cláusula 9ª. deste contrato (Lei 9870/99 arti
 Parágrafo único – Em  caso de Rescisão de contrato fica o CONTRATANTE obrigado a pagar o valor da parcela do mês em que ocorre o evento, além de outros débitos eventualmente existentes, incluído uma parcela referente a pré-aviso, corrigidos na forma do Parágrafo 16º  da Cláusula 7a .(indenização por quebra de contrato). CIENTE: __________________________________
 CLÁUSULA 13ª.  – Além dos casos previstos na legislação do ensino e nas normas de funcionamento da escola, o CONTRATADO não aceitará ou não renovará a matrícula de aluno(s) em razão de inadimplência, de não observância do calendário e regimento escolares, de indisciplina ou incompatibilidade com o regime didático-pedagógico do estabelecimento; de desarmonia prejudicial ao(s) aluno(s), ao processo educacional ou ao bom entendimento das partes (art. 1º e 5º da Lei nº 9.870/99).
 Parágrafo único – Havendo incompatibilidade do(s) aluno(s) com o regime didático-pedagógico-disciplinar do estabelecimento e prejuízo para ele(s) ou para a comunidade escolar, poderá ser expedida a transferência do(s) mesmo(s) antes do término do ano letivo, rompendo-se o presente contrato.
-CLÁUSULA 14ª.  – Também assina o presente instrumento, na qualidade de CONTRATANTE, o responsável solidário (pai, mãe,conjugue), devidamente identificado por ficha cadastral e documento de identidade, abaixo nomeado, o qual tem portanto, os mesmos direitos, deveres e obrigações.
-ClÁUSULA 15ª.  – O CONTRATANTE se responsabiliza pelos dados declarados, comprometendo-se a informar à CONTRATADA, por escrito e mediante recibo, qualquer alteração ou mudança de endereço capaz de prejudicar sua localização, e fica ciente, desde já, de que a omissão acarretará na pena de serem consideradas válidas as correspondências enviadas aos endereços constantes do presente instrumento, inclusive para efeitos de citação judicial e inclusão de seu nome no SPC sem prévio conhecimento.
+
 
 
 
@@ -168,9 +169,9 @@ ClÁUSULA 15ª.  – O CONTRATANTE se responsabiliza pelos dados declarados, com
 		</band>
 	</pageHeader>
 	<summary>
-		<band height="16">
+		<band height="50">
 			<subreport>
-				<reportElement x="0" y="0" width="200" height="12" uuid="b6c3335e-cdea-425f-aa7a-7d132e62bf6f"/>
+				<reportElement x="0" y="4" width="200" height="17" uuid="109929bc-59cf-42aa-82c6-81b356711a6a"/>
 				<subreportParameter name="idmatricula">
 					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
 				</subreportParameter>

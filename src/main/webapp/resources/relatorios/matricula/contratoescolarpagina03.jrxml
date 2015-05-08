@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 03" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71440329-288f-438f-8945-2a4cc95f8bf7">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 03" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="71440329-288f-438f-8945-2a4cc95f8bf7">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<parameter name="idmatricula" class="java.lang.String"/>
+	<property name="ireport.y" value="333"/>
+	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Google Drive\\Desenvolvimento\\syscorps\\sistema\\syscorps\\src\\main\\webapp\\resources\\relatorios\\matricula\\"]]></defaultValueExpression>
 	</parameter>
@@ -136,13 +136,10 @@ where matricula.idmatricula=$P{idmatricula}]]>
 	<field name="cepUnidade" class="java.lang.String"/>
 	<field name="foneUnidade" class="java.lang.String"/>
 	<field name="cnpjUnidade" class="java.lang.String"/>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
 	<pageHeader>
-		<band height="802" splitType="Stretch">
+		<band height="676" splitType="Stretch">
 			<staticText>
-				<reportElement x="4" y="5" width="548" height="761" uuid="4ef3345f-e40c-4eb4-87ad-a1c608117bd1"/>
+				<reportElement x="10" y="5" width="534" height="662" uuid="4ef3345f-e40c-4eb4-87ad-a1c608117bd1"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Parágrafo 8o. Os valores da contraprestação das demais atividades, inclusive as extracurriculares, de caráter não obrigatório, serão fixadas a cada serviço pelo CONTRATADO.
 Parágrafo 9o.O CONTRATADO reserva-se o direito de não realizar cerimônia de formatura, portanto é isenta do pagamento de quaisquer despesas referentes a mesma.
@@ -159,8 +156,7 @@ Parágrafo 19. Em caso de inadimplência o CONTRATADO poderá optar:
 I – PELA SUSPENSÃO DOS SERVIÇOS, nos termos da Lei Nº.9870/99, ARTIGO 6º e § 3º E ARTIGO  476 DO CÓDIGO CIVIL
 II – PELA RESCISÃO CONTRATUAL, INDEPENDENTE DA EXIGIBILIDADE DO DÉBITO VENCIDO E DAQUELES QUE VENCERE ENQUANTO PERDURAR A PRESTAÇÃO DOS SERVIÇOS, ACRESCIDOS DAS PENALIDADES PREVISTAS NO PARÁGRAFO 16O. DA CLÁUSULA 7A.
 III – PELA EMISSÃO DE DUPLICATA DE PRESTAÇÃO DE SERVIÇOS, NOS TERMOS DA LEI 5.474 DE 18/07/68, QUE FICA DESDE JÁ AUTORIZADA, OBSERVANDO-SE O PARÁGRAFO 14O. DESTA CLÁUSULA PARA DETERMINAÇÃO DO VALOR, SEM PREJUÍZO, ENTRETANTO, DA RESCISÃO DO PRESENTE CONTRATO.
-IV - Pela emissão de letra de câmbio, desde já autorizada, pelo valor da(s) parcela(s) vencida(s) da multa de 3% (Três por cento) apresentada para aceite na forma do Capítulo III de Lei uniforme, aprovada pelo Decreto Legislativo no. 54/64, arts. 21 e seguintes, conforme previsão do artigo 7o.  do Código de Defesa do Consumidor.
-V - Independentemente da adoção das medidas acima, poderá contratar Empresa especializada para proceder com a cobrança do débito de forma amigável e/ou judicial, cabendo ao CONTRATANTE arcar com as despesas e honorários advocatícios decorrentes.
+
 
 
 
@@ -169,9 +165,9 @@ V - Independentemente da adoção das medidas acima, poderá contratar Empresa e
 		</band>
 	</pageHeader>
 	<summary>
-		<band height="20">
+		<band height="18">
 			<subreport>
-				<reportElement x="0" y="0" width="200" height="18" uuid="4f3d8339-fa6b-4e62-b9cf-4ab8690b11c0"/>
+				<reportElement x="0" y="0" width="200" height="15" uuid="8c819fac-ad09-4be6-98de-8f8e206ed9a0"/>
 				<subreportParameter name="idmatricula">
 					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
 				</subreportParameter>
