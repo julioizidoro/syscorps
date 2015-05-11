@@ -23,4 +23,12 @@ public class UnidadeDao {
         return unidade;
     }
     
+    public Unidade salvar(Unidade unidade){
+        EntityManager manager = ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        unidade = manager.merge(unidade);
+        manager.getTransaction().commit();
+        return unidade;
+    }
+    
 }

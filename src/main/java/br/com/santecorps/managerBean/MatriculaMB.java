@@ -231,7 +231,7 @@ public class MatriculaMB implements Serializable{
     public void gerarListaTurma() {
         if (idCurso != null) {
             TurmaFacade turmaFacade = new TurmaFacade();
-            listaTurma = turmaFacade.listar(Integer.parseInt(idCurso), 1);
+            listaTurma = turmaFacade.listar(Integer.parseInt(idCurso), usuarioLogadoMB.getUsuario().getUnidade().getIdunidade());
             if (listaTurma == null) {
                 listaTurma = new ArrayList<Turma>();
             }
@@ -240,7 +240,7 @@ public class MatriculaMB implements Serializable{
     
     public void carregarListaTurma() {
         TurmaFacade turmaFacade = new TurmaFacade();
-        listaTurma = turmaFacade.listar("", 1);
+        listaTurma = turmaFacade.listar("", usuarioLogadoMB.getUsuario().getUnidade().getIdunidade());
         if (listaTurma == null) {
             listaTurma = new ArrayList<Turma>();
         }

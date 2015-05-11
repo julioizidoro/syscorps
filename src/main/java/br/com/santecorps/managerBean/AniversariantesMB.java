@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.swing.ImageIcon;
 import net.sf.jasperreports.engine.JRDataSource;
@@ -37,6 +38,8 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 @SessionScoped
 public class AniversariantesMB implements Serializable{
     
+    @Inject
+    UsuarioLogadoMB usuarioLogadoMB;
     private List<AniversariantesBean> listaAniversariantes;
     private String mes;
     private String idTurma;
@@ -81,7 +84,7 @@ public class AniversariantesMB implements Serializable{
     
     public void gerarListaTurma() {
         TurmaFacade turmaFacade = new TurmaFacade();
-        listaTurma = turmaFacade.listar("", 1);
+        listaTurma = turmaFacade.listar("", usuarioLogadoMB.getUsuario().getUnidade().getIdunidade());
         if (listaTurma == null) {
             listaTurma = new ArrayList<Turma>();
         }

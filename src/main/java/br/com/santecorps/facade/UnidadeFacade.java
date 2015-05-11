@@ -22,4 +22,9 @@ public class UnidadeFacade {
         return unidadeDao.getUnidade(idUnidade);
     }
     
+    public Unidade salvar(Unidade unidade){
+        unidadeDao = new UnidadeDao();
+        return  unidadeDao.salvar(unidade);
+    }
+    
 }

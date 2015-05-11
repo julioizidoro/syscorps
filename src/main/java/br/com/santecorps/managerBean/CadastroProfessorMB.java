@@ -6,17 +6,15 @@
 package br.com.santecorps.managerBean;
 
 import br.com.santecorps.facade.ProfessorFacade;
-import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Professor;
-import br.com.santecorps.model.Unidade;
 import br.com.santecorps.util.Formatacao;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -28,7 +26,8 @@ import javax.inject.Named;
 @SessionScoped
 public class CadastroProfessorMB implements Serializable{
     
-    
+    @Inject
+    private UsuarioLogadoMB usuarioLogadoMB;
     private Professor professor;
     private List<Professor> listaProfessor;
     private String nomeProfessor;
@@ -85,9 +84,7 @@ public class CadastroProfessorMB implements Serializable{
         return "consprofessor";
     }
     public String salvar(){
-        UnidadeFacade unidadeFacade = new UnidadeFacade();
-        Unidade unidade = unidadeFacade.getUnidade(1);
-        professor.setUnidade(unidade);
+        professor.setUnidade(usuarioLogadoMB.getUsuario().getUnidade());
         professor.setMes(Formatacao.retornoMesData(professor.getDataNascimento()));
         ProfessorFacade professorFacade = new ProfessorFacade();
         professorFacade.salvar(professor);

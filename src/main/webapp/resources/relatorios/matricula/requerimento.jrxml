@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Requerimento de Matrícula" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="454"/>
 	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="texto" class="java.lang.String"/>
 	<queryString>
@@ -18,6 +18,7 @@
     matricula.turma_idturma,
     matricula.datamatricula,
     aluno.idaluno,
+    aluno.numeromatricula,
     aluno.nome as nomeAluno,
     aluno.email as emailAluno,
     aluno.rg as rgAluno,
@@ -105,6 +106,9 @@ where matricula.idmatricula=$P{idmatricula};]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="idaluno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeromatricula" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nomeAluno" class="java.lang.String"/>
@@ -368,7 +372,7 @@ where matricula.idmatricula=$P{idmatricula};]]>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="395" y="67" width="148" height="15" uuid="6cdb34c1-2dbc-4fbe-a6e6-9efcb44d991c"/>
-				<textFieldExpression><![CDATA[$F{idaluno}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numeromatricula}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="133" y="222" width="171" height="15" uuid="ccb8cdad-2ea1-453a-be40-ac3b9c1cfc26"/>

@@ -9,6 +9,7 @@
 		<![CDATA[select distinct
     matricula.datamatricula,
 aluno.idaluno,
+aluno.numeromatricula,
 	aluno.nome as nomeAluno,
     aluno.email as emailAluno,
     aluno.dataNascimento as dataNascimentoAluno,
@@ -36,6 +37,9 @@ where turma.idturma=$P{idturma}]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="idaluno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeromatricula" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nomeAluno" class="java.lang.String"/>
@@ -154,7 +158,7 @@ where turma.idturma=$P{idturma}]]>
 			</rectangle>
 			<textField isBlankWhenNull="true">
 				<reportElement x="6" y="4" width="63" height="15" uuid="1f5c1aed-8ea2-4833-a5d2-137f7e011d9d"/>
-				<textFieldExpression><![CDATA[$F{idaluno}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numeromatricula}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="77" y="4" width="210" height="15" uuid="17873d34-5f24-40b8-b0eb-13e6c3556f15"/>

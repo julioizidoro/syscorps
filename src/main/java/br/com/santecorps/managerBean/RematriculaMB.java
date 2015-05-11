@@ -11,13 +11,15 @@ import java.util.List;
 import java.util.Map;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
 @SessionScoped
 public class RematriculaMB  implements Serializable{
       
-      
+      @Inject
+      private UsuarioLogadoMB usuarioLogadoMB;
       private List<Matricula> listaMatricula;
       private Matricula matricula;
       private List<Turma> listaTurma;
@@ -73,7 +75,7 @@ public class RematriculaMB  implements Serializable{
     
     public void gerarListaTurma() {
         TurmaFacade turmaFacade = new TurmaFacade();
-        listaTurma = turmaFacade.listar("", 1);
+        listaTurma = turmaFacade.listar("", usuarioLogadoMB.getUsuario().getUnidade().getIdunidade());
         if (listaTurma == null) {
             listaTurma = new ArrayList<Turma>();
         }

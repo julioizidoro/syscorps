@@ -112,6 +112,9 @@ public class Aluno implements Serializable {
     @Size(max = 3)
     @Column(name = "trabalha")
     private String trabalha;
+    @Size(max = 10)
+    @Column(name = "numeromatricula")
+    private String numeromatricula;
     @JoinColumn(name = "unidade_idunidade", referencedColumnName = "idunidade")
     @ManyToOne(optional = false)
     private Unidade unidade;
@@ -163,6 +166,14 @@ public class Aluno implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getNumeromatricula() {
+        return numeromatricula;
+    }
+
+    public void setNumeromatricula(String numeromatricula) {
+        this.numeromatricula = numeromatricula;
     }
 
     public String getEmail() {

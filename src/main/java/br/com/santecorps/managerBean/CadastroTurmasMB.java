@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -29,6 +30,8 @@ import javax.inject.Named;
 @SessionScoped
 public class CadastroTurmasMB implements Serializable{
     
+    @Inject
+    private UsuarioLogadoMB usuarioLogadoMB;
     private List<Turma> listaTurmas;
     private Turma turma;
     private String idCurso="0";
@@ -92,7 +95,7 @@ public class CadastroTurmasMB implements Serializable{
     
     public void listarTurmas(String nome){
         TurmaFacade turmaFacade = new TurmaFacade();
-        listaTurmas = turmaFacade.listar(nome, 1);
+        listaTurmas = turmaFacade.listar(nome, usuarioLogadoMB.getUsuario().getUnidade().getIdunidade());
         if (listaTurmas == null) {
             listaTurmas = new ArrayList<Turma>();
         }

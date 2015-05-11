@@ -20,6 +20,7 @@ import java.util.Map;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 /**
  *
@@ -30,6 +31,8 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class CadastroAlunoMB implements Serializable{
     
+    @Inject
+    private UsuarioLogadoMB usuarioLogadoMB;
     private List<Aluno> listaAlunos;
     private Aluno aluno;
     private Conjuge conjuge;
@@ -148,11 +151,10 @@ public class CadastroAlunoMB implements Serializable{
         boolean cadAluno = false;
         if (aluno.getIdaluno()==null){
             cadAluno = true;
+            aluno.setNumeromatricula(gerarNumeroMatricula());
         }
         AlunoFacade alunoFacade = new AlunoFacade();
-        UnidadeFacade unidadeFacade = new UnidadeFacade();
-        Unidade unidade = unidadeFacade.getUnidade(1);
-        aluno.setUnidade(unidade);
+        aluno.setUnidade(usuarioLogadoMB.getUsuario().getUnidade());
         aluno.setMes(Formatacao.retornoMesData(aluno.getDataNascimento()));
         aluno = alunoFacade.salvar(aluno);
         if (cadAluno) {
@@ -288,6 +290,17 @@ public class CadastroAlunoMB implements Serializable{
     }
     public String voltar(){
         return "inicial";
+    }
+    
+    public String gerarNumeroMatricula(){
+        Unidade unidade = usuarioLogadoMB.getUsuario().getUnidade();
+        int numeroMat = usuarioLogadoMB.getUsuario().getUnidade().getNumeromatriculainicial() + 1;
+        UnidadeFacade unidadeFacade = new UnidadeFacade();
+        unidade.setNumeromatriculainicial(numeroMat);
+        unidade = unidadeFacade.salvar(unidade);
+        usuarioLogadoMB.getUsuario().setUnidade(unidade);
+        String numeroGerado = String.valueOf(unidade.getIdunidade()) + String.valueOf(numeroMat);
+        return numeroGerado;
     }
     
 

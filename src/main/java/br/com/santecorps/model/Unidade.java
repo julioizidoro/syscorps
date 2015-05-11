@@ -14,8 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -47,6 +45,10 @@ public class Unidade implements Serializable {
     @Size(max = 2)
     @Column(name = "estado")
     private String estado;
+    @Column(name = "numeromatriculainicial")
+    private int numeromatriculainicial;
+    @Column(name = "numeromatriculafinal")
+    private int numeromatriculafinal;
 
     public Unidade() {
     }
@@ -93,6 +95,22 @@ public class Unidade implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public int getNumeromatriculainicial() {
+        return numeromatriculainicial;
+    }
+
+    public void setNumeromatriculainicial(int numeromatriculainicial) {
+        this.numeromatriculainicial = numeromatriculainicial;
+    }
+
+    public int getNumeromatriculafinal() {
+        return numeromatriculafinal;
+    }
+
+    public void setNumeromatriculafinal(int numeromatriculafinal) {
+        this.numeromatriculafinal = numeromatriculafinal;
     }
 
     @Override
