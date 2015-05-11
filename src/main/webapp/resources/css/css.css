@@ -101,9 +101,9 @@
         font-family: tahoma;
         list-style:none; 
         border:1px solid #EEE5DE; 
-        width:790px;
+        width:793px;
         float:left;
-        margin-top:-10px;
+        margin-top:-12px;
         background: #EEE5DE;
         font-size: 12px;
 
@@ -117,6 +117,10 @@
     }
     .fontsize{
         font-size: 12px;
+    }
+    .menulogado{
+        font-size: 12px;
+        color:#F79634;
     }
     legend#iUsu5 b{
 
@@ -198,6 +202,11 @@
         width: 600px;
 
     }
+    .usuariologado{
+    margin-top:-60px;
+    margin-left:550px;
+    font-size:11px;
+}
     .tabelaalunoss{
         font-size: 12px;
         font-family: tahoma;

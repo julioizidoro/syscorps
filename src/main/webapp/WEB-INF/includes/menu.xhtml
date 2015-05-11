@@ -5,12 +5,20 @@
     <div id="tudo">
     <tr>
         <td><table aling="center" width="00" border="0" cellpadding="0" cellspacing="0">
-
                 <tr>
                     <td><img src="resources/img/logo_corps.png" alt="" width="800" height="140" class="fundo"/></td>
                 </tr>
-            </table></td>
+            </table>
+        </td>
     </tr>
+        <h:panelGrid columns="4">
+            <h:panelGrid columns="2" cellpadding="1" class="usuariologado">
+                            <p:outputLabel value="Usuário:"  class="menulogado"/> 
+                            <p:outputLabel value="" /> 
+                            <p:outputLabel value="Unidade:"  class="menulogado"/> 
+                            <p:outputLabel value="" /> 
+                         </h:panelGrid>
+        </h:panelGrid>
     <p:menubar class="menu">
         <p:submenu label="CADASTRO">
             <p:menuitem class="submenu" value="Participante" action="#{menuMB.cadastroAlunos()}" />
