@@ -32,13 +32,31 @@
                                     <p:outputLabel value="Senha" for="senha"  class="uname"/>
                                     <p:inputText id="senha" size="30" required="required" requiredMessage="Campo Obrigatorio" type="password" value="#{UsuarioLogadoMB.usuario.senha}"/>
                                 </h:panelGrid>
-                                <h:panelGrid class="loginButton">
+                                <h:panelGrid columns="2" class="loginButton">
                                     <p:commandButton value="Login" class="loginButton" action="#{UsuarioLogadoMB.validarUsuario()}"/>
+                                    <p:commandButton value="Alterar Senha" class="loginButton2"  oncomplete="PF('dll').show()"/>
                                 </h:panelGrid>
                             </div>
                             </div>
                         </div>
                     </div> 
+                    <p:dialog header="Alterar Senha" modal="true" showEffect="bounce" widgetVar="dll" resizable="false"  class="tabelaMat" width="22%" height="60%">
+                                <h:panelGrid columns="2" cellpadding="5" >
+                                    <p:outputLabel value="Nova Senha" for="novasenha"  class="left"/>
+                                </h:panelGrid>        
+                                <h:panelGrid columns="2" cellpadding="5" >
+                                    <p:inputText  id="novasenha" value="#"  size="25" maxlength="50"  class="left"/> 
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="5" >
+                                    <p:outputLabel value="Confirmar Senha" for="confirmarsenha"  class="left"/>
+                                </h:panelGrid>        
+                                <h:panelGrid columns="2" cellpadding="5" >
+                                    <p:inputText  id="confirmarsenha" value="#"  size="25" maxlength="50"  class="left"/> 
+                                </h:panelGrid>
+                                <p:commandButton value="Confirmar" icon="ui-icon-plusthick" class="botaoalterarsenha" onclick="dll.hide();" />
+                                <p:commandButton value="Cancelar" onclick="dll.hide();" icon="ui-icon-closethick" class="botaoalterarsenha" />
+
+                            </p:dialog>
                 </h:form>
             </section>
         </div>
