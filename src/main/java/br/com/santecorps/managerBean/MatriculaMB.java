@@ -63,7 +63,6 @@ public class MatriculaMB implements Serializable{
         matricula = new Matricula();
         matricula.setAluno(new Aluno());
         gerarLitaCurso();
-        carregarListaTurma();
     }
     
     

@@ -26,10 +26,13 @@ public class RematriculaMB  implements Serializable{
       private String idTurma;
       
     public RematriculaMB() {
-        gerarListaTurma();
+        
     }
 
     public List<Turma> getListaTurma() {
+        if (listaTurma==null){
+            gerarListaTurma();
+        }
         return listaTurma;
     }
 

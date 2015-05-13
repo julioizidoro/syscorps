@@ -47,7 +47,7 @@ public class AniversariantesMB implements Serializable{
     private String nomeTurma;
 
     public AniversariantesMB() {
-        gerarListaTurma();
+        
     }
 
     public List<AniversariantesBean> getListaAniversariantes() {
@@ -75,6 +75,9 @@ public class AniversariantesMB implements Serializable{
     }
 
     public List<Turma> getListaTurma() {
+        if (listaTurma==null){
+            gerarListaTurma();
+        }
         return listaTurma;
     }
 

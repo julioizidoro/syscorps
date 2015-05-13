@@ -40,9 +40,11 @@ public class CadastroTurmasMB implements Serializable{
 
     public CadastroTurmasMB() {
         turma = new Turma();
-        listarTurmas("");
     }
     public List<Turma> getListaTurmas() {
+        if (listaTurmas==null){
+            listarTurmas("");
+        }
         return listaTurmas;
     }
 
