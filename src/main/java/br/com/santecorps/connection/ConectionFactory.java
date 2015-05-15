@@ -47,9 +47,9 @@ public class ConectionFactory {
             String driverName = "com.mysql.jdbc.Driver";
             String serverName = "186.215.116.63";
             String mydatabase ="syscorps";
-            String url = "jdbc:mysql://" + serverName + ":8082/" + mydatabase;
+            String url = "jdbc:mysql://" + serverName + ":8081/" + mydatabase;
             String username = "root";
-            String password = "jfhmaster123";
+            String password = "simples";
             try {
                 conn = DriverManager.getConnection(url, username, password);
             } catch (SQLException ex) {
