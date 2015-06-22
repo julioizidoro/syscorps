@@ -16,13 +16,15 @@
                     <h:panelGrid columns="2" cellpadding="3">
                         <p:outputLabel value="Turma:" for="turma"  class="left4" /> 
                     </h:panelGrid>
-                    <h:panelGrid columns="2" cellpadding="1">
+                    <h:panelGrid columns="3" cellpadding="1">
                         <p:selectOneMenu  id="turma" class="left4" style="width:200px" value="#{rematriculaMB.idTurma}">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
                             <f:selectItems value="#{rematriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
                             <p:ajax event="change" listener="#{rematriculaMB.carregarListaMatricula()}" update="tabAluno" />
                         </p:selectOneMenu>
+                        <p:commandLink  value="Iniciar Rematricula" styleClass="comandlink" action="#"  update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  /> 
                     </h:panelGrid>
+                    
                     <p:dataTable id="tabAluno" var="consAluno" value="#{rematriculaMB.listaMatricula}" class="tabelacurso" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
                         <p:column headerText="Nome" >
                             <h:outputText value="#{consAluno.aluno.nome}" />
@@ -38,11 +40,11 @@
                         <p:column headerText="CPF" style="width:80px" >
                             <h:outputText value="#{consAluno.aluno.cpf}" />
                         </p:column>
+                        <p:column style="width:15px">
+                             <p:graphicImage value="#{rematriculaMB.rematriculado(consAluno)}"/>
+                        </p:column>
                         <p:column headerText="Situação" style="width:50px">
                             <h:outputText value="#{consAluno.situacao}" />
-                        </p:column>
-                         <p:column style="width:15px">
-                             <p:graphicImage value="#{rematriculaMB.rematriculado(consAluno)}"/>
                         </p:column>
                         <p:column style="width:93px">
                             <p:commandButton  id="rematricular" value="Rematricular" action="#{rematriculaMB.efetivar()}" disabled="#{rematriculaMB.retornaSituacao(consAluno)}" >

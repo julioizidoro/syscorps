@@ -5,6 +5,7 @@
  */
 package br.com.santecorps.managerBean;
 
+import br.com.santecorps.controller.UsuarioController;
 import br.com.santecorps.facade.AlunoFacade;
 import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Aluno;
@@ -12,8 +13,10 @@ import br.com.santecorps.model.Avalista;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
 import br.com.santecorps.model.Unidade;
+import br.com.santecorps.model.Usuario;
 import br.com.santecorps.util.Formatacao;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -323,23 +326,16 @@ public class CadastroAlunoMB implements Serializable{
         String numeroGerado = String.valueOf(unidade.getIdunidade()) + String.valueOf(numeroMat);
         return numeroGerado;
     }
-    
-    public String verificarCpf(){
-        cpfIgual=null;
-        if (cpfIgual==null){
-            cpfIgual = "";
+     public String validarCPF() throws SQLException{
+        AlunoFacade  alunoFacade = new AlunoFacade();
+        aluno = alunoFacade.consultar(cpfIgual);
+        if (aluno!=null){
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "CPF já cadastrado"));
+        }else {
+            return "cadaluno";
         }
-        AlunoFacade alunoFacade = new AlunoFacade();
-        listaCpf = alunoFacade.listas(cpfIgual);
-        if (listaCpf==null){
-            if (cpfIgual != aluno.getCpf()){
-                return "cadaluno";
-            }
-        }else{
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage("CPF já existente!", "Acesso Negado"));
-            return "";
-        }
-        return null;
+        aluno = new Aluno();
+        return "";
     }
+    
 }

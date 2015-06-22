@@ -29,9 +29,15 @@ public class TransferenciaMB implements Serializable{
     
     @Inject 
     private UsuarioLogadoMB usuarioLogadoMB;
+    @Inject MatriculaMB matriculaMB;
     private Transferencia transferencia;
     private String idTurma;
     private Matricula matricula;
+    
+
+    public TransferenciaMB() {
+        transferencia = new Transferencia();
+    }
     
     
 
@@ -58,8 +64,19 @@ public class TransferenciaMB implements Serializable{
     public void setIdTurma(String idTurma) {
         this.idTurma = idTurma;
     }
+
+    public MatriculaMB getMatriculaMB() {
+        return matriculaMB;
+    }
+
+    public void setMatriculaMB(MatriculaMB matriculaMB) {
+        this.matriculaMB = matriculaMB;
+    }
+    
+    
     
     public String iniciarTransferecia(){
+        transferencia = new Transferencia();
         FacesContext fc = FacesContext.getCurrentInstance();
         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
         int idMatricula =  Integer.parseInt(params.get("id_matricula"));
@@ -70,7 +87,7 @@ public class TransferenciaMB implements Serializable{
             transferencia.setMatricula(matricula);
             transferencia.setTurmaatual(matricula.getTurma());
         }
-        return "";
+        return "transferir";
     }
     
     public String salvarTransferencia(){
@@ -84,7 +101,8 @@ public class TransferenciaMB implements Serializable{
         MatriculaFacade matriculaFacade = new MatriculaFacade();
         matricula.setTurma(transferencia.getTurmanova());
         matriculaFacade.salvar(matricula);
-        return "";
+        matriculaMB.carregarListaMatricula();
+        return "listarAlunos";
     }
     
     

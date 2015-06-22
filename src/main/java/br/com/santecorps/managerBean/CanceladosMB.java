@@ -29,6 +29,11 @@ public class CanceladosMB implements Serializable{
     private UsuarioLogadoMB usuarioLogadoMB;
     private Cancelados cancelados;
     private Matricula matricula;
+    @Inject MatriculaMB matriculaMB;
+
+    public CanceladosMB() {
+        cancelados = new Cancelados();
+    }
 
     public Cancelados getCancelados() {
         return cancelados;
@@ -53,6 +58,16 @@ public class CanceladosMB implements Serializable{
     public void setMatricula(Matricula matricula) {
         this.matricula = matricula;
     }
+
+    public MatriculaMB getMatriculaMB() {
+        return matriculaMB;
+    }
+
+    public void setMatriculaMB(MatriculaMB matriculaMB) {
+        this.matriculaMB = matriculaMB;
+    }
+    
+    
     
     public String salvarCancelamento() {
         cancelados.setUsuario(usuarioLogadoMB.getUsuario());
@@ -62,11 +77,13 @@ public class CanceladosMB implements Serializable{
         matricula.setSituacao("Cancelada");
         MatriculaFacade matriculaFacade = new MatriculaFacade();
         matriculaFacade.salvar(matricula);
+        matriculaMB.carregarListaMatricula();
         return "listarAlunos";
     }
     
     
     public String cancelar(){
+        cancelados = new Cancelados();
         FacesContext fc = FacesContext.getCurrentInstance();
         Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
         int idMatricula =  Integer.parseInt(params.get("id_matricula"));
@@ -75,7 +92,7 @@ public class CanceladosMB implements Serializable{
             matricula = matriculaFacade.getMatricula(idMatricula);
             cancelados.setMatricula(matricula);
         }
-        return "";
+        return "cancelar";
     }
     
     

@@ -10,6 +10,8 @@ import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Avalista;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
+import br.com.santecorps.model.Usuario;
+import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -93,12 +95,15 @@ public class AlunoDao {
         return conjuge;
     }
     
-      public List<Aluno> listas(String cpfigual){
-        EntityManager manager =ConectionFactory.getConnection();
+      public Aluno consultar(String cpf) throws SQLException{
+        EntityManager manager = ConectionFactory.getConnection();
         manager.getTransaction().begin();
-        Query q = manager.createQuery("select a from Aluno a where a.cpf like '%" + cpfigual + "%'" );
-        List<Aluno> listaAlunos = q.getResultList();
+        Query q = manager.createQuery("select a from Aluno a where a.cpf  like '%" + cpf + "%'");
+        Aluno aluno = null;
+        if (q.getResultList().size()>0){
+            aluno = (Aluno) q.getResultList().get(0);
+        }
         manager.getTransaction().commit();
-        return listaAlunos;
+        return aluno;
     }
 }

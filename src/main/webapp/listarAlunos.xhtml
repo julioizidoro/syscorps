@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="corpo">
-            <h:form>
+            <h:form id="listarAluno">
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
@@ -25,26 +25,26 @@
                     </h:panelGrid>
                     <p:dataTable id="listaaluno" var="listaaluno" value="#{matriculaMB.listaMatricula}" class="tabelacursos" rowStyleClass="tabela" 
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
-                                 paginator="true" rows="10" style="margin-bottom:20px"> 
+                                 paginator="true" rows="10" style="margin-bottom:20px" rowIndexVar="rowIx"> 
                         <p:column headerText="Nome" >
                             <h:outputText value="#{listaaluno.aluno.nome}" />
                         </p:column>
                         <p:column headerText="E-mail" style="width:150px" >
                             <h:outputText value="#{listaaluno.aluno.email}" />
                         </p:column>
-                        <p:column headerText="Situação" style="width:45px">
-                            <h:outputText value="#" />
+                        <p:column headerText="Situação" style="width:50px">
+                            <h:outputText value="#{listaaluno.situacao}" />
                         </p:column>
                         <p:column style="width:17px">
                             <p:selectBooleanCheckbox value="#{listaaluno.selecionado}"/>
                         </p:column>
                         <p:column style="width:23px">
-                            <p:commandButton  id="cancelar" icon=" ui-icon-cancel" oncomplete="PF('cancelar').show()" title="Cancelar" action="#{canceladosMB.cancelar()}" disabled="#{rematriculaMB.retornaSituacao(listaaluno)}">
+                            <p:commandButton  id="cancelar" icon=" ui-icon-cancel" title="Cancelar" action="#{canceladosMB.cancelar()}"  >
                                 <f:param name="id_matricula" value="#{listaaluno.idmatricula}"/>
                             </p:commandButton>
                         </p:column>
                         <p:column style="width:23px">
-                            <p:commandButton  id="transferir" icon="ui-icon-transferthick-e-w" oncomplete="PF('tranferir').show()" title="Transferir" action="#{transferenciaMB.iniciarTransferecia()}" disabled="#{rematriculaMB.retornaSituacao(listaaluno)}">
+                            <p:commandButton  id="transferir" icon="ui-icon-transferthick-e-w" title="Transferir" action="#{transferenciaMB.iniciarTransferecia()}" >
                                     <f:param name="id_matricula" value="#{listaaluno.idmatricula}"/>
                             </p:commandButton>
                         </p:column>
@@ -76,75 +76,7 @@
                         <p:commandButton value="Cancelar" onclick="imprimir.hide();" icon="ui-icon-closethick" class="botaoInformacoes" action="#{matriculaMB.finalizarImpressao()}"/>
 
                     </p:dialog>
-                    <p:dialog header="Transferencia" widgetVar="tranferir" class="fontsize" width="27%">
-                        <h:panelGrid columns="3" cellpadding="4" >
-                            <h:outputText value="Matricula " class="fontsize"/>
-                            <p:outputLabel value="Nome Aluno"  class="leftC" />
-                        </h:panelGrid>
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <p:inputText id="matriculas"  value="#{transferenciaMB.transferencia.matricula.aluno.numeromatricula}" size="12" readonly="true"/>
-                            <p:inputText id="nomeAluno"  value="#{transferenciaMB.transferencia.matricula.aluno.nome}" size="37" class="leftP" readonly="true"/>
-                        </h:panelGrid>
-                         <h:panelGrid columns="3" cellpadding="4" >
-                            <h:outputText value="Turma " class="fontsize"/>
-                            <p:outputLabel value="Curso"  class="cadaaluno" />
-                            <p:outputLabel value="Turno" for="turnos" class="leftC" />
-                        </h:panelGrid>
-                        <h:panelGrid columns="3" cellpadding="5">
-                            <p:inputText id="turmas"  value="#{transferenciaMB.transferencia.matricula.turma.numero}" size="12"  readonly="true"/>
-                            <p:inputText id="cursos"  value="#{transferenciaMB.transferencia.matricula.turma.curso.nome}" size="13" class="leftP" readonly="true" />
-                            <p:inputText id="turnos"  class="leftTel" size="13" value="#{transferenciaMB.transferencia.matricula.turma.turno}" readonly="true" />
-                        </h:panelGrid>
-                         <h:panelGrid columns="3" cellpadding="4" >
-                            <h:outputText value="Motivo " class="fontsize"/>
-                        </h:panelGrid>
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <p:inputText id="motivo"  value="#{transferenciaMB.transferencia.motivo}" size="45"/>
-                        </h:panelGrid>
-                         <h:panelGrid columns="3" cellpadding="4" >
-                            <h:outputText value="Nova Turma " class="fontsize"/>
-                        </h:panelGrid>
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <p:selectOneMenu  id="novaturma" class="fontsize" style="width:200px" value="#{transferenciaMB.idTurma}">
-                                <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
-                                <f:selectItems value="#{matriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
-                            </p:selectOneMenu>
-                        </h:panelGrid>
-                      <br></br>
-                      <p:commandButton value="Confirmar" icon="ui-icon-search" action="#{transferenciaMB.salvarTransferencia()}" class="fontsize"  update="growl" />
-                      <p:commandButton value="Fechar" icon=" ui-icon-close" onclick="tranferir.hide();" class="fontsize"/>
-                  </p:dialog>
-                    
-                    <p:dialog header="Cancelar Matricula" widgetVar="cancelar" class="fontsize" width="27%">
-                        <h:panelGrid columns="3" cellpadding="4" >
-                            <h:outputText value="Matricula " class="fontsize"/>
-                            <p:outputLabel value="Nome Aluno"  class="leftC" />
-                        </h:panelGrid>
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <p:inputText id="matriculac"  value="#{canceladosMB.cancelados.matricula.aluno.numeromatricula}" size="12" readonly="true" />
-                            <p:inputText id="nomeAlunoc"  value="#{canceladosMB.cancelados.matricula.aluno.nome}" size="37" class="leftP" readonly="true" />
-                        </h:panelGrid>
-                         <h:panelGrid columns="3" cellpadding="4" >
-                            <h:outputText value="Turma " class="fontsize"/>
-                            <p:outputLabel value="Curso"  class="cadaaluno" />
-                            <p:outputLabel value="Turno" for="turnos" class="leftC" />
-                        </h:panelGrid>
-                        <h:panelGrid columns="3" cellpadding="5">
-                            <p:inputText id="turmasc"  value="#{canceladosMB.cancelados.matricula.turma.numero}" size="12" readonly="true"  />
-                            <p:inputText id="cursosc"  value="#{canceladosMB.cancelados.matricula.turma.curso.nome}" size="13" class="leftP" readonly="true" />
-                            <p:inputText id="turnosc"  class="leftTel" size="13" value="#{canceladosMB.matricula.turma.turno}" readonly="true" />
-                        </h:panelGrid>
-                         <h:panelGrid columns="3" cellpadding="4" >
-                            <h:outputText value="Motivo " class="fontsize"/>
-                        </h:panelGrid>
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <p:inputText id="motivoc"  value="#{canceladosMB.cancelados.motivo}" size="45"/>
-                        </h:panelGrid>
-                      <br></br>
-                      <p:commandButton value="Confirmar" icon="ui-icon-search" action="#{canceladosMB.salvarCancelamento()}" class="fontsize"  update="growl"/>
-                      <p:commandButton value="Fechar" icon=" ui-icon-close" onclick="cancelar.hide();" class="fontsize"/>
-                  </p:dialog>
-
+                   
                     <br></br>
                     <br></br>
                     <br></br>

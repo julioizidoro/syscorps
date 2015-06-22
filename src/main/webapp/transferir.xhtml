@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        <ui:define name="corpo">
+            <h:form id="listarAluno">
+                <div id="centro">
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <br></br>
+                    <legend id="iUsu" ><b>Transferencia</b></legend>
+                    <br></br>
+                    <p:tabView class="tabelaaluno">
+                        <p:tab title="Dados" >
+                        <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Matricula " class="leftMeio4"/>
+                            <p:outputLabel value="Nome Aluno"  class="leftC" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:inputText id="matriculas"  value="#{transferenciaMB.transferencia.matricula.aluno.numeromatricula}" size="12" class="leftMeio4"/>
+                            <p:inputText id="nomeAluno"  value="#{transferenciaMB.transferencia.matricula.aluno.nome}" size="37" class="leftP" />
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Turma " class="leftMeio4"/>
+                            <p:outputLabel value="Curso"  class="cadaaluno" />
+                            <p:outputLabel value="Turno" for="turnos" class="leftC" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <p:inputText id="turmas"  value="#{transferenciaMB.transferencia.matricula.turma.numero}" size="12" class="leftMeio4" />
+                            <p:inputText id="cursos"  value="#{transferenciaMB.transferencia.matricula.turma.curso.nome}" size="13" class="leftP" />
+                            <p:inputText id="turnos"  class="leftTel" size="13" value="#{transferenciaMB.transferencia.matricula.turma.turno}" />
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Motivo " class="leftMeio4"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:inputText id="motivo"  value="#{transferenciaMB.transferencia.motivo}" size="45" class="leftMeio4"/>
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Nova Turma " class="leftMeio4"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:selectOneMenu  id="novaturma" class="leftMeio4" style="width:200px" value="#{transferenciaMB.idTurma}">
+                                <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
+                                <f:selectItems value="#{matriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                         </p:tab>
+                     </p:tabView>
+                      <br></br>
+                      <p:commandButton value="Confirmar" icon="ui-icon-check" action="#{transferenciaMB.salvarTransferencia()}" class="botaoConsulta"  update="growl" />
+                      <p:commandButton value="Fechar" icon=" ui-icon-close" onclick="tranferir.hide();" class="botaoConsulta"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+

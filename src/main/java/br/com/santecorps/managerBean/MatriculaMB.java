@@ -265,6 +265,8 @@ public class MatriculaMB implements Serializable{
          matricula.setValorentrada(Formatacao.formatarStringfloat(valorEntrada));
          matricula.setValorparcela(Formatacao.formatarStringfloat(valorParcela));
          matricula.setValortotal(Formatacao.formatarStringfloat(valorTotal));
+         matricula.setSituacao("Ativa");
+         matricula.setRematricula(false);
          matriculaFacade.salvar(matricula);
          cadastroAlunoMB.setAluno(new Aluno());
          matricula = new Matricula();

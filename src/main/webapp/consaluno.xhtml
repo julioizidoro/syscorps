@@ -58,7 +58,7 @@
                             <p:inputMask id="cpfCnpj" label="CPF/CNPJ" value="#{cadastroAlunoMB.cpfIgual}" size="25" mask="999.999.999-99" class="fontsize" ></p:inputMask>
                         </h:panelGrid>
                       <br></br>
-                      <p:commandButton value="Pesquisar" icon="ui-icon-search" action="#{cadastroAlunoMB.verificarCpf()}" class="fontsize"  update="growl"/>
+                      <p:commandButton value="Pesquisar" icon="ui-icon-search" action="#{cadastroAlunoMB.validarCPF()}" class="fontsize"  update="growl"/>
                       <p:commandButton value="Fechar" icon=" ui-icon-close" onclick="verificar.hide();" class="fontsize"/>
                   </p:dialog>
              </div>

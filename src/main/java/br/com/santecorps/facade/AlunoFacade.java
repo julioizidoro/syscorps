@@ -10,6 +10,7 @@ import br.com.santecorps.model.Aluno;
 import br.com.santecorps.model.Avalista;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -60,8 +61,8 @@ public class AlunoFacade {
         return alunoDao.getLocalTrabalhoId(idLocaltrabalho);
     }
     
-     public List<Aluno> listas(String cpfigual){
+     public Aluno consultar(String cpf) throws SQLException{
         alunoDao = new AlunoDao();
-        return alunoDao.listas(cpfigual);
+        return alunoDao.consultar(cpf);
     }
 }

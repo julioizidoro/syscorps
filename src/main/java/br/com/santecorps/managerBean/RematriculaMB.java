@@ -136,8 +136,8 @@ public class RematriculaMB  implements Serializable{
     }
     
     public String rematriculado(Matricula matricula) {
-        if (matricula.getRematricula().equals(false)) {
-            return "/resources/img/x.png";
-        }else return "/resources/img/bolaVerde.png";    
+        if (matricula.getRematricula()) {
+            return "/resources/img/bolaVerde.png";
+        }else return "/resources/img/x.png";
     }
 }
