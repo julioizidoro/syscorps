@@ -45,11 +45,22 @@
                        </p:commandButton>
                      </p:column>
                 </p:dataTable>
-                   <p:commandButton value="Novo" icon=" ui-icon-plusthick" class="botaoConsulta" action="#{cadastroAlunoMB.novoAluno()}"/>
+                   <p:commandButton value="Novo" icon=" ui-icon-plusthick" class="botaoConsulta" oncomplete="PF('verificar').show()"/>
                    <p:commandButton value="Voltar" icon=" ui-icon-carat-1-s" action="#{cadastroAlunoMB.voltar()}" class="botaoConsulta"/>
                   <br></br>
                  <br></br>
                   <br></br>
+                  <p:dialog header="Verificar CPF" widgetVar="verificar" class="fontsize">
+                        <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="CPF " class="fontsize"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:inputMask id="cpfCnpj" label="CPF/CNPJ" value="#{cadastroAlunoMB.cpfIgual}" size="25" mask="999.999.999-99" class="fontsize" ></p:inputMask>
+                        </h:panelGrid>
+                      <br></br>
+                      <p:commandButton value="Pesquisar" icon="ui-icon-search" action="#{cadastroAlunoMB.verificarCpf()}" class="fontsize"  update="growl"/>
+                      <p:commandButton value="Fechar" icon=" ui-icon-close" onclick="verificar.hide();" class="fontsize"/>
+                  </p:dialog>
              </div>
           </h:form>
         </ui:define>

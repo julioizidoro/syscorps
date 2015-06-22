@@ -92,4 +92,13 @@ public class AlunoDao {
         manager.getTransaction().commit();
         return conjuge;
     }
+    
+      public List<Aluno> listas(String cpfigual){
+        EntityManager manager =ConectionFactory.getConnection();
+        manager.getTransaction().begin();
+        Query q = manager.createQuery("select a from Aluno a where a.cpf like '%" + cpfigual + "%'" );
+        List<Aluno> listaAlunos = q.getResultList();
+        manager.getTransaction().commit();
+        return listaAlunos;
+    }
 }

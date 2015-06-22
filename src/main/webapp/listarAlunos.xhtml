@@ -39,10 +39,10 @@
                             <p:selectBooleanCheckbox value="#{listaaluno.selecionado}"/>
                         </p:column>
                         <p:column style="width:23px">
-                            <p:commandButton  id="cancelar" icon=" ui-icon-cancel" action="#" title="Cancelar"/>
+                            <p:commandButton  id="cancelar" icon=" ui-icon-cancel" oncomplete="PF('cancelar').show()" title="Cancelar"/>
                         </p:column>
                         <p:column style="width:23px">
-                            <p:commandButton  id="transferir" icon="ui-icon-transferthick-e-w" action="#" title="Transferir"/>
+                            <p:commandButton  id="transferir" icon="ui-icon-transferthick-e-w" oncomplete="PF('tranferir').show()" title="Transferir"/>
                         </p:column>
                     </p:dataTable>
                     <h:commandLink>
@@ -72,6 +72,75 @@
                         <p:commandButton value="Cancelar" onclick="imprimir.hide();" icon="ui-icon-closethick" class="botaoInformacoes" action="#{matriculaMB.finalizarImpressao()}"/>
 
                     </p:dialog>
+                    <p:dialog header="Transferencia" widgetVar="tranferir" class="fontsize" width="27%">
+                        <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Matricula " class="fontsize"/>
+                            <p:outputLabel value="Nome Aluno"  class="leftC" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:inputText id="matriculas"  value="#" size="12"/>
+                            <p:inputText id="nomeAluno"  value="#" size="37" class="leftP"/>
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Turma " class="fontsize"/>
+                            <p:outputLabel value="Curso"  class="cadaaluno" />
+                            <p:outputLabel value="Turno" for="turnos" class="leftC" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <p:inputText id="turmas"  value="#" size="12"  />
+                            <p:inputText id="cursos"  value="#" size="13" class="leftP"/>
+                            <p:inputText id="turnos"  class="leftTel" size="13" value="#"/>
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Motivo " class="fontsize"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:inputText id="motivo"  value="#" size="45"/>
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Nova Turma " class="fontsize"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                             <p:selectOneMenu  id="novaturma" class="fontsize" style="width:200px" value="#{matriculaMB.idTurma}">
+                                <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
+                                <f:selectItems value="#{matriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
+                                <p:ajax event="change" listener="#{matriculaMB.carregarListaMatricula()}" update="listaaluno"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                      <br></br>
+                      <p:commandButton value="Confirmar" icon="ui-icon-search" action="#" class="fontsize"  update="growl"/>
+                      <p:commandButton value="Fechar" icon=" ui-icon-close" onclick="tranferir.hide();" class="fontsize"/>
+                  </p:dialog>
+                    
+                    <p:dialog header="Cancelar Matricula" widgetVar="cancelar" class="fontsize" width="27%">
+                        <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Matricula " class="fontsize"/>
+                            <p:outputLabel value="Nome Aluno"  class="leftC" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:inputText id="matriculac"  value="#" size="12"/>
+                            <p:inputText id="nomeAlunoc"  value="#" size="37" class="leftP"/>
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Turma " class="fontsize"/>
+                            <p:outputLabel value="Curso"  class="cadaaluno" />
+                            <p:outputLabel value="Turno" for="turnos" class="leftC" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <p:inputText id="turmasc"  value="#" size="12"  />
+                            <p:inputText id="cursosc"  value="#" size="13" class="leftP"/>
+                            <p:inputText id="turnosc"  class="leftTel" size="13" value="#"/>
+                        </h:panelGrid>
+                         <h:panelGrid columns="3" cellpadding="4" >
+                            <h:outputText value="Motivo " class="fontsize"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:inputText id="motivoc"  value="#" size="45"/>
+                        </h:panelGrid>
+                      <br></br>
+                      <p:commandButton value="Confirmar" icon="ui-icon-search" action="#" class="fontsize"  update="growl"/>
+                      <p:commandButton value="Fechar" icon=" ui-icon-close" onclick="cancelar.hide();" class="fontsize"/>
+                  </p:dialog>
 
                     <br></br>
                     <br></br>

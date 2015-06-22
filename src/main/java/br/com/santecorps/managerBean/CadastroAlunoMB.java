@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
@@ -39,9 +40,11 @@ public class CadastroAlunoMB implements Serializable{
     private Avalista avalista;
     private Localtrabalho localTrabalho;
     private String nomeAluno;
+    private String cpfIgual;
     private String rendaMensalAvalista;
     private String rendaMensalConjuge;
     private String paginaRetorno;
+    private List<Aluno> listaCpf;
     
      
 
@@ -126,6 +129,24 @@ public class CadastroAlunoMB implements Serializable{
     public void setNomeAluno(String nomeAluno) {
         this.nomeAluno = nomeAluno;
     }
+
+    public List<Aluno> getListaCpf() {
+        return listaCpf;
+    }
+
+    public void setListaCpf(List<Aluno> listaCpf) {
+        this.listaCpf = listaCpf;
+    }
+
+    public String getCpfIgual() {
+        return cpfIgual;
+    }
+
+    public void setCpfIgual(String cpfIgual) {
+        this.cpfIgual = cpfIgual;
+    }
+    
+    
     
     
     public void CarregarLitaAluno(){
@@ -303,5 +324,22 @@ public class CadastroAlunoMB implements Serializable{
         return numeroGerado;
     }
     
-
+    public String verificarCpf(){
+        cpfIgual=null;
+        if (cpfIgual==null){
+            cpfIgual = "";
+        }
+        AlunoFacade alunoFacade = new AlunoFacade();
+        listaCpf = alunoFacade.listas(cpfIgual);
+        if (listaCpf==null){
+            if (cpfIgual != aluno.getCpf()){
+                return "cadaluno";
+            }
+        }else{
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("CPF já existente!", "Acesso Negado"));
+            return "";
+        }
+        return null;
+    }
 }

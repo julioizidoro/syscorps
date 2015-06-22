@@ -60,4 +60,8 @@ public class AlunoFacade {
         return alunoDao.getLocalTrabalhoId(idLocaltrabalho);
     }
     
+     public List<Aluno> listas(String cpfigual){
+        alunoDao = new AlunoDao();
+        return alunoDao.listas(cpfigual);
+    }
 }

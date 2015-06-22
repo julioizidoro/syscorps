@@ -42,7 +42,7 @@
                             <h:outputText value="#{consAluno.situacao}" />
                         </p:column>
                          <p:column style="width:15px">
-                             <p:selectBooleanCheckbox value="#{consAluno.rematricula}"  disabled="true" />
+                             <p:graphicImage value="#{rematriculaMB.rematriculado(consAluno)}"/>
                         </p:column>
                         <p:column style="width:93px">
                             <p:commandButton  id="rematricular" value="Rematricular" action="#{rematriculaMB.efetivar()}" disabled="#{rematriculaMB.retornaSituacao(consAluno)}" >
