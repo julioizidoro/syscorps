@@ -28,6 +28,7 @@ public class CanceladosMB implements Serializable{
     @Inject
     private UsuarioLogadoMB usuarioLogadoMB;
     private Cancelados cancelados;
+    private Matricula matricula;
 
     public Cancelados getCancelados() {
         return cancelados;
@@ -35,6 +36,33 @@ public class CanceladosMB implements Serializable{
 
     public void setCancelados(Cancelados cancelados) {
         this.cancelados = cancelados;
+    }
+
+    public UsuarioLogadoMB getUsuarioLogadoMB() {
+        return usuarioLogadoMB;
+    }
+
+    public void setUsuarioLogadoMB(UsuarioLogadoMB usuarioLogadoMB) {
+        this.usuarioLogadoMB = usuarioLogadoMB;
+    }
+
+    public Matricula getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(Matricula matricula) {
+        this.matricula = matricula;
+    }
+    
+    public String salvarCancelamento() {
+        cancelados.setUsuario(usuarioLogadoMB.getUsuario());
+        cancelados.setData(new Date());
+        CanceladosFacade canceladosFacade = new CanceladosFacade();
+        cancelados = canceladosFacade.salvar(cancelados);
+        matricula.setSituacao("Cancelada");
+        MatriculaFacade matriculaFacade = new MatriculaFacade();
+        matriculaFacade.salvar(matricula);
+        return "listarAlunos";
     }
     
     
@@ -44,15 +72,8 @@ public class CanceladosMB implements Serializable{
         int idMatricula =  Integer.parseInt(params.get("id_matricula"));
         if (idMatricula>0){
             MatriculaFacade matriculaFacade = new MatriculaFacade();
-            Matricula matricula = matriculaFacade.getMatricula(idMatricula);
+            matricula = matriculaFacade.getMatricula(idMatricula);
             cancelados.setMatricula(matricula);
-            cancelados.setUsuario(usuarioLogadoMB.getUsuario());
-            cancelados.setData(new Date());
-            CanceladosFacade canceladosFacade = new CanceladosFacade();
-            cancelados = canceladosFacade.salvar(cancelados);
-            matricula.setSituacao("Cancelada");
-            matriculaFacade.salvar(matricula);
-            return "listarAlunos";
         }
         return "";
     }

@@ -47,10 +47,10 @@ public class Transferencia implements Serializable {
     private Usuario usuario;
     @JoinColumn(name = "turmanova", referencedColumnName = "idturma")
     @ManyToOne(optional = false)
-    private Turma turma;
+    private Turma turmanova;
     @JoinColumn(name = "tumaatual", referencedColumnName = "idturma")
     @ManyToOne(optional = false)
-    private Turma turma1;
+    private Turma turmaatual;
     @JoinColumn(name = "matricula_idmatricula", referencedColumnName = "idmatricula")
     @ManyToOne(optional = false)
     private Matricula matricula;
@@ -102,21 +102,23 @@ public class Transferencia implements Serializable {
         this.usuario = usuario;
     }
 
-    public Turma getTurma() {
-        return turma;
+    public Turma getTurmanova() {
+        return turmanova;
     }
 
-    public void setTurma(Turma turma) {
-        this.turma = turma;
+    public void setTurmanova(Turma turmanova) {
+        this.turmanova = turmanova;
     }
 
-    public Turma getTurma1() {
-        return turma1;
+    public Turma getTurmaatual() {
+        return turmaatual;
     }
 
-    public void setTurma1(Turma turma1) {
-        this.turma1 = turma1;
+    public void setTurmaatual(Turma turmaatual) {
+        this.turmaatual = turmaatual;
     }
+
+   
 
     public Matricula getMatricula() {
         return matricula;
