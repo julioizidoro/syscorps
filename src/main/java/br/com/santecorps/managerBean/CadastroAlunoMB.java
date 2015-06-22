@@ -5,7 +5,6 @@
  */
 package br.com.santecorps.managerBean;
 
-import br.com.santecorps.controller.UsuarioController;
 import br.com.santecorps.facade.AlunoFacade;
 import br.com.santecorps.facade.UnidadeFacade;
 import br.com.santecorps.model.Aluno;
@@ -13,7 +12,6 @@ import br.com.santecorps.model.Avalista;
 import br.com.santecorps.model.Conjuge;
 import br.com.santecorps.model.Localtrabalho;
 import br.com.santecorps.model.Unidade;
-import br.com.santecorps.model.Usuario;
 import br.com.santecorps.util.Formatacao;
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -330,10 +328,16 @@ public class CadastroAlunoMB implements Serializable{
         AlunoFacade  alunoFacade = new AlunoFacade();
         aluno = alunoFacade.consultar(cpfIgual);
         if (aluno!=null){
-           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "CPF já cadastrado"));
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informação!", "CPF : " + aluno.getCpf() + " - " + aluno.getNome()));
+           cpfIgual="";
+           aluno = new Aluno();
         }else {
+            aluno = new Aluno();
+            aluno.setCpf(cpfIgual);
+            cpfIgual="";
             return "cadaluno";
         }
+        cpfIgual="";
         aluno = new Aluno();
         return "";
     }

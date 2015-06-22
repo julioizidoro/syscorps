@@ -11,7 +11,7 @@
                 <div id="centro">
                     <p:growl id="growl" showDetail="true" sticky="true" />
                     <br></br>
-                    <legend id="iUsu" ><b>Participantes por Turma</b></legend>
+                    <legend id="iUsu" ><b>Rematricula</b></legend>
                     <br></br>
                     <h:panelGrid columns="2" cellpadding="3">
                         <p:outputLabel value="Turma:" for="turma"  class="left4" /> 
@@ -22,7 +22,7 @@
                             <f:selectItems value="#{rematriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
                             <p:ajax event="change" listener="#{rematriculaMB.carregarListaMatricula()}" update="tabAluno" />
                         </p:selectOneMenu>
-                        <p:commandLink  value="Iniciar Rematricula" styleClass="comandlink" action="#"  update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  /> 
+                        <p:commandLink  value="Iniciar Rematricula" styleClass="comandlink" action="#{rematriculaMB.iniciarRematricula()}"  update="@all"  oncomplete="popAprovar.hide(); #{meuBean.objetos}"  /> 
                     </h:panelGrid>
                     
                     <p:dataTable id="tabAluno" var="consAluno" value="#{rematriculaMB.listaMatricula}" class="tabelacurso" rowStyleClass="tabela"  paginator="true" rows="10" rendered="true">
