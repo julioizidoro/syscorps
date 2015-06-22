@@ -112,4 +112,18 @@ public class RematriculaMB  implements Serializable{
     public String cancelar(){
         return "rematricula";
     }
+    
+    public String iniciarRematricula(){
+        if (listaMatricula!=null){
+            MatriculaFacade matriculaFacade = new MatriculaFacade();
+            for(int i=0;i<listaMatricula.size();i++){
+                Matricula matricula = listaMatricula.get(i);
+                matricula.setRematricula(false);
+                matriculaFacade.salvar(matricula);
+            }
+            carregarListaMatricula();
+            return "rematricula";
+        }
+        return null;
+    }
 }

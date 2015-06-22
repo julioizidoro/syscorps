@@ -69,6 +69,8 @@ public class Matricula implements Serializable {
     private Date datarematricula02;
     @Transient
     private boolean selecionado;
+    @Column(name = "rematricula")
+    private boolean rematricula;
 
     
     public Matricula() {
@@ -188,6 +190,14 @@ public class Matricula implements Serializable {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
+    }
+
+    public boolean isRematricula() {
+        return rematricula;
+    }
+
+    public void setRematricula(boolean rematricula) {
+        this.rematricula = rematricula;
     }
 
 
