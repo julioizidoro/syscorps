@@ -104,6 +104,7 @@ public class RematriculaMB  implements Serializable{
     
     public String salvar(){
         MatriculaFacade matriculaFacade = new MatriculaFacade();
+        matricula.setRematricula(true);
         matriculaFacade.salvar(matricula);
         carregarListaMatricula();
         return "rematricula";
@@ -125,5 +126,12 @@ public class RematriculaMB  implements Serializable{
             return "rematricula";
         }
         return null;
+    }
+    
+    
+    public boolean retornaSituacao(Matricula matricula){
+        if (matricula.getSituacao().equalsIgnoreCase("Cancelada")){
+            return true;
+        }else return false;
     }
 }

@@ -319,7 +319,6 @@ public class Turma implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.santecorps.model.Turma[ idturma=" + idturma + " ]";
+        return getNumero() + " - " + getNome();
     }
-    
 }

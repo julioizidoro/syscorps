@@ -25,6 +25,32 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "unidade")
 public class Unidade implements Serializable {
+    @Size(max = 100)
+    @Column(name = "endereco")
+    private String endereco;
+    @Size(max = 50)
+    @Column(name = "complemento")
+    private String complemento;
+    @Size(max = 50)
+    @Column(name = "bairro")
+    private String bairro;
+    @Size(max = 9)
+    @Column(name = "cep")
+    private String cep;
+    @Size(max = 15)
+    @Column(name = "fone")
+    private String fone;
+    @Size(max = 18)
+    @Column(name = "cnpj")
+    private String cnpj;
+    @Column(name = "numeromatriculainicial")
+    private Integer numeromatriculainicial;
+    @Column(name = "numeromatriculafinal")
+    private Integer numeromatriculafinal;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private List<Turma> turmaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
+    private List<Aluno> alunoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidade")
     private List<Usuario> usuarioList;
     private static final long serialVersionUID = 1L;
@@ -45,10 +71,6 @@ public class Unidade implements Serializable {
     @Size(max = 2)
     @Column(name = "estado")
     private String estado;
-    @Column(name = "numeromatriculainicial")
-    private int numeromatriculainicial;
-    @Column(name = "numeromatriculafinal")
-    private int numeromatriculafinal;
 
     public Unidade() {
     }
@@ -97,21 +119,6 @@ public class Unidade implements Serializable {
         this.estado = estado;
     }
 
-    public int getNumeromatriculainicial() {
-        return numeromatriculainicial;
-    }
-
-    public void setNumeromatriculainicial(int numeromatriculainicial) {
-        this.numeromatriculainicial = numeromatriculainicial;
-    }
-
-    public int getNumeromatriculafinal() {
-        return numeromatriculafinal;
-    }
-
-    public void setNumeromatriculafinal(int numeromatriculafinal) {
-        this.numeromatriculafinal = numeromatriculafinal;
-    }
 
     @Override
     public int hashCode() {
@@ -144,6 +151,86 @@ public class Unidade implements Serializable {
 
     public void setUsuarioList(List<Usuario> usuarioList) {
         this.usuarioList = usuarioList;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getFone() {
+        return fone;
+    }
+
+    public void setFone(String fone) {
+        this.fone = fone;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public Integer getNumeromatriculainicial() {
+        return numeromatriculainicial;
+    }
+
+    public void setNumeromatriculainicial(Integer numeromatriculainicial) {
+        this.numeromatriculainicial = numeromatriculainicial;
+    }
+
+    public Integer getNumeromatriculafinal() {
+        return numeromatriculafinal;
+    }
+
+    public void setNumeromatriculafinal(Integer numeromatriculafinal) {
+        this.numeromatriculafinal = numeromatriculafinal;
+    }
+
+    public List<Turma> getTurmaList() {
+        return turmaList;
+    }
+
+    public void setTurmaList(List<Turma> turmaList) {
+        this.turmaList = turmaList;
+    }
+
+    public List<Aluno> getAlunoList() {
+        return alunoList;
+    }
+
+    public void setAlunoList(List<Aluno> alunoList) {
+        this.alunoList = alunoList;
     }
     
 }

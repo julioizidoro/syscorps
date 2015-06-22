@@ -30,6 +30,8 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "aluno")
 public class Aluno implements Serializable {
+    @Column(name = "mes")
+    private Integer mes;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -126,16 +128,6 @@ public class Aluno implements Serializable {
     private List<Conjuge> conjugeList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
     private List<Avalista> avalistaList;
-    @Column(name = "mes")
-    private int mes;
-
-    public int getMes() {
-        return mes;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
 
     public Aluno() {
     }
@@ -423,6 +415,14 @@ public class Aluno implements Serializable {
     @Override
     public String toString() {
         return "br.com.santecorps.model.Aluno[ idaluno=" + idaluno + " ]";
+    }
+
+    public Integer getMes() {
+        return mes;
+    }
+
+    public void setMes(Integer mes) {
+        this.mes = mes;
     }
     
 }

@@ -7,7 +7,9 @@ package br.com.santecorps.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +31,15 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "matricula")
 public class Matricula implements Serializable {
+    @Column(name = "rematricula")
+    private Boolean rematricula;
+    @Size(max = 15)
+    @Column(name = "situacao")
+    private String situacao;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "matricula")
+    private List<Transferencia> transferenciaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "matricula")
+    private List<Cancelados> canceladosList;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,8 +81,6 @@ public class Matricula implements Serializable {
     private Date datarematricula02;
     @Transient
     private boolean selecionado;
-    @Column(name = "rematricula")
-    private boolean rematricula;
 
     
     public Matricula() {
@@ -192,13 +202,6 @@ public class Matricula implements Serializable {
         this.turma = turma;
     }
 
-    public boolean isRematricula() {
-        return rematricula;
-    }
-
-    public void setRematricula(boolean rematricula) {
-        this.rematricula = rematricula;
-    }
 
 
 
@@ -225,6 +228,38 @@ public class Matricula implements Serializable {
     @Override
     public String toString() {
         return "br.com.santecorps.model.Matricula[ idmatricula=" + idmatricula + " ]";
+    }
+
+    public Boolean getRematricula() {
+        return rematricula;
+    }
+
+    public void setRematricula(Boolean rematricula) {
+        this.rematricula = rematricula;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
+    public List<Transferencia> getTransferenciaList() {
+        return transferenciaList;
+    }
+
+    public void setTransferenciaList(List<Transferencia> transferenciaList) {
+        this.transferenciaList = transferenciaList;
+    }
+
+    public List<Cancelados> getCanceladosList() {
+        return canceladosList;
+    }
+
+    public void setCanceladosList(List<Cancelados> canceladosList) {
+        this.canceladosList = canceladosList;
     }
     
 }
