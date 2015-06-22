@@ -29,11 +29,20 @@
                         <p:column headerText="Nome" >
                             <h:outputText value="#{listaaluno.aluno.nome}" />
                         </p:column>
-                        <p:column headerText="E-mail" style="width:300px" >
+                        <p:column headerText="E-mail" style="width:150px" >
                             <h:outputText value="#{listaaluno.aluno.email}" />
                         </p:column>
-                        <p:column style="width:28px">
+                        <p:column headerText="Situação" style="width:45px">
+                            <h:outputText value="#" />
+                        </p:column>
+                        <p:column style="width:17px">
                             <p:selectBooleanCheckbox value="#{listaaluno.selecionado}"/>
+                        </p:column>
+                        <p:column style="width:23px">
+                            <p:commandButton  id="cancelar" icon=" ui-icon-cancel" action="#" title="Cancelar"/>
+                        </p:column>
+                        <p:column style="width:23px">
+                            <p:commandButton  id="transferir" icon="ui-icon-transferthick-e-w" action="#" title="Transferir"/>
                         </p:column>
                     </p:dataTable>
                     <h:commandLink>
