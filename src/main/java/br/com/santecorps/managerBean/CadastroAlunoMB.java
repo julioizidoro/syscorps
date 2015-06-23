@@ -187,6 +187,7 @@ public class CadastroAlunoMB implements Serializable{
             localTrabalho.setAluno(aluno);
             localTrabalho = alunoFacade.salvarLocalTrabalho(localTrabalho);
         }
+         
         CarregarLitaAluno();
         return "consaluno";
     }

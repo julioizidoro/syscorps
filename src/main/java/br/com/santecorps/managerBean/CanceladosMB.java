@@ -94,6 +94,8 @@ public class CanceladosMB implements Serializable{
         }
         return "cancelar";
     }
-    
+    public String voltar(){
+        return "listarAlunos";
+    }
     
 }
