@@ -38,24 +38,33 @@ public class ConectionFactory {
         return manager;
     }
     public static Connection getConexao(){
-        if (conn==null){
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ConectionFactory.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            String driverName = "com.mysql.jdbc.Driver";
-            String serverName = "186.215.116.63";
-            String mydatabase ="syscorps";
-            String url = "jdbc:mysql://" + serverName + ":8081/" + mydatabase;
-            String username = "root";
-            String password = "simples";
-            try {
-                conn = DriverManager.getConnection(url, username, password);
-            } catch (SQLException ex) {
-                Logger.getLogger(ConectionFactory.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+       
+//        if (conn!=null){
+//            try {
+//                conn.close();
+//                conn=null;
+//            } catch (SQLException ex) {
+//                Logger.getLogger(ConectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        if (conn==null){
+//            try {
+//                Class.forName("com.mysql.jdbc.Driver");
+//            } catch (ClassNotFoundException ex) {
+//                Logger.getLogger(ConectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            String driverName = "com.mysql.jdbc.Driver";
+//            String serverName = "186.215.116.63";
+//            String mydatabase ="syscorps";
+//            String url = "jdbc:mysql://" + serverName + ":8081/" + mydatabase;
+//            String username = "root";
+//            String password = "simples";
+//            try {
+//                conn = DriverManager.getConnection(url, username, password);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(ConectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
         return conn;
         
     }

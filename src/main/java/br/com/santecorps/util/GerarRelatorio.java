@@ -6,11 +6,13 @@
 package br.com.santecorps.util;
 
 import br.com.santecorps.connection.ConectionFactory;
+import static br.com.santecorps.connection.ConectionFactory.getConnection;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Map;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JRDataSource;
@@ -44,8 +46,11 @@ public class GerarRelatorio {
     public void gerarRelatorioSqlPDF(String caminhoRelatorio, Map parameters, String nomeArquivo, String subDir ) throws JRException, IOException{
         FacesContext facesContext = FacesContext.getCurrentInstance();  
         ServletContext servletContext = (ServletContext)facesContext.getExternalContext().getContext();
-        caminhoRelatorio = servletContext.getRealPath(caminhoRelatorio);  
-        Connection conn = ConectionFactory.getConexao();
+        caminhoRelatorio = servletContext.getRealPath(caminhoRelatorio); 
+        EntityManager mg = getConnection();
+        mg.getTransaction().begin();
+        Connection conn = mg.unwrap(java.sql.Connection.class);
+        //Connection conn = ConectionFactory.getConexao();
         if (subDir!=null){
             subDir = servletContext.getRealPath(subDir);
             subDir = subDir + File.separator + "a";
@@ -62,6 +67,7 @@ public class GerarRelatorio {
         facesContext.getApplication().getStateManager().saveView(facesContext);
         facesContext.renderResponse();
         facesContext.responseComplete();
+        mg.getTransaction().commit();
     }
     
 }
