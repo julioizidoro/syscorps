@@ -57,6 +57,7 @@ public class MatriculaMB implements Serializable{
     private boolean recibo;
     private boolean lista;
     private boolean requerimento;
+    @Inject RematriculaMB rematriculaMB;
     
 
     public MatriculaMB() {
@@ -183,6 +184,9 @@ public class MatriculaMB implements Serializable{
     }
 
     public List<Curso> getListaCursos() {
+        if(listaCursos==null){
+            gerarLitaCurso();
+        }
         return listaCursos;
     }
 
@@ -216,6 +220,16 @@ public class MatriculaMB implements Serializable{
     public void setIdCurso(String idCurso) {
         this.idCurso = idCurso;
     }
+
+    public RematriculaMB getRematriculaMB() {
+        return rematriculaMB;
+    }
+
+    public void setRematriculaMB(RematriculaMB rematriculaMB) {
+        this.rematriculaMB = rematriculaMB;
+    }
+    
+    
     
     public void gerarLitaCurso(){
         CursoFacade cursoFacade = new CursoFacade();
@@ -310,6 +324,7 @@ public class MatriculaMB implements Serializable{
             listaMatricula = matriculaFacade.listar(Integer.parseInt(idTurma));
             if (listaMatricula == null) {
                 listaMatricula = new ArrayList<Matricula>();
+                rematriculaMB.retornaSituacao(matricula);
             }
         }
     }

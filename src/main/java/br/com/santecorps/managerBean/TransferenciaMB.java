@@ -105,5 +105,7 @@ public class TransferenciaMB implements Serializable{
         return "listarAlunos";
     }
     
-    
+    public String voltar(){
+        return "listarAlunos";
+    }
 }

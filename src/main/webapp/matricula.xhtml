@@ -48,7 +48,7 @@
                                     <p:ajax event="change" listener="#{matriculaMB.selecoinarTurma()}" update="turno"/>  
                                 </p:selectOneMenu>
                                 <p:inputText id="turno"  class="leftTel" size="17" value="#{matriculaMB.turma.turno}" readonly="true"/>
-                                <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="19" maxlength="12" class="left4"  readonly="true">
+                                <p:calendar id="datarematricula"  pattern="dd/MM/yyyy"  size="19" maxlength="12" class="left4"  readonly="true" value="#{matriculaMB.matricula.datarematricula01}">
                                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>    
                                 </p:calendar>    
                             </h:panelGrid>
