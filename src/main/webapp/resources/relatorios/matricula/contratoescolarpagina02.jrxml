@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 02" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f5fe2bf-1a21-4a3e-8e85-348bbac75b49">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="188"/>
+	<property name="ireport.y" value="262"/>
 	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Google Drive\\Desenvolvimento\\syscorps\\sistema\\syscorps\\src\\main\\webapp\\resources\\relatorios\\matricula\\"]]></defaultValueExpression>
@@ -184,26 +184,26 @@ CLÁUSULA 5a. É de inteira responsabilidade do CONTRATADO o planejamento e a pr
 			<textField>
 				<reportElement x="11" y="432" width="530" height="29" uuid="5c851bbd-8f29-4957-be79-c1ae916eadba"/>
 				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{numeroparcelas}+" parcelas no valor de "+$F{valorparcela}+" sendo a primeira com vencimento em "+$F{datavencimentoparcela}+" CIENTE:"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["R$ "+$F{valorentrada}+" mais "+$F{numeroparcelas}+" parcelas no valor de "+$F{valorparcela}+" sendo a primeira com vencimento em "+$F{datavencimentoparcela}+" CIENTE:"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="11" y="461" width="530" height="38" uuid="2843f464-b6d4-4ace-b617-0d14cefa093c"/>
 				<textElement textAlignment="Justified"/>
-				<text><![CDATA[Parágrafo 2º. Qualquer abatimento, desconto ou redução nas parcelas de valores contratuais constitui mera liberalidade do CONTRATADO, não caracterizando novação, nem renúncia de direitos, podendo ser suprimidos a qualquer tempo, respeitando-se as promoções divulgadas e sua validade.
+				<text><![CDATA[Parágrafo 1º. Qualquer abatimento, desconto ou redução nas parcelas de valores contratuais constitui mera liberalidade do CONTRATADO, não caracterizando novação, nem renúncia de direitos, podendo ser suprimidos a qualquer tempo, respeitando-se as promoções divulgadas e sua validade.
 ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="11" y="499" width="530" height="58" uuid="7f1e52ff-cb21-45cb-8aea-29c0a7e1fb43"/>
 				<textElement textAlignment="Justified"/>
-				<text><![CDATA[Parágrafo 3º. O CONTRATADO poderá terceirizar a cobrança das parcelas do presente contrato para empresa de cobrança especializada ou instituição bancária, com o que concorda o CONTRATANTE.
-Parágrafo 4º. O pagamento das obrigações financeiras do CONTRATANTE comprovar-se-á mediante apresentação do recibo ou carnê que individualize a obrigação quitada. 		]]></text>
+				<text><![CDATA[Parágrafo 2º. O CONTRATADO poderá terceirizar a cobrança das parcelas do presente contrato para empresa de cobrança especializada ou instituição bancária, com o que concorda o CONTRATANTE.
+Parágrafo 3º. O pagamento das obrigações financeiras do CONTRATANTE comprovar-se-á mediante apresentação do recibo ou carnê que individualize a obrigação quitada.
+	]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="11" y="557" width="530" height="103" uuid="1dd789f2-be60-4bc4-8395-f7cda046642c"/>
 				<textElement textAlignment="Justified"/>
-				<text><![CDATA[Parágrafo 5º. Se o CONTRATADO optar pela cobrança via sistema bancário, internet, empresa de cobrança terceirizada, o CONTRATANTE pagará R$2,70 por bloqueto emitido, referente as parcelas constantes na Cláusula 7ª. deste contrato.
-Parágrafo 6o Caso o pagamento inicial seja feito em cheque, este será recebido em caráter pró-solvendo,não se concretizando a matrícula senão após a regular compensação/desconto do cheque sem prejuízo da necessidade do Deferimento do Diretor da Escola.
-Parágrafo 7o. Durante as férias escolares e o recesso escolar , as mensalidades deverão ser pagas no vencimento previstos na Cláusula 7a do Contrato.
+				<text><![CDATA[Parágrafo 4º Caso o pagamento inicial seja feito em cheque, este será recebido em caráter pró-solvendo,não se concretizando a matrícula senão após a regular compensação/desconto do cheque sem prejuízo da necessidade do Deferimento do Diretor da Escola.
+Parágrafo 5º. Durante as férias escolares e o recesso escolar , as mensalidades deverão ser pagas no vencimento previstos na Cláusula 7a do Contrato.
 
 
 

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contrato Massoterapia Pagina 04" pageWidth="595" pageHeight="840" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1faac309-e3d8-4ca1-813a-cc82d6224154">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="361"/>
+	<property name="ireport.y" value="384"/>
 	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString>
@@ -139,10 +139,10 @@ where matricula.idmatricula=$P{idmatricula}]]>
 			<staticText>
 				<reportElement x="10" y="0" width="545" height="667" uuid="3ef1f6f7-da6e-48d6-9258-dabb79b19020"/>
 				<textElement textAlignment="Justified"/>
-				<text><![CDATA[IV - Pela emissão de letra de câmbio, desde já autorizada, pelo valor da(s) parcela(s) vencida(s) da multa de 3% (Três por cento) apresentada para aceite na forma do Capítulo III de Lei uniforme, aprovada pelo Decreto Legislativo no. 54/64, arts. 21 e seguintes, conforme previsão do artigo 7o.  do Código de Defesa do Consumidor.
-V - Independentemente da adoção das medidas acima, poderá contratar Empresa especializada para proceder com a cobrança do débito de forma amigável e/ou judicial, cabendo ao CONTRATANTE arcar com as despesas e honorários advocatícios decorrentes.
-Parágrafo 20o No caso de reprovação em qualquer etapa do estágio, o CONTRATANTE dever contratar nova matrícula de estágio.
-Parágrafo 21º. Em caso de cancelamento até a data do início das aulas previsto  neste contrato  o contratante efetuará o pagamento de R$200,00 referentes aos serviços prestados de: confecção de carteira estudantil, avaliação de crédito, arquivo, registro de documentos e outras despesas administrativas. Em caso de cancelamento do curso pela CONTRATADA, a mesma fica responsável em reembolsar o valor efetuado pelo CONTRATANTE.  CIENTE _________________________________________________.
+				<text><![CDATA[III –  PELA EMISSÃO DE DUPLICATA DE PRESTAÇÃO DE SERVIÇOS, NOS TERMOS DA LEI 5.474 DE 18/07/68, QUE FICA DESDE JÁ AUTORIZADA, OBSERVANDO-SE O PARÁGRAFO 14O. DESTA CLÁUSULA PARA DETERMINAÇÃO DO VALOR, SEM PREJUÍZO,ENTRETANTO, DA RESCISÃO DO PRESENTE CONTRATO.
+IV - Pela emissão de letra de câmbio, desde já autorizada, pelo valor da(s) parcela(s) vencida(s) da multa de 3% (Três por cento) apresentada para aceite na forma do Capítulo III de Lei uniforme, aprovada pelo Decreto Legislativo no. 54/64, arts. 21 e seguintes,conforme previsão do artigo 7o.  do Código de Defesa do Consumidor.V - Independentemente da adoção das medidas acima, poderá contratar Empresa especializada para proceder com a cobrança do débito de forma amigável e/ou judicial, cabendo ao CONTRATANTE arcar com as despesas e honorários advocatícios decorrentes.
+Parágrafo 18º No caso de reprovação em qualquer etapa do estágio, o CONTRATANTE deverá contratar nova matrícula de estágio.
+Parágrafo 19º Em caso de cancelamento até a data do início das aulas previsto  neste contrato  o contratante efetuará o pagamento de R$250,00 referentes aos serviços prestados de: confecção de carteira estudantil, avaliação de crédito, arquivo, registro de documentos e outras despesas administrativas. Em caso de cancelamento do curso pela CONTRATADA, a mesma fica responsável em reembolsar o valor efetuado pelo CONTRATANTE.  CIENTE _________________________________________________
 CLÁUSULA 8a. Será preservado o equilíbrio contratual caso qualquer mudança legislativa, normativa, convenção coletiva ou dissídio caso alterem a equação econômico-financeira do presente Contrato.
 CLÁUSULA 9a. Tem ciência nesta ato o CONTRATANTE que em caso de inadimplência das parcelas ou qualquer obrigação de pagamento decorrente desse Contrato, terá seu cadastro negativado junto aos órgãos de proteção ao crédito (SPC / SERASA), nos termos do artigo 43 § 2º. Da Lei 8.078 Consumidor legalmente existente para registro nos termos do artigo 43 parágrafo segundo da Lei n0. 8.078 de setembro de 1990 (Código de Defesa do Consumidor).
 CLÁUSULA 10ª  A cada semestre letivo, para cursos acima de 6 meses de duração, durante o período de férias escolares, previstos no calendário escolar, entre julho e agosto e, entre dezembro a janeiro é obrigatório ao CONTRATANTE fazer a rematrícula Termo Aditivo do Contrato de Prestação de Serviços
@@ -157,9 +157,7 @@ II - Por transferência formal.
 b - Pelo CONTRATADO: I - Por desligamento nos termos do Regimento Escolar.
 III – Caso o aluno comprometa o bom nome ou reputação do estabelecimento, pratique atos de indisciplina ou outros atos graves tais como: calúnia, difamação de professores ou do corpo administrativo ou desvio de alunos para outro estabelecimento, estará sujeito a processo de danos morais e indenizatórios.
 IV - Por inadimplência conforme Cláusula 9ª. deste contrato (Lei 9870/99 artigo 6º. Parágrafo 3º. E artigo 476 do código Civil)
-Parágrafo único – Em  caso de Rescisão de contrato fica o CONTRATANTE obrigado a pagar o valor da parcela do mês em que ocorre o evento, além de outros débitos eventualmente existentes, incluído uma parcela referente a pré-aviso, corrigidos na forma do Parágrafo 16º  da Cláusula 7a .(indenização por quebra de contrato). CIENTE: __________________________________
-CLÁUSULA 13ª.  – Além dos casos previstos na legislação do ensino e nas normas de funcionamento da escola, o CONTRATADO não aceitará ou não renovará a matrícula de aluno(s) em razão de inadimplência, de não observância do calendário e regimento escolares, de indisciplina ou incompatibilidade com o regime didático-pedagógico do estabelecimento; de desarmonia prejudicial ao(s) aluno(s), ao processo educacional ou ao bom entendimento das partes (art. 1º e 5º da Lei nº 9.870/99).
-Parágrafo único – Havendo incompatibilidade do(s) aluno(s) com o regime didático-pedagógico-disciplinar do estabelecimento e prejuízo para ele(s) ou para a comunidade escolar, poderá ser expedida a transferência do(s) mesmo(s) antes do término do ano letivo, rompendo-se o presente contrato.
+Parágrafo único – Em  caso de Rescisão de contrato fica o CONTRATANTE obrigado a pagar o valor de 20% do saldo devedor além de outros débitos eventualmente existentes, incluído uma parcela referente a pré-aviso, corrigidos na forma do Parágrafo 14ª da Cláusula 7ª.(Indenização por quebra de contrato). CIENTE:_______________________
 
 
 

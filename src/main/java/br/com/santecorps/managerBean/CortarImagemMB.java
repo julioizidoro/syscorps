@@ -4,10 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.inject.Named;
