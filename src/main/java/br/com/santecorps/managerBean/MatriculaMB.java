@@ -184,9 +184,7 @@ public class MatriculaMB implements Serializable{
     }
 
     public List<Curso> getListaCursos() {
-        if(listaCursos==null){
-            gerarLitaCurso();
-        }
+        gerarLitaCurso();
         return listaCursos;
     }
 
@@ -195,9 +193,7 @@ public class MatriculaMB implements Serializable{
     }
 
     public List<Turma> getListaTurma() {
-        if (listaTurma==null){
-            carregarListaTurma();
-        }
+        carregarListaTurma();
         return listaTurma;
     }
 
