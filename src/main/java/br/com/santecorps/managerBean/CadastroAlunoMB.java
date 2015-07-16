@@ -180,10 +180,13 @@ public class CadastroAlunoMB implements Serializable{
         aluno.setMes(Formatacao.retornoMesData(aluno.getDataNascimento()));
         aluno = alunoFacade.salvar(aluno);
         if (cadAluno) {
+            avalista = new Avalista();
             avalista.setAluno(aluno);
             avalista = alunoFacade.salvarAvalista(avalista);
+            conjuge = new Conjuge();
             conjuge.setAluno(aluno);
             conjuge = alunoFacade.salvarConjuge(conjuge);
+            localTrabalho = new Localtrabalho();
             localTrabalho.setAluno(aluno);
             localTrabalho = alunoFacade.salvarLocalTrabalho(localTrabalho);
         }
