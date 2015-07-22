@@ -15,7 +15,7 @@
                     <br></br>
                     <h:panelGrid columns="2" cellpadding="3">
                         <p:outputLabel value="Turma" for="turma"  class="leftMeio7" /> 
-                        <p:outputLabel value="Situação" for="situacao"  class="leftMeio23" /> 
+                        
                     </h:panelGrid>
                     <h:panelGrid columns="3" cellpadding="1">
                         <p:selectOneMenu  id="turma" class="leftMeio7" style="width:200px" value="#{matriculaMB.idTurma}">
@@ -23,12 +23,7 @@
                             <f:selectItems value="#{matriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
                             <p:ajax event="change" listener="#{matriculaMB.carregarListaMatricula()}" update="listaaluno"/>
                         </p:selectOneMenu>
-                        <p:selectOneMenu  id="situacao" class="leftMeio7" style="width:200px" value="#">
-                            <f:selectItem itemLabel="Todos os Alunos" itemValue="todos"  />
-                            <f:selectItem itemLabel="Alunos Cancelados" itemValue="cancelados"  />
-                            <f:selectItem itemLabel="Alunos Ativos" itemValue="ativos"  />
-                           <p:ajax event="change" listener="#{matriculaMB.carregarListaMatricula()}" update="listaaluno"/>
-                        </p:selectOneMenu>
+                       
                     </h:panelGrid>
                     <p:dataTable id="listaaluno" var="listaaluno" value="#{matriculaMB.listaMatricula}" class="tabelacursos" rowStyleClass="tabela" 
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
@@ -63,20 +58,23 @@
                     <p:commandButton value="Imprimir" icon="ui-icon-print" class="botaoConsulta" action="#{matriculaMB.selecionarMatriculaImprimir()}"  oncomplete="PF('imprimir').show()"/>   
                     <p:commandButton value="Voltar" icon="ui-icon-arrowreturnthick-1-w" class="botaoConsulta" action="#"/> 
 
-                    <p:dialog header="Imprimir" modal="true" showEffect="bounce" widgetVar="imprimir" resizable="false"  class="tabelaMat" width="28%" height="60%">
-                        <h:panelGrid columns="6"> 
-                            <p:selectBooleanCheckbox  class="left" value="#{matriculaMB.ficha}"/>
-                            <h:outputText value="Ficha"  class="fontsize"/>
+                    <p:dialog header="Imprimir" modal="true" showEffect="bounce" widgetVar="imprimir" resizable="false"  class="tabelaMat" width="30%" height="60%">
+                        
+                        <h:panelGrid columns="6" style="width: 100%"> 
+                            <p:selectBooleanCheckbox  class="dialogimprimir" value="#{matriculaMB.ficha}"/>
+                            <h:outputText value="Ficha" style="font-size: 11px" class="fontsize"/>
                             <p:selectBooleanCheckbox  class="leftP" value="#{matriculaMB.contrato}" />
-                            <h:outputText value="Contrato"  class="fontsize"/>  
+                            <h:outputText value="Contrato" style="font-size: 11px" class="fontsize"/>  
                             <p:selectBooleanCheckbox  class="leftP" value="#{matriculaMB.termo}" />
-                            <h:outputText value="Termo"  class="fontsize"/>  
-                            <p:selectBooleanCheckbox  class="left" value="#{matriculaMB.recibo}" />
-                            <h:outputText value="Recibo"  class="fontsize"/> 
+                            <h:outputText value="Termo" style="font-size: 11px" class="fontsize"/>  
+                            <p:selectBooleanCheckbox  class="dialogimprimir" value="#{matriculaMB.recibo}" />
+                            <h:outputText value="Recibo" style="font-size: 11px" class="fontsize"/> 
                             <p:selectBooleanCheckbox  class="leftP" value="#{matriculaMB.lista}" />
-                            <h:outputText value="Lista"  class="fontsize"/>  
+                            <h:outputText value="Listar Todos" style="font-size: 11px"  class="fontsize"/>  
                             <p:selectBooleanCheckbox  class="leftP" value="#{matriculaMB.requerimento}" />
-                            <h:outputText value="Requerimento"  class="fontsize"/> 
+                            <h:outputText value="Requerimento" style="font-size: 11px" class="fontsize"/> 
+                            <p:selectBooleanCheckbox  class="dialogimprimir" value="#{matriculaMB.lista}" />
+                            <h:outputText value="Listar Ativos" style="font-size: 11px" class="fontsize"/>  
                         </h:panelGrid>
                         <br></br>
                         <p:commandButton value="Imprimir" icon="ui-icon-print" class="botaoImprimir" action="#{matriculaMB.imprimir()}" ajax="false"  oncomplete="PF('imprimir').show()"/>   
