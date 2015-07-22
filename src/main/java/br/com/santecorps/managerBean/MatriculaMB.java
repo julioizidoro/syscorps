@@ -414,6 +414,27 @@ public class MatriculaMB implements Serializable{
             Map parameters = new HashMap();
             parameters.put("usuario", usuarioLogadoMB.getUsuario().getNome());
             parameters.put("idturma", Integer.valueOf(idTurma));
+            parameters.put("situacao", "Ativa");
+            String nomeArquivo = "listamatriculados";
+            //parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
+            GerarRelatorio gerarRelatorio = new GerarRelatorio();
+            try {
+                gerarRelatorio.gerarRelatorioSqlPDF(caminhoRelatorio, parameters, nomeArquivo, null);
+            } catch (JRException ex) {
+                Logger.getLogger(MatriculaMB.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MatriculaMB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void imprimirListaTodosMatriculados(){
+        if (!idTurma.equalsIgnoreCase("0")) {
+            String caminhoRelatorio = "/resources/relatorios/matricula/listamatricula.jasper";
+            Map parameters = new HashMap();
+            parameters.put("usuario", usuarioLogadoMB.getUsuario().getNome());
+            parameters.put("idturma", Integer.valueOf(idTurma));
+            parameters.put("situacao", "Cancelada");
             String nomeArquivo = "listamatriculados";
             //parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
             GerarRelatorio gerarRelatorio = new GerarRelatorio();
