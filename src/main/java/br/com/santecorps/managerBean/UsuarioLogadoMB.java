@@ -2,7 +2,6 @@ package br.com.santecorps.managerBean;
 
 import br.com.santecorps.controller.UsuarioController;
 import br.com.santecorps.model.Usuario;
-import br.com.santecorps.model.Usuario_;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;

@@ -15,12 +15,19 @@
                     <br></br>
                     <h:panelGrid columns="2" cellpadding="3">
                         <p:outputLabel value="Turma" for="turma"  class="leftMeio7" /> 
+                        <p:outputLabel value="Situação" for="situacao"  class="leftMeio23" /> 
                     </h:panelGrid>
                     <h:panelGrid columns="3" cellpadding="1">
                         <p:selectOneMenu  id="turma" class="leftMeio7" style="width:200px" value="#{matriculaMB.idTurma}">
                             <f:selectItem itemLabel="Selecione Turma" itemValue="0"  />
                             <f:selectItems value="#{matriculaMB.listaTurma}" var="turmaSelecionada" itemLabel="#{turmaSelecionada.numero}" itemValue="#{turmaSelecionada.idturma}"/>
                             <p:ajax event="change" listener="#{matriculaMB.carregarListaMatricula()}" update="listaaluno"/>
+                        </p:selectOneMenu>
+                        <p:selectOneMenu  id="situacao" class="leftMeio7" style="width:200px" value="#">
+                            <f:selectItem itemLabel="Todos os Alunos" itemValue="todos"  />
+                            <f:selectItem itemLabel="Alunos Cancelados" itemValue="cancelados"  />
+                            <f:selectItem itemLabel="Alunos Ativos" itemValue="ativos"  />
+                           <p:ajax event="change" listener="#{matriculaMB.carregarListaMatricula()}" update="listaaluno"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <p:dataTable id="listaaluno" var="listaaluno" value="#{matriculaMB.listaMatricula}" class="tabelacursos" rowStyleClass="tabela" 
