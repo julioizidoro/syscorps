@@ -33,7 +33,8 @@ unidade.fone as foneUnidade
         join curso on turma.curso_idcurso = curso.idcurso
         join unidade on aluno.unidade_idunidade = unidade.idunidade
 where turma.idturma=$P{idturma} and
-matricula.situacao='Ativa' or matricula.situacao=$P{situacao}]]>
+matricula.situacao='Ativa' or matricula.situacao=$P{situacao}
+order by aluno.nome]]>
 	</queryString>
 	<field name="datamatricula" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>

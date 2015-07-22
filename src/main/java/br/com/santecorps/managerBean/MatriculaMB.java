@@ -56,6 +56,7 @@ public class MatriculaMB implements Serializable{
     private boolean termo;
     private boolean recibo;
     private boolean lista;
+    private boolean listaAtivos;
     private boolean requerimento;
     @Inject RematriculaMB rematriculaMB;
     
@@ -68,6 +69,7 @@ public class MatriculaMB implements Serializable{
     
     
     public String nova(){
+        matricula = new Matricula();
         return "matricula";
     }
 
@@ -224,6 +226,14 @@ public class MatriculaMB implements Serializable{
     public void setRematriculaMB(RematriculaMB rematriculaMB) {
         this.rematriculaMB = rematriculaMB;
     }
+
+    public boolean isListaAtivos() {
+        return listaAtivos;
+    }
+
+    public void setListaAtivos(boolean listaAtivos) {
+        this.listaAtivos = listaAtivos;
+    }
     
     
     
@@ -343,7 +353,7 @@ public class MatriculaMB implements Serializable{
             imprimirFichaMatricula();
         }
         if (lista){
-            imprimirListaMatriculados();
+            imprimirListaTodosMatriculados();
         }
         if (contrato){
             imprimirContratoEscolar();
@@ -354,6 +364,10 @@ public class MatriculaMB implements Serializable{
         if (termo){
             imprimirTermo();
         }
+        if (listaAtivos){
+            imprimirListaMatriculados();
+        }
+        finalizarImpressao();
     }
     
     public void finalizarImpressao(){
@@ -362,6 +376,7 @@ public class MatriculaMB implements Serializable{
         contrato=false;
         termo=false;
         lista=false;
+        listaAtivos=false;
     }
     
     public void imprimirRecibo(){
