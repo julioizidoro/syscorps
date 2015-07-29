@@ -5,52 +5,30 @@
  */
 package br.com.santecorps.managerBean;
 
-import br.com.santecorps.facade.CursoFacade;
-import br.com.santecorps.facade.MatriculaFacade;
-import br.com.santecorps.facade.TurmaFacade;
-import br.com.santecorps.model.Aluno;
-import br.com.santecorps.model.Curso;
 import br.com.santecorps.model.Matricula;
-import br.com.santecorps.model.Turma;
 import br.com.santecorps.util.Formatacao;
 import br.com.santecorps.util.GerarRelatorio;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 import net.sf.jasperreports.engine.JRException;
 
 /**
  *
  * @author Wolverine
  */
-
 @Named
-@SessionScoped
-public class MatriculaMB implements Serializable{
+@ViewScoped
+public class MatriculaRelatorioMB implements Serializable{
     
-    @Inject
-    private CadastroAlunoMB cadastroAlunoMB;
-    @Inject
-    private UsuarioLogadoMB usuarioLogadoMB;
-    private Matricula matricula;
-    private List<Curso> listaCursos;
-    private List<Turma> listaTurma;
-    private List<Matricula> listaMatricula;
-    private String idCurso;
-    private String idTurma;
-    private String valorTotal;
-    private String valorEntrada;
-    private String valorParcela;
-    private String numeroParcelas;
-    private Turma turma;
     private boolean ficha;
     private boolean contrato;
     private boolean termo;
@@ -58,43 +36,17 @@ public class MatriculaMB implements Serializable{
     private boolean lista;
     private boolean listaAtivos;
     private boolean requerimento;
-    @Inject RematriculaMB rematriculaMB;
-    
+    private Matricula matricula;
+    @Inject
+    private UsuarioLogadoMB usuarioLogadoMB;
+    private int idTurma;
 
-    public MatriculaMB() {
-        matricula = new Matricula();
-        matricula.setAluno(new Aluno());
-        gerarLitaCurso();
-    }
-    
-    
-    public String nova(){
-        matricula = new Matricula();
-        return "matricula";
-    }
-
-    public Matricula getMatricula() {
-        return matricula;
-    }
-
-    public CadastroAlunoMB getCadastroAlunoMB() {
-        return cadastroAlunoMB;
-    }
-
-    public void setCadastroAlunoMB(CadastroAlunoMB cadastroAlunoMB) {
-        this.cadastroAlunoMB = cadastroAlunoMB;
-    }
-
-    public boolean isRequerimento() {
-        return requerimento;
-    }
-
-    public void setRequerimento(boolean requerimento) {
-        this.requerimento = requerimento;
-    }
-
-    public String getIdTurma() {
-        return idTurma;
+    public MatriculaRelatorioMB() {
+        FacesContext fc = FacesContext.getCurrentInstance();  
+        HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);  
+        matricula = (Matricula) session.getAttribute("matricula");
+        idTurma = (int) session.getAttribute("idturma");
+        session.removeAttribute("matricula");
     }
 
     public boolean isFicha() {
@@ -137,96 +89,6 @@ public class MatriculaMB implements Serializable{
         this.lista = lista;
     }
 
-    public void setIdTurma(String idTurma) {
-        this.idTurma = idTurma;
-    }
-
-    public void setMatricula(Matricula matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(String valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public String getValorEntrada() {
-        return valorEntrada;
-    }
-
-    public Turma getTurma() {
-        return turma;
-    }
-
-    public void setTurma(Turma turma) {
-        this.turma = turma;
-    }
-
-    public void setValorEntrada(String valorEntrada) {
-        this.valorEntrada = valorEntrada;
-    }
-
-    public String getValorParcela() {
-        return valorParcela;
-    }
-
-    public void setValorParcela(String valorParcela) {
-        this.valorParcela = valorParcela;
-    }
-
-    public String getNumeroParcelas() {
-        return numeroParcelas;
-    }
-
-    public void setNumeroParcelas(String numeroParcelas) {
-        this.numeroParcelas = numeroParcelas;
-    }
-
-    public List<Curso> getListaCursos() {
-        gerarLitaCurso();
-        return listaCursos;
-    }
-
-    public void setListaCursos(List<Curso> listaCursos) {
-        this.listaCursos = listaCursos;
-    }
-
-    public List<Turma> getListaTurma() {
-        carregarListaTurma();
-        return listaTurma;
-    }
-
-    public void setListaTurma(List<Turma> listaTurma) {
-        this.listaTurma = listaTurma;
-    }
-
-    public String getIdCurso() {
-        return idCurso;
-    }
-
-    public List<Matricula> getListaMatricula() {
-        return listaMatricula;
-    }
-
-    public void setListaMatricula(List<Matricula> listaMatricula) {
-        this.listaMatricula = listaMatricula;
-    }
-
-    public void setIdCurso(String idCurso) {
-        this.idCurso = idCurso;
-    }
-
-    public RematriculaMB getRematriculaMB() {
-        return rematriculaMB;
-    }
-
-    public void setRematriculaMB(RematriculaMB rematriculaMB) {
-        this.rematriculaMB = rematriculaMB;
-    }
-
     public boolean isListaAtivos() {
         return listaAtivos;
     }
@@ -234,115 +96,13 @@ public class MatriculaMB implements Serializable{
     public void setListaAtivos(boolean listaAtivos) {
         this.listaAtivos = listaAtivos;
     }
-    
-    
-    
-    public void gerarLitaCurso(){
-        CursoFacade cursoFacade = new CursoFacade();
-        listaCursos = cursoFacade.listar("");
-        if (listaCursos==null){
-            listaCursos = new ArrayList<Curso>();
-        }
+
+    public boolean isRequerimento() {
+        return requerimento;
     }
-    
-    
-    
-    public void gerarListaTurma() {
-        if (idCurso != null) {
-            TurmaFacade turmaFacade = new TurmaFacade();
-            listaTurma = turmaFacade.listar(Integer.parseInt(idCurso), usuarioLogadoMB.getUsuario().getUnidade().getIdunidade());
-            if (listaTurma == null) {
-                listaTurma = new ArrayList<Turma>();
-            }
-        }
-    }
-    
-    public void carregarListaTurma() {
-        TurmaFacade turmaFacade = new TurmaFacade();
-        listaTurma = turmaFacade.listar("", usuarioLogadoMB.getUsuario().getUnidade().getIdunidade());
-        if (listaTurma == null) {
-            listaTurma = new ArrayList<Turma>();
-        }
-    }
-    
-    
-    public String voltar(){
-        return "matricula";
-    }
-     
-     public String selecionarAluno(){
-         cadastroAlunoMB.setPaginaRetorno("matricula");
-         return "selecionarAluno";
-    }
-     
-     public String salvar(){
-         MatriculaFacade matriculaFacade = new MatriculaFacade();
-         TurmaFacade turmaFacade = new TurmaFacade();
-         CursoFacade cursoFacade = new CursoFacade();
-         matricula.setAluno(cadastroAlunoMB.getAluno());
-         matricula.setNumeroparcelas(Integer.parseInt(numeroParcelas));
-         matricula.setTurma(turmaFacade.getTurmaId(Integer.parseInt(idTurma)));
-         matricula.setValorentrada(Formatacao.formatarStringfloat(valorEntrada));
-         matricula.setValorparcela(Formatacao.formatarStringfloat(valorParcela));
-         matricula.setValortotal(Formatacao.formatarStringfloat(valorTotal));
-         matricula.setSituacao("Ativa");
-         matricula.setRematricula(false);
-         matriculaFacade.salvar(matricula);
-         cadastroAlunoMB.setAluno(new Aluno());
-         matricula = new Matricula();
-         idTurma="0";
-         listaCursos = null;
-         listaTurma=null;
-         valorEntrada="";
-         valorParcela="";
-         valorTotal="";
-         idCurso="0";
-         numeroParcelas="";
-         turma = new Turma();
-         return "inicial";
-     }
-     
-     public String cancelar(){
-         cadastroAlunoMB.setAluno(new Aluno());
-         matricula = new Matricula();
-         idTurma="0";
-         listaCursos = null;
-         listaTurma=null;
-         valorEntrada="";
-         valorParcela="";
-         valorTotal="";
-         idCurso="0";
-         numeroParcelas="";
-         turma = new Turma();
-         return "inicial";
-     }
-     
-     public void selecoinarTurma(){
-         if (idTurma!=null){
-             TurmaFacade turmaFacade = new TurmaFacade();
-             turma = turmaFacade.getTurmaId(Integer.parseInt(idTurma));
-         }
-     }
-     
-     public void carregarListaMatricula() {
-        if (idTurma != null) {
-            MatriculaFacade matriculaFacade = new MatriculaFacade();
-            listaMatricula = matriculaFacade.listar(Integer.parseInt(idTurma));
-            if (listaMatricula == null) {
-                listaMatricula = new ArrayList<Matricula>();
-                rematriculaMB.retornaSituacao(matricula);
-            }
-        }
-    }
-     
-    public String selecionarMatriculaImprimir(){
-        for(int i=0; i<listaMatricula.size();i++){
-            if (listaMatricula.get(i).isSelecionado()){
-                matricula = listaMatricula.get(i);
-                return "";
-            }
-        }
-        return "";
+
+    public void setRequerimento(boolean requerimento) {
+        this.requerimento = requerimento;
     }
     
     public void imprimir(){
@@ -425,11 +185,12 @@ public class MatriculaMB implements Serializable{
     }
     
     public void imprimirListaMatriculados(){
-        if (!idTurma.equalsIgnoreCase("0")) {
-            String caminhoRelatorio = "/resources/relatorios/matricula/listamatriculaAtivas.jasper";
+        if (idTurma>0) {
+            String caminhoRelatorio = "/resources/relatorios/matricula/listamatricula.jasper";
             Map parameters = new HashMap();
             parameters.put("usuario", usuarioLogadoMB.getUsuario().getNome());
-            parameters.put("idturma", idTurma);
+            parameters.put("idturma", Integer.valueOf(idTurma));
+            parameters.put("situacao", "Ativa");
             String nomeArquivo = "listamatriculados";
             //parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
             GerarRelatorio gerarRelatorio = new GerarRelatorio();
@@ -444,11 +205,12 @@ public class MatriculaMB implements Serializable{
     }
     
     public void imprimirListaTodosMatriculados(){
-        if (!idTurma.equalsIgnoreCase("0")) {
+        if (idTurma>0) {
             String caminhoRelatorio = "/resources/relatorios/matricula/listamatricula.jasper";
             Map parameters = new HashMap();
             parameters.put("usuario", usuarioLogadoMB.getUsuario().getNome());
-            parameters.put("idturma", idTurma);
+            parameters.put("idturma", Integer.valueOf(idTurma));
+            parameters.put("situacao", "Cancelada");
             String nomeArquivo = "listamatriculados";
             //parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
             GerarRelatorio gerarRelatorio = new GerarRelatorio();
@@ -517,4 +279,5 @@ public class MatriculaMB implements Serializable{
             }
         }
     }
+    
 }

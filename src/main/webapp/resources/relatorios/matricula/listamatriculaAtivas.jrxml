@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Lista de  Matricula" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Lista de  Matricula Ativas" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -31,7 +31,7 @@ unidade.fone as foneUnidade
         join turma on matricula.turma_idturma = turma.idturma
         join curso on turma.curso_idcurso = curso.idcurso
         join unidade on aluno.unidade_idunidade = unidade.idunidade
-where turma.idturma=$P{idturma}
+where turma.idturma=$P{idturma} and matricula.situacao='Ativa'
 order by aluno.nome]]>
 	</queryString>
 	<field name="datamatricula" class="java.sql.Date">
@@ -74,7 +74,7 @@ order by aluno.nome]]>
 				<textElement textAlignment="Center">
 					<font size="17" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Lista de Matriculados]]></text>
+				<text><![CDATA[Lista de Matriculados Ativas]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
 				<reportElement x="235" y="21" width="312" height="15" uuid="618d5b22-5935-4aa8-89f0-8b7e527c983f"/>
@@ -142,20 +142,16 @@ order by aluno.nome]]>
 				<text><![CDATA[Nº Matrícula]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="256" y="3" width="35" height="15" uuid="cc3ec3fa-f352-41f8-baa2-b9ee47157a64"/>
+				<reportElement x="299" y="3" width="35" height="15" uuid="cc3ec3fa-f352-41f8-baa2-b9ee47157a64"/>
 				<text><![CDATA[Email]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="392" y="4" width="72" height="15" uuid="68a995d3-74d4-4aa2-99a4-3b644036fda2"/>
+				<reportElement x="463" y="3" width="72" height="15" uuid="68a995d3-74d4-4aa2-99a4-3b644036fda2"/>
 				<text><![CDATA[Data Matrícula]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="81" y="3" width="46" height="15" uuid="ad420bfa-22d3-4c41-9d45-8d6d35cb1aa7"/>
 				<text><![CDATA[Nome ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="475" y="4" width="72" height="15" uuid="60eccbbe-899d-4b4f-925a-b5809391fd87"/>
-				<text><![CDATA[Data Matrícula]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -169,20 +165,16 @@ order by aluno.nome]]>
 				<textFieldExpression><![CDATA[$F{numeromatricula}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="77" y="4" width="174" height="15" uuid="17873d34-5f24-40b8-b0eb-13e6c3556f15"/>
+				<reportElement x="77" y="4" width="210" height="15" uuid="17873d34-5f24-40b8-b0eb-13e6c3556f15"/>
 				<textFieldExpression><![CDATA[$F{nomeAluno}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="256" y="4" width="124" height="15" uuid="3486f838-1439-404d-865e-35f08ceb4ad4"/>
+				<reportElement x="297" y="4" width="166" height="15" uuid="3486f838-1439-404d-865e-35f08ceb4ad4"/>
 				<textFieldExpression><![CDATA[$F{emailAluno}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="395" y="4" width="70" height="15" uuid="7a55aa19-ceda-4fc8-8c94-6b85234b84db"/>
+				<reportElement x="477" y="4" width="70" height="15" uuid="7a55aa19-ceda-4fc8-8c94-6b85234b84db"/>
 				<textFieldExpression><![CDATA[$F{datamatricula}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="true">
-				<reportElement x="477" y="4" width="70" height="15" uuid="e4a80ef4-facd-47e9-bb09-17a794e3dbb2"/>
-				<textFieldExpression><![CDATA[$F{situacao}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

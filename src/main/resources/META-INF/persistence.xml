@@ -17,6 +17,7 @@
     <class>br.com.santecorps.model.Unidade</class>
     <class>br.com.santecorps.model.Usuario</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
     <properties/>
   </persistence-unit>
 </persistence>
