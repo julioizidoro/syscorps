@@ -118,6 +118,10 @@
     .fontsize{
         font-size: 12px;
     }
+    .fontsize2{
+        margin-left: 1%;
+        font-size: 12px;
+    }
     .menulogado{
         font-size: 13px;
         color:#F79634;
@@ -660,8 +664,16 @@
         background:#FAEBD7;
     }
     .left{
-        margin-left:55px;
-         font-size: 12px;
+        margin-left:45px;
+        font-size: 12px;
+    }
+    .leftaluno{
+        margin-left:1%;
+        font-size: 12px;
+    }
+    .lefts{
+        margin-left:4%;
+        font-size: 12px;
     }
     .leftright{
         margin-left:55px;
@@ -849,3 +861,60 @@
         margin-left:20px;
          font-size: 12px;
     }
+    ///////////////////////////////////////////////porcentagemporcentagem
+    
+    
+    .porcento{
+        margin-left:12%;
+        font-size: 12px;
+    }
+    .porcento2{
+        margin-left:21%;
+        font-size: 12px;
+    }
+    .porcento3{
+        margin-left:6%;
+        font-size: 12px;
+    }
+    .porcento4{
+        margin-left:18%;
+        font-size: 12px;
+    }
+    .porcento5{
+        margin-left:42%;
+        font-size: 12px;
+    }
+    .porcento6{
+        margin-left:15%;
+        font-size: 12px;
+    }
+    .porcento7{
+        margin-left:40%;
+        font-size: 12px;
+    }
+     .porcento8{
+        margin-left:31%;
+        font-size: 12px;
+    }
+    .porcento9{
+        margin-left:54%;
+        font-size: 12px;
+    }
+    .porcento10{
+        margin-left:13%;
+        font-size: 12px;
+    }
+    .porcento11{
+        margin-left:37%;
+        font-size: 12px;
+    }
+    .porcento12{
+        margin-left:35%;
+        font-size: 12px;
+    }
+    .porcento13{
+        margin-left:23%;
+        font-size: 12px;
+    }
+    
+  

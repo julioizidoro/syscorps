@@ -114,6 +114,9 @@ public class Aluno implements Serializable {
     @Size(max = 3)
     @Column(name = "trabalha")
     private String trabalha;
+    @Size(max = 20)
+    @Column(name = "raca")
+    private String raca;
     @Size(max = 10)
     @Column(name = "numeromatricula")
     private String numeromatricula;
@@ -392,6 +395,16 @@ public class Aluno implements Serializable {
         this.avalistaList = avalistaList;
     }
 
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
