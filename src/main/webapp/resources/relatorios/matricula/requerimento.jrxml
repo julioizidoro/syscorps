@@ -387,18 +387,18 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<textFieldExpression><![CDATA[$F{estadoAluno}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="43" y="519" width="219" height="15" uuid="ef8bd3e8-993c-44f3-a501-cc4f9c78ef63"/>
+				<reportElement x="43" y="537" width="219" height="15" uuid="ef8bd3e8-993c-44f3-a501-cc4f9c78ef63"/>
 				<text><![CDATA[Assinatura do Participante e/ou Responsável]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="371" y="518" width="146" height="15" uuid="26b8d735-c4ad-4c10-9ac1-0bcd2931ce46"/>
+				<reportElement x="371" y="536" width="146" height="15" uuid="26b8d735-c4ad-4c10-9ac1-0bcd2931ce46"/>
 				<text><![CDATA[Deferimento do Diretor]]></text>
 			</staticText>
 			<line>
-				<reportElement x="316" y="517" width="227" height="1" uuid="866016d7-521b-4038-9a93-f9122a062549"/>
+				<reportElement x="316" y="535" width="227" height="1" uuid="866016d7-521b-4038-9a93-f9122a062549"/>
 			</line>
 			<line>
-				<reportElement x="27" y="518" width="237" height="1" uuid="44a05d51-6a1d-4f5a-8ab2-f76199a788da"/>
+				<reportElement x="27" y="536" width="237" height="1" uuid="44a05d51-6a1d-4f5a-8ab2-f76199a788da"/>
 			</line>
 			<staticText>
 				<reportElement x="18" y="328" width="392" height="15" uuid="fc26867a-f051-4b16-b830-afe501bb9697"/>
@@ -478,9 +478,12 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="12" y="381" width="535" height="120" uuid="9961c2b4-2e4f-439b-8e0d-7015ea22146b"/>
+				<reportElement x="12" y="381" width="535" height="141" uuid="9961c2b4-2e4f-439b-8e0d-7015ea22146b"/>
 				<textElement textAlignment="Justified"/>
-				<text><![CDATA["Em caso de cancelamento da inscrição/matrícula até 10 dias antes do início do curso, a Santé Corps ressarcirá 100% do valor do curso, menos taxas financeiras e bancárias que por ventura possam ocorrer.  Cancelamentos solicitados entre 10 dias e 72 horas antes do início do curso, serão reembolsados 66,66% do valor integral. A partir de 72 horas antes do início do curso, nenhuma solicitação será reembolsada e nem o participante ficará com crédito em haver. No entanto, é possível indicar outra pessoa para assistir às aulas aproveitando a mesma inscrição já feita/paga. A ausência, mesmo que justificada, das aulas não enseja em direito de cancelamento de inscrição/matrícula, e ou quaisquer outros direitos de crédito ou reembolso. A ausências não ensejam também direito a reposição de aula."
+				<text><![CDATA[    Em caso de cancelamento da inscrição/matrícula até 10 dias antes do início do curso, a Santé Corps ressarcirá 100% do valor do curso, menos taxas financeiras e bancárias que por ventura possam ocorrer.
+    Cancelamentos solicitados entre 10 dias e 72 horas antes do início do curso, serão reembolsados 66,66% do valor integral.
+     A partir de 72 horas antes do início do curso, nenhuma solicitação será reembolsada e nem o participante ficará com crédito em haver. No entanto, é possível indicar outra pessoa para assistir às aulas aproveitando a mesma inscrição já feita/paga.
+    A ausência, mesmo que justificada, das aulas não enseja em direito de cancelamento de inscrição/matrícula, e ou quaisquer outros direitos de crédito ou reembolso. A ausências não ensejam também direito a reposição de aula.
 
 
 
