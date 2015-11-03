@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Requerimento de Matrícula" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13fe063f-f02e-4a0a-883d-9ab0d476cc91">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="454"/>
+	<property name="ireport.y" value="472"/>
 	<parameter name="idmatricula" class="java.lang.Integer"/>
 	<parameter name="texto" class="java.lang.String"/>
 	<queryString>
@@ -473,15 +473,20 @@ where matricula.idmatricula=$P{idmatricula};]]>
 				<reportElement x="32" y="347" width="237" height="15" uuid="9fd645b9-ac73-4a82-9c84-e15abe669b14"/>
 				<textFieldExpression><![CDATA[$F{nomeCurso}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="10" y="375" width="534" height="82" uuid="80c4011a-a8c1-45af-ab49-966504d4a5e5"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$P{texto}]]></textFieldExpression>
-			</textField>
 			<textField pattern="dd MMMMM yyyy">
 				<reportElement x="345" y="286" width="100" height="15" uuid="b330a984-08be-485a-ae79-f48790de12e8"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="12" y="381" width="535" height="120" uuid="9961c2b4-2e4f-439b-8e0d-7015ea22146b"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA["Em caso de cancelamento da inscrição/matrícula até 10 dias antes do início do curso, a Santé Corps ressarcirá 100% do valor do curso, menos taxas financeiras e bancárias que por ventura possam ocorrer.  Cancelamentos solicitados entre 10 dias e 72 horas antes do início do curso, serão reembolsados 66,66% do valor integral. A partir de 72 horas antes do início do curso, nenhuma solicitação será reembolsada e nem o participante ficará com crédito em haver. No entanto, é possível indicar outra pessoa para assistir às aulas aproveitando a mesma inscrição já feita/paga. A ausência, mesmo que justificada, das aulas não enseja em direito de cancelamento de inscrição/matrícula, e ou quaisquer outros direitos de crédito ou reembolso. A ausências não ensejam também direito a reposição de aula."
+
+
+
+
+]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 </jasperReport>
